@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>blog.hequbing.com | 贺去病的个人博客</title>
+    <meta name="description" content="贺去病的个人博客，记录技术、思考与生活。" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <header class="site-header">
+      <div class="container">
+        <div class="header-row">
+          <div>
+            <h1 class="site-title">贺去病 · 博客</h1>
+            <p class="site-subtitle">blog.hequbing.com</p>
+          </div>
+          <nav class="nav">
+            <a href="/">首页</a>
+            <a href="/about.html">关于</a>
+            <a href="/archive.html">归档</a>
+            <a href="/tags.html">标签</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <h2>记录技术 · 思考 · 生活</h2>
+        <p class="hero-sub">这里是贺去病的个人博客，分享编程经验、产品思维与阅读札记。</p>
+      </section>
+
+      <section class="toolbar">
+        <input id="search" type="search" class="search" placeholder="搜索文章标题或摘要…" />
+        <div id="tag-filters" class="tag-filters"></div>
+      </section>
+
+      <section>
+        <h2>最新文章</h2>
+        <div id="posts" class="posts-list"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">© <span id="year"></span> 贺去病</div>
+    </footer>
+
+    <script src="/script.js"></script>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

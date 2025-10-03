@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "framework": null,
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "routes": [
+    { "src": "^/$", "dest": "/public/index.html" },
+    { "src": "^/index.html$", "dest": "/public/index.html" },
+    { "src": "^/post.html$", "dest": "/public/post.html" },
+    { "src": "^/about.html$", "dest": "/public/about.html" },
+    { "src": "^/archive.html$", "dest": "/public/archive.html" },
+    { "src": "^/tags.html$", "dest": "/public/tags.html" },
+    { "src": "^/styles.css$", "dest": "/public/styles.css" },
+    { "src": "^/script.js$", "dest": "/public/script.js" },
+    { "src": "^/post.js$", "dest": "/public/post.js" },
+    { "src": "^/archive.js$", "dest": "/public/archive.js" },
+    { "src": "^/tags.js$", "dest": "/public/tags.js" },
+    { "src": "^/favicon.svg$", "dest": "/public/favicon.svg" }
+  ]
+}

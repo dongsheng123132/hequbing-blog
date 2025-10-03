@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>归档 | 贺去病 · 博客</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="header-row">
+          <h1 class="site-title"><a href="/" class="brand">贺去病 · 博客</a></h1>
+          <nav class="nav">
+            <a href="/">首页</a>
+            <a href="/about.html">关于</a>
+            <a href="/archive.html">归档</a>
+            <a href="/tags.html">标签</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="post-detail">
+        <h2>文章归档</h2>
+        <div id="archive" class="archive-list"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">© <span id="year"></span> 贺去病</div>
+    </footer>
+
+    <script src="/archive.js"></script>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+  </html>
