@@ -89,6 +89,12 @@ function setupInteractions() {
 (async function init() {
   try {
     allPosts = await fetchPosts();
+    // 按日期倒序显示最新文章在前
+    allPosts.sort((a, b) => {
+      const da = new Date(a.date || 0).getTime();
+      const db = new Date(b.date || 0).getTime();
+      return db - da;
+    });
     renderPosts(allPosts);
     buildTagFilters(allPosts);
     setupInteractions();

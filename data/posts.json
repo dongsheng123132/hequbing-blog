@@ -2,7 +2,7 @@
   {
     "id": 1,
     "slug": "hello-world",
-    "title": "贺去病的第一篇博客",
+    "title": "贺去病hecare+的第一篇博客",
     "date": "2025-10-01",
     "summary": "开篇，记录这个博客的目的与计划。",
     "tags": ["随笔", "开始"],
@@ -11,7 +11,7 @@
   {
     "id": 2,
     "slug": "about-hequbing",
-    "title": "关于我：贺去病",
+    "title": "关于我：贺去病hecare+",
     "date": "2025-10-01",
     "summary": "简单介绍我的背景与兴趣。",
     "tags": ["关于", "自述"],
@@ -43,5 +43,14 @@
     "summary": "通过过滤蓝光保护眼睛，支持多预设与自定义。",
     "tags": ["插件", "Chrome", "护眼", "推荐"],
     "content": "<p>这是一款简洁有效的 Chrome 插件，用来过滤网页蓝光，降低眼疲劳。</p><p>商店链接：<a href=\"https://chromewebstore.google.com/detail/%E9%98%B2%E8%93%9D%E5%85%89%E6%8A%A4%E7%9C%BC%E5%8A%A9%E6%89%8B/cefolelfbacmljhmddlbmdnlakblagjj?hl=zh-CN&utm_source=ext_sidebar\" target=\"_blank\" rel=\"noopener\">防蓝光护眼助手</a></p><ul><li>多种预设模式（影院、阅读、编码）</li><li>支持自定义颜色模式</li><li>多语言界面：English/中文等</li><li>一键启用/禁用，记忆设置，无广告、隐私友好</li></ul><p>建议搭配夜间浏览使用，效果更佳。</p><hr><p><strong>English</strong></p><p>This is a simple and effective Chrome extension that filters blue light and reduces eye strain.</p><p>Store link: <a href=\"https://chromewebstore.google.com/detail/%E9%98%B2%E8%93%9D%E5%85%89%E6%8A%A4%E7%9C%BC%E5%8A%A9%E6%89%8B/cefolelfbacmljhmddlbmdnlakblagjj?hl=en\" target=\"_blank\" rel=\"noopener\">Blue Light Filter</a></p><ul><li>Multiple presets (Cinema, Reading, Coding)</li><li>Custom color modes</li><li>Multilingual UI: English/Chinese</li><li>One-click enable/disable, remembers settings; no ads, privacy-friendly</li></ul><p>Best used together with dark mode at night.</p>"
-  }
-]
+   },
+   {
+     "id": 6,
+     "slug": "yang-zhenning-tribute",
+     "title": "致敬华人科技之光：杨振宁先生",
+     "date": "2025-10-21",
+     "summary": "他证明了华人也能行，物理学前10的贡献象征意义深远。",
+     "tags": ["人物", "科技史", "杨振宁"],
+     "content": "<p>致敬华人科技之光</p><p>杨振宁先生最大的贡献在于证明了中国人也能行，就像现在的全世界黑人也在期待一个证明一样。</p><p>他的成就大约在于物理学前10。</p><p>在人类迷茫的中世纪后期，地中海文明的肥沃的思辨土壤上，率先燃起了人类科技之光，一举引领了世界500年，其他非地中海文明，一直还处于人类科学认知的黑暗之中。</p><p>基因与人种论下，杨振宁率先证明了华人也能点亮起科技之光。</p><p>他让很多中国科研学者也挺直了胸膛。</p><p>#杨振宁</p>"
+   }
+ ]
