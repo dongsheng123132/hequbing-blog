@@ -77,3 +77,21 @@ h2 { margin-top: 24px; }
 /* Tags page */
 .tag-cloud { display: flex; gap: 8px; flex-wrap: wrap; }
 .tag-count { font-size: 12px; color: var(--muted); margin-left: 4px; }
+
+/* 按钮与弹窗样式 */
+.btn { background: var(--primary); color: #0b0e13; border: 1px solid #3a7f5a; padding: 8px 14px; border-radius: 8px; cursor: pointer; font-weight: 600; }
+.btn:hover { filter: brightness(1.05); }
+.btn-close { background: transparent; color: var(--text); border: 1px solid #333; border-radius: 8px; padding: 4px 10px; cursor: pointer; }
+
+.input, .textarea { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid #222; background: #0c0e12; color: var(--text); }
+.input::placeholder, .textarea::placeholder { color: #6f7785; }
+
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: grid; place-items: center; z-index: 1000; }
+.modal { width: min(860px, 92vw); background: var(--panel); border: 1px solid #222; border-radius: 12px; padding: 16px; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; }
+.modal-body { margin-top: 12px; }
+.modal-actions { display: flex; gap: 10px; margin-top: 12px; }
+.modal-output { margin-top: 12px; }
+
+.grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+@media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } .grid label:nth-child(6) { grid-column: 1 / -1; } }

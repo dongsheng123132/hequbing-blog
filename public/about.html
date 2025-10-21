@@ -30,14 +30,134 @@
           <p>这里记录我的技术笔记、项目实践、产品思考以及读书札记。</p>
           <p>联系：邮箱 hequbing@example.com；或在 GitHub、Twitter 上找到我。</p>
         </div>
+
+        <!-- 文章编辑器触发按钮 -->
+        <div class="toolbar">
+          <button id="openEditorBtn" class="btn">打开文章编辑器</button>
+        </div>
       </section>
     </main>
+
+    <!-- 弹窗编辑器 -->
+    <div id="editorOverlay" class="modal-overlay" hidden>
+      <div class="modal">
+        <div class="modal-header">
+          <h3>新建文章</h3>
+          <button class="btn-close" id="closeEditorBtn" aria-label="关闭">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="grid">
+            <label>Slug
+              <input id="editSlug" class="input" placeholder="blue-light-filter-pro">
+            </label>
+            <label>Title
+              <input id="editTitle" class="input" placeholder="文章标题">
+            </label>
+            <label>Date
+              <input id="editDate" class="input" type="date">
+            </label>
+            <label>Summary
+              <input id="editSummary" class="input" placeholder="一句话摘要">
+            </label>
+            <label>Tags（英文逗号分隔）
+              <input id="editTags" class="input" placeholder="plugin,chrome,eyes">
+            </label>
+            <label>Content（支持 HTML 段落）
+              <textarea id="editContent" class="textarea" rows="8" placeholder="例如：<p>第一段内容</p>\n<p>第二段内容</p>"></textarea>
+            </label>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn" id="generateJsonBtn">生成 JSON</button>
+          <button class="btn" id="copyJsonBtn">复制 JSON</button>
+          <button class="btn" id="downloadJsonBtn">下载 JSON</button>
+        </div>
+        <div class="modal-output">
+          <label>生成结果
+            <textarea id="jsonOutput" class="textarea" rows="8" readonly placeholder="点击生成后，这里会显示 JSON"></textarea>
+          </label>
+        </div>
+      </div>
+    </div>
 
     <footer class="site-footer">
       <div class="container">© <span id="year"></span> 贺去病</div>
     </footer>
     <script>
+      // 年份
       document.getElementById('year').textContent = new Date().getFullYear();
+
+      // 简易文章编辑器逻辑
+      const overlay = document.getElementById('editorOverlay');
+      const openBtn = document.getElementById('openEditorBtn');
+      const closeBtn = document.getElementById('closeEditorBtn');
+      const editDate = document.getElementById('editDate');
+      const editSlug = document.getElementById('editSlug');
+      const editTitle = document.getElementById('editTitle');
+      const editSummary = document.getElementById('editSummary');
+      const editTags = document.getElementById('editTags');
+      const editContent = document.getElementById('editContent');
+      const jsonOutput = document.getElementById('jsonOutput');
+
+      // 默认日期为今天
+      const today = new Date().toISOString().slice(0, 10);
+      editDate.value = today;
+
+      function openEditor() { overlay.hidden = false; }
+      function closeEditor() { overlay.hidden = true; }
+
+      openBtn.addEventListener('click', openEditor);
+      closeBtn.addEventListener('click', closeEditor);
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) closeEditor(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeEditor(); });
+
+      function buildPostJson() {
+        const slug = editSlug.value.trim();
+        const title = editTitle.value.trim();
+        const date = editDate.value.trim();
+        const summary = editSummary.value.trim();
+        const tags = editTags.value.split(',').map(t => t.trim()).filter(Boolean);
+        const content = editContent.value.trim();
+
+        if (!slug || !title || !date) {
+          alert('请填写至少 Slug、Title 和 Date');
+          return;
+        }
+
+        const postObj = {
+          id: 999, // 请在粘贴到 posts.json 时改为递增数字
+          slug,
+          title,
+          date,
+          summary,
+          tags,
+          content
+        };
+        const json = JSON.stringify(postObj, null, 2);
+        jsonOutput.value = json;
+      }
+
+      function copyJson() {
+        const text = jsonOutput.value;
+        if (!text) { alert('请先生成 JSON'); return; }
+        navigator.clipboard.writeText(text).then(() => alert('已复制到剪贴板'));
+      }
+
+      function downloadJson() {
+        const text = jsonOutput.value;
+        if (!text) { alert('请先生成 JSON'); return; }
+        const blob = new Blob([text], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'new-post.json';
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      document.getElementById('generateJsonBtn').addEventListener('click', buildPostJson);
+      document.getElementById('copyJsonBtn').addEventListener('click', copyJson);
+      document.getElementById('downloadJsonBtn').addEventListener('click', downloadJson);
     </script>
   </body>
   </html>
