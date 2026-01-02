@@ -27,7 +27,7 @@ function renderArchive(posts) {
         row.className = 'archive-post';
 
         const left = document.createElement('span');
-        left.innerHTML = `${p.date} · <a href="/post.html?slug=${encodeURIComponent(p.slug)}">${p.title}</a>`;
+        left.innerHTML = `${p.date} · <a href="/post?slug=${encodeURIComponent(p.slug)}">${p.title}</a>`;
 
         const right = document.createElement('span');
         right.textContent = (p.tags || []).join(', ');

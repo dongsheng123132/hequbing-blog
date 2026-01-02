@@ -1,0 +1,13 @@
+{
+  "name": "blog-hequbing",
+  "version": "1.0.0",
+  "description": "贺去病hecare+的个人博客",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [],
+  "author": "贺去病hecare+",
+  "license": "ISC",
+  "dependencies": {}
+}

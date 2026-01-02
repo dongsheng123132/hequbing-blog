@@ -27,7 +27,7 @@ function renderPosts(posts) {
 
     const link = document.createElement('a');
     link.className = 'post-card-link';
-    link.href = `/post.html?slug=${encodeURIComponent(p.slug)}`;
+    link.href = `/post?slug=${encodeURIComponent(p.slug)}`;
     link.textContent = '阅读全文 →';
 
     card.appendChild(title);
