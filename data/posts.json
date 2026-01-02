@@ -61,5 +61,14 @@
     "summary": "为了更简单的维护和更快的访问速度，本博客已迁移至 Vercel。",
     "tags": ["博客", "Vercel", "Serverless"],
     "content": "<p>今天，我完成了一次重要的架构升级：将博客从传统的服务器部署迁移到了 <strong>Vercel</strong>。</p><h3>为什么做这个改变？</h3><ul><li><strong>维护简单</strong>：再也不用担心服务器宕机、SSL 证书过期或者系统更新了。</li><li><strong>速度飞快</strong>：Vercel 的全球 CDN 让每个人都能秒开我的博客。</li><li><strong>自动部署</strong>：现在我只需要在本地写好文章，推送到 GitHub，网站就会自动更新。</li></ul><p>这就是技术进步带来的便利，让我们能更专注于内容创作本身。</p>"
+  },
+  {
+    "id": 8,
+    "slug": "searchhub-release",
+    "title": "SearchHub 发布：一次搜索，聚合全网智慧",
+    "date": "2026-01-02",
+    "summary": "AI Search Hub 是一款智能多引擎搜索工具，助你高效获取信息。",
+    "tags": ["产品", "Chrome插件", "效率工具"],
+    "content": "<h3>🚀 如何获取 SearchHub</h3><p>👉 <strong><a href=\"https://chromewebstore.google.com/detail/searchhub/lojjckopababijcnckabcilfkbgajnbo?hl=zh-CN&utm_source=ext_sidebar\" target=\"_blank\" rel=\"noopener\">点击前往 Chrome 应用商店安装</a></strong></p><p>目前 <strong>AI Search Hub</strong> 已经提交至 Chrome Web Store 审核，最新版本号 <strong>v1.2.1</strong>。</p><blockquote><p>⚠️ <strong>注意</strong>：如果你点击上方链接显示“无法获取”或 404，说明 Google 正在审核中（通常需要 1-2 个工作日），请稍后再试。</p></blockquote><h3>SearchHub 是什么？</h3><p>在信息爆炸的时代，单一的搜索引擎往往难以满足我们对深度、广度以及专业度的需求。SearchHub 是一款<strong>智能多引擎搜索工具</strong>，旨在通过一次输入，为你聚合来自 AI、传统搜索、开发者社区、社交媒体以及视频平台的全方位结果。</p><h3>核心功能</h3><ul><li><strong>一键多搜</strong>：输入一次关键词，自动在多个标签页中打开不同引擎的搜索结果，按查询分组排列。</li><li><strong>智能侧边栏</strong>：垂直管理你的搜索任务，轻松展开/折叠分组，快速切换上下文。</li><li><strong>快捷键支持</strong>：使用 <code>Alt+S</code> 快速唤起搜索，<code>Alt+Q</code> 基于选中文本快速搜索。</li><li><strong>完全隐私</strong>：无需注册账号，所有配置存储在本地，不收集任何个人数据。</li></ul><p>无论你是需要对比 AI 答案，还是查找技术文档，亦或是搜集视频素材，SearchHub 都能让你的检索效率倍增。</p>"
   }
 ]
