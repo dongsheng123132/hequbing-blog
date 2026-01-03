@@ -7,14 +7,26 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeCategory = 'all';
 
     // Fetch data
-    fetch('data.json')
-        .then(response => response.json())
+    fetch('/ai-nav/data.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
             allData = data;
             renderCategories(data.categories);
             filterTools();
         })
-        .catch(error => console.error('Error loading data:', error));
+        .catch(error => {
+            console.error('Error loading data:', error);
+            container.innerHTML = `<div style="text-align: center; color: #ff6b6b; padding: 2rem;">
+                <h3>数据加载失败</h3>
+                <p>无法获取工具数据，请检查网络或稍后重试。</p>
+                <p style="font-size: 0.8rem; opacity: 0.7;">${error.message}</p>
+            </div>`;
+        });
 
     // Render Category Buttons
     function renderCategories(categories) {
