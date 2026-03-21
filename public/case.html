@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>案例详情 | 贺去病 AI 咨询</title>
+  <meta name="description" content="" id="meta-desc" />
+  <meta property="og:title" content="" id="og-title" />
+  <meta property="og:description" content="" id="og-desc" />
+  <meta property="og:type" content="article" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json" id="schema-json"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-row">
+        <h1 class="site-title"><a href="/" class="brand">贺去病 · AI 咨询</a></h1>
+        <nav class="nav">
+          <a href="/">首页</a>
+          <a href="/cases" class="active">案例库</a>
+          <a href="/services">服务</a>
+          <a href="/about">关于</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div style="margin-top: 16px;">
+      <a href="/cases" style="color: var(--muted); text-decoration: none; font-size: 14px;">← 返回案例库</a>
+    </div>
+
+    <article class="case-detail">
+      <h2 id="case-title"></h2>
+      <div class="meta" id="case-meta"></div>
+      <div id="case-content" class="content"></div>
+    </article>
+
+    <!-- CTA -->
+    <div class="case-cta">
+      <h3>想在你的企业复制这个案例？</h3>
+      <p>扫码免费咨询，我帮你分析可行性和预估 ROI</p>
+      <button class="btn btn-primary" onclick="toggleWechat()">微信咨询 →</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <span>© <span id="year"></span> 贺去病 AI 咨询 · hequbing.com</span>
+        <div class="footer-links">
+          <a href="/cases">案例库</a>
+          <a href="/services">服务</a>
+          <a href="/about">关于</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WeChat Float -->
+  <div class="wechat-float">
+    <div class="wechat-popup" id="wechat-popup">
+      <h4>加我聊聊你的 AI 需求</h4>
+      <div class="qr-placeholder">
+        <img src="/images/wechat-qr.png" alt="微信二维码" onerror="this.parentElement.textContent='微信号: hequbing_ai'" />
+      </div>
+      <p>扫码免费咨询</p>
+    </div>
+    <button class="wechat-float-btn" onclick="toggleWechat()" title="微信咨询">💬</button>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function toggleWechat() {
+      document.getElementById('wechat-popup').classList.toggle('show');
+    }
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.wechat-float')) {
+        document.getElementById('wechat-popup').classList.remove('show');
+      }
+    });
+
+    (async function() {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('slug');
+      const titleEl = document.getElementById('case-title');
+      const metaEl = document.getElementById('case-meta');
+      const contentEl = document.getElementById('case-content');
+
+      if (!slug) {
+        titleEl.textContent = '未指定案例';
+        contentEl.innerHTML = '<p>请从<a href="/cases">案例库</a>选择一个案例。</p>';
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/cases/${encodeURIComponent(slug)}`);
+        if (!res.ok) throw new Error('案例未找到');
+        const c = await res.json();
+
+        // Update page meta
+        document.title = `${c.title} | 贺去病 AI 咨询`;
+        document.getElementById('meta-desc').content = c.summary;
+        document.getElementById('og-title').content = c.title;
+        document.getElementById('og-desc').content = c.summary;
+
+        // Schema.org structured data
+        document.getElementById('schema-json').textContent = JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": c.title,
+          "description": c.summary,
+          "datePublished": c.date,
+          "author": { "@type": "Person", "name": "贺去病" },
+          "publisher": { "@type": "Organization", "name": "贺去病 AI 咨询" }
+        });
+
+        titleEl.textContent = c.title;
+        metaEl.innerHTML = `
+          <span>${c.date}</span>
+          <span class="case-card-tag industry">${c.industry}</span>
+          <span class="case-card-tag scenario">${c.scenario}</span>
+          ${(c.tags || []).map(t => `<span class="case-card-tag">${t}</span>`).join('')}
+          ${c.hot_score ? `<span class="case-card-score">🔥 热度 ${c.hot_score}</span>` : ''}
+        `;
+        contentEl.innerHTML = c.content;
+
+        if (c.source_url) {
+          contentEl.innerHTML += `<p style="margin-top:24px;color:var(--muted);font-size:13px;">来源：<a href="${c.source_url}" target="_blank" rel="noopener">${c.source || '原文链接'}</a></p>`;
+        }
+      } catch (e) {
+        titleEl.textContent = '加载失败';
+        contentEl.innerHTML = `<p style="color:#ff6b6b">${e.message}</p><p><a href="/cases">返回案例库</a></p>`;
+      }
+    })();
+  </script>
+</body>
+</html>

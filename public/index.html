@@ -1,56 +1,211 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>blog.hequbing.com | 贺去病hecare+的个人博客</title>
-    <meta name="description" content="贺去病hecare+的个人博客，记录技术、思考与生活。" />
-    <link rel="stylesheet" href="/styles.css" />
-  </head>
-  <body>
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <header class="site-header">
-      <div class="container">
-        <div class="header-row">
-          <div>
-            <h1 class="site-title">贺去病hecare+ · 博客</h1>
-            <p class="site-subtitle">blog.hequbing.com</p>
-          </div>
-          <nav class="nav">
-            <a href="/">首页</a>
-            <a href="/about">关于</a>
-            <a href="/archive">归档</a>
-            <a href="/tags">标签</a>
-            <a href="/ai-nav/">AI导航</a>
-          </nav>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>贺去病 AI 咨询 | AI 落地实战派，帮中小企业用好 AI</title>
+  <meta name="description" content="专注 AI 企业落地咨询，50+ 已交付项目经验。提供 AI 需求诊断、方案设计、快速 POC、落地陪跑服务，帮助中小企业快速用好 AI。" />
+  <meta name="keywords" content="AI咨询,企业AI落地,AI解决方案,大模型,智能客服,AI自动化,贺去病" />
+  <meta property="og:title" content="贺去病 AI 咨询 | AI 落地实战派" />
+  <meta property="og:description" content="50+ 已交付项目，帮中小企业用好 AI。免费 AI 需求诊断，扫码咨询。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hequbing.com" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-row">
+        <h1 class="site-title"><a href="/" class="brand">贺去病 · AI 咨询</a></h1>
+        <nav class="nav">
+          <a href="/" class="active">首页</a>
+          <a href="/cases">案例库</a>
+          <a href="/services">服务</a>
+          <a href="/about">关于</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <h2>AI 落地实战派</h2>
+      <p class="hero-sub">帮中小企业用好 AI，不讲概念只看效果</p>
+      <div class="hero-cta">
+        <a href="/cases" class="btn btn-primary">浏览 AI 案例库 →</a>
+        <a href="/services" class="btn btn-outline">了解服务方案</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">50+</div>
+          <div class="label">已交付项目</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">10+</div>
+          <div class="label">覆盖行业</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">100+</div>
+          <div class="label">AI 案例研究</div>
         </div>
       </div>
-    </header>
+    </section>
 
-    <main class="container">
-      <section class="hero">
-        <h2>记录技术 · 思考 · 生活</h2>
-        <p class="hero-sub">这里是贺去病hecare+的个人博客，分享编程经验、产品思维与阅读札记。</p>
-      </section>
+    <!-- Hot Cases -->
+    <h2 class="section-title">热门 AI 落地案例</h2>
+    <div id="hot-cases" class="cases-grid"></div>
+    <div style="text-align: center; margin-top: 24px;">
+      <a href="/cases" class="btn btn-outline">查看全部案例 →</a>
+    </div>
 
-      <section class="toolbar">
-        <input id="search" type="search" class="search" placeholder="搜索文章标题或摘要…" />
-        <div id="tag-filters" class="tag-filters"></div>
-      </section>
+    <!-- Services Preview -->
+    <h2 class="section-title">服务方案</h2>
+    <div id="services-preview" class="services-grid"></div>
 
-      <section>
-        <h2>最新文章</h2>
-        <div id="posts" class="posts-list"></div>
-      </section>
-    </main>
+    <!-- About / Trust -->
+    <h2 class="section-title">为什么选择我</h2>
+    <div class="about-section">
+      <div class="about-text">
+        <h3>实战出真知</h3>
+        <p>我是贺去病，独立 AI 产品开发者。过去两年交付了 50+ 个 AI 相关项目，涵盖智能客服、内容生成、数据分析、流程自动化等场景。</p>
+        <p>不同于大厂的高价咨询，我提供"轻咨询 + 快速 POC"的模式，让中小企业老板能以最低成本验证 AI 价值。</p>
+        <a href="/services" class="btn btn-primary btn-sm" style="margin-top: 12px;">了解更多 →</a>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-item">
+          <div class="highlight-icon">🛠️</div>
+          <div class="highlight-text">
+            <div class="hl-title">全栈交付能力</div>
+            <div class="hl-desc">从需求分析到系统上线，一人搞定</div>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">⚡</div>
+          <div class="highlight-text">
+            <div class="hl-title">快速出 POC</div>
+            <div class="hl-desc">1-2 周交付可演示原型，降低试错成本</div>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">💰</div>
+          <div class="highlight-text">
+            <div class="hl-title">性价比高</div>
+            <div class="hl-desc">个人服务，无团队溢价，¥3000 起</div>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">📊</div>
+          <div class="highlight-text">
+            <div class="hl-title">数据说话</div>
+            <div class="hl-desc">每个方案都有明确的 ROI 预测</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <footer class="site-footer">
-      <div class="container">© <span id="year"></span> 贺去病hecare+</div>
-    </footer>
+    <!-- Delivered Projects -->
+    <h2 class="section-title">已交付项目展示</h2>
+    <div class="projects-scroll">
+      <div class="project-chip"><div class="name">U-Claw 虾盘</div><div class="desc">U 盘 AI 助手 · 886 Stars</div></div>
+      <div class="project-chip"><div class="name">AirKey</div><div class="desc">ESP32 无线键盘</div></div>
+      <div class="project-chip"><div class="name">SideAI</div><div class="desc">浏览器 AI 侧边栏</div></div>
+      <div class="project-chip"><div class="name">SimpleClip</div><div class="desc">macOS AI 剪贴板</div></div>
+      <div class="project-chip"><div class="name">agent-verse</div><div class="desc">AI Agent 市场</div></div>
+      <div class="project-chip"><div class="name">ring.glass</div><div class="desc">智能戒指产品</div></div>
+      <div class="project-chip"><div class="name">AI 铜客</div><div class="desc">B2B AI 获客平台</div></div>
+      <div class="project-chip"><div class="name">VibeCoder</div><div class="desc">AI 命令键盘</div></div>
+      <div class="project-chip"><div class="name">SearchHub</div><div class="desc">多引擎搜索插件</div></div>
+    </div>
+  </main>
 
-    <script src="/script.js"></script>
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-  </body>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <span>© <span id="year"></span> 贺去病 AI 咨询 · hequbing.com</span>
+        <div class="footer-links">
+          <a href="/cases">案例库</a>
+          <a href="/services">服务</a>
+          <a href="/about">关于</a>
+          <a href="https://github.com/dongsheng123132" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WeChat Float -->
+  <div class="wechat-float">
+    <div class="wechat-popup" id="wechat-popup">
+      <h4>加我聊聊你的 AI 需求</h4>
+      <div class="qr-placeholder">
+        <img src="/images/wechat-qr.png" alt="微信二维码" onerror="this.parentElement.textContent='微信号: hequbing_ai'" />
+      </div>
+      <p>扫码免费咨询</p>
+    </div>
+    <button class="wechat-float-btn" onclick="toggleWechat()" title="微信咨询">💬</button>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function toggleWechat() {
+      document.getElementById('wechat-popup').classList.toggle('show');
+    }
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.wechat-float')) {
+        document.getElementById('wechat-popup').classList.remove('show');
+      }
+    });
+
+    // Load hot cases
+    fetch('/api/cases?sort=hot&limit=6')
+      .then(r => r.json())
+      .then(cases => {
+        const grid = document.getElementById('hot-cases');
+        cases.forEach(c => {
+          grid.innerHTML += `
+            <div class="case-card">
+              <div class="case-card-header">
+                <div>
+                  <span class="case-card-tag industry">${c.industry}</span>
+                  <span class="case-card-tag scenario">${c.scenario}</span>
+                </div>
+                <span class="case-card-score">🔥 ${c.hot_score}</span>
+              </div>
+              <h3 class="case-card-title">${c.title}</h3>
+              <p class="case-card-summary">${c.summary}</p>
+              <a class="case-card-link" href="/case?slug=${c.slug}">查看案例详情 →</a>
+            </div>`;
+        });
+      })
+      .catch(() => {
+        document.getElementById('hot-cases').innerHTML = '<p style="color:var(--muted)">案例加载中...</p>';
+      });
+
+    // Load services preview
+    fetch('/api/cases?type=services')
+      .then(r => r.json())
+      .catch(() => null)
+      .then(() => {
+        const grid = document.getElementById('services-preview');
+        const services = [
+          { icon: '🔍', name: 'AI 需求诊断', price: '免费', desc: '30 分钟微信通话，帮你梳理 AI 方向' },
+          { icon: '📋', name: 'AI 方案设计', price: '¥3,000 起', desc: '完整技术方案 + 成本估算 + 实施路径' },
+          { icon: '🚀', name: '快速 POC', price: '¥8,000 起', desc: '1-2 周交付可演示 AI 原型' },
+          { icon: '🏗️', name: '落地陪跑', price: '¥20,000 起', desc: '从方案到上线全程陪跑' }
+        ];
+        services.forEach((s, i) => {
+          grid.innerHTML += `
+            <div class="service-card${i === 0 ? ' featured' : ''}">
+              <div class="service-icon">${s.icon}</div>
+              <div class="service-name">${s.name}</div>
+              <div class="service-price">${s.price}</div>
+              <div class="service-desc">${s.desc}</div>
+              <a href="/services" class="btn btn-outline btn-sm">了解详情</a>
+            </div>`;
+        });
+      });
+  </script>
+</body>
 </html>

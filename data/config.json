@@ -1,0 +1,52 @@
+{
+  "site": {
+    "name": "贺去病 AI 咨询",
+    "tagline": "AI 落地实战派 | 帮中小企业用好 AI",
+    "url": "https://hequbing.com",
+    "description": "专注 AI 企业落地咨询，50+ 已交付项目经验，帮助中小企业快速用好 AI"
+  },
+  "contact": {
+    "wechat_qr": "/images/wechat-qr.png",
+    "wechat_id": "hequbing_ai",
+    "email": "hefangsheng@gmail.com",
+    "github": "https://github.com/dongsheng123132",
+    "twitter": "https://x.com/FangshengH"
+  },
+  "brand": {
+    "author": "贺去病",
+    "title": "AI 落地实战派",
+    "experience": "50+ 已交付项目",
+    "target": "中小企业老板 & 业务负责人"
+  },
+  "categories": {
+    "industry": ["家电制造", "金融保险", "医疗健康", "零售电商", "教育培训", "物流运输", "餐饮酒店", "房地产", "农业", "其他"],
+    "scenario": ["智能客服", "内容生成", "数据分析", "流程自动化", "智能推荐", "质量检测", "文档处理", "代码开发", "营销获客", "其他"],
+    "tags": ["大模型", "RAG", "Agent", "微调", "多模态", "RPA", "ROI", "降本增效", "私有化部署"]
+  },
+  "services": [
+    {
+      "id": "consult",
+      "name": "AI 需求诊断",
+      "price": "免费",
+      "description": "30 分钟微信通话，帮你梳理 AI 落地方向"
+    },
+    {
+      "id": "plan",
+      "name": "AI 方案设计",
+      "price": "¥3,000 起",
+      "description": "完整的 AI 落地方案，包含技术选型、成本估算、实施路径"
+    },
+    {
+      "id": "poc",
+      "name": "快速 POC",
+      "price": "¥8,000 起",
+      "description": "2 周内交付可演示的 AI 原型，验证可行性"
+    },
+    {
+      "id": "implement",
+      "name": "落地陪跑",
+      "price": "¥20,000 起",
+      "description": "全程陪跑 AI 项目落地，从方案到上线"
+    }
+  ]
+}

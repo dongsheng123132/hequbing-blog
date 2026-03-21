@@ -2,6 +2,15 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/cases", "destination": "/cases.html" },
+    { "source": "/case", "destination": "/case.html" },
+    { "source": "/services", "destination": "/services.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/post", "destination": "/post.html" },
+    { "source": "/archive", "destination": "/archive.html" },
+    { "source": "/tags", "destination": "/tags.html" }
+  ],
   "functions": {
     "api/**/*.js": {
       "includeFiles": "data/**"

@@ -1,13 +1,15 @@
 {
-  "name": "blog-hequbing",
-  "version": "1.0.0",
-  "description": "贺去病hecare+的个人博客",
+  "name": "hequbing-ai-consulting",
+  "version": "2.0.0",
+  "description": "贺去病 AI 咨询 - AI 落地实战派，帮中小企业用好 AI",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "collect": "node scripts/collector.js",
+    "sitemap": "node scripts/generate-sitemap.js"
   },
-  "keywords": [],
-  "author": "贺去病hecare+",
+  "keywords": ["AI咨询", "企业AI落地", "大模型"],
+  "author": "贺去病",
   "license": "ISC",
   "dependencies": {}
 }

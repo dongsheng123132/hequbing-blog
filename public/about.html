@@ -1,69 +1,116 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>关于 | 贺去病 · 博客</title>
-    <link rel="stylesheet" href="/styles.css" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container">
-        <div class="header-row">
-          <h1 class="site-title"><a href="/" class="brand">贺去病 · 博客</a></h1>
-          <nav class="nav">
-            <a href="/">首页</a>
-            <a href="/about">关于</a>
-            <a href="/archive">归档</a>
-            <a href="/tags">标签</a>
-            <a href="/ai-nav/">AI导航</a>
-          </nav>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>关于贺去病 | AI 落地实战派</title>
+  <meta name="description" content="贺去病，独立 AI 产品开发者，50+ 已交付项目，专注帮中小企业用好 AI。" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-row">
+        <h1 class="site-title"><a href="/" class="brand">贺去病 · AI 咨询</a></h1>
+        <nav class="nav">
+          <a href="/">首页</a>
+          <a href="/cases">案例库</a>
+          <a href="/services">服务</a>
+          <a href="/about" class="active">关于</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="post-detail" style="margin-top: 24px;">
+      <h2>关于我</h2>
+      <div class="content">
+        <p>我是<strong>贺去病</strong>，独立 AI 产品开发者 & 企业 AI 落地顾问。</p>
+        <p>过去两年，我交付了 <strong>50+ 个 AI 相关项目</strong>，覆盖智能客服、内容生成、数据分析、流程自动化、智能硬件等多个方向。我的旗舰项目 <a href="https://u-claw.org" target="_blank" rel="noopener">U-Claw 虾盘</a>（全球首个 U 盘运行的 AI 助手）在 GitHub 获得 886 Stars。</p>
+
+        <h3>我能帮你做什么</h3>
+        <ul>
+          <li><strong>AI 需求诊断</strong>：帮你分析业务中哪些环节适合引入 AI</li>
+          <li><strong>方案设计</strong>：输出完整的技术方案、成本估算、ROI 预测</li>
+          <li><strong>快速 POC</strong>：1-2 周交付可演示的 AI 原型</li>
+          <li><strong>落地陪跑</strong>：从方案到上线全程陪跑</li>
+        </ul>
+
+        <h3>技术栈</h3>
+        <ul>
+          <li><strong>编程语言</strong>：TypeScript, Swift, Python, Solidity</li>
+          <li><strong>前端</strong>：Next.js, React, Vercel</li>
+          <li><strong>AI</strong>：Claude API, Prompt Engineering, RAG, Agent</li>
+          <li><strong>硬件</strong>：ESP32, BLE, IoT</li>
+          <li><strong>区块链</strong>：Monad, Starknet</li>
+        </ul>
+
+        <h3>代表项目</h3>
+        <ul>
+          <li><strong>U-Claw 虾盘</strong> — U 盘 AI 助手，886 Stars</li>
+          <li><strong>AirKey</strong> — ESP32 手机到 PC 无线键盘</li>
+          <li><strong>SideAI</strong> — 浏览器 AI 侧边栏</li>
+          <li><strong>SimpleClip</strong> — macOS AI 剪贴板管理器</li>
+          <li><strong>agent-verse.live</strong> — AI Agent 市场</li>
+          <li><strong>AI 铜客</strong> — B2B AI 获客平台</li>
+          <li><strong>ring.glass</strong> — 智能戒指产品</li>
+          <li><strong>VibeCoder</strong> — AI 命令键盘</li>
+        </ul>
+
+        <h3>联系方式</h3>
+        <ul>
+          <li>Email：<a href="mailto:hefangsheng@gmail.com">hefangsheng@gmail.com</a></li>
+          <li>GitHub：<a href="https://github.com/dongsheng123132" target="_blank" rel="noopener">dongsheng123132</a></li>
+          <li>Twitter/X：<a href="https://x.com/FangshengH" target="_blank" rel="noopener">@FangshengH</a></li>
+          <li>微信：扫右下角二维码添加</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="case-cta" style="margin: 32px 0;">
+      <h3>有 AI 需求？聊聊看</h3>
+      <p>扫码加我微信，免费 AI 需求诊断</p>
+      <button class="btn btn-primary" onclick="toggleWechat()">微信咨询 →</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <span>© <span id="year"></span> 贺去病 AI 咨询 · hequbing.com</span>
+        <div class="footer-links">
+          <a href="/cases">案例库</a>
+          <a href="/services">服务</a>
+          <a href="/about">关于</a>
         </div>
       </div>
-    </header>
+    </div>
+  </footer>
 
-    <main class="container">
-      <section class="post-detail">
-        <h2>关于我</h2>
-        <div class="content">
-          <p>我是贺去病（hecare+），一个热爱编程、产品与历史的创作者。</p>
-          <p>这里记录我的技术笔记、项目实践、产品思考以及读书札记。</p>
-          <p>联系：邮箱 <a href="mailto:hefangsheng@gmail.com">hefangsheng@gmail.com</a>；或在 GitHub <a href="https://github.com/dongsheng123132" target="_blank" rel="noopener">dongsheng123132</a>、Twitter <a href="https://x.com/FangshengH?s=09" target="_blank" rel="noopener">@FangshengH</a> 上找到我。</p>
-  
-          <h3>个人标签与方向</h3>
-          <p><strong>当前关注：</strong> Chrome 扩展、无服务器部署、个人知识库</p>
-          <p><strong>技能标签：</strong> JavaScript/TypeScript、React/Vue、Node.js、产品设计</p>
-  
-          <h3>代表作品与链接</h3>
-          <ul>
-            <li>防蓝光护眼助手（Blue Light Filter）：
-              <a href="https://chromewebstore.google.com/detail/%E9%98%B2%E8%93%9D%E5%85%89%E6%8A%A4%E7%9C%BC%E5%8A%A9%E6%89%8B/cefolelfbacmljhmddlbmdnlakblagjj?hl=zh-CN" target="_blank" rel="noopener">商店链接</a>
-            </li>
-          </ul>
-  
-          <h3>社交与联系（统一）</h3>
-          <ul>
-            <li>Email：<a href="mailto:hefangsheng@gmail.com">hefangsheng@gmail.com</a></li>
-            <li>GitHub：<a href="https://github.com/dongsheng123132" target="_blank" rel="noopener">dongsheng123132</a></li>
-            <li>Twitter/X：<a href="https://x.com/FangshengH?s=09" target="_blank" rel="noopener">@FangshengH</a></li>
-            <li>公众号/微信/知乎/掘金：如有更新将在此补充</li>
-          </ul>
-  
-          <h3>版权与转载声明</h3>
-          <p>除特别说明外，文章版权归作者所有。非商业转载请注明作者与原文链接；商业使用或全文转载请提前邮件联系。</p>
-  
-          <h3>招聘/合作</h3>
-          <p>欢迎在 Chrome 扩展、前端工程、产品设计方向进行合作或交流；请通过邮箱联系。</p>
-        </div>
-      </section>
-    </main>
+  <!-- WeChat Float -->
+  <div class="wechat-float">
+    <div class="wechat-popup" id="wechat-popup">
+      <h4>加我聊聊你的 AI 需求</h4>
+      <div class="qr-placeholder">
+        <img src="/images/wechat-qr.png" alt="微信二维码" onerror="this.parentElement.textContent='微信号: hequbing_ai'" />
+      </div>
+      <p>扫码免费咨询</p>
+    </div>
+    <button class="wechat-float-btn" onclick="toggleWechat()" title="微信咨询">💬</button>
+  </div>
 
-    <footer class="site-footer">
-      <div class="container">© <span id="year"></span> 贺去病</div>
-    </footer>
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-  </body>
-  </html>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function toggleWechat() {
+      document.getElementById('wechat-popup').classList.toggle('show');
+    }
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.wechat-float')) {
+        document.getElementById('wechat-popup').classList.remove('show');
+      }
+    });
+  </script>
+</body>
+</html>

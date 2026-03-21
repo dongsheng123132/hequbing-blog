@@ -5,7 +5,7 @@ const url = require('url');
 
 const PORT = process.env.PORT || 3000;
 const PUBLIC_DIR = path.join(__dirname, 'public');
-const DATA_PATH = path.join(__dirname, 'data', 'posts.json');
+const DATA_DIR = path.join(__dirname, 'data');
 
 function sendJson(res, statusCode, data) {
   const payload = JSON.stringify(data);
@@ -34,6 +34,7 @@ function sendFile(res, filePath) {
       '.jpeg': 'image/jpeg',
       '.gif': 'image/gif',
       '.svg': 'image/svg+xml',
+      '.xml': 'application/xml; charset=utf-8',
     };
     const contentType = typeMap[ext] || 'application/octet-stream';
     res.writeHead(200, { 'Content-Type': contentType });
@@ -41,9 +42,9 @@ function sendFile(res, filePath) {
   });
 }
 
-function readPosts() {
+function readJSON(filename) {
   try {
-    const raw = fs.readFileSync(DATA_PATH, 'utf-8');
+    const raw = fs.readFileSync(path.join(DATA_DIR, filename), 'utf-8');
     return JSON.parse(raw);
   } catch (e) {
     return [];
@@ -53,38 +54,82 @@ function readPosts() {
 const server = http.createServer((req, res) => {
   const parsed = url.parse(req.url, true);
   const pathname = decodeURIComponent(parsed.pathname || '/');
+  const query = parsed.query || {};
 
-  // API routes
+  // --- API: Cases ---
+  if (pathname === '/api/cases' && req.method === 'GET') {
+    let cases = readJSON('cases.json');
+    if (query.industry) cases = cases.filter(c => c.industry === query.industry);
+    if (query.scenario) cases = cases.filter(c => c.scenario === query.scenario);
+    if (query.tag) cases = cases.filter(c => (c.tags || []).includes(query.tag));
+
+    if (query.sort === 'date') {
+      cases.sort((a, b) => new Date(b.date) - new Date(a.date));
+    } else {
+      cases.sort((a, b) => (b.hot_score || 0) - (a.hot_score || 0));
+    }
+
+    if (query.limit && !isNaN(parseInt(query.limit))) {
+      cases = cases.slice(0, parseInt(query.limit));
+    }
+
+    const list = cases.map(c => ({
+      id: c.id, slug: c.slug, title: c.title, date: c.date,
+      industry: c.industry, scenario: c.scenario, tags: c.tags || [],
+      summary: c.summary, hot_score: c.hot_score || 0, source: c.source || '',
+    }));
+    return sendJson(res, 200, list);
+  }
+
+  if (pathname.startsWith('/api/cases/') && req.method === 'GET') {
+    const slug = pathname.replace('/api/cases/', '').trim();
+    const cases = readJSON('cases.json');
+    const found = cases.find(c => c.slug === slug);
+    if (!found) return sendJson(res, 404, { error: '未找到案例' });
+    return sendJson(res, 200, found);
+  }
+
+  // --- API: Posts (legacy blog) ---
   if (pathname === '/api/posts' && req.method === 'GET') {
-    const posts = readPosts();
-    // 返回列表（不包含全文）
+    const posts = readJSON('posts.json');
     const list = posts.map(p => ({
-      id: p.id,
-      slug: p.slug,
-      title: p.title,
-      date: p.date,
-      summary: p.summary,
-      tags: p.tags || [],
+      id: p.id, slug: p.slug, title: p.title,
+      date: p.date, summary: p.summary, tags: p.tags || [],
     }));
     return sendJson(res, 200, list);
   }
 
   if (pathname.startsWith('/api/posts/') && req.method === 'GET') {
     const slug = pathname.replace('/api/posts/', '').trim();
-    const posts = readPosts();
+    const posts = readJSON('posts.json');
     const found = posts.find(p => p.slug === slug);
-    if (!found) {
-      return sendJson(res, 404, { error: '未找到文章' });
-    }
+    if (!found) return sendJson(res, 404, { error: '未找到文章' });
     return sendJson(res, 200, found);
   }
 
-  // Static files
-  if (pathname === '/' || pathname === '/index.html') {
-    return sendFile(res, path.join(PUBLIC_DIR, 'index.html'));
+  // --- Static pages (clean URLs) ---
+  const pageMap = {
+    '/': 'index.html',
+    '/index.html': 'index.html',
+    '/cases': 'cases.html',
+    '/case': 'case.html',
+    '/services': 'services.html',
+    '/about': 'about.html',
+    '/post': 'post.html',
+    '/archive': 'archive.html',
+    '/tags': 'tags.html',
+  };
+
+  if (pageMap[pathname]) {
+    return sendFile(res, path.join(PUBLIC_DIR, pageMap[pathname]));
   }
 
-  // 强制仅在 public 下提供静态资源
+  // --- Sitemap ---
+  if (pathname === '/sitemap.xml') {
+    return sendFile(res, path.join(PUBLIC_DIR, 'sitemap.xml'));
+  }
+
+  // --- Static files from public ---
   const safePath = path.normalize(path.join(PUBLIC_DIR, pathname));
   if (!safePath.startsWith(PUBLIC_DIR)) {
     res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
