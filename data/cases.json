@@ -208,5 +208,19 @@
     "source": "GitHub & Microsoft 研究",
     "source_url": "https://github.blog/news-insights/product-news/github-copilot-research/",
     "hot_score": 84
+  },
+  {
+    "id": 16,
+    "slug": "xhs-ai-auto-comment-plugin",
+    "title": "小红书 AI 自动评论获客插件：Chrome 扩展实现智能营销",
+    "date": "2026-03-25",
+    "industry": "社交电商",
+    "scenario": "营销获客",
+    "tags": ["小红书", "Chrome插件", "AI评论", "自动化营销", "获客引流"],
+    "summary": "基于 Chrome Extension Manifest V3 开发的小红书自动化营销工具，支持 AI 智能评论生成、自动点赞、精准获客，帮助运营人员高效拓客引流。",
+    "content": "<h3>背景</h3><p>小红书是国内最重要的种草营销平台之一，品牌商家和个人 IP 都需要通过评论互动来触达目标用户、建立信任、实现引流转化。但手动评论效率极低，内容质量参差不齐，难以规模化运营。</p><h3>功能特性</h3><ul><li><strong>AI 智能评论</strong>：基于笔记内容自动生成高质量、拟人化评论，避免机械感</li><li><strong>自动点赞</strong>：批量自动点赞目标笔记，提升账号活跃度和曝光</li><li><strong>精准获客</strong>：通过评论互动精准触达目标用户，实现私域引流</li><li><strong>评论记录</strong>：完整记录每条评论操作，方便追踪效果和复盘优化</li><li><strong>多人设管理</strong>：支持多种评论风格和人设切换，适配不同营销场景</li><li><strong>灵活配置</strong>：评论频率、内容模板、目标筛选等均可自定义</li></ul><h3>技术实现</h3><ul><li><strong>Chrome Extension Manifest V3</strong>：采用最新扩展标准，安全性更高</li><li><strong>Service Worker 后台</strong>：持久化后台任务管理</li><li><strong>Content Script 注入</strong>：与小红书页面无缝交互</li><li><strong>Chrome Storage API</strong>：本地持久化配置和操作记录</li><li><strong>模块化架构</strong>：AI 评论、评论操作、笔记处理、配置管理独立模块</li></ul><h3>适用场景</h3><ul><li>小红书品牌推广与种草营销</li><li>电商卖家小红书引流获客</li><li>个人 IP 打造与粉丝互动</li><li>MCN 机构批量账号运营</li><li>本地生活商家小红书获客</li></ul><h3>关键启示</h3><p>社交平台的评论互动是低成本获客的核心手段。通过 AI + 自动化工具，运营人员可以将评论效率提升数十倍，同时保持内容的自然度和个性化。Chrome 插件形态让工具即装即用，无需复杂部署。</p>",
+    "source": "自研项目",
+    "source_url": "https://github.com/dongsheng123132/xhs-ai-comment-plugin-lh",
+    "hot_score": 85
   }
 ]
