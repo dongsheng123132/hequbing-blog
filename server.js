@@ -116,6 +116,8 @@ const server = http.createServer((req, res) => {
     '/case': 'case.html',
     '/services': 'services.html',
     '/about': 'about.html',
+    '/privacy': 'privacy.html',
+    '/support': 'support.html',
     '/post': 'post.html',
     '/archive': 'archive.html',
     '/tags': 'tags.html',
