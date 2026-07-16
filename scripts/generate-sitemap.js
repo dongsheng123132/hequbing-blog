@@ -5,7 +5,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE_URL = 'https://hequbing.com';
+const SITE_URL = 'https://www.hequbing.com';
 const OUTPUT = path.join(__dirname, '..', 'public', 'sitemap.xml');
 const CASES_PATH = path.join(__dirname, '..', 'data', 'cases.json');
 

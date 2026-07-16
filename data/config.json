@@ -2,11 +2,10 @@
   "site": {
     "name": "贺去病 AI 咨询",
     "tagline": "AI 落地实战派 | 帮中小企业用好 AI",
-    "url": "https://hequbing.com",
-    "description": "专注 AI 企业落地咨询，50+ 已交付项目经验，帮助中小企业快速用好 AI"
+    "url": "https://www.hequbing.com",
+    "description": "独立 AI 产品开发者与企业 AI 落地顾问。公开 GitHub 96+ 项目、1.8k+ stars，帮助中小企业快速用好 AI"
   },
   "contact": {
-    "wechat_qr": "/images/wechat-qr.png",
     "wechat_id": "hequbing_ai",
     "email": "hefangsheng@gmail.com",
     "github": "https://github.com/dongsheng123132",
@@ -15,7 +14,7 @@
   "brand": {
     "author": "贺去病",
     "title": "AI 落地实战派",
-    "experience": "50+ 已交付项目",
+    "experience": "50+ 已交付项目 · 96+ 公开 GitHub 项目",
     "target": "中小企业老板 & 业务负责人"
   },
   "categories": {

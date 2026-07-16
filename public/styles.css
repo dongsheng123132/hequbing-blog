@@ -34,7 +34,10 @@ body {
 .site-title { margin: 0; font-size: 20px; }
 .site-title a { color: var(--text); text-decoration: none; }
 .brand { color: var(--text); text-decoration: none; }
-.nav a { color: var(--muted); text-decoration: none; margin-left: 20px; font-size: 15px; transition: color .2s; }
+.nav a {
+  color: var(--muted); text-decoration: none; margin-left: 20px; font-size: 15px; transition: color .2s;
+  display: inline-flex; align-items: center; min-height: 40px;
+}
 .nav a:hover, .nav a.active { color: var(--primary); }
 
 /* Hero Section */
@@ -209,6 +212,16 @@ body {
 .wechat-popup .qr-placeholder img {
   width: 100%; height: 100%; object-fit: contain; border-radius: 8px;
 }
+.contact-code {
+  color: #111827;
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: .02em;
+}
+.contact-code strong {
+  font-size: 18px;
+  letter-spacing: .04em;
+}
 
 /* Post detail (case detail) */
 .post-detail, .case-detail {
@@ -225,6 +238,84 @@ body {
 .content ul { padding-left: 20px; }
 .content li { margin: 6px 0; }
 .content blockquote { border-left: 3px solid var(--primary); padding-left: 16px; color: var(--muted); margin: 16px 0; }
+
+/* Latest GitHub activity */
+.latest-section {
+  background: linear-gradient(135deg, rgba(79,180,119,0.08), rgba(122,162,247,0.08));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+}
+.latest-intro {
+  max-width: 760px;
+  margin-bottom: 22px;
+}
+.eyebrow {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.latest-intro h3 {
+  font-size: 26px;
+  line-height: 1.35;
+  margin: 10px 0;
+}
+.latest-intro p {
+  color: #b9c0c9;
+  margin: 0;
+}
+.latest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.latest-card {
+  background: rgba(23,26,33,0.92);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  color: var(--text);
+  text-decoration: none;
+  min-height: 210px;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s, border-color .2s, box-shadow .2s;
+}
+.latest-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+  box-shadow: 0 10px 28px rgba(79,180,119,0.1);
+}
+.latest-card.featured {
+  border-color: rgba(79,180,119,0.55);
+  background: linear-gradient(135deg, rgba(79,180,119,0.15), rgba(23,26,33,0.94));
+}
+.latest-kicker {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.latest-card h4 {
+  font-size: 18px;
+  line-height: 1.35;
+  margin: 10px 0 8px;
+}
+.latest-card p {
+  color: #adb5bd;
+  font-size: 14px;
+  margin: 0;
+  flex: 1;
+}
+.latest-card span {
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 16px;
+}
 
 /* Case CTA */
 .case-cta {
@@ -285,6 +376,7 @@ body {
   padding: 12px 20px; font-size: 14px;
   text-decoration: none; color: var(--text);
   transition: border-color .2s, transform .2s;
+  min-height: 52px;
 }
 a.project-chip:hover {
   border-color: var(--primary); transform: translateY(-2px);
@@ -314,11 +406,17 @@ a.project-chip:hover {
   .hero { padding: 32px 20px; }
   .hero h2 { font-size: 26px; }
   .hero-stats { flex-direction: column; gap: 16px; }
+  .hero-cta .btn { width: 100%; justify-content: center; }
   .cases-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
+  .latest-section { padding: 20px; }
+  .latest-grid { grid-template-columns: 1fr; }
+  .latest-intro h3 { font-size: 21px; }
   .about-section { grid-template-columns: 1fr; }
   .header-row { flex-direction: column; gap: 8px; }
-  .nav a { margin-left: 0; margin-right: 12px; }
+  .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 12px; }
+  .nav a { margin-left: 0; margin-right: 0; min-height: 44px; padding: 0 4px; }
+  .case-card-link, .footer-links a { min-height: 44px; display: inline-flex; align-items: center; }
   .service-flow { flex-direction: column; }
   .flow-arrow { transform: rotate(90deg); }
   .filter-bar { flex-direction: column; align-items: stretch; }

@@ -35,6 +35,7 @@ function sendFile(res, filePath) {
       '.gif': 'image/gif',
       '.svg': 'image/svg+xml',
       '.xml': 'application/xml; charset=utf-8',
+      '.txt': 'text/plain; charset=utf-8',
     };
     const contentType = typeMap[ext] || 'application/octet-stream';
     res.writeHead(200, { 'Content-Type': contentType });
