@@ -18,6 +18,7 @@
 | 10 | U-Claw 虾盘旗舰深度文：离线 AI 装机实战 | dongsheng123132/u-claw | 离线 AI、U 盘、装机（1.7k★ 主力） | 📝 待写 |
 | 11 | PhoneBody：闲置 Mac 变竖屏手机义体 | dongsheng123132/phonebody | 远程写代码、macOS | 📝 待写 |
 | 12 | TeacherKit：AI 备课助手 | dongsheng123132/teacher-kit | 教育、备课、教师 | 📝 待写（可兼转案例库卡片） |
+| 13 | 三个 AI 技能上线 ClawHub 与 SkillHub | dongsheng123132/2origin（origin-writer / benxiang-memory / origin-office） | 技能发布、ClawHub、SkillHub、上下文工程 | ✅ 已发（2026-08-06，homepage 已互链） |
 
 ## 写作体例（对齐现有 8 篇 + 本象文）
 
