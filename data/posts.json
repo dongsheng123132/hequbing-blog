@@ -5,7 +5,10 @@
     "title": "贺去病hecare+的第一篇博客",
     "date": "2025-10-01",
     "summary": "开篇，记录这个博客的目的与计划。",
-    "tags": ["随笔", "开始"],
+    "tags": [
+      "随笔",
+      "开始"
+    ],
     "content": "<p>欢迎来到我的博客。这里记录技术、思想与生活。</p><p>技术方面，我会分享前端、后端与部署的经验；生活方面，也会记录一些读书与思考。</p>"
   },
   {
@@ -14,7 +17,10 @@
     "title": "关于我：贺去病hecare+",
     "date": "2025-10-01",
     "summary": "简单介绍我的背景与兴趣。",
-    "tags": ["关于", "自述"],
+    "tags": [
+      "关于",
+      "自述"
+    ],
     "content": "<p>一个热爱编程和历史的普通人。</p><p>喜欢探索新技术，也喜欢读书与写作。</p>"
   },
   {
@@ -23,7 +29,11 @@
     "title": "前端架构笔记：从组件到模块化",
     "date": "2025-10-02",
     "summary": "记录前端架构实践中的组件设计、状态管理与模块化思路。",
-    "tags": ["前端", "架构", "实践"],
+    "tags": [
+      "前端",
+      "架构",
+      "实践"
+    ],
     "content": "<p>谈组件边界、数据流设计、以及如何通过模块化提升可维护性。</p><p>同时结合实际项目中的经验，给出一些通用的落地建议。</p>"
   },
   {
@@ -32,7 +42,11 @@
     "title": "后端部署指南：从本地到云端",
     "date": "2025-10-03",
     "summary": "整理后端服务部署的关键点，包括日志、监控与扩容策略。",
-    "tags": ["后端", "部署", "云"],
+    "tags": [
+      "后端",
+      "部署",
+      "云"
+    ],
     "content": "<p>选择合适的平台、配置环境变量、安全策略、以及如何观察系统健康。</p><p>附带常见问题与排错方法。</p>"
   },
   {
@@ -41,25 +55,38 @@
     "title": "防蓝光护眼助手：Chrome 插件推荐",
     "date": "2025-10-21",
     "summary": "通过过滤蓝光保护眼睛，支持多预设与自定义。",
-    "tags": ["插件", "Chrome", "护眼", "推荐"],
+    "tags": [
+      "插件",
+      "Chrome",
+      "护眼",
+      "推荐"
+    ],
     "content": "<p>这是一款简洁有效的 Chrome 插件，用来过滤网页蓝光，降低眼疲劳。</p><p>商店链接：<a href=\"https://chromewebstore.google.com/detail/%E9%98%B2%E8%93%9D%E5%85%89%E6%8A%A4%E7%9C%BC%E5%8A%A9%E6%89%8B/cefolelfbacmljhmddlbmdnlakblagjj?hl=zh-CN&utm_source=ext_sidebar\" target=\"_blank\" rel=\"noopener\">防蓝光护眼助手</a></p><ul><li>多种预设模式（影院、阅读、编码）</li><li>支持自定义颜色模式</li><li>多语言界面：English/中文等</li><li>一键启用/禁用，记忆设置，无广告、隐私友好</li></ul><p>建议搭配夜间浏览使用，效果更佳。</p><hr><p><strong>English</strong></p><p>This is a simple and effective Chrome extension that filters blue light and reduces eye strain.</p><p>Store link: <a href=\"https://chromewebstore.google.com/detail/%E9%98%B2%E8%93%9D%E5%85%89%E6%8A%A4%E7%9C%BC%E5%8A%A9%E6%89%8B/cefolelfbacmljhmddlbmdnlakblagjj?hl=en\" target=\"_blank\" rel=\"noopener\">Blue Light Filter</a></p><ul><li>Multiple presets (Cinema, Reading, Coding)</li><li>Custom color modes</li><li>Multilingual UI: English/Chinese</li><li>One-click enable/disable, remembers settings; no ads, privacy-friendly</li></ul><p>Best used together with dark mode at night.</p>"
-   },
-   {
-     "id": 6,
-     "slug": "yang-zhenning-tribute",
-     "title": "致敬华人科技之光：杨振宁先生",
-     "date": "2025-10-21",
-     "summary": "他证明了华人也能行，物理学前10的贡献象征意义深远。",
-     "tags": ["人物", "科技史", "杨振宁"],
-     "content": "<p>致敬华人科技之光</p><p>杨振宁先生最大的贡献在于证明了中国人也能行，就像现在的全世界黑人也在期待一个证明一样。</p><p>他的成就大约在于物理学前10。</p><p>在人类迷茫的中世纪后期，地中海文明的肥沃的思辨土壤上，率先燃起了人类科技之光，一举引领了世界500年，其他非地中海文明，一直还处于人类科学认知的黑暗之中。</p><p>基因与人种论下，杨振宁率先证明了华人也能点亮起科技之光。</p><p>他让很多中国科研学者也挺直了胸膛。</p><p>#杨振宁</p>"
-   },
+  },
+  {
+    "id": 6,
+    "slug": "yang-zhenning-tribute",
+    "title": "致敬华人科技之光：杨振宁先生",
+    "date": "2025-10-21",
+    "summary": "他证明了华人也能行，物理学前10的贡献象征意义深远。",
+    "tags": [
+      "人物",
+      "科技史",
+      "杨振宁"
+    ],
+    "content": "<p>致敬华人科技之光</p><p>杨振宁先生最大的贡献在于证明了中国人也能行，就像现在的全世界黑人也在期待一个证明一样。</p><p>他的成就大约在于物理学前10。</p><p>在人类迷茫的中世纪后期，地中海文明的肥沃的思辨土壤上，率先燃起了人类科技之光，一举引领了世界500年，其他非地中海文明，一直还处于人类科学认知的黑暗之中。</p><p>基因与人种论下，杨振宁率先证明了华人也能点亮起科技之光。</p><p>他让很多中国科研学者也挺直了胸膛。</p><p>#杨振宁</p>"
+  },
   {
     "id": 7,
     "slug": "blog-upgrade-vercel",
     "title": "博客架构升级：全面拥抱 Serverless",
     "date": "2026-01-02",
     "summary": "为了更简单的维护和更快的访问速度，本博客已迁移至 Vercel。",
-    "tags": ["博客", "Vercel", "Serverless"],
+    "tags": [
+      "博客",
+      "Vercel",
+      "Serverless"
+    ],
     "content": "<p>今天，我完成了一次重要的架构升级：将博客从传统的服务器部署迁移到了 <strong>Vercel</strong>。</p><h3>为什么做这个改变？</h3><ul><li><strong>维护简单</strong>：再也不用担心服务器宕机、SSL 证书过期或者系统更新了。</li><li><strong>速度飞快</strong>：Vercel 的全球 CDN 让每个人都能秒开我的博客。</li><li><strong>自动部署</strong>：现在我只需要在本地写好文章，推送到 GitHub，网站就会自动更新。</li></ul><p>这就是技术进步带来的便利，让我们能更专注于内容创作本身。</p>"
   },
   {
@@ -68,7 +95,26 @@
     "title": "SearchHub 发布：一次搜索，聚合全网智慧",
     "date": "2026-01-02",
     "summary": "AI Search Hub 是一款智能多引擎搜索工具，助你高效获取信息。",
-    "tags": ["产品", "Chrome插件", "效率工具"],
+    "tags": [
+      "产品",
+      "Chrome插件",
+      "效率工具"
+    ],
     "content": "<h3>🚀 如何获取 SearchHub</h3><p>👉 <strong><a href=\"https://chromewebstore.google.com/detail/searchhub/lojjckopababijcnckabcilfkbgajnbo?hl=zh-CN&utm_source=ext_sidebar\" target=\"_blank\" rel=\"noopener\">点击前往 Chrome 应用商店安装</a></strong></p><p>目前 <strong>AI Search Hub</strong> 已经提交至 Chrome Web Store 审核，最新版本号 <strong>v1.2.1</strong>。</p><blockquote><p>⚠️ <strong>注意</strong>：如果你点击上方链接显示“无法获取”或 404，说明 Google 正在审核中（通常需要 1-2 个工作日），请稍后再试。</p></blockquote><h3>SearchHub 是什么？</h3><p>在信息爆炸的时代，单一的搜索引擎往往难以满足我们对深度、广度以及专业度的需求。SearchHub 是一款<strong>智能多引擎搜索工具</strong>，旨在通过一次输入，为你聚合来自 AI、传统搜索、开发者社区、社交媒体以及视频平台的全方位结果。</p><h3>核心功能</h3><ul><li><strong>一键多搜</strong>：输入一次关键词，自动在多个标签页中打开不同引擎的搜索结果，按查询分组排列。</li><li><strong>智能侧边栏</strong>：垂直管理你的搜索任务，轻松展开/折叠分组，快速切换上下文。</li><li><strong>快捷键支持</strong>：使用 <code>Alt+S</code> 快速唤起搜索，<code>Alt+Q</code> 基于选中文本快速搜索。</li><li><strong>完全隐私</strong>：无需注册账号，所有配置存储在本地，不收集任何个人数据。</li></ul><p>无论你是需要对比 AI 答案，还是查找技术文档，亦或是搜集视频素材，SearchHub 都能让你的检索效率倍增。</p>"
+  },
+  {
+    "id": 9,
+    "slug": "benxiang-protocol",
+    "title": "本象协议开源：给 AI 一套不会失忆的世界状态层",
+    "date": "2026-08-06",
+    "summary": "面向 AI 的持久对象表示层：一源万影，AI 只提交语义事务。ShadowBench-W 实测状态准确率 95.8% vs 裸模型 52.1%（p=0.0024）；政务 docx 16 表直读零丢失。",
+    "tags": [
+      "本象协议",
+      "AI基础设施",
+      "开源",
+      "状态追踪",
+      "上下文工程"
+    ],
+    "content": "<p>人类用文件保存信息，AI 时代用本象保存世界状态。</p><p>上个月我把本象协议（Benxiang Protocol）开源了，仓库在 github.com/dongsheng123132/2origin。这是一套面向 AI 的持久对象表示层（Origin IR），一句话讲清楚它做的事：</p><p>过去，人类把世界压缩成文档交给计算机；未来，AI 直接理解世界的本象，再为人类生成所需要的投影。</p><h3>AI 的三个结构性缺陷</h3><p>做了一年多 AI 落地，我观察到当前 AI 的工作方式有三个通病：</p><ul><li><strong>感知：AI 没有眼睛。</strong>AI 能生成 Word/Excel/PPT/CAD，却没有稳定的「打开-看见-定位-修改-复验」系统。它读到的往往是投影的投影——截图的 OCR、摘要的摘要，信息一层层失真。</li><li><strong>记忆：上下文必炸。</strong>聊天记录被当成项目状态，聊得越久越接近内存爆满，压缩摘要不断失真。这是结构性的，不是换个长上下文模型能解决的。</li><li><strong>输出：终态不稳。</strong>AI 直接输出完整成品（几十页 PPT、百万字全文、几百行配置），内容、格式、引用一起失控，改一处崩一片。</li></ul><h3>本象的回答：一源万影</h3><p>本象协议的核心是 <strong>Origin IR</strong>——同时保存对象、关系、数据、状态与时间、约束、来源证据、边界七种东西。AI 不再读「投影」，而是直接操作世界本象；人类需要的 PDF、图片、Markdown，全部变成按需生成的投影（缓存视图）。</p><p>写入侧是这套体系的点睛之笔：<strong>AI 只提交紧凑的语义事务</strong>（改什么、依赖什么、断言什么），由确定性编译器校验约束、更新状态、留存证据、重新投影。commit 校验不过，一个字节都不写；任何字段都能回答「凭什么」——因为当前状态由历史重放得出，永不覆写。</p><blockquote><p>计算机体系类比：本象 IR 之于 AI，就像 LLVM IR 之于编译器。渲染器退化为投影后端，动作退化为可移植指令集，聊天上下文退化为世界状态上的临时缓存。</p></blockquote><h3>数据说话：状态追踪这一项，我们测过</h3><p>我们用 ShadowBench-W 基准（9.5 万字长篇小说续写，模型 qwen-plus，n=6）做了受控实验，比「状态准确率 W3」：</p><ul><li><strong>本象协议：95.8% ± 5.9</strong></li><li>裸模型：52.1% ± 19.7（置换检验 p = 0.0024）</li><li>向量 RAG：58.3% ± 11.8（置换检验 p = 0.0024）</li></ul><p>分界线很有意思：能从自己刚写的近文里读出来的状态（比如「钥匙在谁手里」），裸模型和检索都够用；但<strong>跨几十章累积、且从不在任何一段文字里被陈述的状态</strong>（比如「白瑶的秘密早已暴露」「沈砚对林峥起疑」），两条对照臂近乎全灭，本象六轮全中——只有状态机答得出来。</p><p>更关键的是：本象臂在两个水平悬殊的模型上（qwen-plus 与 deepseek-v4-flash）状态准确率都是 98.9%，而正文质量差了三倍。<strong>状态层的正确性与底模无关，正文层的质量与底模显著相关。</strong></p><h3>落地案例：政务 docx 直读，不猜扫描件</h3><p>拿了一份公开的海事局 2019 红头文件（6 章 77 条、16 个附表、合并单元格、□勾选框齐全的典型中文政务 docx）实测：本象 office 方言直读 OOXML 原生结构，<strong>16 个表格 213 行零丢失</strong>，全部还原为可精确锚定的结构化 Markdown——AI 可以准确引用「第五十条」。</p><p>对照：pandoc 直转 16 表全丢；微软 markitdown 不还原合并单元格；行业最卷的扫描件赛道（OmniDocBench 端到端）表格 TEDS 也只有 0.78。行业把火力全压在「把纸猜成字」的 PDF 赛道上，<strong>原生电子文档反而没人认真做</strong>——而信息源本是无损的，根本不需要猜。</p><h3>为什么你可以信这些数字</h3><p>这批数据不是宣传稿：<strong>全部原始结果、判分器、探询脚本都随仓库公开，欢迎复现，更欢迎推翻。</strong>我们甚至把自己推翻过——旧版对照口径作废重跑（曾有个「标准差为 0 的 75% 墙」，后来发现是探询模板自己印了答案；恰恰是那个漂亮的零方差，本该是最大的警报）。</p><p>诚实边界同样写进了协议：目前结论是 n=6、单模型、自造语料；我们不主张「写得更一致」，不主张「更省 token」；协议还自带第七要素——<strong>边界</strong>，明确声明这份表示保证不了什么。AI 不读 README，它读包；边界不进包，边界就不存在。</p><h3>接下来往哪走</h3><ul><li><strong>Shadow Memory</strong>：MCP Server，把聊天历史持续提交为世界状态，新会话秒恢复——直接打「上下文必炸」</li><li><strong>文档结构化</strong>：docx/xlsx/pptx 原生结构 → 可验证的对象，转换即语义事务</li><li><strong>OriginWriter</strong>：百万字小说写作引擎，正文 + 人物状态 + 伏笔图谱，AI 以事务提交写作</li></ul><p>GitHub：<a href=\"https://github.com/dongsheng123132/2origin\" target=\"_blank\" rel=\"noopener\">github.com/dongsheng123132/2origin</a>（Apache-2.0，零依赖，npm run verify 一条命令自测）</p><p>最欢迎的贡献不是加功能，是把我们的结论推翻——证明它错了，比赞美它对，更有价值。</p>"
   }
 ]
