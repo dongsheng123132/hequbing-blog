@@ -7,7 +7,7 @@
 | # | 文章 | 仓库 | 角度 / 关键词 | 状态 |
 |---|---|---|---|---|
 | 1 | 本象协议开源：给 AI 一套不会失忆的世界状态层 | dongsheng123132/2origin | 持久对象层、状态追踪、语义事务 | ✅ 已发（2026-08-06，homepage 已互链） |
-| 2 | media-publish：一份文案 → 20+ 平台一键发布 | dongsheng123132/media-publish | 多平台发布、自媒体工具、宣发 | 📝 待写（最新发布，热度高） |
+| 2 | media-publish：一份文案 → 20+ 平台一键发布 | dongsheng123132/media-publish | 多平台发布、自媒体工具、宣发 | ✅ 已发（2026-08-06，homepage 已互链） |
 | 3 | Open365：隐私优先的 Windows 维护工具 | dongsheng123132/Open365 | Windows 清理、隐私、开源工具 | 📝 待写（NEW Jul 2026） |
 | 4 | Codex CLI 中文教程（蓝皮书）：保姆级上手 | dongsheng123132/codex-handbook-zh | Codex CLI、AI 编程教程 | 📝 待写（长尾 SEO 主力） |
 | 5 | Hermes Agent 中文教程：38 章 14 万字 | dongsheng123132/hermes-agent-zh | Hermes、Agent 教程、自动化 | 📝 待写 |
