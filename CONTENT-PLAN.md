@@ -19,6 +19,7 @@
 | 11 | PhoneBody：闲置 Mac 变竖屏手机义体 | dongsheng123132/phonebody | 远程写代码、macOS | 📝 待写 |
 | 12 | TeacherKit：AI 备课助手 | dongsheng123132/teacher-kit | 教育、备课、教师 | 📝 待写（可兼转案例库卡片） |
 | 13 | 三个 AI 技能上线 ClawHub 与 SkillHub | dongsheng123132/2origin（origin-writer / benxiang-memory / origin-office） | 技能发布、ClawHub、SkillHub、上下文工程 | ✅ 已发（2026-08-06，homepage 已互链） |
+| 15 | AI 为什么写不了长篇小说？——「上下文必炸」的真相 | dongsheng123132/2origin | AI写作、长篇小说、上下文工程、科普 | ✅ 已发（2026-08-06，homepage 已互链） |
 | 14 | 全球第一个「AI 状态回写正确性」榜单：ShadowBench-W | dongsheng123132/2origin（benchmark/shadowbench-w） | ShadowBench-W、W3 状态回写、持久对象层、榜单 | ✅ 已发（2026-08-06，homepage 已互链） |
 
 ## 写作体例（对齐现有 8 篇 + 本象文）
