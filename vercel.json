@@ -3,6 +3,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
+    { "source": "/", "has": [{ "type": "host", "value": "blog.hequbing.com" }], "destination": "/archive.html" },
     { "source": "/cases", "destination": "/cases.html" },
     { "source": "/case", "destination": "/case.html" },
     { "source": "/services", "destination": "/services.html" },
