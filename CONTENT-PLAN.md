@@ -21,6 +21,7 @@
 | 13 | 三个 AI 技能上线 ClawHub 与 SkillHub | dongsheng123132/2origin（origin-writer / benxiang-memory / origin-office） | 技能发布、ClawHub、SkillHub、上下文工程 | ✅ 已发（2026-08-06，homepage 已互链） |
 | 15 | AI 为什么写不了长篇小说？——「上下文必炸」的真相 | dongsheng123132/2origin | AI写作、长篇小说、上下文工程、科普 | ✅ 已发（2026-08-06，homepage 已互链） |
 | 14 | 全球第一个「AI 状态回写正确性」榜单：ShadowBench-W | dongsheng123132/2origin（benchmark/shadowbench-w） | ShadowBench-W、W3 状态回写、持久对象层、榜单 | ✅ 已发（2026-08-06，homepage 已互链） |
+| 16 | 白鼓挑战：AI 挑战人类最长小说纪录，状态全程可验证 | dongsheng123132/2origin | 白鼓挑战、最长小说、Venmurasu、可验证、状态回写 | ✅ 已发（2026-08-06，homepage 已互链） |
 
 ## 写作体例（对齐现有 8 篇 + 本象文）
 
