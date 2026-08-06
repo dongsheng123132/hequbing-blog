@@ -2,7 +2,7 @@
   {
     "id": 1,
     "slug": "hello-world",
-    "title": "贺去病hecare+的第一篇博客",
+    "title": "贺去病的第一篇博客",
     "date": "2025-10-01",
     "summary": "开篇，记录这个博客的目的与计划。",
     "tags": [
@@ -14,7 +14,7 @@
   {
     "id": 2,
     "slug": "about-hequbing",
-    "title": "关于我：贺去病hecare+",
+    "title": "关于我：贺去病",
     "date": "2025-10-01",
     "summary": "简单介绍我的背景与兴趣。",
     "tags": [

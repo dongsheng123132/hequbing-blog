@@ -1,45 +1,76 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>文章详情 | 贺去病hecare+的个人博客</title>
-    <link rel="stylesheet" href="/styles.css" />
-  </head>
-  <body>
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <header class="site-header">
-      <div class="container">
-        <div class="header-row">
-          <h1 class="site-title"><a href="/archive" class="brand">贺去病hecare+ · 博客</a></h1>
-          <nav class="nav">
-            <a href="/archive">首页</a>
-            <a href="/about">关于</a>
-            <a href="/archive">归档</a>
-            <a href="/tags">标签</a>
-            <a href="/ai-nav/">AI导航</a>
-          </nav>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>文章详情 | 贺去病 · 博客</title>
+  <meta name="description" content="贺去病博客文章详情页。" id="meta-desc" />
+  <meta property="og:title" content="贺去病 · 博客" id="og-title" />
+  <meta property="og:description" content="贺去病博客文章详情页。" id="og-desc" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://blog.hequbing.com/post" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json" id="schema-json"></script>
+</head>
+<body>
+  <div id="post-progress" class="post-progress"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-row">
+        <h1 class="site-title"><a href="/archive" class="brand">贺去病 · 博客</a></h1>
+        <nav class="nav">
+          <a href="/archive">归档</a>
+          <a href="/tags">标签</a>
+          <a href="/about">关于</a>
+          <a href="/ai-nav/">AI导航</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="post-breadcrumb">
+      <a href="/archive">← 返回归档</a>
+    </div>
+
+    <article id="post" class="post-detail">
+      <h2 id="post-title"></h2>
+      <div class="meta" id="post-meta"></div>
+      <div id="post-content" class="content"></div>
+
+      <div class="share-bar" id="share-bar">
+        <span class="share-label">分享：</span>
+        <button class="share-btn" data-share="weibo" title="分享到微博">微博</button>
+        <button class="share-btn" data-share="x" title="分享到 X">X</button>
+        <button class="share-btn" data-share="copy" title="复制链接">复制链接</button>
+      </div>
+    </article>
+
+    <nav class="post-nav" id="post-nav"></nav>
+
+    <section class="related-section" id="related-section">
+      <h2 class="section-title">相关文章</h2>
+      <div id="related-posts" class="related-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <span>© <span id="year"></span> 贺去病 · hequbing.com · 博客</span>
+        <div class="footer-links">
+          <a href="/archive">归档</a>
+          <a href="/tags">标签</a>
+          <a href="/about">关于</a>
+          <a href="/ai-nav/">AI导航</a>
         </div>
       </div>
-    </header>
+    </div>
+  </footer>
 
-    <main class="container">
-      <article id="post" class="post-detail">
-        <h2 id="post-title"></h2>
-        <div class="meta">
-          <span id="post-date"></span>
-        </div>
-        <div id="post-content" class="content"></div>
-      </article>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">© <span id="year"></span> 贺去病hecare+</div>
-    </footer>
-
-    <script src="/post.js"></script>
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-  </body>
-  </html>
+  <script src="/site.js"></script>
+  <script src="/post.js"></script>
+</body>
+</html>

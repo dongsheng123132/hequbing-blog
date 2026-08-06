@@ -107,16 +107,6 @@
     <button class="wechat-float-btn" onclick="toggleWechat()" title="微信咨询">💬</button>
   </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    function toggleWechat() {
-      document.getElementById('wechat-popup').classList.toggle('show');
-    }
-    document.addEventListener('click', function(e) {
-      if (!e.target.closest('.wechat-float')) {
-        document.getElementById('wechat-popup').classList.remove('show');
-      }
-    });
-  </script>
+  <script src="/site.js"></script>
 </body>
 </html>

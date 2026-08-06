@@ -206,17 +206,6 @@
   </div>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    function toggleWechat() {
-      document.getElementById('wechat-popup').classList.toggle('show');
-    }
-    document.addEventListener('click', function(e) {
-      if (!e.target.closest('.wechat-float')) {
-        document.getElementById('wechat-popup').classList.remove('show');
-      }
-    });
-
     // Load hot cases
     fetch('/api/cases?sort=hot&limit=6')
       .then(r => r.json())
@@ -242,29 +231,25 @@
         document.getElementById('hot-cases').innerHTML = '<p style="color:var(--muted)">案例加载中...</p>';
       });
 
-    // Load services preview
-    fetch('/api/cases?type=services')
-      .then(r => r.json())
-      .catch(() => null)
-      .then(() => {
-        const grid = document.getElementById('services-preview');
-        const services = [
-          { icon: '🔍', name: 'AI 需求诊断', price: '免费', desc: '30 分钟微信通话，帮你梳理 AI 方向' },
-          { icon: '📋', name: 'AI 方案设计', price: '¥3,000 起', desc: '完整技术方案 + 成本估算 + 实施路径' },
-          { icon: '🚀', name: '快速 POC', price: '¥8,000 起', desc: '1-2 周交付可演示 AI 原型' },
-          { icon: '🏗️', name: '落地陪跑', price: '¥20,000 起', desc: '从方案到上线全程陪跑' }
-        ];
-        services.forEach((s, i) => {
-          grid.innerHTML += `
-            <div class="service-card${i === 0 ? ' featured' : ''}">
-              <div class="service-icon">${s.icon}</div>
-              <div class="service-name">${s.name}</div>
-              <div class="service-price">${s.price}</div>
-              <div class="service-desc">${s.desc}</div>
-              <a href="/services" class="btn btn-outline btn-sm">了解详情</a>
-            </div>`;
-        });
-      });
+    // Render services preview
+    const grid = document.getElementById('services-preview');
+    const services = [
+      { icon: '🔍', name: 'AI 需求诊断', price: '免费', desc: '30 分钟微信通话，帮你梳理 AI 方向' },
+      { icon: '📋', name: 'AI 方案设计', price: '¥3,000 起', desc: '完整技术方案 + 成本估算 + 实施路径' },
+      { icon: '🚀', name: '快速 POC', price: '¥8,000 起', desc: '1-2 周交付可演示 AI 原型' },
+      { icon: '🏗️', name: '落地陪跑', price: '¥20,000 起', desc: '从方案到上线全程陪跑' }
+    ];
+    services.forEach((s, i) => {
+      grid.innerHTML += `
+        <div class="service-card${i === 0 ? ' featured' : ''}">
+          <div class="service-icon">${s.icon}</div>
+          <div class="service-name">${s.name}</div>
+          <div class="service-price">${s.price}</div>
+          <div class="service-desc">${s.desc}</div>
+          <a href="/services" class="btn btn-outline btn-sm">了解详情</a>
+        </div>`;
+    });
   </script>
+  <script src="/site.js"></script>
 </body>
 </html>

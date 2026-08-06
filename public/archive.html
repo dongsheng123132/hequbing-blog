@@ -3,20 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>归档 | 贺去病hecare+ · 博客</title>
-    <link rel="stylesheet" href="/styles.css" />
+    <title>文章归档 | 贺去病 · 博客</title>
+    <meta name="description" content="贺去病博客文章归档：AI 状态工程、可验证的 AI 创作、白鼓挑战、本象协议等实践记录，支持搜索与标签筛选。" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
     <header class="site-header">
       <div class="container">
         <div class="header-row">
-          <h1 class="site-title"><a href="/archive" class="brand">贺去病hecare+ · 博客</a></h1>
+          <h1 class="site-title"><a href="/archive" class="brand">贺去病 · 博客</a></h1>
           <nav class="nav">
-            <a href="/archive">首页</a>
-            <a href="/about">关于</a>
-            <a href="/archive">归档</a>
+            <a href="/archive" class="active">归档</a>
             <a href="/tags">标签</a>
+            <a href="/about">关于</a>
             <a href="/ai-nav/">AI导航</a>
           </nav>
         </div>
@@ -24,19 +24,41 @@
     </header>
 
     <main class="container">
-      <section class="post-detail">
-        <h2>文章归档</h2>
-        <div id="archive" class="archive-list"></div>
+      <section class="post-detail blog-home">
+        <div class="blog-home-head">
+          <h2>文章归档</h2>
+          <p class="hero-sub" id="archive-sub">加载中…</p>
+        </div>
+
+        <div class="filter-bar">
+          <input id="search" type="search" class="search" placeholder="搜索标题或摘要…" />
+        </div>
+        <div class="filter-bar">
+          <span class="filter-label">标签：</span>
+          <div id="tag-filters" class="filter-group"></div>
+        </div>
+
+        <div id="archive" class="archive-list">
+          <p class="loading-hint">加载中…</p>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container">© <span id="year"></span> 贺去病hecare+</div>
+      <div class="container">
+        <div class="footer-content">
+          <span>© <span id="year"></span> 贺去病 · hequbing.com · 博客</span>
+          <div class="footer-links">
+            <a href="/archive">归档</a>
+            <a href="/tags">标签</a>
+            <a href="/about">关于</a>
+            <a href="/ai-nav/">AI导航</a>
+          </div>
+        </div>
+      </div>
     </footer>
 
+    <script src="/site.js"></script>
     <script src="/archive.js"></script>
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
   </body>
-  </html>
+</html>
