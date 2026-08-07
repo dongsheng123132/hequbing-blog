@@ -156,4 +156,34 @@
   <url><loc>https://blog.hequbing.com/post?slug=ai-cant-write-long-novels</loc><lastmod>2026-08-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://blog.hequbing.com/post?slug=the-zero-slot</loc><lastmod>2026-08-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://blog.hequbing.com/post?slug=white-drum-challenge</loc><lastmod>2026-08-06</lastmod><priority>0.8</priority></url>
+  <url>
+    <loc>https://blog.hequbing.com/post?slug=codex-cli-chinese-tutorial</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://blog.hequbing.com/post?slug=open365-open-source</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://blog.hequbing.com/post?slug=u-claw-usb-offline-ai</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://blog.hequbing.com/post?slug=uking-usb-ai-installer</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://blog.hequbing.com/post?slug=marine-docx-structure</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

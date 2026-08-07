@@ -221,5 +221,80 @@
       "ShadowBench-W"
     ],
     "content": "<p>人类写过的最长的长篇小说，叫 Venmurasu——泰米尔语，意为「白鼓」。26 卷，约 22,400 页，由 B. Jeyamohan 一人从 2014 年写到 2020 年，六年半。写到第 20 卷还记得第 1 卷的人物，这本身就是人类耐力的纪念碑。</p>\n\n<h3>AI 的挑战：比人类多一道题</h3>\n<p>现在，AI 要向这个纪录发起挑战。但我们给自己加了一个人类作者不需要面对的难度：<strong>每一章的世界状态，都必须可验证</strong>。</p>\n<p>写到第 100 万字时，第 3 章埋的伏笔要记得收，第 9 章受的伤要记得疼，谁在什么时候知道了什么——全都查得出来。不是靠模型记性好，是靠门禁把关。</p>\n\n<h3>为什么难：AI 写到 5 万字就穿帮</h3>\n<p>人类写长篇小说，唯一的天花板是记忆。AI 写长篇小说，过去连这个天花板都没有——<strong>写到 5 万字就穿帮</strong>：人物变脸、物品易主、伏笔失踪。</p>\n<p>我们的解法，是把「世界状态」从模型的脑子里搬出来，变成持久化的对象：</p>\n<ul>\n<li>每次改动 = 一个语义事务，<strong>五道门禁全过才落盘</strong>，失败零写入</li>\n<li>五道门禁：正文非空 / 结构引用 / 禁区 / 伏笔状态机 / 正文对照</li>\n<li>每章正文 + 世界状态 + git commit 全部公开，<code>git log</code> 就是证据链</li>\n</ul>\n<blockquote>这不是「生成 100 万字」——生成器一天能吐 100 万字，但第 5 万字就穿帮。这是「AI 写出 100 万字还不穿帮」，是 AI 写作的珠穆朗玛峰。</blockquote>\n\n<h3>全球最难：状态回写基准 ShadowBench-W</h3>\n<p>长篇小说的一致性，本质是一个可测的问题：<strong>模型能不能把世界状态准确地写回去？</strong></p>\n<p>ShadowBench-W 是全球首个「状态回写正确性」基准（W3 考题）。33 轮实测：我们的方法状态回写准确率 <strong>98.9%</strong>，裸模型/RAG 仅 75.0%。考题是我们定义的——标准制定权在我们手里。</p>\n\n<h3>挑战规则：挑战本身也要可验证</h3>\n<ul>\n<li>AI 每写一章 = 提交一个语义事务（正文 + 状态变更）</li>\n<li>五道门禁全过才落盘：正文非空 / 结构引用 / 禁区 / 伏笔状态机 / 正文对照</li>\n<li>违规零写入，理由返回重写</li>\n<li>每章正文 + 世界状态 + git commit 全部公开</li>\n<li>任何人都能 clone 验证：<code>node adapters/story/cli.mjs state &lt;pkg&gt;</code></li>\n</ul>\n\n<h3>现在的进度与里程碑</h3>\n<table>\n<tr><th>作品</th><th>进度</th><th>位置</th></tr>\n<tr><td>《月落渡口》（悬疑志怪）</td><td>2 章 4,347 字</td><td>novels/</td></tr>\n<tr><td>《规则怪谈·无限层》</td><td>4 章 11,671 字</td><td>adapters/story/rk/</td></tr>\n</table>\n<p>两部并行连载。drift-rate（模型记错前值率）当前 <strong>8.3%</strong>——可观测、逐章下降、目标归零。</p>\n<p><strong>里程碑</strong>：10 万字 → 30 万字 → 100 万字 → 破 22,400 页纪录。每个里程碑都是一次公开实验 + 一次传播事件。人类用了 6.5 年，AI 会用多久？不知道。但我们公开每一章：正文、世界状态、伏笔图谱、时间线，全部可 clone 可验证。</p>\n\n<h3>加入这场挑战</h3>\n<ul>\n<li>追连载：本博客持续更新双线进度与里程碑</li>\n<li>clone 验证：github.com/dongsheng123132/2origin，看每章事务与状态落盘</li>\n<li>加入：抓虫、提规则、围观纪录诞生</li>\n</ul>\n\n<h3>诚实边界</h3>\n<p>最后把话说清楚——这是项目品牌，也是对读者的尊重：</p>\n<ul>\n<li>目标尚未达成。<strong>这是挑战，不是成绩单</strong>。两部合计约 1.6 万字，里程碑在前方</li>\n<li>实测基于单一模型（deepseek-v4-flash）、自造夹具</li>\n<li>「98.9% vs 75%」是自建基准 ShadowBench-W 的口径，非第三方评测</li>\n<li>Venmurasu 事实已核实：26 卷 / 约 22,400 页 / 2014–2020（Wikipedia，2026-08-06）</li>\n</ul>"
+  },
+  {
+    "id": 17,
+    "slug": "codex-cli-chinese-tutorial",
+    "title": "Codex CLI 中文教程：保姆级上手指南",
+    "date": "2026-08-07",
+    "summary": "OpenAI Codex CLI 保姆级中文教程：安装、配置、实战。国内可用、不用登录 OpenAI，从入门到精通 Anthropic 官方 CLI 编程助手。蓝皮书。",
+    "tags": [
+      "Codex CLI",
+      "中文教程",
+      "AI编程",
+      "Codex",
+      "教程"
+    ],
+    "content": "<p>OpenAI 的 Codex CLI，是 2026 年最值得中文开发者花一个晚上学会的编程助手之一。</p>\n<p>但有个问题：网上的教程要么全英文，要么默认你能访问 OpenAI、能登录账号、能翻墙。</p>\n<p>我把 <strong>Codex CLI 中文教程（蓝皮书）</strong>整理成了开源手册，核心卖点一句话：<strong>国内可用、不用登录 OpenAI</strong>，保姆级从安装到实战。</p>\n\n<h3>为什么是 Codex CLI</h3>\n<ul>\n  <li>在终端里直接干活，不切换窗口</li>\n  <li>读代码、改代码、跑测试，一条命令链</li>\n  <li>配合 <code>codex exec</code>，能进入自动化脚本</li>\n</ul>\n<p>它是 OpenAI 官方 CLI 编程助手。命令行的克制，恰恰是它适合深度工作的原因——没有 IDE 的噪音，只有「需求 → 改 → 验」的闭环。</p>\n\n<h3>这本教程解决什么问题</h3>\n<blockquote><p>大多数 Codex 教程默认你「翻得出去、登得上」——而这本默认你「国内、裸机、从零」。</p></blockquote>\n<ul>\n  <li><strong>安装</strong>：保姆级步骤，代理、镜像、环境变量一次说清</li>\n  <li><strong>配置</strong>：不用登录 OpenAI 的接入方式，国内直连可用</li>\n  <li><strong>实战</strong>：真实项目场景，从「让它改个 bug」到「让它起个服务」</li>\n  <li><strong>进阶</strong>：模型切换、上下文管理、自动化的正确姿势</li>\n</ul>\n\n<h3>为什么值得信</h3>\n<p>这本手册不是翻译文档，而是按国内真实环境踩过一遍后的笔记。你遇到的大概率是同一个坑，手册里就有解法。</p>\n<p>开源在 GitHub，随时可以提 PR 补充你踩过的坑——<strong>教程会过时，但社区维护的教程会一直活着</strong>。</p>\n\n<h3>上手</h3>\n<p>GitHub：<a href=\"https://github.com/dongsheng123132/codex-handbook-zh\" target=\"_blank\" rel=\"noopener\">github.com/dongsheng123132/codex-handbook-zh</a></p>\n<p>看完目录，照着第一章装一遍，一个晚上就能跑起来。</p>\n<p>AI 编程的门槛，不该是「你会不会翻墙」。</p>\n<blockquote><p>不想折腾安装配置？<strong><a href=\"https://u-king.org\" target=\"_blank\" rel=\"noopener\">U-King</a> 对话式一键装好 Codex / Claude Code</strong>，自动配好国内直连驱动，装完即用：<a href=\"https://u-claw.org.cn/download/U-King-Setup.exe\" target=\"_blank\" rel=\"noopener\">免费下载 U-King</a></p></blockquote>"
+  },
+  {
+    "id": 18,
+    "slug": "open365-open-source",
+    "title": "Open365：不联网上传的开源 Windows 电脑清理工具",
+    "date": "2026-08-07",
+    "summary": "开源、轻量、不联网上传的 Windows 电脑维护工具，纯 PowerShell 引擎 + C# 托盘 GUI，零依赖。看得见每一步、装得放心、随时能卸。",
+    "tags": [
+      "Open365",
+      "Windows",
+      "开源",
+      "电脑维护",
+      "隐私"
+    ],
+    "content": "<p>市面上的「安全卫士 / 电脑管家」，你受够了吗？</p>\n<p>功能确实实用，但广告弹窗、捆绑安装、后台常驻、行为不透明——它帮你清理电脑的同时，也在不停地往你电脑里塞东西。</p>\n<p>今天开源一个完全不同的选择：<strong>Open365</strong>，一个无广告、无弹窗、无捆绑、不联网上传的开源 Windows 电脑维护工具。源码就是几个 PowerShell 脚本，记事本就能看。</p>\n\n<h3>它是什么</h3>\n<p>Open365 用开源、透明的方式，把最常用的电脑维护功能重做一遍：</p>\n<ul>\n  <li><strong>电脑清理</strong>：先扫描出可释放空间，逐项列出明细，<strong>先报告再删、绝不静默删</strong>（实测单次扫描可报告 13GB+ 可释放空间）</li>\n  <li><strong>开机加速</strong>：管理启动项，不碰你正在用的东西</li>\n  <li><strong>网络修复</strong>：基于 Windows 自带 <code>netsh</code> / <code>ipconfig</code> 能力</li>\n  <li><strong>安全护盾</strong>、<strong>软件卸载</strong>、<strong>守夜模式</strong></li>\n</ul>\n<figure><img src=\"/images/open365-demo.png\" alt=\"Open365 扫描出 13.10GB 可释放空间，逐项明细，先报告再删\" loading=\"lazy\"><figcaption>实测扫描：先报告可释放 13.10GB，逐项明细，绝不静默删</figcaption></figure>\n<p>纯 PowerShell 引擎 + C# 托盘 GUI，<strong>零依赖</strong>：没有自研驱动、没有后台服务、没有联网上传。</p>\n\n<h3>每个功能都看得见</h3>\n<figure><img src=\"/images/o365-clean.png\" alt=\"Open365 电脑清理功能界面\" loading=\"lazy\"><figcaption>电脑清理：扫描、明细、清理，全程可见</figcaption></figure>\n<figure><img src=\"/images/o365-startup.png\" alt=\"Open365 开机加速功能界面\" loading=\"lazy\"><figcaption>开机加速：管理启动项，不碰你正在用的东西</figcaption></figure>\n<figure><img src=\"/images/o365-net.png\" alt=\"Open365 网络修复功能界面\" loading=\"lazy\"><figcaption>网络修复：基于 Windows 自带 netsh/ipconfig 能力</figcaption></figure>\n<figure><img src=\"/images/o365-security.png\" alt=\"Open365 安全护盾功能界面\" loading=\"lazy\"><figcaption>安全护盾：看得见的防护</figcaption></figure>\n<figure><img src=\"/images/o365-uninstall.png\" alt=\"Open365 软件卸载功能界面\" loading=\"lazy\"><figcaption>软件卸载：干净利落，随时能卸</figcaption></figure>\n\n<h3>为什么值得信它</h3>\n<blockquote><p>整份程序里唯一的对外请求，是你主动点「检查更新」时发出的那一次。除此之外，你的数据一步都不离开这台电脑。</p></blockquote>\n<p>「看得见每一步」不是口号：所有操作都基于 Windows 自带 API（<code>netsh</code> / <code>Get-*</code> cmdlet / 注册表），源码全公开。想确认它有没有偷偷上传，把脚本读一遍就行——用记事本。</p>\n\n<h3>开源意味着什么</h3>\n<ul>\n  <li><strong>随时能卸</strong>：没有后台服务常驻，卸载干净利落</li>\n  <li><strong>随时能改</strong>：看不惯某个行为，改脚本即可</li>\n  <li><strong>随时能审</strong>：每个动作背后就是几行 PowerShell，可审计</li>\n</ul>\n<p>对比传统「安全卫士」全家桶，Open365 把选择权还给了用户：广告、弹窗、捆绑、上传——这四个字，一个都不要。</p>\n\n<h3>适用人群</h3>\n<ul>\n  <li>被 360 系弹窗烦到的普通 Windows 用户</li>\n  <li>对「软件上传数据」敏感的隐私用户</li>\n  <li>想要一个开源、可审计的电脑维护方案的极客</li>\n</ul>\n\n<h3>上手</h3>\n<p>GitHub：<a href=\"https://github.com/dongsheng123132/Open365\" target=\"_blank\" rel=\"noopener\">github.com/dongsheng123132/Open365</a>（Apache-2.0，纯 PowerShell，记事本可读）</p>\n<p>下载 Open365.exe 即用；想跑测试，一条命令 <code>powershell -ExecutionPolicy Bypass -File tests\run-all.ps1</code>。</p>\n<p>电脑维护本该透明。Open365 想证明这件事：<strong>维护电脑，不一定要把电脑交给别人。</strong></p>\n<blockquote><p>还想让电脑更聪明？<strong><a href=\"https://u-king.org\" target=\"_blank\" rel=\"noopener\">U-King</a> 一键装好 Codex / Claude Code / Hermes</strong>，国内直连，免费下载：<a href=\"https://u-claw.org.cn/download/U-King-Setup.exe\" target=\"_blank\" rel=\"noopener\">立即下载</a></p></blockquote>"
+  },
+  {
+    "id": 19,
+    "slug": "u-claw-usb-offline-ai",
+    "title": "U-Claw 虾盘：离线装好全部 AI 的 U 盘",
+    "date": "2026-08-07",
+    "summary": "U-Claw 虾盘，一键装好 Claude Code / Codex / OpenClaw 的离线 AI 装机 U 盘，无需联网即插即用。1.7k★ 开源，新品 U-King 装机管家详见 u-king.org。",
+    "tags": [
+      "U-Claw",
+      "虾盘",
+      "离线AI",
+      "U盘",
+      "装机"
+    ],
+    "content": "<p>你见过「插上 U 盘，AI 就装好了」吗？</p>\n<p>大多数人的 AI 落地卡在第一步：装环境。Python、Node、代理、登录、Key——每一步都可能劝退一个想用 AI 的人。</p>\n<p><strong>U-Claw 虾盘</strong>就是为这件事做的：一个离线 AI 装机 U 盘，一键装好 <strong>Claude Code / Codex / OpenClaw</strong>，无需联网，即插即用。</p>\n\n<h3>它解决什么问题</h3>\n<ul>\n  <li><strong>装不动</strong>：全套 AI 工具链配置复杂，虾盘一键完成</li>\n  <li><strong>没网络</strong>：离线环境（内网、机房、工地）也能装</li>\n  <li><strong>不会配</strong>：Key、驱动、模型服务，虾盘内置配置</li>\n</ul>\n<p>核心场景是「AI 装机」：给你一台刚装的 Windows，插上虾盘，几分钟后 Claude Code、Codex、OpenClaw 全部就绪。</p>\n\n<h3>生态配套</h3>\n<ul>\n  <li><strong>U-King AI 装机管家</strong>（u-king.org）：新一代装机 + 远程支持 + 定制开发</li>\n  <li><strong>虾盘云</strong>：内置模型服务，装机即用，不用自己折腾 Key</li>\n  <li><strong>ClawX 便携版</strong>：解压即用的 OpenClaw 图形界面，拷到 U 盘即可跑</li>\n</ul>\n\n<h3>数字说话</h3>\n<p>GitHub 已获 <strong>1.7k+ stars</strong>（2026-08-07 核），是这套生态里最被认可的仓库之一。</p>\n\n<h3>适用人群</h3>\n<ul>\n  <li>想用 AI 但不想折腾环境的小白</li>\n  <li>离线 / 内网环境工作者</li>\n  <li>给客户、给同事装机的人</li>\n  <li>U 盘便携党</li>\n</ul>\n\n<h3>上手</h3>\n<p>GitHub：<a href=\"https://github.com/dongsheng123132/u-claw\" target=\"_blank\" rel=\"noopener\">github.com/dongsheng123132/u-claw</a></p>\n<p>看仓库 README 的装机流程，按步骤把 U 盘做好即可。</p>\n<blockquote><p>AI 的最后一公里，不是模型，是装机。虾盘把这一公里修成了「插上就用」。</p></blockquote>\n<p>不想做 U 盘？<strong>U-King 把同一件事做成了免费软件</strong>：<a href=\"https://u-king.org\" target=\"_blank\" rel=\"noopener\">u-king.org</a> 对话式一键装好 Codex / Claude Code / OpenClaw，国内直连：<a href=\"https://u-claw.org.cn/download/U-King-Setup.exe\" target=\"_blank\" rel=\"noopener\">立即下载</a></p>"
+  },
+  {
+    "id": 20,
+    "slug": "uking-usb-ai-installer",
+    "title": "不会敲代码也想用上 Claude、Codex？U-King 一键装好",
+    "date": "2026-08-07",
+    "summary": "一个 U 盘，双击一下，Claude Code、Codex、AI 作图、AI 视频全给你配好。不翻墙、不用外币卡、不敲一行命令——普通人的 AI，5 分钟就能开工。",
+    "tags": [
+      "U-King",
+      "AI装机",
+      "Claude Code",
+      "Codex",
+      "AI工具"
+    ],
+    "content": "<hr />\n<h2>先说个扎心的事实</h2>\n<p>这两年 AI 火成这样，你有没有过这种经历：</p>\n<ul>\n<li>看大 V 演示 Claude、Codex 写代码、做设计，心动得不行；</li>\n<li>一到自己电脑上，第一步就卡死——<strong>「请先安装 Node.js」「配置环境变量 PATH」「你的网络无法访问」</strong>；</li>\n<li>折腾一晚上，翻墙、注册、填一堆看不懂的 Key 和地址，最后满屏红色英文报错，直接放弃。</li>\n</ul>\n<p><strong>工具是真的强，但「把它装好、跑起来」这一关，把 90% 的普通人挡在了门外。</strong></p>\n<p>我们做 <strong><a href=\"https://u-king.org\" target=\"_blank\" rel=\"noopener\">U-King（AI 装机管家）</a></strong>，就是为了干掉这道坎。</p>\n<hr />\n<h2>U-King 是什么？一句话：插上 U 盘，双击就能用的「AI 全家桶」</h2>\n<p>U-King 是一个 <strong>AI 装机管家</strong>。你可以把它装在电脑上，也可以直接放进 U 盘随身带。</p>\n<p><strong>它不给你讲教程，而是直接替你把整套 AI 环境跑通。</strong></p>\n<p>打开它，一个对话式的向导会像聊天一样带着你走：</p>\n<ol>\n<li><strong>先给你的电脑做个体检</strong> —— 缺 Node？它自动装一个便携版，<strong>不动你的系统、不留垃圾</strong>；</li>\n<li><strong>自动安装 4 大 AI 工具</strong> —— Claude Code、Codex、OpenClaw、Hermes，一次装好；</li>\n<li><strong>自动配好国内能直连的模型驱动</strong> —— 不用翻墙、不用外币信用卡；</li>\n<li><strong>装完真的调一次模型</strong>，AI 回你一句话了，才算安装成功。</li>\n</ol>\n<p>全程中文、每一步都有进度条和日志，<strong>看得见、不玄乎</strong>。</p>\n<blockquote>\n<p>划重点：万一某一步装失败了也别慌。U-King 会把报错日志交给 AI 自动诊断，给出修复命令再重试——<strong>危险命令一律拦截，要你亲自确认才执行</strong>。</p>\n</blockquote>\n<hr />\n<h2>装好之后，你能拿它干这些事</h2>\n<h3>🟡 一键装好，还能一键配好</h3>\n<p>一个按钮，把驱动一次性配进<strong>所有</strong>已装的工具。想换模型？DeepSeek、智谱 GLM、Kimi 随便切，<strong>改坏了一键还原官方配置</strong>，怎么折腾都不怕。余额和每天用了多少，管家里看得清清楚楚。</p>\n<h3>🟡 AI 作图：一句话，出图</h3>\n<p>对话框里描述你想要的画面，直接出图。支持 gpt-image、即梦 Seedream、通义万相等一线模型，历史自动保存，想改接着改。海报、头像、公众号配图、电商主图，张口就来。</p>\n<h3>🟡 AI 视频：文字 / 图片，变成短片</h3>\n<p>提交任务后<strong>自动轮询、自动下载到本地</strong>，不用你盯着。字节 Seedance 三档可选，5~15 秒、最高 1080p。文生视频、图生视频，做短视频、漫剧素材都行。配上 AI 作图，一条内容流水线就搭起来了。</p>\n<h3>🟡 本地大模型：断网也能用，数据不出门</h3>\n<p>先给你的电脑做硬件体检，直接告诉你「这台机器能带得动哪一档」，然后一键装好 Ollama、拉模型就能跑。<strong>隐私敏感的活交给本地模型，数据不上传</strong>；没网、出差、内网环境，照样有 AI 可用。</p>\n<hr />\n<h2>和「自己折腾」比，到底省多少事？</h2>\n<table>\n<thead>\n<tr>\n<th></th>\n<th>自己折腾</th>\n<th>用 U-King</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>装环境</td>\n<td>查教程、装 Node、配 PATH，几小时还常失败</td>\n<td>双击向导，自动搞定</td>\n</tr>\n<tr>\n<td>上网</td>\n<td>翻墙、外币卡、海外手机号</td>\n<td>国内直连，都不用</td>\n</tr>\n<tr>\n<td>配模型</td>\n<td>手填地址 / Key / 参数，错一个就崩</td>\n<td>一键配好，实测连通</td>\n</tr>\n<tr>\n<td>换电脑</td>\n<td>一切从头再来</td>\n<td>一键备份到 U 盘，换机一键还原</td>\n</tr>\n<tr>\n<td>上手时间</td>\n<td>一晚上起步</td>\n<td><strong>5 分钟开工</strong></td>\n</tr>\n</tbody>\n</table>\n<hr />\n<h2>多少钱？管家免费，用多少算多少</h2>\n<ul>\n<li><strong>U-King 管家本体：永久免费</strong>，安装包仅 <strong>4.4 MB</strong>；</li>\n<li>想用内置的省心驱动：<strong>¥20 起充，¥1 = 50 万 token，余额永久有效</strong>；</li>\n<li><strong>支付宝 / 微信扫码</strong>充值，秒级到账，无需注册；</li>\n<li>已经有自己的 API Key？<strong>直接填</strong>，照样享受一键装机、自动修复和工作台。</li>\n</ul>\n<p>不订阅、不套路，先把工具跑起来，用多少模型能力就花多少钱。</p>\n<hr />\n<h2>三步，现在就开始</h2>\n<ol>\n<li><strong>下载 U-King</strong> —— Windows 4.4 MB 安装包，或放进 U 盘的绿色版；Mac 一条命令搞定；</li>\n<li><strong>双击运行</strong>，跟着对话式向导走一遍；</li>\n<li><strong>选个驱动</strong>，AI 回话，开工！</li>\n</ol>\n<blockquote>\n<p>Windows 10 / 11 · macOS 12+ · 无需管理员权限</p>\n</blockquote>\n<hr />\n<h2>立即体验</h2>\n<p>🔗 <strong><a href=\"https://u-king.org\" target=\"_blank\" rel=\"noopener\">U-King 官网</a></strong>｜<strong><a href=\"https://u-claw.org.cn/download/U-King-Setup.exe\" target=\"_blank\" rel=\"noopener\">Windows 免费下载</a></strong>｜Mac 版见官网</p>\n<p>把这篇转给那个「一直想玩 AI、却卡在装不上」的朋友——<strong>这次，他真的能用起来了。</strong></p>\n<hr />"
+  },
+  {
+    "id": 22,
+    "slug": "marine-docx-structure",
+    "date": "2026-08-07",
+    "title": "政务红头文件 16 表零丢失：docx 结构化还原实战",
+    "summary": "政务红头文件 6 章 77 条 16 表 213 行，docx 原生结构直读零丢失。pandoc 全丢、markitdown 丢合并单元格——行业都在猜扫描件，我们直接读原生结构。",
+    "tags": [
+      "docx",
+      "文档结构化",
+      "AI",
+      "政务",
+      "本象协议"
+    ],
+    "content": "<figure><img src=\"/images/benxiang-keyvisual.jpg\" alt=\"本象协议：AI 长跑不丢剑——保存本象，按需投影\" loading=\"lazy\"><figcaption>本象协议 · 一源万影：保存本象，按需投影</figcaption></figure>\n<p>一份典型的中文政务红头文件（2019 年印发）需要交给 AI 使用。这份 docx 有 6 章 77 条、16 个附表，表格里塞满了合并单元格、□勾选框、跨页表——是政务文档的典型样貌。</p>\n\n<h3>问题：行业都在「把纸猜成字」</h3>\n<p>直接喂给 AI 是浪费。行业主流做法是「把纸猜成字」（OCR / 版面分析），但这是原生电子文档，信息本来无损——pandoc 直转实测 16 个表格全部丢失，微软 markitdown 不还原合并单元格。扫描件赛道的 SOTA（OmniDocBench 端到端）表格 TEDS 也只有 0.78。</p>\n\n<h3>做法：直读原生结构，零 OCR</h3>\n<p>用本象协议 office 方言直读 docx 的 OOXML 结构，零 OCR：</p>\n<ul>\n  <li>6 章 → <code>##</code> 标题，77 条 → <code>###</code> 标题，AI 可以精确锚定「第五十条」</li>\n  <li>16 个表格全部还原为 Markdown 管道表（213 表行），合并单元格按 gridSpan / vMerge 展开</li>\n  <li>□勾选框、表号、审核编号、备注说明全部保留</li>\n  <li>零依赖 Node 实现，一条命令：<code>node adapters/office/import.mjs 文件.docx 输出.md</code></li>\n</ul>\n\n<h3>结果：213 行表格零丢失</h3>\n<p>62KB 结构化 Markdown，表格 213 行零丢失。对照 pandoc（0 表）和 markitdown（合并丢失），在「原生文档结构还原」这条赛道上做到结构 100% 保真——因为信息源无损，根本不需要猜。</p>\n\n<h3>意义：原生电子文档是无人区</h3>\n<p>行业把火力全放在 PDF 扫描件上，原生电子文档反而没人认真做。本象协议把「docx → 可验证的状态对象」定义为一条新赛道：转换结果可回滚、可追溯、条款可锚定——这是给 AI 的持久记忆层，不是一次性导出。</p>\n\n<p>GitHub：<a href=\"https://github.com/dongsheng123132/2origin\" target=\"_blank\" rel=\"noopener\">本象协议 2origin</a>（Apache-2.0，零依赖）</p>"
   }
 ]
