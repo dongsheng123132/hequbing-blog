@@ -2,3 +2,6 @@ node_modules/
 要上传的素材/
 .DS_Store
 .env
+debug-layout.js
+preview-screenshots/
+_local-preview.html

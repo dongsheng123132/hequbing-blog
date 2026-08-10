@@ -3,259 +3,333 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>贺去病 AI 咨询 | AI 落地实战派，帮中小企业用好 AI</title>
+  <title>贺去病 · AI 落地实战派</title>
   <meta name="description" content="贺去病，独立 AI 产品开发者与企业 AI 落地顾问。公开 GitHub 96+ 项目、1.8k+ stars，持续构建 U-Claw、Open365、OpenCodex、AI 中文教程等产品。" />
   <meta name="keywords" content="AI咨询,企业AI落地,AI解决方案,大模型,智能客服,AI自动化,贺去病" />
-  <meta property="og:title" content="贺去病 AI 咨询 | AI 落地实战派" />
-  <meta property="og:description" content="AI 落地实战派。Public GitHub: 96+ projects, 1.8k+ stars. Building practical AI tools for China-first teams and global makers." />
+  <meta property="og:title" content="贺去病 · AI 落地实战派" />
+  <meta property="og:description" content="AI 落地实战派。帮中小企业用好 AI，不讲概念只看效果。Public GitHub: 96+ projects, 1.8k+ stars." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.hequbing.com" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <header class="site-header">
+
+  <!-- ========== NAV ========== -->
+  <header class="nav-bar">
     <div class="container">
-      <div class="header-row">
-        <h1 class="site-title"><a href="/" class="brand">贺去病 · AI 咨询</a></h1>
-        <nav class="nav">
-          <a href="/" class="active">首页</a>
-          <a href="/cases">案例库</a>
-          <a href="/services">服务</a>
-          <a href="/about">关于</a>
-          <a href="https://blog.hequbing.com/archive">博客</a>
-        </nav>
-      </div>
+      <a href="/" class="nav-brand" aria-label="贺去病 首页">贺去病</a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="/cases">案例</a>
+        <a href="/services">服务</a>
+        <a href="/about">关于</a>
+        <a href="https://blog.hequbing.com/archive" target="_blank" rel="noopener">博客</a>
+      </nav>
     </div>
   </header>
 
-  <main class="container">
-    <!-- Hero -->
-    <section class="hero">
-      <h2>AI 落地实战派</h2>
-      <p class="hero-sub">帮中小企业用好 AI，不讲概念只看效果</p>
-      <div class="hero-cta">
-        <a href="/cases" class="btn btn-primary">浏览 AI 案例库 →</a>
-        <a href="/services" class="btn btn-outline">了解服务方案</a>
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">AI 落地实战派</p>
+      <h1 class="hero-title">把 AI<br>真正用起来<span class="accent-dot">.</span></h1>
+      <p class="hero-subtitle">中小企业 AI 落地顾问。96+ 公开项目，1.8k+ stars。不讲概念，只看效果。</p>
+      <div class="hero-actions">
+        <a href="/cases" class="btn btn-primary">浏览案例库</a>
+        <a href="/services" class="link-arrow">了解服务方案 →</a>
       </div>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="num">96+</div>
-          <div class="label">公开 GitHub 项目</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">1.8k+</div>
-          <div class="label">GitHub Stars</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">50+</div>
-          <div class="label">AI 项目交付</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Hot Cases -->
-    <h2 class="section-title">热门 AI 落地案例</h2>
-    <div id="hot-cases" class="cases-grid"></div>
-    <div style="text-align: center; margin-top: 24px;">
-      <a href="/cases" class="btn btn-outline">查看全部案例 →</a>
     </div>
+  </section>
 
-    <!-- Services Preview -->
-    <h2 class="section-title">服务方案</h2>
-    <div id="services-preview" class="services-grid"></div>
-
-    <!-- About / Trust -->
-    <h2 class="section-title">为什么选择我</h2>
-    <div class="about-section">
-      <div class="about-text">
-        <h3>实战出真知</h3>
-        <p>我是贺去病，独立 AI 产品开发者。最近持续在做 U-Claw 虾盘、Open365、OpenCodex、AI 中文教程矩阵和 AI 科研工具，把 AI 工具从 demo 做到真实可用。</p>
-        <p>不同于大厂的高价咨询，我提供"轻咨询 + 快速 POC"的模式，让中小企业老板能以最低成本验证 AI 价值。I build practical AI systems, not slide decks.</p>
-        <a href="/services" class="btn btn-primary btn-sm" style="margin-top: 12px;">了解更多 →</a>
-      </div>
-      <div class="about-highlights">
-        <div class="highlight-item">
-          <div class="highlight-icon">🛠️</div>
-          <div class="highlight-text">
-            <div class="hl-title">全栈交付能力</div>
-            <div class="hl-desc">从需求分析到系统上线，一人搞定</div>
-          </div>
+  <!-- ========== STATS ========== -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-num">96<span class="stat-plus">+</span></div>
+          <div class="stat-label">公开 GitHub 项目</div>
         </div>
-        <div class="highlight-item">
-          <div class="highlight-icon">⚡</div>
-          <div class="highlight-text">
-            <div class="hl-title">快速出 POC</div>
-            <div class="hl-desc">1-2 周交付可演示原型，降低试错成本</div>
-          </div>
+        <div class="stat">
+          <div class="stat-num">1.8k<span class="stat-plus">+</span></div>
+          <div class="stat-label">GitHub Stars</div>
         </div>
-        <div class="highlight-item">
-          <div class="highlight-icon">💰</div>
-          <div class="highlight-text">
-            <div class="hl-title">性价比高</div>
-            <div class="hl-desc">个人服务，无团队溢价，¥3000 起</div>
-          </div>
-        </div>
-        <div class="highlight-item">
-          <div class="highlight-icon">📊</div>
-          <div class="highlight-text">
-            <div class="hl-title">数据说话</div>
-            <div class="hl-desc">每个方案都有明确的 ROI 预测</div>
-          </div>
+        <div class="stat">
+          <div class="stat-num">50<span class="stat-plus">+</span></div>
+          <div class="stat-label">已交付项目</div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Latest Builds -->
-    <h2 class="section-title">最新动态 / Latest Builds</h2>
-    <section class="latest-section">
-      <div class="latest-intro">
-        <span class="eyebrow">Updated from public GitHub activity · August 2026</span>
-        <h3>从 AI 装机、开源工具到中文教程，我在持续把 AI 落地经验产品化。</h3>
-        <p>Below are recent public builds and experiments. They show the kind of hands-on work I bring into consulting: shipping tools, packaging workflows, documenting repeatable playbooks, and testing what actually works.</p>
+  <!-- ========== SERVICES ========== -->
+  <section class="services">
+    <div class="container">
+      <p class="eyebrow">服务方案</p>
+      <h2 class="section-title">从诊断到落地，按阶段选择。</h2>
+      <p class="section-subtitle">轻咨询 + 快速 POC，让中小企业用最低成本验证 AI 价值。</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-name">AI 需求诊断</div>
+          <div class="service-price">免费</div>
+          <div class="service-desc">30 分钟微信通话，梳理 AI 落地方向。</div>
+        </div>
+        <div class="service-card">
+          <div class="service-name">AI 方案设计</div>
+          <div class="service-price">¥3,000<span class="service-price-unit">起</span></div>
+          <div class="service-desc">完整技术方案、成本估算与实施路径。</div>
+        </div>
+        <div class="service-card">
+          <div class="service-name">快速 POC</div>
+          <div class="service-price">¥8,000<span class="service-price-unit">起</span></div>
+          <div class="service-desc">1–2 周交付可演示的 AI 原型。</div>
+        </div>
+        <div class="service-card">
+          <div class="service-name">落地陪跑</div>
+          <div class="service-price">¥20,000<span class="service-price-unit">起</span></div>
+          <div class="service-desc">从方案到上线，全程陪跑交付。</div>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== LATEST BUILDS ========== -->
+  <section class="latest">
+    <div class="container">
+      <p class="eyebrow">Latest Builds · 2026</p>
+      <h2 class="section-title">最近在做的事。</h2>
+      <p class="section-subtitle">从 AI 装机、开源工具到中文教程，我持续把 AI 落地经验产品化。</p>
       <div class="latest-grid">
         <a class="latest-card featured" href="https://blog.hequbing.com/post?slug=long-term-ai-computer-challenge" target="_blank" rel="noopener">
           <div class="latest-kicker">Open Challenge · Aug 2026</div>
-          <h4>长程 AI 计算机 · 正式接榜</h4>
-          <p>Model = CPU，State = Memory，Harness = OS。传统 AI 做不好、做不完、做着做着会失忆的长期任务，欢迎提交。代码、实验、失败和撤回全部公开。</p>
-          <span>阅读接榜令 →</span>
+          <h3 class="latest-title">长程 AI 计算机 · 正式接榜</h3>
+          <p class="latest-desc">Model = CPU, State = Memory, Harness = OS。传统 AI 做不好、做不完、做着做着会失忆的长期任务，欢迎提交。代码、实验、失败和撤回全部公开。</p>
+          <span class="latest-cta">阅读接榜令 →</span>
         </a>
         <a class="latest-card featured" href="https://blog.hequbing.com/post?slug=white-drum-challenge" target="_blank" rel="noopener">
           <div class="latest-kicker">白鼓挑战 · Aug 2026</div>
-          <h4>白鼓挑战 / The White Drum Challenge</h4>
-          <p>AI 挑战人类超长小说工程，状态全程可验证——每章一个语义事务，五道门禁，git 即证据链。目标尚未完成，进度、失败和边界持续公开。</p>
-          <span>阅读挑战宣言 →</span>
+          <h3 class="latest-title">白鼓挑战 · The White Drum Challenge</h3>
+          <p class="latest-desc">AI 挑战人类超长小说工程，状态全程可验证——每章一个语义事务，五道门禁，git 即证据链。目标尚未完成，进度、失败和边界持续公开。</p>
+          <span class="latest-cta">阅读挑战宣言 →</span>
         </a>
-        <a class="latest-card featured" href="https://github.com/dongsheng123132/u-claw" target="_blank" rel="noopener">
+        <a class="latest-card" href="https://github.com/dongsheng123132/u-claw" target="_blank" rel="noopener">
           <div class="latest-kicker">Flagship · 1.7k★</div>
-          <h4>U-Claw 虾盘 / Offline AI Assistant USB</h4>
-          <p>OpenClaw AI 助手离线安装 U 盘，面向国内网络环境和一线装机场景。China-first AI setup, portable delivery, remote support.</p>
-          <span>View on GitHub →</span>
+          <h3 class="latest-title">U-Claw 虾盘 / Offline AI Assistant USB</h3>
+          <p class="latest-desc">OpenClaw AI 助手离线安装 U 盘，面向国内网络环境和一线装机场景。China-first AI setup, portable delivery.</p>
+          <span class="latest-cta">View on GitHub →</span>
         </a>
         <a class="latest-card" href="https://github.com/dongsheng123132/Open365" target="_blank" rel="noopener">
           <div class="latest-kicker">New · Jul 2026</div>
-          <h4>Open365</h4>
-          <p>开源、轻量、不上传数据的 Windows 维护工具。Privacy-first PC cleanup, startup boost, network repair and local security shield.</p>
-          <span>PowerShell + C# tray →</span>
+          <h3 class="latest-title">Open365</h3>
+          <p class="latest-desc">开源、轻量、不上传数据的 Windows 维护工具。Privacy-first PC cleanup, startup boost, network repair.</p>
+          <span class="latest-cta">PowerShell + C# tray →</span>
         </a>
         <a class="latest-card" href="https://github.com/dongsheng123132/opencodex" target="_blank" rel="noopener">
           <div class="latest-kicker">AI Coding Workspace</div>
-          <h4>OpenCodex</h4>
-          <p>绿色本地多终端 AI 编程工作台，分屏跑 Claude Code / Codex。A lightweight local workspace for agentic coding.</p>
-          <span>Tauri 2 + React →</span>
+          <h3 class="latest-title">OpenCodex</h3>
+          <p class="latest-desc">绿色本地多终端 AI 编程工作台，分屏跑 Claude Code / Codex。A lightweight local workspace for agentic coding.</p>
+          <span class="latest-cta">Tauri 2 + React →</span>
         </a>
         <a class="latest-card" href="https://github.com/dongsheng123132/phonebody" target="_blank" rel="noopener">
           <div class="latest-kicker">Remote Coding Experiment</div>
-          <h4>PhoneBody</h4>
-          <p>把闲置 Mac 变成竖屏手机义体，用手机远程写代码。Turn an idle Mac into a portrait remote-coding body.</p>
-          <span>Shell toolkit →</span>
+          <h3 class="latest-title">PhoneBody</h3>
+          <p class="latest-desc">把闲置 Mac 变成竖屏手机义体，用手机远程写代码。Turn an idle Mac into a portrait remote-coding body.</p>
+          <span class="latest-cta">Shell toolkit →</span>
         </a>
         <a class="latest-card" href="https://github.com/dongsheng123132/codex-handbook-zh" target="_blank" rel="noopener">
           <div class="latest-kicker">Chinese AI Handbooks</div>
-          <h4>AI 中文教程矩阵</h4>
-          <p>Codex、Claude Code、ClawX、Hermes、Obsidian、AI 作图教程。Practical Chinese playbooks for AI builders.</p>
-          <span>Read the handbooks →</span>
+          <h3 class="latest-title">AI 中文教程矩阵</h3>
+          <p class="latest-desc">Codex、Claude Code、ClawX、Hermes、Obsidian、AI 作图教程。Practical Chinese playbooks for AI builders.</p>
+          <span class="latest-cta">Read the handbooks →</span>
         </a>
         <a class="latest-card" href="https://github.com/dongsheng123132/paperguard" target="_blank" rel="noopener">
           <div class="latest-kicker">Open Science</div>
-          <h4>PaperGuard / GitScience</h4>
-          <p>论文体检、开源科研门户和 AI for Science 方法库。Tools for checking research consistency and moving experiments onto GitHub.</p>
-          <span>Explore research tools →</span>
+          <h3 class="latest-title">PaperGuard / GitScience</h3>
+          <p class="latest-desc">论文体检、开源科研门户和 AI for Science 方法库。Tools for checking research consistency and moving experiments onto GitHub.</p>
+          <span class="latest-cta">Explore research tools →</span>
         </a>
       </div>
-    </section>
-
-    <!-- Delivered Projects -->
-    <h2 class="section-title">已交付项目展示</h2>
-    <div class="projects-scroll">
-      <a class="project-chip" href="https://x.com/Monad_APAC/status/2035017102663483883" target="_blank" rel="noopener" style="border-color: #FFD700;"><div class="name">🏆 Monad Hackathon 冠军</div><div class="desc">Moltiverse AI Agent · 第一名</div></a>
-      <a class="project-chip" href="https://github.com/dongsheng123132/u-claw" target="_blank" rel="noopener"><div class="name">U-Claw 虾盘</div><div class="desc">OpenClaw AI 助手离线 U 盘 · 1.7k Stars</div></a>
-      <a class="project-chip" href="https://github.com/dongsheng123132/Open365" target="_blank" rel="noopener"><div class="name">Open365</div><div class="desc">Windows 电脑维护工具 · Privacy-first</div></a>
-      <a class="project-chip" href="https://github.com/dongsheng123132/opencodex" target="_blank" rel="noopener"><div class="name">OpenCodex</div><div class="desc">本地多终端 AI 编程工作台</div></a>
-      <a class="project-chip" href="https://github.com/dongsheng123132/AirKey" target="_blank" rel="noopener"><div class="name">AirKey 灵键</div><div class="desc">ESP32 手机变无线键鼠</div></a>
-      <a class="project-chip" href="https://github.com/dongsheng123132/SideAI---i---" target="_blank" rel="noopener"><div class="name">SideAI i了么</div><div class="desc">浏览器智能侧边栏助手</div></a>
-      <a class="project-chip" href="https://github.com/dongsheng123132/simpleclip-pro" target="_blank" rel="noopener"><div class="name">SimpleClip Pro</div><div class="desc">macOS AI 剪贴板 · 本地 AI 日报</div></a>
-      <a class="project-chip" href="https://github.com/dongsheng123132/agent-verse.live" target="_blank" rel="noopener"><div class="name">Agent Verse</div><div class="desc">AI Agent 市场</div></a>
-      <a class="project-chip" href="https://github.com/dongsheng123132/ai-tungke" target="_blank" rel="noopener"><div class="name">AI 探客</div><div class="desc">外贸智能获客平台</div></a>
-      <a class="project-chip" href="https://github.com/dongsheng123132/AutoResearchClaw" target="_blank" rel="noopener"><div class="name">AutoResearchClaw</div><div class="desc">全自动科研论文生成</div></a>
-      <a class="project-chip" href="https://github.com/dongsheng123132/vibecoder" target="_blank" rel="noopener"><div class="name">VibeCoder</div><div class="desc">赛博朋克 AI 命令键盘</div></a>
-      <a class="project-chip" href="https://github.com/dongsheng123132/claude-code-spinner-tips" target="_blank" rel="noopener"><div class="name">Spinner Tips</div><div class="desc">Claude Code 等待学习卡片</div></a>
     </div>
-  </main>
+  </section>
 
-  <footer class="site-footer">
+  <!-- ========== CASES (from API) ========== -->
+  <section class="cases">
     <div class="container">
-      <div class="footer-content">
-        <span>© <span id="year"></span> 贺去病 AI 咨询 · hequbing.com</span>
-        <div class="footer-links">
-          <a href="/cases">案例库</a>
-          <a href="/services">服务</a>
-          <a href="/about">关于</a>
-          <a href="https://blog.hequbing.com/archive">博客</a>
-          <a href="https://github.com/dongsheng123132" target="_blank" rel="noopener">GitHub</a>
+      <p class="eyebrow">案例库</p>
+      <h2 class="section-title">实战交付的 AI 案例。</h2>
+      <p class="section-subtitle">来自 50+ 已交付项目，按行业与场景筛选。</p>
+      <div id="hot-cases" class="cases-grid"></div>
+      <div class="section-actions">
+        <a href="/cases" class="link-arrow">查看全部案例 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY ME ========== -->
+  <section class="why-me">
+    <div class="container">
+      <p class="eyebrow">关于我</p>
+      <h2 class="section-title">为什么选择我。</h2>
+      <div class="why-grid">
+        <div class="why-text">
+          <p>我是贺去病，独立 AI 产品开发者。最近持续在做 U-Claw 虾盘、Open365、OpenCodex、AI 中文教程矩阵和 AI 科研工具，把 AI 工具从 demo 做到真实可用。</p>
+          <p>不同于大厂的高价咨询，我提供"轻咨询 + 快速 POC"的模式，让中小企业老板能以最低成本验证 AI 价值。I build practical AI systems, not slide decks.</p>
+        </div>
+        <div class="why-points">
+          <div class="why-point">
+            <h4>全栈交付</h4>
+            <p>从需求分析到系统上线，一人搞定。</p>
+          </div>
+          <div class="why-point">
+            <h4>快速 POC</h4>
+            <p>1–2 周交付可演示原型，降低试错成本。</p>
+          </div>
+          <div class="why-point">
+            <h4>性价比高</h4>
+            <p>个人服务，无团队溢价，¥3,000 起。</p>
+          </div>
+          <div class="why-point">
+            <h4>数据说话</h4>
+            <p>每个方案都有明确的 ROI 预测。</p>
+          </div>
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- ========== DELIVERED PROJECTS ========== -->
+  <section class="projects">
+    <div class="container">
+      <p class="eyebrow">已交付项目</p>
+      <h2 class="section-title">从 hackathon 到企业落地。</h2>
+      <div class="projects-grid">
+        <a class="project-card highlight" href="https://x.com/Monad_APAC/status/2035017102663483883" target="_blank" rel="noopener">
+          <div class="project-name">🏆 Monad Hackathon 冠军</div>
+          <div class="project-desc">Moltiverse AI Agent · 第一名</div>
+        </a>
+        <a class="project-card" href="https://github.com/dongsheng123132/u-claw" target="_blank" rel="noopener">
+          <div class="project-name">U-Claw 虾盘</div>
+          <div class="project-desc">OpenClaw AI 助手离线 U 盘 · 1.7k Stars</div>
+        </a>
+        <a class="project-card" href="https://github.com/dongsheng123132/Open365" target="_blank" rel="noopener">
+          <div class="project-name">Open365</div>
+          <div class="project-desc">Windows 电脑维护工具 · Privacy-first</div>
+        </a>
+        <a class="project-card" href="https://github.com/dongsheng123132/opencodex" target="_blank" rel="noopener">
+          <div class="project-name">OpenCodex</div>
+          <div class="project-desc">本地多终端 AI 编程工作台</div>
+        </a>
+        <a class="project-card" href="https://github.com/dongsheng123132/AirKey" target="_blank" rel="noopener">
+          <div class="project-name">AirKey 灵键</div>
+          <div class="project-desc">ESP32 手机变无线键鼠</div>
+        </a>
+        <a class="project-card" href="https://github.com/dongsheng123132/SideAI---i---" target="_blank" rel="noopener">
+          <div class="project-name">SideAI i了么</div>
+          <div class="project-desc">浏览器智能侧边栏助手</div>
+        </a>
+        <a class="project-card" href="https://github.com/dongsheng123132/simpleclip-pro" target="_blank" rel="noopener">
+          <div class="project-name">SimpleClip Pro</div>
+          <div class="project-desc">macOS AI 剪贴板 · 本地 AI 日报</div>
+        </a>
+        <a class="project-card" href="https://github.com/dongsheng123132/agent-verse.live" target="_blank" rel="noopener">
+          <div class="project-name">Agent Verse</div>
+          <div class="project-desc">AI Agent 市场</div>
+        </a>
+        <a class="project-card" href="https://github.com/dongsheng123132/ai-tungke" target="_blank" rel="noopener">
+          <div class="project-name">AI 探客</div>
+          <div class="project-desc">外贸智能获客平台</div>
+        </a>
+        <a class="project-card" href="https://github.com/dongsheng123132/AutoResearchClaw" target="_blank" rel="noopener">
+          <div class="project-name">AutoResearchClaw</div>
+          <div class="project-desc">全自动科研论文生成</div>
+        </a>
+        <a class="project-card" href="https://github.com/dongsheng123132/vibecoder" target="_blank" rel="noopener">
+          <div class="project-name">VibeCoder</div>
+          <div class="project-desc">赛博朋克 AI 命令键盘</div>
+        </a>
+        <a class="project-card" href="https://github.com/dongsheng123132/claude-code-spinner-tips" target="_blank" rel="noopener">
+          <div class="project-name">Spinner Tips</div>
+          <div class="project-desc">Claude Code 等待学习卡片</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="cta">
+    <div class="container">
+      <h2 class="cta-title">开始你的 AI 项目<span class="accent-dot">.</span></h2>
+      <p class="cta-subtitle">微信加我，免费 30 分钟咨询。</p>
+      <div class="cta-card">
+        <div class="cta-label">微信号</div>
+        <div class="cta-code">hequbing_ai</div>
+        <div class="cta-hint">复制后，在微信添加朋友中粘贴</div>
+      </div>
+      <div class="cta-links">
+        <a href="mailto:hefangsheng@gmail.com" class="link-arrow">hefangsheng@gmail.com</a>
+        <span class="cta-divider">·</span>
+        <a href="https://github.com/dongsheng123132" target="_blank" rel="noopener" class="link-arrow">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">贺去病 AI 咨询</div>
+        <nav class="footer-links" aria-label="页脚导航">
+          <a href="/cases">案例</a>
+          <a href="/services">服务</a>
+          <a href="/about">关于</a>
+          <a href="https://blog.hequbing.com/archive" target="_blank" rel="noopener">博客</a>
+          <a href="https://github.com/dongsheng123132" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">© <span id="year"></span> hequbing.com · I build practical AI systems, not slide decks.</div>
+    </div>
   </footer>
 
-  <!-- WeChat Float -->
+  <!-- ========== WECHAT FLOAT ========== -->
   <div class="wechat-float">
-    <div class="wechat-popup" id="wechat-popup">
-      <h4>加我聊聊你的 AI 需求</h4>
-      <div class="qr-placeholder">
-        <div class="contact-code">微信号<br><strong>hequbing_ai</strong></div>
-      </div>
-      <p>复制微信号，免费咨询</p>
+    <button class="wechat-float-btn" onclick="toggleWechat()" title="微信咨询" aria-label="微信咨询">
+      <span>咨询</span>
+    </button>
+    <div class="wechat-popup" id="wechat-popup" role="dialog" aria-label="联系方式">
+      <h4>加我聊聊</h4>
+      <div class="contact-code">微信号<br><strong>hequbing_ai</strong></div>
+      <p>免费 30 分钟咨询</p>
     </div>
-    <button class="wechat-float-btn" onclick="toggleWechat()" title="微信咨询">💬</button>
   </div>
 
+  <script src="/site.js"></script>
   <script>
     // Load hot cases
     fetch('/api/cases?sort=hot&limit=6')
-      .then(r => r.json())
-      .then(cases => {
-        const grid = document.getElementById('hot-cases');
-        cases.forEach(c => {
-          grid.innerHTML += `
-            <div class="case-card">
-              <div class="case-card-header">
-                <div>
-                  <span class="case-card-tag industry">${c.industry}</span>
-                  <span class="case-card-tag scenario">${c.scenario}</span>
-                </div>
-                <span class="case-card-score">🔥 ${c.hot_score}</span>
-              </div>
-              <h3 class="case-card-title">${c.title}</h3>
-              <p class="case-card-summary">${c.summary}</p>
-              <a class="case-card-link" href="/case?slug=${c.slug}">查看案例详情 →</a>
-            </div>`;
+      .then(function (r) { return r.json(); })
+      .then(function (cases) {
+        var grid = document.getElementById('hot-cases');
+        if (!grid) return;
+        cases.forEach(function (c) {
+          grid.insertAdjacentHTML('beforeend',
+            '<div class="case-card">' +
+              '<div class="case-card-header">' +
+                '<div class="case-card-tags">' +
+                  '<span class="case-card-tag industry">' + c.industry + '</span>' +
+                  '<span class="case-card-tag scenario">' + c.scenario + '</span>' +
+                '</div>' +
+                '<span class="case-card-score">' + c.hot_score + '</span>' +
+              '</div>' +
+              '<h3 class="case-card-title">' + c.title + '</h3>' +
+              '<p class="case-card-summary">' + c.summary + '</p>' +
+              '<a class="case-card-link" href="/case?slug=' + c.slug + '">查看案例 →</a>' +
+            '</div>'
+          );
         });
       })
-      .catch(() => {
-        document.getElementById('hot-cases').innerHTML = '<p style="color:var(--muted)">案例加载中...</p>';
+      .catch(function () {
+        var grid = document.getElementById('hot-cases');
+        if (grid) grid.innerHTML = '<p class="empty-hint">案例加载中...</p>';
       });
-
-    // Render services preview
-    const grid = document.getElementById('services-preview');
-    const services = [
-      { icon: '🔍', name: 'AI 需求诊断', price: '免费', desc: '30 分钟微信通话，帮你梳理 AI 方向' },
-      { icon: '📋', name: 'AI 方案设计', price: '¥3,000 起', desc: '完整技术方案 + 成本估算 + 实施路径' },
-      { icon: '🚀', name: '快速 POC', price: '¥8,000 起', desc: '1-2 周交付可演示 AI 原型' },
-      { icon: '🏗️', name: '落地陪跑', price: '¥20,000 起', desc: '从方案到上线全程陪跑' }
-    ];
-    services.forEach((s, i) => {
-      grid.innerHTML += `
-        <div class="service-card${i === 0 ? ' featured' : ''}">
-          <div class="service-icon">${s.icon}</div>
-          <div class="service-name">${s.name}</div>
-          <div class="service-price">${s.price}</div>
-          <div class="service-desc">${s.desc}</div>
-          <a href="/services" class="btn btn-outline btn-sm">了解详情</a>
-        </div>`;
-    });
   </script>
-  <script src="/site.js"></script>
 </body>
 </html>

@@ -8,8 +8,14 @@
     "collect": "node scripts/collector.js",
     "sitemap": "node scripts/generate-sitemap.js"
   },
-  "keywords": ["AI咨询", "企业AI落地", "大模型"],
+  "keywords": [
+    "AI咨询",
+    "企业AI落地",
+    "大模型"
+  ],
   "author": "贺去病",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "ws": "^8.21.3"
+  }
 }
