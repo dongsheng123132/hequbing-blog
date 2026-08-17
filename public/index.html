@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>贺去病 AI 咨询 | AI 落地实战派，帮中小企业用好 AI</title>
-  <meta name="description" content="贺去病，独立 AI 产品开发者与企业 AI 落地顾问。公开 GitHub 96+ 项目、1.8k+ stars，持续构建 U-Claw、Open365、OpenCodex、AI 中文教程等产品。" />
+  <meta name="description" content="贺去病，独立 AI 产品开发者与企业 AI 落地顾问。公开 GitHub 130+ 项目、1.9k+ stars，持续构建 U-Claw、Open365、OpenCodex、AI 中文教程等产品。" />
   <meta name="keywords" content="AI咨询,企业AI落地,AI解决方案,大模型,智能客服,AI自动化,贺去病" />
   <meta property="og:title" content="贺去病 AI 咨询 | AI 落地实战派" />
-  <meta property="og:description" content="AI 落地实战派。Public GitHub: 96+ projects, 1.8k+ stars. Building practical AI tools for China-first teams and global makers." />
+  <meta property="og:description" content="AI 落地实战派。Public GitHub: 130+ projects, 1.9k+ stars. Building practical AI tools for China-first teams and global makers." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.hequbing.com" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -20,8 +20,9 @@
         <h1 class="site-title"><a href="/" class="brand">贺去病 · AI 咨询</a></h1>
         <nav class="nav">
           <a href="/" class="active">首页</a>
-          <a href="/cases">案例库</a>
-          <a href="/services">服务</a>
+          <a href="#delivered">我做过什么</a>
+          <a href="/services">服务与报价</a>
+          <a href="/cases">行业情报</a>
           <a href="/about">关于</a>
           <a href="https://blog.hequbing.com/archive">博客</a>
         </nav>
@@ -33,18 +34,18 @@
     <!-- Hero -->
     <section class="hero">
       <h2>AI 落地实战派</h2>
-      <p class="hero-sub">帮中小企业用好 AI，不讲概念只看效果</p>
+      <p class="hero-sub">帮中小企业用好 AI，不讲概念只看效果。先花 30 分钟把方向聊清楚，免费。</p>
       <div class="hero-cta">
-        <a href="/cases" class="btn btn-primary">浏览 AI 案例库 →</a>
-        <a href="/services" class="btn btn-outline">了解服务方案</a>
+        <a href="#" class="btn btn-primary" data-wechat-trigger onclick="toggleWechat(); return false;">免费聊 30 分钟 →</a>
+        <a href="/services" class="btn btn-outline">服务与报价</a>
       </div>
       <div class="hero-stats">
         <div class="hero-stat">
-          <div class="num">96+</div>
+          <div class="num">130+</div>
           <div class="label">公开 GitHub 项目</div>
         </div>
         <div class="hero-stat">
-          <div class="num">1.8k+</div>
+          <div class="num">1.9k+</div>
           <div class="label">GitHub Stars</div>
         </div>
         <div class="hero-stat">
@@ -54,11 +55,66 @@
       </div>
     </section>
 
-    <!-- Hot Cases -->
-    <h2 class="section-title">热门 AI 落地案例</h2>
-    <div id="hot-cases" class="cases-grid"></div>
-    <div style="text-align: center; margin-top: 24px;">
-      <a href="/cases" class="btn btn-outline">查看全部案例 →</a>
+    <!-- Delivered / Proof -->
+    <h2 class="section-title" id="delivered">我做过什么（都能点进去自己验）</h2>
+    <p class="section-lede">下面每一条都有公开地址，代码、下载量、star 数你可以自己核。
+      我不靠 PPT 说服你，你直接看东西。</p>
+
+    <div class="proof-grid">
+      <a class="proof-card featured" href="https://github.com/dongsheng123132/u-claw" target="_blank" rel="noopener">
+        <div class="proof-kicker">开源旗舰 · 可公开核验</div>
+        <h3>U-Claw 虾盘</h3>
+        <p>把 AI 工作空间装进 U 盘：插上任意电脑就能用 Claude Code / Codex，不配环境、不用会命令行。</p>
+        <div class="proof-metrics">
+          <span><strong>1.7k</strong> stars</span>
+          <span><strong>416</strong> forks</span>
+          <span><strong>900</strong> 独立访客 / 14 天</span>
+        </div>
+      </a>
+
+      <a class="proof-card" href="https://x.com/Monad_APAC/status/2035017102663483883" target="_blank" rel="noopener">
+        <div class="proof-kicker">🏆 竞赛第一名</div>
+        <h3>Monad Hackathon 冠军</h3>
+        <p>Moltiverse AI Agent —— 从零到可演示的 Agent 系统，在公开评审下拿到第一名。</p>
+        <div class="proof-metrics"><span>官方战报可查</span></div>
+      </a>
+
+      <a class="proof-card" href="https://cloud.u-claw.org" target="_blank" rel="noopener">
+        <div class="proof-kicker">在运营的付费产品</div>
+        <h3>虾盘云 AI 网关</h3>
+        <p>自建的多模型 API 分发服务：计费、对账、限流、告警、自动补单全套跑在生产上，真实付费用户在用。
+          做 AI 落地最难的不是调通模型，是这些。</p>
+        <div class="proof-metrics"><span>线上服务</span><span>7×24 运行</span></div>
+      </a>
+
+      <a class="proof-card" href="https://github.com/dongsheng123132/Open365" target="_blank" rel="noopener">
+        <div class="proof-kicker">桌面工具</div>
+        <h3>Open365</h3>
+        <p>不联网上传的 Windows 维护工具：清理、开机加速、网络修复。纯 PowerShell 引擎，隐私优先。</p>
+        <div class="proof-metrics"><span>开源可审计</span></div>
+      </a>
+
+      <a class="proof-card" href="https://github.com/dongsheng123132/opencodex" target="_blank" rel="noopener">
+        <div class="proof-kicker">开发者工具</div>
+        <h3>OpenCodex</h3>
+        <p>~4.7MB 绿色多终端 AI 编程工作台，以文件夹为单位分屏跑 Claude Code / Codex。</p>
+        <div class="proof-metrics"><span>Tauri 2 + React</span></div>
+      </a>
+
+      <a class="proof-card" href="https://www.u-king.org" target="_blank" rel="noopener">
+        <div class="proof-kicker">在运营的产品</div>
+        <h3>U-King AI 装机管家</h3>
+        <p>一键把 Claude Code / Codex / OpenClaw 装到客户的 Windows 上并配好模型——
+          把「AI 工具装不起来」这件事做成了产品。</p>
+        <div class="proof-metrics"><span>Tauri + Rust</span><span>远程装机运维</span></div>
+      </a>
+
+      <a class="proof-card" href="https://github.com/dongsheng123132" target="_blank" rel="noopener">
+        <div class="proof-kicker">全部</div>
+        <h3>130+ 个公开仓库</h3>
+        <p>AI 工具链、证据链插件、文档一致性检查、CAD 审查、科研工具 —— 常年在写，不是简历上的静态列表。</p>
+        <div class="proof-metrics"><span><strong>1.9k</strong> stars 累计</span></div>
+      </a>
     </div>
 
     <!-- Services Preview -->
@@ -166,13 +222,9 @@
       </div>
     </section>
 
-    <!-- Delivered Projects -->
-    <h2 class="section-title">已交付项目展示</h2>
+    <!-- More work -->
+    <h2 class="section-title">更多作品</h2>
     <div class="projects-scroll">
-      <a class="project-chip" href="https://x.com/Monad_APAC/status/2035017102663483883" target="_blank" rel="noopener" style="border-color: #FFD700;"><div class="name">🏆 Monad Hackathon 冠军</div><div class="desc">Moltiverse AI Agent · 第一名</div></a>
-      <a class="project-chip" href="https://github.com/dongsheng123132/u-claw" target="_blank" rel="noopener"><div class="name">U-Claw 虾盘</div><div class="desc">OpenClaw AI 助手离线 U 盘 · 1.7k Stars</div></a>
-      <a class="project-chip" href="https://github.com/dongsheng123132/Open365" target="_blank" rel="noopener"><div class="name">Open365</div><div class="desc">Windows 电脑维护工具 · Privacy-first</div></a>
-      <a class="project-chip" href="https://github.com/dongsheng123132/opencodex" target="_blank" rel="noopener"><div class="name">OpenCodex</div><div class="desc">本地多终端 AI 编程工作台</div></a>
       <a class="project-chip" href="https://github.com/dongsheng123132/AirKey" target="_blank" rel="noopener"><div class="name">AirKey 灵键</div><div class="desc">ESP32 手机变无线键鼠</div></a>
       <a class="project-chip" href="https://github.com/dongsheng123132/SideAI---i---" target="_blank" rel="noopener"><div class="name">SideAI i了么</div><div class="desc">浏览器智能侧边栏助手</div></a>
       <a class="project-chip" href="https://github.com/dongsheng123132/simpleclip-pro" target="_blank" rel="noopener"><div class="name">SimpleClip Pro</div><div class="desc">macOS AI 剪贴板 · 本地 AI 日报</div></a>
@@ -182,6 +234,19 @@
       <a class="project-chip" href="https://github.com/dongsheng123132/vibecoder" target="_blank" rel="noopener"><div class="name">VibeCoder</div><div class="desc">赛博朋克 AI 命令键盘</div></a>
       <a class="project-chip" href="https://github.com/dongsheng123132/claude-code-spinner-tips" target="_blank" rel="noopener"><div class="name">Spinner Tips</div><div class="desc">Claude Code 等待学习卡片</div></a>
     </div>
+
+    <!-- Industry intel (research, NOT own delivery) -->
+    <h2 class="section-title" id="intel">AI 落地情报</h2>
+    <div class="intel-notice">
+      <strong>先说清楚：这一栏不是我的案例。</strong>
+      这是我持续整理的公开行业研究——别人家把 AI 用在什么环节、拿到了什么数字、踩了什么坑。
+      放在这里是因为它对你判断「我这行值不值得上 AI」有用。
+      <em>我自己交付的东西在 <a href="#delivered">上面「我做过什么」</a>，每条都能点进去核验。</em>
+    </div>
+    <div id="hot-cases" class="cases-grid"></div>
+    <div style="text-align: center; margin-top: 24px;">
+      <a href="/cases" class="btn btn-outline">查看全部行业情报 →</a>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -189,8 +254,8 @@
       <div class="footer-content">
         <span>© <span id="year"></span> 贺去病 AI 咨询 · hequbing.com</span>
         <div class="footer-links">
-          <a href="/cases">案例库</a>
-          <a href="/services">服务</a>
+          <a href="/cases">行业情报</a>
+          <a href="/services">服务与报价</a>
           <a href="/about">关于</a>
           <a href="https://blog.hequbing.com/archive">博客</a>
           <a href="https://github.com/dongsheng123132" target="_blank" rel="noopener">GitHub</a>
@@ -229,12 +294,17 @@
               </div>
               <h3 class="case-card-title">${c.title}</h3>
               <p class="case-card-summary">${c.summary}</p>
-              <a class="case-card-link" href="/case?slug=${c.slug}">查看案例详情 →</a>
+              <div class="case-card-source">${
+                c.source === '自研项目'
+                  ? '✅ 自研项目 · 本人交付'
+                  : '📊 ' + (c.source || '行业研究') + ' · 非本人交付'
+              }</div>
+              <a class="case-card-link" href="/case?slug=${c.slug}">查看情报详情 →</a>
             </div>`;
         });
       })
       .catch(() => {
-        document.getElementById('hot-cases').innerHTML = '<p style="color:var(--muted)">案例加载中...</p>';
+        document.getElementById('hot-cases').innerHTML = '<p style="color:var(--muted)">情报加载中...</p>';
       });
 
     // Render services preview

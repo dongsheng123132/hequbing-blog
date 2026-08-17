@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI 落地案例详情 | 贺去病 AI 咨询</title>
-  <meta name="description" content="AI 企业落地案例详情，包含业务背景、解决方案、效果数据和可复制经验。" id="meta-desc" />
-  <meta property="og:title" content="AI 落地案例详情 | 贺去病 AI 咨询" id="og-title" />
-  <meta property="og:description" content="AI 企业落地案例详情，包含业务背景、解决方案、效果数据和可复制经验。" id="og-desc" />
+  <title>AI 落地情报详情 | 贺去病 AI 咨询</title>
+  <meta name="description" content="AI 落地行业情报详情，包含业务背景、解决方案、效果数据和可复制经验。" id="meta-desc" />
+  <meta property="og:title" content="AI 落地情报详情 | 贺去病 AI 咨询" id="og-title" />
+  <meta property="og:description" content="AI 落地行业情报详情，包含业务背景、解决方案、效果数据和可复制经验。" id="og-desc" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.hequbing.com/case" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -20,9 +20,11 @@
         <h1 class="site-title"><a href="/" class="brand">贺去病 · AI 咨询</a></h1>
         <nav class="nav">
           <a href="/">首页</a>
-          <a href="/cases" class="active">案例库</a>
-          <a href="/services">服务</a>
+          <a href="/#delivered">我做过什么</a>
+          <a href="/services">服务与报价</a>
+          <a href="/cases" class="active">行业情报</a>
           <a href="/about">关于</a>
+          <a href="https://blog.hequbing.com/archive">博客</a>
         </nav>
       </div>
     </div>
@@ -30,7 +32,7 @@
 
   <main class="container">
     <div style="margin-top: 16px;">
-      <a href="/cases" style="color: var(--muted); text-decoration: none; font-size: 14px;">← 返回案例库</a>
+      <a href="/cases" style="color: var(--muted); text-decoration: none; font-size: 14px;">← 返回行业情报</a>
     </div>
 
     <article class="case-detail">
@@ -52,8 +54,8 @@
       <div class="footer-content">
         <span>© <span id="year"></span> 贺去病 AI 咨询 · hequbing.com</span>
         <div class="footer-links">
-          <a href="/cases">案例库</a>
-          <a href="/services">服务</a>
+          <a href="/cases">行业情报</a>
+          <a href="/services">服务与报价</a>
           <a href="/about">关于</a>
         </div>
       </div>
@@ -83,7 +85,7 @@
 
       if (!slug) {
         titleEl.textContent = '未指定案例';
-        contentEl.innerHTML = '<p>请从<a href="/cases">案例库</a>选择一个案例。</p>';
+        contentEl.innerHTML = '<p>请从<a href="/cases">行业情报</a>选择一个案例。</p>';
         return;
       }
 
@@ -117,14 +119,25 @@
           ${(c.tags || []).map(t => `<span class="case-card-tag">${t}</span>`).join('')}
           ${c.hot_score ? `<span class="case-card-score">🔥 热度 ${c.hot_score}</span>` : ''}
         `;
-        contentEl.innerHTML = c.content;
-
-        if (c.source_url) {
-          contentEl.innerHTML += `<p style="margin-top:24px;color:var(--muted);font-size:13px;">来源：<a href="${c.source_url}" target="_blank" rel="noopener">${c.source || '原文链接'}</a></p>`;
-        }
+        // 来源必须无条件声明，且放在正文之前。
+        // 15/16 条的 source_url 是空的，旧逻辑「有 url 才显示来源」等于绝口不提，
+        // 读者会把行业研究当成本人交付的案例。
+        var own = c.source === '自研项目';
+        var srcName = c.source || '行业研究';
+        var srcLink = c.source_url
+          ? ` · <a href="${c.source_url}" target="_blank" rel="noopener">查看原文</a>`
+          : '';
+        contentEl.innerHTML = own
+          ? `<div class="intel-notice"><strong>✅ 自研项目 · 本人交付。</strong>
+               这是我自己做的项目，可以点开代码核验。${srcLink}</div>`
+          : `<div class="intel-notice"><strong>📊 这是行业研究，不是我的交付案例。</strong>
+               来源：${srcName}${srcLink}。整理它是为了帮你判断同类场景值不值得上 AI；
+               本文提到的公司与我没有合作关系。
+               <em>我自己交付的项目在 <a href="/#delivered">首页「我做过什么」</a>。</em></div>`;
+        contentEl.innerHTML += c.content;
       } catch (e) {
         titleEl.textContent = '加载失败';
-        contentEl.innerHTML = `<p style="color:#ff6b6b">${e.message}</p><p><a href="/cases">返回案例库</a></p>`;
+        contentEl.innerHTML = `<p style="color:#ff6b6b">${e.message}</p><p><a href="/cases">返回行业情报</a></p>`;
       }
     })();
   </script>

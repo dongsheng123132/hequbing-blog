@@ -16,11 +16,12 @@
   }
   window.toggleWechat = toggleWechat;
 
+  // 页面任意位置的 [data-wechat-trigger] 都能开弹窗（如首页 hero 的「免费聊 30 分钟」）。
+  // 必须在这里放行，否则下面的全局关闭逻辑会把刚打开的弹窗立刻关掉。
   document.addEventListener('click', function (e) {
-    if (!e.target.closest('.wechat-float')) {
-      var popup = document.getElementById('wechat-popup');
-      if (popup) popup.classList.remove('show');
-    }
+    if (e.target.closest('.wechat-float') || e.target.closest('[data-wechat-trigger]')) return;
+    var popup = document.getElementById('wechat-popup');
+    if (popup) popup.classList.remove('show');
   });
 
   // 3. 返回顶部按钮（JS 注入，页面无需单独写 HTML）

@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI 企业落地案例库 | 贺去病 AI 咨询</title>
+  <title>AI 落地行业情报 | 贺去病 AI 咨询</title>
   <meta name="description" content="精选 AI 企业落地案例，覆盖智能客服、内容生成、数据分析等场景，帮你找到适合自己企业的 AI 方案。" />
-  <meta property="og:title" content="AI 企业落地案例库 | 贺去病" />
+  <meta property="og:title" content="AI 落地行业情报 | 贺去病" />
   <meta property="og:description" content="精选 AI 企业落地案例，按行业和场景分类浏览。" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/styles.css" />
@@ -17,8 +17,9 @@
         <h1 class="site-title"><a href="/" class="brand">贺去病 · AI 咨询</a></h1>
         <nav class="nav">
           <a href="/">首页</a>
-          <a href="/cases" class="active">案例库</a>
-          <a href="/services">服务</a>
+          <a href="/#delivered">我做过什么</a>
+          <a href="/services">服务与报价</a>
+          <a href="/cases" class="active">行业情报</a>
           <a href="/about">关于</a>
           <a href="https://blog.hequbing.com/archive">博客</a>
         </nav>
@@ -28,9 +29,16 @@
 
   <main class="container">
     <section class="hero" style="padding: 32px;">
-      <h2>AI 企业落地案例库</h2>
+      <h2>AI 落地行业情报</h2>
       <p class="hero-sub">追踪最新 AI 企业落地实战，找到适合你的 AI 方案</p>
     </section>
+
+    <div class="intel-notice">
+      <strong>这里收录的是公开行业研究，不是我的交付案例。</strong>
+      别人家把 AI 用在哪个环节、拿到什么数字、踩了什么坑——我整理出来，方便你判断自己这行值不值得上 AI。
+      每条卡片下方都标了来源。
+      <em>我自己交付的项目在 <a href="/#delivered">首页「我做过什么」</a>，每条都能点进去核验。</em>
+    </div>
 
     <!-- Filters -->
     <div class="filter-bar">
@@ -61,8 +69,8 @@
       <div class="footer-content">
         <span>© <span id="year"></span> 贺去病 AI 咨询 · hequbing.com</span>
         <div class="footer-links">
-          <a href="/cases">案例库</a>
-          <a href="/services">服务</a>
+          <a href="/cases">行业情报</a>
+          <a href="/services">服务与报价</a>
           <a href="/about">关于</a>
           <a href="https://blog.hequbing.com/archive">博客</a>
         </div>
@@ -168,7 +176,12 @@
             ${(c.tags || []).map(t => `<span class="case-card-tag">${t}</span>`).join('')}
           </div>
           <p class="case-card-summary">${c.summary}</p>
-          <a class="case-card-link" href="/case?slug=${c.slug}">查看案例详情 →</a>
+          <div class="case-card-source">${
+            c.source === '自研项目'
+              ? '✅ 自研项目 · 本人交付'
+              : '📊 ' + (c.source || '行业研究') + ' · 非本人交付'
+          }</div>
+          <a class="case-card-link" href="/case?slug=${c.slug}">查看情报详情 →</a>
         </div>
       `).join('');
     }
