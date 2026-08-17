@@ -5,9 +5,19 @@
 (function () {
   'use strict';
 
+  // 微信号的前端唯一真相源。
+  // 曾经 5 个页面各硬编码一份，导致官网长期显示 hequbing_ai、
+  // 而 u-claw 那边是 hecare888 —— 同一个人两个号，买家会犹豫。
+  // 以后改号只改这一行；各页面 HTML 里的字面值只作为无 JS 时的兜底。
+  var WECHAT_ID = 'hecare888';
+
   // 1. 页脚年份
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // 1.5 把微信号统一写进所有展示位
+  var codeEls = document.querySelectorAll('.contact-code strong, [data-wechat-id]');
+  for (var i = 0; i < codeEls.length; i++) codeEls[i].textContent = WECHAT_ID;
 
   // 2. 微信悬浮窗
   function toggleWechat() {
