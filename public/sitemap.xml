@@ -1,201 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.hequbing.com/</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://blog.hequbing.com/</loc>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.hequbing.com/cases</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://blog.hequbing.com/archive</loc>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.hequbing.com/services</loc>
-    <lastmod>2026-07-16</lastmod>
+    <loc>https://blog.hequbing.com/tags</loc>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.hequbing.com/about</loc>
-    <lastmod>2026-07-16</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.hequbing.com/privacy</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.hequbing.com/support</loc>
-    <lastmod>2026-07-22</lastmod>
+    <loc>https://blog.hequbing.com/about</loc>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.hequbing.com/case?slug=tcl-ai-customer-service</loc>
-    <lastmod>2026-03-19</lastmod>
+    <loc>https://blog.hequbing.com/post?slug=long-term-ai-computer-challenge</loc>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.hequbing.com/case?slug=pinduoduo-ai-product-description</loc>
-    <lastmod>2026-03-18</lastmod>
+    <loc>https://blog.hequbing.com/post?slug=doc-consistency-147-findings</loc>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.hequbing.com/case?slug=zhongtong-express-ai-sorting</loc>
-    <lastmod>2026-03-17</lastmod>
+    <loc>https://blog.hequbing.com/post?slug=long-document-consistency</loc>
+    <lastmod>2026-08-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.hequbing.com/case?slug=beiyi-hospital-ai-diagnosis</loc>
-    <lastmod>2026-03-16</lastmod>
+    <loc>https://blog.hequbing.com/post?slug=codex-cli-chinese-tutorial</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.hequbing.com/case?slug=new-oriental-ai-teaching</loc>
-    <lastmod>2026-03-15</lastmod>
+    <loc>https://blog.hequbing.com/post?slug=open365-open-source</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.hequbing.com/case?slug=pacific-insurance-ai-claims</loc>
-    <lastmod>2026-03-14</lastmod>
+    <loc>https://blog.hequbing.com/post?slug=u-claw-usb-offline-ai</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.hequbing.com/case?slug=coze-build-ai-agent</loc>
-    <lastmod>2026-03-13</lastmod>
+    <loc>https://blog.hequbing.com/post?slug=uking-usb-ai-installer</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.hequbing.com/case?slug=law-firm-ai-contract-review</loc>
-    <lastmod>2026-03-12</lastmod>
+    <loc>https://blog.hequbing.com/post?slug=marine-docx-structure</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hequbing.com/case?slug=manufacturing-ai-quality-inspection</loc>
-    <lastmod>2026-03-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hequbing.com/case?slug=hr-ai-resume-screening</loc>
-    <lastmod>2026-03-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hequbing.com/case?slug=dify-build-enterprise-qa</loc>
-    <lastmod>2026-03-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hequbing.com/case?slug=real-estate-ai-copywriting</loc>
-    <lastmod>2026-03-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hequbing.com/case?slug=ai-proposal-writing</loc>
-    <lastmod>2026-03-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hequbing.com/case?slug=restaurant-ai-order-taking</loc>
-    <lastmod>2026-03-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hequbing.com/case?slug=github-copilot-roi</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hequbing.com/case?slug=xhs-ai-auto-comment-plugin</loc>
-    <lastmod>2026-03-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://blog.hequbing.com/archive</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://blog.hequbing.com/post?slug=benxiang-protocol</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://blog.hequbing.com/post?slug=media-publish</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url><loc>https://blog.hequbing.com/post?slug=rulekeeper</loc><lastmod>2026-08-06</lastmod><priority>0.8</priority></url>
-  <url><loc>https://blog.hequbing.com/post?slug=benxiang-skills-launch</loc><lastmod>2026-08-06</lastmod><priority>0.8</priority></url>
-  <url><loc>https://blog.hequbing.com/post?slug=shadowbench-w-world-first</loc><lastmod>2026-08-06</lastmod><priority>0.8</priority></url>
-  <url><loc>https://blog.hequbing.com/post?slug=ai-cant-write-long-novels</loc><lastmod>2026-08-06</lastmod><priority>0.8</priority></url>
-  <url><loc>https://blog.hequbing.com/post?slug=the-zero-slot</loc><lastmod>2026-08-06</lastmod><priority>0.8</priority></url>
-  <url><loc>https://blog.hequbing.com/post?slug=white-drum-challenge</loc><lastmod>2026-08-06</lastmod><priority>0.8</priority></url>
-  <url>
-    <loc>https://blog.hequbing.com/post?slug=codex-cli-chinese-tutorial</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://blog.hequbing.com/post?slug=open365-open-source</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://blog.hequbing.com/post?slug=u-claw-usb-offline-ai</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://blog.hequbing.com/post?slug=uking-usb-ai-installer</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://blog.hequbing.com/post?slug=marine-docx-structure</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://blog.hequbing.com/post?slug=long-document-consistency</loc>
-    <lastmod>2026-08-09</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://blog.hequbing.com/post?slug=long-term-ai-computer-challenge</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://blog.hequbing.com/post?slug=rulekeeper</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.hequbing.com/post?slug=benxiang-skills-launch</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.hequbing.com/post?slug=shadowbench-w-world-first</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.hequbing.com/post?slug=ai-cant-write-long-novels</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.hequbing.com/post?slug=the-zero-slot</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.hequbing.com/post?slug=white-drum-challenge</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.hequbing.com/post?slug=blog-upgrade-vercel</loc>
+    <lastmod>2026-01-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.hequbing.com/post?slug=searchhub-release</loc>
+    <lastmod>2026-01-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.hequbing.com/post?slug=blue-light-filter-pro</loc>
+    <lastmod>2025-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.hequbing.com/post?slug=yang-zhenning-tribute</loc>
+    <lastmod>2025-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.hequbing.com/post?slug=backend-deploy-guide</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.hequbing.com/post?slug=frontend-architecture-notes</loc>
+    <lastmod>2025-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.hequbing.com/post?slug=hello-world</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.hequbing.com/post?slug=about-hequbing</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
