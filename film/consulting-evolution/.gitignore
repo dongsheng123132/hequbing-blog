@@ -1,0 +1,11 @@
+.cache/
+__pycache__/
+*.pyc
+# 字体与模型不随工程分发（见 README / asset_manifest.csv）
+assets/fonts/*.ttf
+assets/fonts/*.otf
+assets/tts/
+# 中间文件：可由 python -m src.build 重新生成
+output/work/
+output/chunks/
+output/audio/*.wav

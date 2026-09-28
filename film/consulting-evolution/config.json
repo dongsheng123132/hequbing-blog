@@ -1,0 +1,58 @@
+{
+  "title": "商业咨询进化史",
+  "subtitle": "从谋士到 AI，从看清局势到做出结果",
+  "brand": {
+    "name": "贺去病AI商业咨询",
+    "seal_text": "贺去病印",
+    "slogan": "用 AI，把生意做大，把利润做实。",
+    "services": ["经营诊断", "增长战略", "AI落地", "陪伴复盘"],
+    "cta": "从一个真实经营问题开始。",
+    "contact": null,
+    "qr_code_path": null
+  },
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "total_frames": 5480
+  },
+  "audio": {
+    "sample_rate": 48000,
+    "channels": 2,
+    "total_samples": 8768000,
+    "target_lufs": -16.0,
+    "true_peak_max_dbtp": -1.0
+  },
+  "seed": 20260928,
+  "fonts": {
+    "serif_bold": {"file": "/usr/share/fonts/opentype/noto/NotoSerifCJK-Bold.ttc", "family": "Noto Serif CJK SC"},
+    "serif_black": {"file": "/usr/share/fonts/opentype/noto/NotoSerifCJK-Black.ttc", "family": "Noto Serif CJK SC"},
+    "serif": {"file": "/usr/share/fonts/opentype/noto/NotoSerifCJK-Medium.ttc", "family": "Noto Serif CJK SC"},
+    "sans": {"file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Medium.ttc", "family": "Noto Sans CJK SC"},
+    "sans_bold": {"file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc", "family": "Noto Sans CJK SC"},
+    "brush": {"file": "assets/fonts/MaShanZheng-Regular.ttf", "family": "Ma Shan Zheng"}
+  },
+  "hanzi_data": "assets/hanzi/strokes_subset.json",
+  "tts": {
+    "engine": "sherpa-onnx + MeloTTS (vits-melo-tts-zh_en)",
+    "model_dir": "assets/tts/vits-melo-tts-zh_en",
+    "speed": 0.8,
+    "speaker_id": 0
+  },
+  "colors": {
+    "vermilion": "#C23A2B",
+    "vermilion_dark": "#8E2419",
+    "rice_white": "#F2EBDC",
+    "gold": "#C9A55C",
+    "gold_dim": "#8A7142",
+    "ink_black": "#0E0D0B",
+    "paper_mocyan": "#2C4649",
+    "paper_mocyan_deep": "#1F3436",
+    "paper_ochre": "#5E4430",
+    "paper_smoke": "#474A4E",
+    "bronze_green": "#6E9A86",
+    "steel_grey": "#8E969E",
+    "deep_blue": "#9DB4D6",
+    "cold_cyan": "#6CC3C3"
+  }
+}

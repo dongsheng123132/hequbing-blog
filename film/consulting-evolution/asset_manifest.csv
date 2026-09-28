@@ -1,0 +1,13 @@
+资产,类型,来源,许可,是否随工程分发,用途,备注
+Noto Serif CJK SC（Medium/Bold/Black）,字体,系统包 fonts-noto-cjk / fonts-noto-cjk-extra（Google & Adobe）,SIL Open Font License 1.1,否（由 apt 安装）,片名、章名、品牌名、标注,按文件路径加载 SC 字面
+Noto Sans CJK SC（Medium/Bold）,字体,系统包 fonts-noto-cjk,SIL Open Font License 1.1,否（由 apt 安装）,字幕、HUD、流程卡片,
+Ma Shan Zheng（马善政毛笔楷书）,字体,https://github.com/google/fonts/tree/main/ofl/mashanzheng,SIL Open Font License 1.1,否（src/fetch_assets.py 下载）,镜头短语（毛笔字）,缺字时逐字回退到 Noto Serif CJK
+Make Me a Hanzi graphics.txt（本片 11 字子集）,笔画数据,https://github.com/skishore/makemeahanzi,Arphic Public License（源自文鼎 AR PL KaitiM GB / UKai）,是（assets/hanzi/，附 COPYING）,书法关键词逐笔显现,问谋商管略联行成贺去病
+MeloTTS 中文模型（vits-melo-tts-zh_en）,TTS 模型,https://github.com/k2-fsa/sherpa-onnx/releases（转换自 myshell-ai/MeloTTS）,MIT,否（src/fetch_assets.py 下载）,旁白合成,单一女声；未克隆任何真人声音
+旁白锁定 take（30 条 FLAC）,音频,由上述 MeloTTS 在本工程中生成,随 MeloTTS 输出（MIT 模型生成）,是（assets/voice_takes/）,成片旁白,TTS 含随机时长预测，故锁定已选 take 保证可复现
+SenseVoice-small / Paraformer-zh-small,ASR 模型,https://github.com/k2-fsa/sherpa-onnx/releases,各模型自身许可,否（仅本地验收使用，不进入成片）,旁白读音自动比对,只作代理指标
+配乐与音效,音频,src/audio/ 程序合成（固定种子）,本工程原创,由代码生成,全片音乐与音效,笛、钟、弹拨、弦乐、铜管均为合成近似音色，不是真实乐器录音
+宣纸 / 漆黑金粉背景,图像,src/visuals/paper.py 程序生成,本工程原创,由代码生成,A/B 两种风格背景,
+线描、纹样、印章、HUD、流程图,图形,src/visuals/ 与 src/scenes/ 程序绘制,本工程原创,由代码生成,全部画面,
+历史资料引用,文字,见 historical_facts.md,仅引用事实（年份、名称），不使用任何机构 Logo 或图片,—,时间轴锚点与矩阵画法,麦肯锡、BCG 名称仅作历史说明
+客户数据 / 商标 / 二维码 / 联系方式,—,无,—,—,—,未使用；config.json 中 contact 与 qr_code_path 为 null，成片不绘制

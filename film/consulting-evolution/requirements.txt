@@ -1,0 +1,11 @@
+# Python 3.11 实测版本（锁定）
+numpy==2.4.6
+pycairo==1.29.1        # 需要系统 cairo 1.18（本机实测 1.18.0）
+scipy==1.17.1
+fonttools==4.66.0
+soundfile==0.14.0
+pyloudnorm==0.2.0
+pillow==12.3.0
+sherpa-onnx==1.13.8    # 离线 TTS（MeloTTS）与验收用 ASR
+pypinyin==0.55.0       # 验收：拼音比对
+# 系统依赖（apt）：ffmpeg（实测 6.1.1，含 libx264 / aac / ebur128）、fonts-noto-cjk、fonts-noto-cjk-extra
