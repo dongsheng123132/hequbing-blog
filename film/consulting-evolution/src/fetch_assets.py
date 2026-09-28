@@ -25,6 +25,8 @@ URLS = {
     "hanzi_graphics": "https://raw.githubusercontent.com/skishore/makemeahanzi/master/graphics.txt",
     "hanzi_copying": "https://raw.githubusercontent.com/skishore/makemeahanzi/master/COPYING",
     "melo": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-melo-tts-zh_en.tar.bz2",
+    "sensevoice": ("https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/"
+                   "sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17.tar.bz2"),
 }
 
 
@@ -82,8 +84,25 @@ def fetch_tts():
         tf.extractall(d)
 
 
+def fetch_asr():
+    """验收与多条取优用的离线 ASR（约 1 GB 压缩包，只保留 int8 模型）。"""
+    target = os.path.join(ROOT, ".cache", "sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17")
+    if os.path.exists(os.path.join(target, "model.int8.onnx")):
+        return
+    arc = os.path.join(ROOT, ".cache", "sensevoice.tar.bz2")
+    _get(URLS["sensevoice"], arc)
+    with tarfile.open(arc) as tf:
+        tf.extractall(os.path.join(ROOT, ".cache"))
+    os.remove(arc)
+    big = os.path.join(target, "model.onnx")
+    if os.path.exists(big):
+        os.remove(big)
+
+
 if __name__ == "__main__":
     fetch_fonts()
     fetch_hanzi()
     if "--no-tts" not in sys.argv:
         fetch_tts()
+    if "--asr" in sys.argv:
+        fetch_asr()

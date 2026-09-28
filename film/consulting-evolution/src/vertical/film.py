@@ -4,6 +4,7 @@
 重要信息保持在 x 80–940、y 200–1560 之内，避开短视频平台右侧按钮与底部文案区。
 """
 import math
+import os
 from dataclasses import dataclass, field
 
 import cairo
@@ -627,14 +628,17 @@ def draw_subtitle(ctx, frame, cues):
 
 # ───────────── 旁白与字幕 ─────────────
 def narration_layout():
+    """直接复用横版已选定的 take（同一引擎、同一语速），不重新合成。"""
+    import soundfile as sf
     from ..audio import voice
     from ..narration import by_id
-    from ..paths import load_config as lc
-    cfg = lc()
+    from ..paths import ROOT
     lines = by_id()
+    main = {it["id"]: it for it in voice.load_layout()}
     out = []
     for lid, ch, beat in NARRATION:
-        x, path = voice.synth_line(lines[lid], cfg)
+        path = os.path.join(ROOT, main[lid]["path"])
+        x, _ = sf.read(path, dtype="float64")
         f0 = V.beat_frame(ch, beat)
         n = len(x)
         out.append(dict(id=lid, chapter=ch, beat=beat, start_frame=f0, start_sample=f0 * V.SAMPLES_PER_FRAME,

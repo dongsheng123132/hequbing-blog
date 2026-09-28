@@ -11,3 +11,4 @@ SenseVoice-small / Paraformer-zh-small,ASR 模型,https://github.com/k2-fsa/sher
 线描、纹样、印章、HUD、流程图,图形,src/visuals/ 与 src/scenes/ 程序绘制,本工程原创,由代码生成,全部画面,
 历史资料引用,文字,见 historical_facts.md,仅引用事实（年份、名称），不使用任何机构 Logo 或图片,—,时间轴锚点与矩阵画法,麦肯锡、BCG 名称仅作历史说明
 客户数据 / 商标 / 二维码 / 联系方式,—,无,—,—,—,未使用；config.json 中 contact 与 qr_code_path 为 null，成片不绘制
+阿里云百炼 CosyVoice（cosyvoice-v3-plus，系统音色）,商业云端配音,阿里云百炼 Model Studio / DashScope API（dashscope SDK 1.27.7）,按阿里云百炼服务协议与所选音色说明；投放前在控制台确认商用授权,生成的 take 锁定在 assets/voice_takes/cosyvoice/,旁白（开通后切换）,需要环境变量 DASHSCOPE_API_KEY 与访问 dashscope.aliyuncs.com

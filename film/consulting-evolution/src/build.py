@@ -9,6 +9,7 @@
   python -m src.build preview                          全片低清预览 960×540
   python -m src.build render [--workers 4]             1080p 正式渲染（可中断续渲）+ 封装两版
   python -m src.build validate                          自动验收 → output/work/validation.json
+  python -m src.build revoice --engine cosyvoice        换成阿里云百炼配音并重做混音、字幕版、竖版、验收
   python -m src.build all                              以上全部（不含单帧/章节）
 """
 import argparse
@@ -49,7 +50,13 @@ def step_voice():
     subtitles.write_srt(cues, os.path.join(ROOT, "subtitles.srt"))
     with open(os.path.join(ROOT, "narration.txt"), "w", encoding="utf-8") as fh:
         fh.write("《商业咨询进化史》旁白脚本\n")
-        fh.write("配音：MeloTTS（MIT 许可）离线合成的锁定 take，女声；可整体替换为真人配音（见 README）。\n")
+        from .paths import load_config
+        tcfg = load_config()["tts"]
+        if tcfg["engine"] == "cosyvoice":
+            c = tcfg["cosyvoice"]
+            fh.write(f"配音：{c['provider']} {c['model']} / 音色 {c['voice']}（商业云端合成，锁定 take）。\n")
+        else:
+            fh.write("配音：MeloTTS（MIT 许可）离线合成的锁定 take，女声；可切换为阿里云百炼 CosyVoice 或真人配音（见 README）。\n")
         fh.write("时间码为 分:秒:帧（30 fps）。起读点落在整拍上；结束点为实测配音长度。\n\n")
         cur = None
         for it in items:
@@ -122,6 +129,40 @@ def step_render(workers):
     return subs, clean
 
 
+def step_revoice(engine=None, workers=4):
+    """换配音一条龙：旁白 → 混音 → 重渲带字幕版（无字幕版画面不变，只重新封装）→ 竖版 → 预览 → 验收 → 报告。"""
+    import json
+    import shutil
+    from .paths import load_config
+    if engine:
+        p = os.path.join(ROOT, "config.json")
+        cfg = json.load(open(p, encoding="utf-8"))
+        cfg["tts"]["engine"] = engine
+        json.dump(cfg, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+        open(p, "a").write("\n")
+    eng = load_config()["tts"]["engine"]
+    if eng == "cosyvoice" and not os.environ.get("DASHSCOPE_API_KEY"):
+        raise SystemExit("缺少 DASHSCOPE_API_KEY：请在云环境设置里添加该环境变量并允许访问 dashscope.aliyuncs.com，然后新开会话。")
+    step_voice()
+    step_audio()
+    # 字幕时间随新配音变化：作废带字幕的分段（无字幕分段画面不变，保留）
+    for tag, pat in (("1080p", "subs_"), ("540p", ""), ("vertical_1.0", "")):
+        d = os.path.join(OUTPUT, "chunks", tag)
+        if os.path.isdir(d):
+            for f in os.listdir(d):
+                if f.startswith(pat) or not pat:
+                    os.remove(os.path.join(d, f))
+    step_render(workers)
+    step_preview(workers)
+    subprocess.run([sys.executable, "-m", "src.vertical.audio"], check=True, cwd=ROOT)
+    subprocess.run([sys.executable, "-m", "src.vertical.render_v", "--workers", str(workers)], check=True, cwd=ROOT)
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", os.path.join(OUTPUT, "audio", "mix_48k.wav"), "-c:a", "flac",
+                    "-sample_fmt", "s32", "-compression_level", "8",
+                    os.path.join(OUTPUT, "audio", "商业咨询进化史_主混音_48k24bit.flac")], check=True)
+    step_validate()
+    subprocess.run([sys.executable, "-m", "src.report"], check=True, cwd=ROOT)
+
+
 def step_validate():
     from . import validate
     subs = os.path.join(FINAL, "商业咨询进化史_1080p_字幕版.mp4")
@@ -136,6 +177,7 @@ def main():
     ap.add_argument("arg", nargs="?")
     ap.add_argument("--scale", type=float, default=0.5)
     ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--engine", choices=["melo", "cosyvoice"], default=None)
     a = ap.parse_args()
     if a.step == "grid":
         step_grid()
@@ -162,6 +204,8 @@ def main():
         step_render(a.workers)
     elif a.step == "validate":
         step_validate()
+    elif a.step == "revoice":
+        step_revoice(a.engine, a.workers)
     elif a.step == "all":
         step_grid()
         step_storyboard()

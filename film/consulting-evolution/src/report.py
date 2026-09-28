@@ -142,14 +142,27 @@ def main():
     w("- 可复现：两次独立执行 `python -m src.build audio` 得到的 `mix_48k.wav` MD5 完全一致。\n")
 
     w("## 旁白\n")
-    w("- 配音引擎：sherpa-onnx 运行 MeloTTS 中文模型（MIT 许可），单一女声，离线合成；未克隆任何真人声音。")
-    w("- 每句生成 8–24 个 take，用离线 ASR（SenseVoice）回听并按拼音音节比对挑最准的一条，选中的 take 锁定在 `assets/voice_takes/`。")
+    from .paths import load_config
+    tts = load_config()["tts"]
+    if tts["engine"] == "cosyvoice":
+        c = tts["cosyvoice"]
+        w(f"- 配音引擎：{c['provider']} `{c['model']}`，音色 `{c['voice']}`，风格指令“{c.get('instruction', '')}”，"
+          f"发音纠正 {c.get('pronunciation')}；商业云端合成，未克隆任何真人声音。")
+        w(f"- 每句以 {c.get('takes', 4)} 个固定种子生成候选，用离线 ASR（SenseVoice）回听按拼音音节比对选最准的一条，"
+          "锁定在 `assets/voice_takes/cosyvoice/…/`；超时的句子自动小幅提速（记录在 takes_log.json）。")
+    else:
+        w("- 配音引擎：sherpa-onnx 运行 MeloTTS 中文模型（MIT 许可），单一女声，离线合成；未克隆任何真人声音。"
+          "已接好阿里云百炼 CosyVoice（`python -m src.build revoice --engine cosyvoice`），待环境开通后切换。")
+        w("- 每句生成 8–24 个 take，用离线 ASR（SenseVoice）回听并按拼音音节比对挑最准的一条，选中的 take 锁定在 `assets/voice_takes/melo/`。")
     asr = v.get("asr", [])
     flag = [r for r in asr if r["per"] > 0.05]
     w(f"- ASR 拼音错误率 > 5% 的句子（需要人工试听）：" + "；".join(f"{r['id']}「{r['ref']}」→ ASR 听为「{r['hyp']}」" for r in flag))
-    w("- 特别说明：品牌句 N07a「贺去病AI商业咨询」两套 ASR 都把“贺”听成“过/会”，把“AI”听成“爱”。"
-      "“贺”在“祝贺、贺卡”等语境中能被正确识别，问题出在句首弱读与专有名词；模型词典把字母 A 读作 /ah/，“AI”听感接近“爱”。"
-      "**正式投放前建议用真人配音替换全部旁白**（工程支持：替换 `assets/voice_takes/` 中对应文件或改 `narration.py` 后重建即可，字幕与混音会按新时长自动重排）。\n")
+    if tts["engine"] != "cosyvoice":
+        w("- 特别说明：品牌句 N07a「贺去病AI商业咨询」两套 ASR 都把“贺”听成“过/会”，把“AI”听成“爱”。"
+          "“贺”在“祝贺、贺卡”等语境中能被正确识别，问题出在句首弱读与专有名词；模型词典把字母 A 读作 /ah/，“AI”听感接近“爱”。"
+          "**正式投放前应换成商业配音**：阿里云百炼 CosyVoice 已接入（带“贺去病”发音纠正），开通网络与密钥后一条命令即可重做全部成片。\n")
+    else:
+        w("")
 
     w("## 竖版短片\n")
     w(f"- 独立节拍网格（`src/vertical/timeline.py`）：问 120 BPM 16 拍 → 编年（谋 商 管 略 联）150 BPM 44 拍 → 行 48 拍 → 成 44 拍，共 {vert.get('frames_expected')} 帧 / 62.4 秒。")
@@ -168,7 +181,8 @@ def main():
     w("5. 品牌方确认：品牌印章采用“贺去病印”四字白文（避免单独放大“病”字），以及落版文案。\n")
 
     w("## 未做 / 做不到的项目\n")
-    w("- 真人配音、真实乐器录音：本环境没有，均为合成；已如实标注。")
+    w("- 真实乐器录音：本环境没有，配乐为合成；已如实标注。" + ("" if tts["engine"] == "cosyvoice" else
+      "旁白当前仍为离线 MeloTTS，商业配音（阿里云百炼）待开通网络与密钥后切换。"))
     w("- 官方史料网页未能直接打开（网络策略拦截），事实来自搜索索引摘录，已在史实表中分级标注。")
     w("- 竖版无字幕版未单独输出（如需可用 `src/vertical/render_v.py` 增加一路，与横版相同）。")
     w("- 二维码 / 联系方式：未提供真实信息，按要求不出现；位置未在成片中预留占位图形。\n")

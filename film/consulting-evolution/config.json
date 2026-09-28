@@ -5,7 +5,12 @@
     "name": "贺去病AI商业咨询",
     "seal_text": "贺去病印",
     "slogan": "用 AI，把生意做大，把利润做实。",
-    "services": ["经营诊断", "增长战略", "AI落地", "陪伴复盘"],
+    "services": [
+      "经营诊断",
+      "增长战略",
+      "AI落地",
+      "陪伴复盘"
+    ],
     "cta": "从一个真实经营问题开始。",
     "contact": null,
     "qr_code_path": null
@@ -25,19 +30,62 @@
   },
   "seed": 20260928,
   "fonts": {
-    "serif_bold": {"file": "/usr/share/fonts/opentype/noto/NotoSerifCJK-Bold.ttc", "family": "Noto Serif CJK SC"},
-    "serif_black": {"file": "/usr/share/fonts/opentype/noto/NotoSerifCJK-Black.ttc", "family": "Noto Serif CJK SC"},
-    "serif": {"file": "/usr/share/fonts/opentype/noto/NotoSerifCJK-Medium.ttc", "family": "Noto Serif CJK SC"},
-    "sans": {"file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Medium.ttc", "family": "Noto Sans CJK SC"},
-    "sans_bold": {"file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc", "family": "Noto Sans CJK SC"},
-    "brush": {"file": "assets/fonts/MaShanZheng-Regular.ttf", "family": "Ma Shan Zheng"}
+    "serif_bold": {
+      "file": "/usr/share/fonts/opentype/noto/NotoSerifCJK-Bold.ttc",
+      "family": "Noto Serif CJK SC"
+    },
+    "serif_black": {
+      "file": "/usr/share/fonts/opentype/noto/NotoSerifCJK-Black.ttc",
+      "family": "Noto Serif CJK SC"
+    },
+    "serif": {
+      "file": "/usr/share/fonts/opentype/noto/NotoSerifCJK-Medium.ttc",
+      "family": "Noto Serif CJK SC"
+    },
+    "sans": {
+      "file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Medium.ttc",
+      "family": "Noto Sans CJK SC"
+    },
+    "sans_bold": {
+      "file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc",
+      "family": "Noto Sans CJK SC"
+    },
+    "brush": {
+      "file": "assets/fonts/MaShanZheng-Regular.ttf",
+      "family": "Ma Shan Zheng"
+    }
   },
   "hanzi_data": "assets/hanzi/strokes_subset.json",
   "tts": {
-    "engine": "sherpa-onnx + MeloTTS (vits-melo-tts-zh_en)",
-    "model_dir": "assets/tts/vits-melo-tts-zh_en",
-    "speed": 0.8,
-    "speaker_id": 0
+    "engine": "melo",
+    "cosyvoice": {
+      "provider": "阿里云百炼 Model Studio（DashScope）",
+      "model": "cosyvoice-v3-plus",
+      "voice": "longanyang",
+      "instruction": "纪录片旁白风格：沉稳、克制、有质感，语速适中偏慢，吐字清晰，句尾自然收住，不夸张。",
+      "speech_rate": 1.0,
+      "seed": 2026,
+      "takes": 4,
+      "pronunciation": [
+        {
+          "贺去病": "he4 qu4 bing4"
+        },
+        {
+          "权利害": "quan2 li4 hai4"
+        }
+      ],
+      "audition_voices": [
+        "longanyang"
+      ],
+      "api_key_env": "DASHSCOPE_API_KEY",
+      "network_host": "dashscope.aliyuncs.com"
+    },
+    "melo": {
+      "engine_name": "sherpa-onnx + MeloTTS (vits-melo-tts-zh_en)",
+      "model_dir": "assets/tts/vits-melo-tts-zh_en",
+      "speed": 0.8,
+      "speaker_id": 0
+    }
   },
   "colors": {
     "vermilion": "#C23A2B",

@@ -82,6 +82,39 @@ python -m src.report
 | render | `src/render.py`：分段并行渲染、续渲、拼接、封装 |
 | validate | `src/validate.py` 与 `src/report.py`：检查日期、字形、帧数、节拍、音画同步、音频峰值、文字扫描，并生成报告 |
 
+## 商业配音：阿里云百炼 CosyVoice
+
+旁白引擎可以切换（`config.json` → `tts.engine`）。
+
+- 已提交的成片仍是离线 MeloTTS（`melo`）。
+- 商业配音接入的是阿里云百炼 `cosyvoice-v3-plus`（`cosyvoice`），带三项设置：
+  - 纪录片旁白风格指令；
+  - “贺去病”“权利害”的发音纠正（`pronunciation`）；
+  - 固定种子多条取优。
+
+切换步骤：
+
+1. 在云环境设置里做两件事，然后新开会话：
+   - 添加环境变量 `DASHSCOPE_API_KEY`，值为百炼控制台的 API Key；
+   - 允许网络访问 `dashscope.aliyuncs.com`。
+2. 安装依赖：
+
+   ```bash
+   pip install -r requirements.txt
+   python -m src.fetch_assets --asr     # 离线 ASR，用于多条取优与读音验收
+   ```
+
+3. 试音：`python -m src.audio.audition`。
+   - 每个候选音色合成五句代表句，输出到 `output/audition/`。
+   - 候选音色写在 `config.json` → `tts.cosyvoice.audition_voices`。音色名以百炼官方《CosyVoice 音色列表》为准，并且必须与模型版本匹配。
+4. 听完挑定音色，写入 `tts.cosyvoice.voice`。
+5. 一条命令重做：`python -m src.build revoice --engine cosyvoice`。
+   - 按顺序执行：新旁白 → 混音 → 重渲带字幕版（无字幕版画面不变，只重新封装）→ 竖版 → 预览 → 验收 → 报告。
+   - 字幕按新配音的实测长度自动重排。
+   - 如果某句会压到下一句，会自动把这句的语速提高 6% 左右后重新合成，最多提高到 1.25 倍。
+
+投放前，在百炼控制台确认所选音色的商用授权。
+
 ## 常见修改
 
 - **更换旁白**：替换 `assets/voice_takes/` 中同名文件，或删除对应文件后修改 `src/narration.py` 的文本，再执行 `build voice` 和 `build audio`。起读点固定在整拍上，字幕与混音按新配音的实测长度自动重排。句子超出本章或与下一句重叠时，`build voice` 会报出。换成真人配音时，把 48 kHz 录音按 `{句子ID}_{hash}.flac` 命名放进去，或直接修改 `voice.synth_line` 的读取路径。
@@ -117,6 +150,6 @@ ffmpeg -i video.mp4 -i output/audio/mix_48k.wav -map 0:v:0 -map 1:a:0 -c:v copy 
 ## 声明与限制
 
 - 配乐中的笛、钟、弹拨、弦乐、铜管都是**合成近似音色**，不是骨笛、编钟、琵琶等真实乐器的录音，也不代表还原各时代的真实音乐。主题旋律为原创五声音阶短动机。
-- 旁白为 MeloTTS（MIT）离线合成。ASR 回听发现品牌句等少数句子读音存疑，详见 `validation_report.md`。正式投放前建议换成真人配音。
+- 当前成片的旁白为 MeloTTS（MIT）离线合成。ASR 回听发现品牌句等少数句子读音存疑，详见 `validation_report.md`。正式投放前请按上文切换到阿里云百炼商业配音。
 - 史实来自搜索索引摘录，本环境无法直接打开官方网页，可信度分级见 `historical_facts.md`。
 - 片中的询盘流程是标注过的**流程演示**，不是客户项目。片中没有价格、提效百分比、收益曲线、客户名称、Logo、二维码或联系方式。
