@@ -2,7 +2,7 @@
 
 从谋士到 AI，从看清局势到做出结果 · 出品：贺去病AI商业咨询
 
-一支 03:02:20（5480 帧，30 fps）的编年品牌短片，以及一支 62.4 秒的竖版短片。全部画面、配乐和音效都由代码逐帧生成，结果可以复现。旁白由离线 TTS 合成后锁定。
+一支 03:02:20（5480 帧，30 fps）的编年品牌短片，以及一支 62.4 秒的竖版短片。全部画面由代码逐帧生成；配乐由代码编排、用 FluidR3_GM 采样乐器（MIT）演奏；旁白当前为离线 Kokoro 男声（Apache-2.0），商业配音（阿里云百炼）已接好待开通。结果可以复现。
 
 ## 交付物
 
@@ -12,8 +12,8 @@
 | `output/final/商业咨询进化史_1080p_无字幕版.mp4` | 同上，不含字幕 | 已验收；不入库，同上 |
 | `output/share/商业咨询进化史_720p_分享版.mp4` / `…竖版_720x1280_分享版.mp4` | 轻量分享版（8.1 MB / 2.8 MB），从成片压缩，音频取自无损主混音，帧数与音画对齐已复核 | 已生成 |
 | `output/final/商业咨询进化史_竖版_1080x1920_字幕版.mp4` | 竖版短片，62.4 秒，按竖屏重新构图，另有独立节拍网格 | 已验收；不入库，`python -m src.vertical.render_v` 重新生成 |
-| `output/audio/商业咨询进化史_主混音_48k24bit.flac` | 独立音轨：主混音，无损 | 已生成 |
-| `output/preview/商业咨询进化史_低清预览_960x540.mp4` | 全片低清动态预览，用来检查节奏和可读性 | 已生成 |
+| `output/share/商业咨询进化史_主混音_音轨.m4a` | 独立音轨（AAC 256k，5.9 MB）；无损版由 `build audio` 生成，不入库 | 已生成 |
+| `output/preview/商业咨询进化史_低清预览_960x540.mp4` | 全片低清动态预览，用来检查节奏和可读性 | 不入库，`build preview` 生成 |
 | `subtitles.srt` | SRT 字幕，按实测配音时长生成，帧精度 | 已生成 |
 | `beat_grid.csv` / `storyboard.csv` | 统一节拍网格（340 拍）和完整分镜（32 个镜头） | 已生成 |
 | `historical_facts.md` | 史实表：事实、采用表述、来源、争议、对应镜头 | 已完成，其中 ★ 链接待人工复核 |
@@ -27,7 +27,7 @@
 实测环境：Ubuntu 24.04、Python 3.11、ffmpeg 6.1.1（libx264 / aac / ebur128）、cairo 1.18.0。
 
 ```bash
-apt-get install -y ffmpeg fonts-noto-cjk fonts-noto-cjk-extra
+apt-get install -y ffmpeg fonts-noto-cjk fonts-noto-cjk-extra fluidsynth fluid-soundfont-gm
 pip install -r requirements.txt
 python -m src.fetch_assets        # 下载 Ma Shan Zheng 字体、笔顺数据子集、MeloTTS 模型
 ```
@@ -150,7 +150,7 @@ ffmpeg -i video.mp4 -i output/audio/mix_48k.wav -map 0:v:0 -map 1:a:0 -c:v copy 
 
 ## 声明与限制
 
-- 配乐中的笛、钟、弹拨、弦乐、铜管都是**合成近似音色**，不是骨笛、编钟、琵琶等真实乐器的录音，也不代表还原各时代的真实音乐。主题旋律为原创五声音阶短动机。
-- 当前成片的旁白为 MeloTTS（MIT）离线合成。ASR 回听发现品牌句等少数句子读音存疑，详见 `validation_report.md`。正式投放前请按上文切换到阿里云百炼商业配音。
+- 配乐使用 FluidR3_GM 采样音色库（MIT）的真实乐器采样：长笛、筝（Koto）、弦乐、圆号、定音鼓、太鼓、管钟等 GM 标准音色。它们不是骨笛、编钟、琵琶等中国古乐器原声，也不代表还原各时代的真实音乐；数字章节的电子脉冲与部分音效为程序合成。主题旋律为原创五声音阶短动机。
+- 当前成片的旁白为 Kokoro-82M v1.1-zh（Apache-2.0）离线合成的男声（sid 60）：从 100 个中文音色中按 ASR 读音准确率与音高筛选，全稿仅 1 句被 ASR 标记（见 `validation_report.md`）。早期的 MeloTTS 版本读音问题较多，已弃用。正式投放前建议切换到阿里云百炼商业配音（见上文）。
 - 史实来自搜索索引摘录，本环境无法直接打开官方网页，可信度分级见 `historical_facts.md`。
 - 片中的询盘流程是标注过的**流程演示**，不是客户项目。片中没有价格、提效百分比、收益曲线、客户名称、Logo、二维码或联系方式。

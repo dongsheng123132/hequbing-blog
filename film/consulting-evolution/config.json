@@ -28,6 +28,10 @@
     "target_lufs": -16.0,
     "true_peak_max_dbtp": -1.0
   },
+  "music": {
+    "instruments": "sampled",
+    "soundfont": "/usr/share/sounds/sf2/FluidR3_GM.sf2（fluid-soundfont-gm，MIT）"
+  },
   "seed": 20260928,
   "fonts": {
     "serif_bold": {
@@ -57,7 +61,7 @@
   },
   "hanzi_data": "assets/hanzi/strokes_subset.json",
   "tts": {
-    "engine": "melo",
+    "engine": "kokoro",
     "cosyvoice": {
       "provider": "阿里云百炼 Model Studio（DashScope）",
       "model": "cosyvoice-v3-plus",
@@ -79,6 +83,14 @@
       ],
       "api_key_env": "DASHSCOPE_API_KEY",
       "network_host": "dashscope.aliyuncs.com"
+    },
+    "kokoro": {
+      "engine_name": "sherpa-onnx + Kokoro-82M v1.1-zh",
+      "model_dir": "assets/tts/kokoro-multi-lang-v1_1",
+      "speaker_id": 60,
+      "speech_rate": 0.9,
+      "takes": 4,
+      "selection": "100 个中文音色中按 ASR 拼音错误率与基频筛选：sid 60 男声，全稿平均错误率 0.4%，基频约 119 Hz"
     },
     "melo": {
       "engine_name": "sherpa-onnx + MeloTTS (vits-melo-tts-zh_en)",

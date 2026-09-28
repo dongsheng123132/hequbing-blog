@@ -12,7 +12,19 @@ from fractions import Fraction
 import numpy as np
 
 from .. import timeline as T
-from . import synth as S
+from ..paths import load_config
+from . import synth as _SYN
+
+
+def _instruments():
+    """config.json → music.instruments："sampled"（FluidR3_GM 采样，默认）或 "synth"（纯程序合成）。"""
+    if load_config().get("music", {}).get("instruments", "synth") == "sampled":
+        from . import sampled
+        return sampled
+    return _SYN
+
+
+S = _instruments()
 
 # 动机：(MIDI, 拍)
 Q = [(59, 1), (62, .5), (64, .5), (66, 2), (69, 1), (66, .5), (64, .5), (64, 2)]
@@ -121,9 +133,9 @@ def compose():
     sc.add(1, 20, lambda: S.flute(69, secs(1, 3.5), 0.6, seed=9), 0.7, -0.1, 0.45, "melody")
 
     # ── 02 商（90 BPM，32 拍）：拨弦、木质敲击 ──
-    sc.add(2, 0, lambda: S.drum_low(0.55, decay=0.9), 0.9, 0, 0.4, "drum")
+    sc.add(2, 0, lambda: S.drum_low(0.55, decay=0.9), 0.6, 0, 0.4, "drum")
     for i, m in enumerate(CHORDS["I"]["notes"]):
-        sc.add(2, i * 0.08, lambda m=m, i=i: S.pluck(m, 2.0, 0.5, seed=i), 0.8, -0.3 + 0.2 * i, 0.3, "pluck")
+        sc.add(2, i * 0.08, lambda m=m, i=i: S.pluck(m, 2.0, 0.5, seed=i), 0.55, -0.3 + 0.2 * i, 0.3, "pluck")
     for bar in range(8):
         name = CYCLE[(bar + 2) % 4]
         sc.chord(S.pad, 2, bar * 4, name, 4, gain=0.35, send=0.5)
@@ -161,7 +173,7 @@ def compose():
     sc.melody(S.strings, 3, 28, A, transpose=12, gain=1.3, pan=0.1, send=0.45, tag="melody")
 
     # ── 04 略（112.5 BPM，40 拍）：弦乐层次扩大，克制铜管 ──
-    sc.add(4, 0, lambda: S.timpani(38, 0.8), 0.9, 0, 0.3, "timp")
+    sc.add(4, 0, lambda: S.timpani(38, 0.8), 0.6, 0, 0.3, "timp")
     for bar in range(10):
         name = CYCLE[(bar + 2) % 4]
         sc.chord(S.strings, 4, bar * 4, name, 4, gain=0.55, send=0.45)
@@ -178,7 +190,7 @@ def compose():
                "pulse")
 
     # ── 05 联（120 BPM，48 拍）：低频脉冲与短音型；末段悬置 ──
-    sc.add(5, 0, lambda: S.kick(0.8), 0.9, 0, 0.1, "kick")
+    sc.add(5, 0, lambda: S.kick(0.8), 0.55, 0, 0.1, "kick")
     for bar in range(12):
         name = CYCLE[bar % 4] if bar < 9 else "II"
         stuck = bar >= 9
@@ -204,7 +216,7 @@ def compose():
     sc.mute(6, 0, 0.001, 0.35, 1.0)
 
     # ── 06 行（150 BPM，80 拍，四组各 20 拍）：主题由管弦展开，叠加精确电子节律 ──
-    sc.add(6, 0, lambda: S.timpani(38, 0.9), 1.0, 0, 0.3, "timp")
+    sc.add(6, 0, lambda: S.timpani(38, 0.9), 0.6, 0, 0.3, "timp")
     sc.add(6, 0, lambda: S.bell(74, 3.0, 0.5), 0.8, 0.2, 0.5, "bell")
     for bar in range(20):
         name = CYCLE[bar % 4] if bar < 19 else "V"
@@ -240,14 +252,14 @@ def compose():
     sc.melody(S.brass, 6, 68, A, gain=1.1, pan=-0.1)
     sc.melody(S.strings, 6, 68, A, transpose=12, gain=1.2, pan=0.15)
     for b in (70, 72, 74):          # 三组词：三记重拍
-        sc.add(6, b, lambda: S.timpani(38, 1.0), 1.0, 0, 0.35, "hit")
-        sc.add(6, b, lambda b=b: S.drum_low(0.7, decay=0.8, seed=b), 0.9, 0, 0.35, "hit")
+        sc.add(6, b, lambda: S.timpani(38, 1.0), 0.6, 0, 0.35, "hit")
+        sc.add(6, b, lambda b=b: S.drum_low(0.7, decay=0.8, seed=b), 0.6, 0, 0.35, "hit")
         sc.chord(S.brass, 6, b, "I", 0.8, gain=0.35, send=0.4, tag="hit")
     for q in range(16):             # 76–80：推向下一章
         sc.add(6, 76 + q * 0.25, lambda q=q: S.hat(0.2 + 0.03 * q, seed=q), 0.8, 0, 0.1, "hat")
 
     # ── 07 成（150 BPM，60 拍）：维持 150 BPM，以半拍感、长音与减少打击形成舒展 ──
-    sc.add(7, 0, lambda: S.timpani(38, 1.0), 1.0, 0, 0.35, "timp")
+    sc.add(7, 0, lambda: S.timpani(38, 1.0), 0.6, 0, 0.35, "timp")
     sc.add(7, 0, lambda: S.bell(74, 4.0, 0.6), 0.9, 0.2, 0.55, "bell")
     plan = [(0, "I", 8), (8, "VI", 8), (16, "II", 8), (24, "V", 8), (32, "I", 28)]
     for b, name, n in plan:

@@ -55,6 +55,10 @@ def step_voice():
         if tcfg["engine"] == "cosyvoice":
             c = tcfg["cosyvoice"]
             fh.write(f"配音：{c['provider']} {c['model']} / 音色 {c['voice']}（商业云端合成，锁定 take）。\n")
+        elif tcfg["engine"] == "kokoro":
+            c = tcfg["kokoro"]
+            fh.write(f"配音：{c['engine_name']}（Apache-2.0）离线合成，男声 sid {c['speaker_id']}，锁定 take；"
+                     "开通网络与密钥后可切换为阿里云百炼 CosyVoice（见 README）。\n")
         else:
             fh.write("配音：MeloTTS（MIT 许可）离线合成的锁定 take，女声；可切换为阿里云百炼 CosyVoice 或真人配音（见 README）。\n")
         fh.write("时间码为 分:秒:帧（30 fps）。起读点落在整拍上；结束点为实测配音长度。\n\n")
@@ -177,7 +181,7 @@ def main():
     ap.add_argument("arg", nargs="?")
     ap.add_argument("--scale", type=float, default=0.5)
     ap.add_argument("--workers", type=int, default=4)
-    ap.add_argument("--engine", choices=["melo", "cosyvoice"], default=None)
+    ap.add_argument("--engine", choices=["melo", "kokoro", "cosyvoice"], default=None)
     a = ap.parse_args()
     if a.step == "grid":
         step_grid()

@@ -1,0 +1,580 @@
+{
+ "N00a": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "生意最难的往往不是再努力一点",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N00a_ba6dbfc39770.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "生意最难的，往往不是再努力一点。",
+  "variant": [
+   "",
+   0
+  ]
+ },
+ "N00b": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "而是在复杂的局势里看清下一步",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N00b_a469f268c19e.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "而是，在复杂的局势里，看清下一步。",
+  "variant": [
+   "",
+   1
+  ]
+ },
+ "N01a": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "古人面对复杂局势会求教于谋士",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N01a_089cb65b5111.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "古人面对复杂局势，会求教于谋士。",
+  "variant": [
+   "",
+   1
+  ]
+ },
+ "N01b": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "变形式全利害定进退",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N01b_de796b5e22d8.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "辨形势，权利害，定进退。",
+  "variant": [
+   "",
+   2
+  ]
+ },
+ "N01c": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.043
+  ],
+  "chosen_asr": "这不是今天的商业咨询却让我们看见一种古老的需要",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N01c_938227c11aab.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "这不是今天的商业咨询，却让我们看见一种古老的需要：",
+  "variant": [
+   "",
+   1
+  ]
+ },
+ "N01d": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "帮助决策者看清选择",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N01d_f98b4d174a9c.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "帮助决策者，看清选择。",
+  "variant": [
+   "",
+   0
+  ]
+ },
+ "N02a": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "当货物走得更圆经营就不只是买进卖出",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N02a_89312509411f.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "当货物走得更远，经营就不只是买进卖出。",
+  "variant": [
+   "",
+   1
+  ]
+ },
+ "N02b": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "要识货要算账要守信",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N02b_76fe0ec37cb2.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "要识货，要算账，要守信，",
+  "variant": [
+   "",
+   0
+  ]
+ },
+ "N02c": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "还要让肖息跑在货物前面",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N02c_6bac1b1fe969.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "还要让消息跑在货物前面。",
+  "variant": [
+   "",
+   0
+  ]
+ },
+ "N02d": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "经验开始被写进账册传给更多的人",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N02d_6af24164643c.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "经验，开始被写进账册，传给更多的人。",
+  "variant": [
+   "",
+   1
+  ]
+ },
+ "N03a": {
+  "all_per": [
+   0.091,
+   0.091,
+   0.091,
+   0.091,
+   0.091,
+   0.091,
+   0.091,
+   0.182,
+   0.182,
+   0.182,
+   0.182,
+   0.182
+  ],
+  "chosen_asr": "企业变道协作变得更复杂",
+  "chosen_per": 0.09090909090909091,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N03a_04157987682d.flac",
+  "n_candidates": 12,
+  "rate": null,
+  "text": "企业变大，协作变得更复杂。",
+  "variant": [
+   "",
+   200
+  ]
+ },
+ "N03b": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "工作怎样分流程怎样排效率能不能被观察和改进",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N03b_9ff71b7b7a2e.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "工作怎样分，流程怎样排，效率能不能被观察和改进？",
+  "variant": [
+   "",
+   0
+  ]
+ },
+ "N03c": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "一九一一年科学管理原理出版",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N03c_f453731c6ff0.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "一九一一年，科学管理原理出版。",
+  "variant": [
+   "",
+   1
+  ]
+ },
+ "N03d": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "管理之时开始以更系统的方式被讨论",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N03d_7a44f96c698b.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "管理知识，开始以更系统的方式被讨论。",
+  "variant": [
+   "",
+   0
+  ]
+ },
+ "N04a": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "咨询逐渐成为专业服务",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N04a_d3e579674fdb.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "咨询逐渐成为专业服务。",
+  "variant": [
+   "",
+   0
+  ]
+ },
+ "N04b": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "企业不仅问怎样做得更快也问应该做什么又应该放弃什么",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N04b_3650ec471e75.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "企业不仅问，怎样做得更快，也问，应该做什么，又应该放弃什么。",
+  "variant": [
+   "",
+   0
+  ]
+ },
+ "N04c": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "研究分析与战略工具帮助经营者组织复杂的选择",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N04c_5e355511277e.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "研究、分析与战略工具，帮助经营者组织复杂的选择。",
+  "variant": [
+   "",
+   0
+  ]
+ },
+ "N05a": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "数字化让订单客户和生产优了新的连接方式",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N05a_a0eee38bee13.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "数字化，让订单、客户和生产，有了新的连接方式。",
+  "variant": [
+   "",
+   1
+  ]
+ },
+ "N05b": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "但系统连上了不代表生意就自动变好",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N05b_58ecbadb9bbe.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "但系统连上了，不代表生意就自动变好。",
+  "variant": [
+   "",
+   2
+  ]
+ },
+ "N05c": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "谁来判断谁来执行怎样协同怎样检验仍然需要一件一键解决",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N05c_6270e6205d5c.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "谁来判断，谁来执行，怎样协同，怎样检验，仍然需要一件一件解决。",
+  "variant": [
+   "",
+   2
+  ]
+ },
+ "N06a": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "到了 a i 时代我们希望咨询再向前一步",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N06a_e49e3e1813ba.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "到了AI时代，我们希望咨询再向前一步。",
+  "variant": [
+   "",
+   0
+  ]
+ },
+ "N06b": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "不只分析问题也把建议变成可执行的流程",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N06b_59aacc9bbea5.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "不只分析问题，也把建议变成可执行的流程。",
+  "variant": [
+   "",
+   0
+  ]
+ },
+ "N06c": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "整理需求形成草稿",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N06c_0c23629686e3.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "整理需求，形成草稿，",
+  "variant": [
+   "",
+   0
+  ]
+ },
+ "N06d": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "经人确认再进入业务",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N06d_a3447386ef88.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "经人确认，再进入业务。",
+  "variant": [
+   "",
+   1
+  ]
+ },
+ "N06e": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "留下依据持续复盘",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N06e_e23ebdfa7837.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "留下依据，持续复盘。",
+  "variant": [
+   "",
+   0
+  ]
+ },
+ "N06f": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "让依次解决逐渐成为企业自己的能力",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N06f_523180b7f063.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "让一次解决，逐渐成为企业自己的能力。",
+  "variant": [
+   "",
+   0
+  ]
+ },
+ "N07a": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "鹤趣病 a i 商业咨询",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N07a_e89a8531b75e.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "贺去病AI商业咨询。",
+  "variant": [
+   "",
+   2
+  ]
+ },
+ "N07b": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "从真实经营问题出发把判断变成行洞把方法留在企业",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N07b_93d1545f963c.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "从真实经营问题出发，把判断变成行动，把方法留在企业。",
+  "variant": [
+   "",
+   0
+  ]
+ },
+ "N07c": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "用 a i 把生意做大把利润做实",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N07c_395cabfce478.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "用AI，把生意做大，把利润做实。",
+  "variant": [
+   "",
+   0
+  ]
+ },
+ "N07d": {
+  "all_per": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "chosen_asr": "带着一个具体问题我们从那里开始",
+  "chosen_per": 0.0,
+  "engine": "kokoro/v1_1_sid60",
+  "file": "N07d_78cdc46b08a0.flac",
+  "n_candidates": 4,
+  "rate": null,
+  "text": "带着一个具体问题，我们从那里开始。",
+  "variant": [
+   "",
+   1
+  ]
+ }
+}

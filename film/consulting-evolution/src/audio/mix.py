@@ -49,6 +49,32 @@ def compress(x, thr_db=-24.0, ratio=3.0, attack=0.008, release=0.15):
     return x * g
 
 
+# 音乐相对旁白的逐章目标（LU）：前面克制，AI 章节达到高潮，品牌结尾稳稳落下
+MUSIC_ARC = {0: -6.0, 1: -5.0, 2: -4.0, 3: -3.5, 4: -3.0, 5: -4.0, 6: -1.0, 7: -2.5}
+
+
+def chapter_arc_gain(music, voice_st, meter, arc=MUSIC_ARC):
+    """按章测量（闪避后的）音乐与旁白响度，求每章增益，使音乐落在旁白之下的目标位置；章界处用半拍平滑过渡。"""
+    n = len(music)
+    g = np.ones(n)
+    pts = []
+    for ch in T.CHAPTERS:
+        a = T.chapter_start_frame(ch.id) * T.SAMPLES_PER_FRAME
+        b = T.chapter_end_frame(ch.id) * T.SAMPLES_PER_FRAME
+        lm = meter.integrated_loudness(music[a:b])
+        lv = meter.integrated_loudness(voice_st[a:b])
+        gain_db = float(np.clip((lv + arc[ch.id]) - lm, -12.0, 6.0)) if np.isfinite(lm) and np.isfinite(lv) else 0.0
+        pts.append((a, b, gain_db, ch.samples_per_beat // 2))
+    for i, (a, b, gdb, half) in enumerate(pts):
+        g[a:b] = 10 ** (gdb / 20)
+    for i in range(1, len(pts)):                 # 章界平滑：上一章最后半拍内过渡到新章增益
+        a = pts[i][0]
+        half = pts[i - 1][3]
+        g0, g1 = 10 ** (pts[i - 1][2] / 20), 10 ** (pts[i][2] / 20)
+        g[a - half:a] = np.linspace(g0, g1, half)
+    return g, {T.CHAPTERS[i].id: round(p[2], 2) for i, p in enumerate(pts)}
+
+
 def true_peak_db(x):
     up = resample_poly(x, 4, 1, axis=0)
     return 20 * np.log10(np.max(np.abs(up)) + 1e-12)
@@ -124,10 +150,12 @@ def build(save=True):
     duck_m = 1 - 0.5 * k
     duck_s = 1 - 0.2 * k
 
-    g_music, g_sfx, g_voice = 0.62, 0.5, 1.25
-    mix = music * duck_m[:, None] * g_music + effects * duck_s[:, None] * g_sfx + voice_st * g_voice
-
+    g_sfx, g_voice = 0.5, 1.25
     meter = pyln.Meter(SR)
+    arc_gain, arc_db = chapter_arc_gain(music * duck_m[:, None], voice_st * g_voice, meter)
+    music_bus = music * duck_m[:, None] * arc_gain[:, None]
+    mix = music_bus + effects * duck_s[:, None] * g_sfx + voice_st * g_voice
+
     lufs0 = meter.integrated_loudness(mix)
     target = cfg["audio"]["target_lufs"]
     gain = 10 ** ((target - lufs0) / 20)
@@ -139,12 +167,13 @@ def build(save=True):
     tp1 = true_peak_db(mix)
     lufs1 = meter.integrated_loudness(mix)
 
-    stems = dict(music=music * duck_m[:, None] * g_music * gain, sfx=effects * duck_s[:, None] * g_sfx * gain,
+    stems = dict(music=music_bus * gain, sfx=effects * duck_s[:, None] * g_sfx * gain,
                  voice=voice_st * g_voice * gain)
     report = dict(lufs_before=lufs0, lufs=lufs1, true_peak_before_limit_dbtp=tp0, true_peak_dbtp=tp1,
                   limiter=gr, samples=len(mix), seconds=len(mix) / SR,
                   voice_lufs=meter.integrated_loudness(stems["voice"]),
-                  n_music_events=len(sc.events), n_sfx_cues=len(cues))
+                  n_music_events=len(sc.events), n_sfx_cues=len(cues), music_arc_gain_db=arc_db,
+                  music_arc_target_lu=MUSIC_ARC)
     if save:
         out = os.path.join(OUTPUT, "audio")
         os.makedirs(out, exist_ok=True)

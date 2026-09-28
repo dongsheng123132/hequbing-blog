@@ -3,7 +3,9 @@
 引擎（config.json → tts.engine）：
 - "cosyvoice"：阿里云百炼 CosyVoice（商业云端配音，默认 cosyvoice-v3-plus）。需要环境变量 DASHSCOPE_API_KEY，
   且网络允许访问 dashscope.aliyuncs.com。支持风格指令（instruction）、发音纠正（pronunciation）、固定种子。
-- "melo"：sherpa-onnx 运行的 MeloTTS 中文模型（MIT），离线合成，作为无网络时的后备。
+- "kokoro"：sherpa-onnx 运行的 Kokoro-82M v1.1-zh（Apache-2.0），离线；在 100 个中文音色中按 ASR 读音准确率与音高筛选，
+  默认男声 sid 60（在全部 30 句上的拼音错误率约 0.4%，品牌名读音正确）。无网络时的主力。
+- "melo"：sherpa-onnx 运行的 MeloTTS 中文模型（MIT），离线合成，最早的版本，保留作后备。
 
 共同流程：
 - 每句单独合成；多条取优：离线 ASR 回听，按拼音音节错误率挑最准的一条（ASR 只是代理指标，仍需人工试听）。
@@ -87,6 +89,47 @@ class MeloEngine:
         return _trim(_to48k(np.asarray(a.samples, dtype=np.float64), a.sample_rate))
 
 
+class KokoroEngine:
+    """离线：sherpa-onnx 运行 Kokoro-82M v1.1-zh（Apache-2.0），100 个中文音色；默认男声 sid 60。"""
+    supports_rate = True
+
+    def __init__(self, cfg):
+        self.c = cfg["tts"]["kokoro"]
+        self.tag = f"kokoro/v1_1_sid{self.c['speaker_id']}"
+        self._tts = None
+
+    def text(self, line):
+        return line.display.replace("1911年", "一九一一年").replace("《", "").replace("》", "")
+
+    def key(self, line, rate=None):
+        c = self.c
+        sig = json.dumps([self.text(line), c["speaker_id"], rate or c["speech_rate"], c["engine_name"]],
+                         ensure_ascii=False)
+        return hashlib.sha1(sig.encode()).hexdigest()[:12]
+
+    def _engine(self):
+        if self._tts is None:
+            import sherpa_onnx
+            d = os.path.join(ROOT, self.c["model_dir"]) + "/"
+            conf = sherpa_onnx.OfflineTtsConfig(
+                model=sherpa_onnx.OfflineTtsModelConfig(
+                    kokoro=sherpa_onnx.OfflineTtsKokoroModelConfig(
+                        model=d + "model.onnx", voices=d + "voices.bin", tokens=d + "tokens.txt",
+                        data_dir=d + "espeak-ng-data", dict_dir=d + "dict",
+                        lexicon=d + "lexicon-us-en.txt," + d + "lexicon-zh.txt"),
+                    num_threads=4),
+                rule_fsts=",".join(d + f for f in ("date-zh.fst", "phone-zh.fst", "number-zh.fst")))
+            self._tts = sherpa_onnx.OfflineTts(conf)
+        return self._tts
+
+    def takes(self):
+        return [("", k) for k in range(int(self.c.get("takes", 4)))]
+
+    def generate(self, text, variant, rate=None):
+        a = self._engine().generate(text, sid=int(self.c["speaker_id"]), speed=float(rate or self.c["speech_rate"]))
+        return _trim(_to48k(np.asarray(a.samples, dtype=np.float64), a.sample_rate))
+
+
 class CosyVoiceEngine:
     """阿里云百炼 CosyVoice（dashscope SDK：dashscope.audio.tts_v2.SpeechSynthesizer）。"""
     supports_rate = True
@@ -141,7 +184,7 @@ class CosyVoiceEngine:
 
 def get_engine(cfg):
     name = cfg["tts"]["engine"]
-    return {"melo": MeloEngine, "cosyvoice": CosyVoiceEngine}[name](cfg)
+    return {"melo": MeloEngine, "kokoro": KokoroEngine, "cosyvoice": CosyVoiceEngine}[name](cfg)
 
 
 # ───────────────────────── 取优与锁定 ─────────────────────────

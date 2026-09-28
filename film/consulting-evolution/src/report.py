@@ -76,9 +76,9 @@ def main():
         w(f"| `{m['file']}` | {m['video']['width']}×{m['video']['height']} H.264 High, {m['video']['r_frame_rate']} fps, "
           f"AAC 48 kHz 立体声 | {m['frames']} 帧；{name}；{int(m['format']['size']) / 1e6:.1f} MB |")
     w(f"| `{vert['file']}` | 1080×1920 H.264, 30 fps, AAC 48 kHz | {vert.get('frames')} 帧（应为 {vert.get('frames_expected')}） |")
-    w("| `output/audio/商业咨询进化史_主混音_48k24bit.flac` | 独立音轨：48 kHz 24-bit 立体声主混音（由 `mix_48k.wav` 无损转换） | 8,768,000 采样 |")
+    w("| `output/share/商业咨询进化史_主混音_音轨.m4a` | 独立音轨（AAC 256k）；无损 48 kHz 24-bit 版由 `python -m src.build audio` 生成 `output/audio/mix_48k.wav` | 8,768,000 采样（源） |")
     w("| `subtitles.srt` | SRT 字幕（由实测配音时长生成，帧精度） | 48 条 |")
-    w("| `output/preview/…低清预览_960x540.mp4` | 全片低清动态预览 | 5480 帧 |\n")
+    w("| `output/share/商业咨询进化史_720p_分享版.mp4`、`…竖版_720x1280_分享版.mp4` | 轻量分享版（入库）；1080p 原片与低清预览不入库，可重新生成 | 5480 / 1872 帧 |\n")
 
     w("## 12 项验收问答\n")
     g = v["grid"]
@@ -150,6 +150,13 @@ def main():
           f"发音纠正 {c.get('pronunciation')}；商业云端合成，未克隆任何真人声音。")
         w(f"- 每句以 {c.get('takes', 4)} 个固定种子生成候选，用离线 ASR（SenseVoice）回听按拼音音节比对选最准的一条，"
           "锁定在 `assets/voice_takes/cosyvoice/…/`；超时的句子自动小幅提速（记录在 takes_log.json）。")
+    elif tts["engine"] == "kokoro":
+        c = tts["kokoro"]
+        w(f"- 配音引擎：{c['engine_name']}（Apache-2.0）离线合成，男声 sid {c['speaker_id']}，语速 {c['speech_rate']}；"
+          "未克隆任何真人声音。选择方法：" + c.get("selection", "") + "。")
+        w(f"- 每句 {c.get('takes', 4)} 条候选，用离线 ASR（SenseVoice）回听按拼音音节比对选最准的一条，锁定在 "
+          "`assets/voice_takes/kokoro/…/`；超时的句子自动小幅提速。")
+        w("- 商业配音（阿里云百炼 CosyVoice）已接好，开通网络与密钥后 `python -m src.build revoice --engine cosyvoice` 切换。")
     else:
         w("- 配音引擎：sherpa-onnx 运行 MeloTTS 中文模型（MIT 许可），单一女声，离线合成；未克隆任何真人声音。"
           "已接好阿里云百炼 CosyVoice（`python -m src.build revoice --engine cosyvoice`），待环境开通后切换。")
@@ -157,7 +164,7 @@ def main():
     asr = v.get("asr", [])
     flag = [r for r in asr if r["per"] > 0.05]
     w(f"- ASR 拼音错误率 > 5% 的句子（需要人工试听）：" + "；".join(f"{r['id']}「{r['ref']}」→ ASR 听为「{r['hyp']}」" for r in flag))
-    if tts["engine"] != "cosyvoice":
+    if tts["engine"] == "melo":
         w("- 特别说明：品牌句 N07a「贺去病AI商业咨询」两套 ASR 都把“贺”听成“过/会”，把“AI”听成“爱”。"
           "“贺”在“祝贺、贺卡”等语境中能被正确识别，问题出在句首弱读与专有名词；模型词典把字母 A 读作 /ah/，“AI”听感接近“爱”。"
           "**正式投放前应换成商业配音**：阿里云百炼 CosyVoice 已接入（带“贺去病”发音纠正），开通网络与密钥后一条命令即可重做全部成片。\n")
@@ -175,14 +182,21 @@ def main():
 
     w("## 人工复核清单（自动检查无法替代）\n")
     w("1. 完整观看两版横版与竖版各一遍：节奏、转场、文字阅读时间。")
-    w("2. 试听：配乐音色（全部为合成近似音色，非真实骨笛、编钟、琵琶录音）、旁白读音（尤其 N07a、N01b、N02b、N06a、N07c）。")
+    flagged = "、".join(r["id"] for r in flag) or "ASR 未标记的句子也需通听"
+    w(f"2. 试听：配乐音色（GM 采样乐器 + 部分合成音效）与旁白整体听感；ASR 标记需复核的句子：{flagged}。")
     w("3. 在手机上观看横版 AI 流程章（第 06 章）的次要标注是否可读。")
     w("4. 打开 `historical_facts.md` 中标 ★ 的官方页面核对逐字原文（本环境无法直接打开这些网站，只读到搜索索引）。")
     w("5. 品牌方确认：品牌印章采用“贺去病印”四字白文（避免单独放大“病”字），以及落版文案。\n")
 
     w("## 未做 / 做不到的项目\n")
-    w("- 真实乐器录音：本环境没有，配乐为合成；已如实标注。" + ("" if tts["engine"] == "cosyvoice" else
-      "旁白当前仍为离线 MeloTTS，商业配音（阿里云百炼）待开通网络与密钥后切换。"))
+    music_cfg = load_config().get("music", {})
+    if music_cfg.get("instruments") == "sampled":
+        w("- 配乐使用 FluidR3_GM 采样音色库（MIT）的真实乐器采样（长笛、筝、弦乐、圆号、定音鼓、太鼓、管钟等 GM 标准音色），"
+          "不是中国古乐器原声；数字章节的电子脉冲与部分音效仍为程序合成。")
+    else:
+        w("- 真实乐器录音：本环境没有，配乐为合成；已如实标注。")
+    if tts["engine"] != "cosyvoice":
+        w("- 旁白当前为离线合成，商业配音（阿里云百炼）待开通网络与密钥后切换。")
     w("- 官方史料网页未能直接打开（网络策略拦截），事实来自搜索索引摘录，已在史实表中分级标注。")
     w("- 竖版无字幕版未单独输出（如需可用 `src/vertical/render_v.py` 增加一路，与横版相同）。")
     w("- 二维码 / 联系方式：未提供真实信息，按要求不出现；位置未在成片中预留占位图形。\n")

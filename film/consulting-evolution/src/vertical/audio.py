@@ -10,7 +10,7 @@ from scipy.signal import butter, fftconvolve, sosfilt
 from . import film as F
 from . import timeline as V
 from ..audio import score as SC
-from ..audio import synth as S
+from ..audio.score import S
 from ..audio.mix import compress, lookahead_limit, true_peak_db, _smooth_env
 from ..paths import OUTPUT, ROOT, WORK, load_config
 from ..visuals import hanzi

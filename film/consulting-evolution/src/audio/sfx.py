@@ -8,7 +8,7 @@ from .. import timeline as T
 from ..scenes.base import bframe
 from ..storyboard import KW_WRITE, SHOTS, by_id, seal_events
 from ..visuals import hanzi
-from . import synth as S
+from .score import S
 
 
 def _sample_of_beat(ch, beat):

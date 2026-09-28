@@ -9,4 +9,5 @@ pillow==12.3.0
 sherpa-onnx==1.13.8    # 离线 TTS（MeloTTS）与验收用 ASR
 pypinyin==0.55.0       # 验收：拼音比对
 dashscope==1.27.7      # 阿里云百炼 CosyVoice 商业配音（可选引擎）
-# 系统依赖（apt）：ffmpeg（实测 6.1.1，含 libx264 / aac / ebur128）、fonts-noto-cjk、fonts-noto-cjk-extra
+pyfluidsynth==1.4.0    # 采样乐器渲染（需 apt: fluidsynth fluid-soundfont-gm）
+# 系统依赖（apt）：ffmpeg（实测 6.1.1，含 libx264 / aac / ebur128）、fonts-noto-cjk、fonts-noto-cjk-extra、fluidsynth、fluid-soundfont-gm

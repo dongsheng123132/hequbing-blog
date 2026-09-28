@@ -11,3 +11,9 @@ output/chunks/
 output/audio/*.wav
 # 全分辨率原片不入库（体积大）：python -m src.build render 可重新生成
 output/final/
+# 可重新生成、体积较大的输出不入库
+output/audio/
+output/preview/
+output/audition/
+# 已弃用的 MeloTTS take（读音问题较多）不再入库，需要时可重新合成
+assets/voice_takes/melo/
