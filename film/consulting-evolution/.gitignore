@@ -9,3 +9,5 @@ assets/tts/
 output/work/
 output/chunks/
 output/audio/*.wav
+# 全分辨率原片不入库（体积大）：python -m src.build render 可重新生成
+output/final/
