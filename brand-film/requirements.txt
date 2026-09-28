@@ -1,0 +1,6 @@
+numpy>=1.26
+scipy>=1.11
+skia-python>=87.5
+pillow>=10
+fonttools>=4.40
+matplotlib>=3.8
