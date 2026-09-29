@@ -51,7 +51,7 @@ Scene 5 (4.2–5.4s): the three statements re-appear together as a compact left-
 - duration: 4.8s
 - poster: 4.2s
 - transition_in: blur-crossfade
-- status: outline
+- status: animated
 - src: compositions/frames/02-brand.html
 - type: product_intro
 - beat: reveal

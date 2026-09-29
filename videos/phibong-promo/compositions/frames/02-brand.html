@@ -1,0 +1,246 @@
+<template>
+  <style>
+    @font-face{font-family:"Noto Sans SC";font-weight:400;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Regular.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans SC";font-weight:500;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Medium.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans SC";font-weight:700;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Bold.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans SC";font-weight:900;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Black.woff2") format("woff2");}
+
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      container-type: size;
+      font-family: "Noto Sans SC", sans-serif;
+      color: #111111;
+    }
+
+    /* ---- ground: cream field + cover atmosphere (full-bleed clip, lowest track) ---- */
+    [id="02-brand-bg"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: #fdfae7;
+    }
+    /* clipped diagonal cobalt-tint panel at the right edge (extends past the frame so drift never exposes an edge) */
+    [id="02-brand-panel"] {
+      position: absolute;
+      top: 0;
+      left: 1150px;
+      width: 830px;
+      height: 1080px;
+      background: rgba(30, 43, 250, 0.08);
+      clip-path: polygon(350px 0, 100% 0, 100% 100%, 80px 100%);
+      will-change: transform, opacity;
+    }
+    /* 3x3 cobalt dot grid, very subtle */
+    [id="02-brand-dots"] {
+      position: absolute;
+      left: 1700px;
+      top: 172px;
+      display: grid;
+      grid-template-columns: repeat(3, 12px);
+      grid-auto-rows: 12px;
+      gap: 26px;
+      opacity: 0.34;
+      will-change: transform;
+    }
+    [id="02-brand-dots"] > span {
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #1e2bfa;
+    }
+
+    /* ---- centered lockup ---- */
+    [id="02-brand-lockup"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1000px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    [id="02-brand-accent"] {
+      display: block;
+      width: 60px;
+      height: 4px;
+      overflow: visible;
+      margin-bottom: 1.8cqw;
+    }
+    [id="02-brand-accent-line"] {
+      fill: none;
+      stroke: #1e2bfa;
+      stroke-width: 4;
+      stroke-linecap: round;
+    }
+    /* wordmark: h1 x1.4, weight 900, near-black */
+    [id="02-brand-word"] {
+      font-size: 5.88cqw;
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: #111111;
+      white-space: nowrap;
+    }
+    [id="02-brand-word"] > span {
+      display: inline-block;
+      will-change: transform, opacity;
+    }
+    /* PHIBONG: wide-tracked cobalt capitals */
+    [id="02-brand-latin"] {
+      margin-top: 1.15cqw;
+      padding-left: 0.4em;
+      font-size: 1.4cqw;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.4em;
+      color: #1e2bfa;
+      white-space: nowrap;
+      will-change: transform, opacity;
+    }
+    /* solid cobalt pill, cream text (cta-button atom) */
+    [id="02-brand-pill"] {
+      margin-top: 2.3cqw;
+      padding: 0.72cqw 1.9cqw;
+      border-radius: 100px;
+      background: #1e2bfa;
+      color: #fdfae7;
+      font-size: 1.5cqw;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      transform-origin: 50% 50%;
+      will-change: transform, opacity;
+    }
+    [id="02-brand-pill"] > span {
+      display: inline-block;
+    }
+    [id="02-brand-s4"] {
+      color: rgba(253, 250, 231, 0.62);
+    }
+  </style>
+
+  <div id="root" data-composition-id="02-brand" data-duration="4.8" data-width="1920" data-height="1080">
+    <div id="02-brand-bg" class="clip" data-start="0" data-duration="4.8" data-track-index="0">
+      <div id="02-brand-panel"></div>
+      <div id="02-brand-dots">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <div id="02-brand-lockup" class="clip" data-start="0" data-duration="4.8" data-track-index="1">
+      <svg id="02-brand-accent" viewBox="0 0 60 4" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line id="02-brand-accent-line" x1="2" y1="2" x2="58" y2="2"></line>
+      </svg>
+      <div id="02-brand-word"><span>菲</span><span>邦</span><span>国</span><span>际</span><span>物</span><span>流</span></div>
+      <div id="02-brand-latin">PHIBONG</div>
+      <div id="02-brand-pill"><span id="02-brand-s1">中国</span> <span id="02-brand-s2">→</span> <span id="02-brand-s3">菲律宾</span> <span id="02-brand-s4">·</span> <span id="02-brand-s5">专线物流</span></div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script>
+    window.__timelines = window.__timelines || {};
+    (function () {
+      var byId = function (id) {
+        return document.getElementById(id);
+      };
+      var kids = function (el) {
+        return Array.prototype.slice.call(el.children);
+      };
+
+      var panel = byId("02-brand-panel");
+      var dotsWrap = byId("02-brand-dots");
+      var dots = kids(dotsWrap);
+      var line = byId("02-brand-accent-line");
+      var chars = kids(byId("02-brand-word"));
+      var latin = byId("02-brand-latin");
+      var pill = byId("02-brand-pill");
+      var segs = kids(pill);
+
+      var tl = gsap.timeline({ paused: true });
+
+      // ---------- Scene 1 (0.0-1.2s): atmosphere fades up at the right edge ----------
+      tl.fromTo(panel, { opacity: 0 }, { opacity: 1, duration: 1.0, ease: "power1.out" }, 0);
+      // one long decelerating drift: arrives from the right, settles still by Scene 4
+      tl.fromTo(panel, { x: 70 }, { x: -8, duration: 4.7, ease: "power3.out" }, 0);
+      tl.fromTo(dotsWrap, { x: 36 }, { x: -12, duration: 4.7, ease: "power3.out" }, 0);
+      // dot grid pops in as a diagonal sweep from the right edge inward (spring-pop, smooth settle)
+      dots.forEach(function (d, i) {
+        var r = Math.floor(i / 3);
+        var c = i % 3;
+        tl.fromTo(
+          d,
+          { scale: 0, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.45, ease: "power3.out" },
+          0.3 + (r + (2 - c)) * 0.07
+        );
+      });
+
+      // cobalt 60x4 accent line draws on (svg-path-draw: measured length, dashoffset -> 0)
+      var len = 56;
+      try {
+        var measured = line.getTotalLength();
+        if (measured > 0) len = measured;
+      } catch (e) {}
+      // gap longer than the dash so the hidden state shows nothing (not even a round cap)
+      line.style.strokeDasharray = len + " " + (len + 20);
+      tl.fromTo(
+        line,
+        { strokeDashoffset: len + 4 },
+        { strokeDashoffset: 0, duration: 0.36, ease: "power2.out" },
+        0.08
+      );
+
+      // wordmark waterfall-entry: six characters cascade left->right, each rising into place.
+      // Overlapping wave, gaps shrink across the cascade; the anchor travels furthest.
+      var starts = [0.36, 0.45, 0.53, 0.605, 0.675, 0.74];
+      var rises = [32, 24, 24, 24, 24, 26];
+      var durs = [0.34, 0.3, 0.3, 0.28, 0.27, 0.26];
+      chars.forEach(function (ch, i) {
+        tl.fromTo(ch, { opacity: 0 }, { opacity: 1, duration: 0.12, ease: "power1.out" }, starts[i]);
+        tl.fromTo(ch, { y: rises[i] }, { y: 0, duration: durs[i], ease: "power4.out" }, starts[i]);
+      });
+
+      // ---------- Scene 2 (1.2-2.4s): PHIBONG fades up beneath, on the beat ----------
+      tl.fromTo(
+        latin,
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
+        1.2
+      );
+
+      // ---------- Scene 3 (2.4-3.6s): cobalt route pill springs in (spring-pop-entrance) ----------
+      tl.fromTo(
+        pill,
+        { scale: 0, opacity: 0, y: 14 },
+        { scale: 1, opacity: 1, y: 0, duration: 0.55, ease: "power3.out" },
+        2.4
+      );
+      // route reads left->right inside the pill as it lands
+      segs.forEach(function (s, i) {
+        tl.fromTo(
+          s,
+          { opacity: 0, x: i === 1 ? -18 : -10 },
+          { opacity: 1, x: 0, duration: 0.36, ease: "power3.out" },
+          2.56 + i * 0.07
+        );
+      });
+
+      // ---------- Scene 4 (3.6-4.8s): held lockup; only the atmosphere finishes settling ----------
+
+      window.__timelines["02-brand"] = tl;
+    })();
+  </script>
+</template>

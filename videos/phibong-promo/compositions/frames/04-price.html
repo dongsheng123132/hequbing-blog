@@ -1,0 +1,376 @@
+<template>
+  <style>
+    @font-face{font-family:"Noto Sans SC";font-weight:400;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Regular.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans SC";font-weight:500;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Medium.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans SC";font-weight:700;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Bold.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans SC";font-weight:900;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Black.woff2") format("woff2");}
+
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: "Noto Sans SC";
+      color: #111111;
+    }
+
+    .f04-price-bg {
+      position: absolute;
+      inset: 0;
+      background: #fdfae7;
+    }
+
+    .f04-price-stage {
+      position: absolute;
+      inset: 0;
+      container-type: size;
+    }
+
+    .f04-price-cam {
+      position: absolute;
+      inset: 0;
+      transform-origin: 50% 45%;
+    }
+
+    .f04-price-header {
+      position: absolute;
+      left: 5cqw;
+      top: 4.6cqw;
+      margin: 0;
+    }
+
+    .f04-price-eyebrow-row {
+      display: flex;
+      align-items: center;
+      gap: 0.95cqw;
+    }
+
+    .f04-price-accent {
+      display: block;
+      width: 60px;
+      height: 4px;
+      border-radius: 2px;
+      background: #1e2bfa;
+      transform-origin: 0% 50%;
+    }
+
+    .f04-price-eyebrow {
+      display: block;
+      font-size: 1.4cqw;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.08em;
+      color: #1e2bfa;
+    }
+
+    .f04-price-h2 {
+      margin: 0.8cqw 0 0 0;
+      font-size: 2.6cqw;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #111111;
+    }
+
+    .f04-price-cards {
+      position: absolute;
+      left: 5cqw;
+      right: 5cqw;
+      top: 12.7cqw;
+      height: 28cqw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2cqw;
+    }
+
+    .f04-price-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      height: 100%;
+      padding: 2.3cqw 2.7cqw;
+      background: rgba(30, 43, 250, 0.04);
+      border: 1.5px solid rgba(30, 43, 250, 0.2);
+      border-radius: 14px;
+      box-shadow: none;
+    }
+
+    .f04-price-card-head {
+      display: flex;
+      align-items: center;
+      gap: 1cqw;
+      height: 4cqw;
+    }
+
+    .f04-price-icon {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 4cqw;
+      height: 4cqw;
+      border-radius: 50%;
+      background: rgba(30, 43, 250, 0.08);
+      color: #1e2bfa;
+      transform-origin: 50% 50%;
+    }
+
+    .f04-price-icon svg {
+      display: block;
+      width: 2.3cqw;
+      height: 2.3cqw;
+    }
+
+    .f04-price-title {
+      display: block;
+      font-size: 1.6cqw;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: #111111;
+      white-space: nowrap;
+    }
+
+    .f04-price-tag {
+      display: block;
+      margin-left: auto;
+      padding: 0.3cqw 1.05cqw;
+      border-radius: 100px;
+      background: rgba(30, 43, 250, 0.08);
+      color: #1e2bfa;
+      font-size: 1.2cqw;
+      font-weight: 500;
+      line-height: 1.3;
+      transform-origin: 50% 50%;
+    }
+
+    .f04-price-metric {
+      display: flex;
+      align-items: baseline;
+      gap: 0.8cqw;
+      margin-top: 2cqw;
+    }
+
+    .f04-price-num {
+      display: inline-block;
+      flex: 0 0 auto;
+      font-size: 9.4cqw;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0;
+      color: #1e2bfa;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      text-align: left;
+      transform-origin: 0% 82%;
+    }
+
+    .f04-price-num-sea {
+      width: 2.4em;
+    }
+
+    .f04-price-num-air {
+      width: 2.72em;
+    }
+
+    .f04-price-unit {
+      display: inline-block;
+      font-size: 1.7cqw;
+      font-weight: 500;
+      line-height: 1.2;
+      color: #6b6b6b;
+      white-space: nowrap;
+    }
+
+    .f04-price-foot {
+      margin-top: auto;
+      height: 6cqw;
+    }
+
+    .f04-price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      height: 3cqw;
+      border-top: 1.5px solid rgba(30, 43, 250, 0.2);
+      opacity: 0;
+    }
+
+    .f04-price-row-tall {
+      height: 6cqw;
+      justify-content: flex-start;
+    }
+
+    .f04-price-row-label {
+      font-size: 1.4cqw;
+      font-weight: 500;
+      line-height: 1.2;
+      color: #6b6b6b;
+    }
+
+    .f04-price-row-value {
+      font-size: 1.4cqw;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #111111;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .f04-price-eta {
+      font-size: 1.7cqw;
+      font-weight: 500;
+      line-height: 1.2;
+      color: #111111;
+    }
+
+    .f04-price-eta-num {
+      font-weight: 700;
+      color: #1e2bfa;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .f04-price-note {
+      position: absolute;
+      left: 5cqw;
+      top: 42.3cqw;
+      margin: 0;
+      font-size: 1.4cqw;
+      font-weight: 400;
+      line-height: 1.4;
+      color: #6b6b6b;
+    }
+  </style>
+
+  <div id="root" data-composition-id="04-price" data-width="1920" data-height="1080" data-duration="7.2">
+    <div id="f04-price-bg" class="clip f04-price-bg" data-start="0" data-duration="7.2" data-track-index="0"></div>
+
+    <div id="f04-price-stage" class="clip f04-price-stage" data-start="0" data-duration="7.2" data-track-index="1">
+      <div id="f04-price-cam" class="f04-price-cam">
+        <div id="f04-price-header" class="f04-price-header">
+          <div class="f04-price-eyebrow-row">
+            <span id="f04-price-accent" class="f04-price-accent"></span>
+            <span id="f04-price-eyebrow" class="f04-price-eyebrow">公开报价</span>
+          </div>
+          <h2 id="f04-price-h2" class="f04-price-h2">价格透明，按量计费</h2>
+        </div>
+
+        <div id="f04-price-cards" class="f04-price-cards">
+          <div id="f04-price-card-sea" class="f04-price-card">
+            <div class="f04-price-card-head">
+              <span id="f04-price-icon-sea" class="f04-price-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 30h36l-5 9H11z"/><path d="M12 30V20h24v10"/><path d="M17 20v-6h14v6"/><path d="M24 14V8"/><path d="M4 43c3 0 3-2 6-2s3 2 6 2 3-2 6-2 3 2 6 2 3-2 6-2 3 2 6 2"/></svg></span>
+              <span id="f04-price-title-sea" class="f04-price-title">海运 · 马尼拉</span>
+              <span id="f04-price-tag-sea" class="f04-price-tag">普货</span>
+            </div>
+            <div class="f04-price-metric">
+              <span id="f04-price-num-sea" class="f04-price-num f04-price-num-sea">¥0</span>
+              <span id="f04-price-unit-sea" class="f04-price-unit">/立方米起</span>
+            </div>
+            <div class="f04-price-foot">
+              <div id="f04-price-row-sensitive" class="f04-price-row">
+                <span class="f04-price-row-label">敏感货</span>
+                <span class="f04-price-row-value">¥800/立方米</span>
+              </div>
+              <div id="f04-price-row-special" class="f04-price-row">
+                <span class="f04-price-row-label">特货</span>
+                <span class="f04-price-row-value">¥900/立方米</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="f04-price-card-air" class="f04-price-card">
+            <div class="f04-price-card-head">
+              <span id="f04-price-icon-air" class="f04-price-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M44 24c0-1.7-1.3-3-3-3H30L20 6h-5l5 15H11l-4-5H4l2 8-2 8h3l4-5h9l-5 15h5l10-15h11c1.7 0 3-1.3 3-3z"/></svg></span>
+              <span id="f04-price-title-air" class="f04-price-title">空运 · 马尼拉</span>
+            </div>
+            <div class="f04-price-metric">
+              <span id="f04-price-num-air" class="f04-price-num f04-price-num-air">¥0.0</span>
+              <span id="f04-price-unit-air" class="f04-price-unit">/公斤起</span>
+            </div>
+            <div class="f04-price-foot">
+              <div id="f04-price-row-eta" class="f04-price-row f04-price-row-tall">
+                <span class="f04-price-eta">约 <span class="f04-price-eta-num">3</span> 天到达</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p id="f04-price-note" class="f04-price-note">价格以官网实时报价为准</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script>
+    window.__timelines = window.__timelines || {};
+    (function () {
+      var tl = gsap.timeline({ paused: true });
+      var F = 1 / 60;
+
+      // Camera: very slow continuous push-in under the whole shot (blueprint drift).
+      tl.fromTo("#f04-price-cam", { scale: 1 }, { scale: 1.03, duration: 7.2, ease: "none" }, 0);
+
+      // Scene 1 (0.0-1.2s): slide-header. Eyebrow + accent line, h2 fades up on the next beat.
+      tl.fromTo("#f04-price-accent", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 0.05);
+      tl.fromTo("#f04-price-eyebrow", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.12);
+      tl.fromTo("#f04-price-h2", { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0.6);
+
+      // Scene 2 (1.2-3.6s): sea-freight card rises, numeral counts 0 -> 700 with dynamic scale.
+      tl.fromTo("#f04-price-card-sea", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 1.2);
+      tl.fromTo("#f04-price-icon-sea", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 1.35);
+      tl.fromTo("#f04-price-title-sea", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 1.42);
+      tl.fromTo("#f04-price-tag-sea", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 1.5);
+
+      var seaNum = document.getElementById("f04-price-num-sea");
+      var seaState = { v: 0 };
+      tl.to(seaState, {
+        v: 700,
+        duration: 1.2,
+        ease: "power3.out",
+        onUpdate: function () {
+          var p = this.progress();
+          seaNum.textContent = p >= 1 ? "¥700" : "¥" + Math.round(seaState.v);
+        }
+      }, 1.5);
+      tl.fromTo("#f04-price-num-sea", { scale: 0.5 }, { scale: 1, duration: 1.2, ease: "power3.out" }, 1.5);
+      tl.fromTo("#f04-price-unit-sea", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.4)" }, 2.7);
+
+      // 3.0s: two quiet rows waterfall in at the card foot (binary reveal + whip from below).
+      var r1 = 3.0;
+      tl.set("#f04-price-row-sensitive", { opacity: 1, y: 56 }, r1);
+      tl.to("#f04-price-row-sensitive", { y: 0, duration: 0.2, ease: "power4.out" }, r1);
+      var r2 = r1 + 0.2 - F;
+      tl.set("#f04-price-row-special", { opacity: 1, y: 48 }, r2);
+      tl.to("#f04-price-row-special", { y: 0, duration: 0.16, ease: "power4.out" }, r2);
+
+      // Scene 3 (3.6-6.0s): air-freight card rises, numeral counts 0.0 -> 22.5 with dynamic scale.
+      tl.fromTo("#f04-price-card-air", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 3.6);
+      tl.fromTo("#f04-price-icon-air", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 3.75);
+      tl.fromTo("#f04-price-title-air", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 3.82);
+
+      var airNum = document.getElementById("f04-price-num-air");
+      var airState = { v: 0 };
+      tl.to(airState, {
+        v: 22.5,
+        duration: 1.2,
+        ease: "power3.out",
+        onUpdate: function () {
+          var p = this.progress();
+          airNum.textContent = p >= 1 ? "¥22.5" : "¥" + airState.v.toFixed(1);
+        }
+      }, 3.9);
+      tl.fromTo("#f04-price-num-air", { scale: 0.5 }, { scale: 1, duration: 1.2, ease: "power3.out" }, 3.9);
+      tl.fromTo("#f04-price-unit-air", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.4)" }, 5.1);
+
+      // 5.4s: foot row whips in (same waterfall grammar as the sea card rows).
+      tl.set("#f04-price-row-eta", { opacity: 1, y: 56 }, 5.4);
+      tl.to("#f04-price-row-eta", { y: 0, duration: 0.2, ease: "power4.out" }, 5.4);
+
+      // Scene 4 (6.0-7.2s): footnote under the cards, then hold (camera drift keeps breathing).
+      tl.fromTo("#f04-price-note", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 6.0);
+
+      window.__timelines["04-price"] = tl;
+    })();
+  </script>
+</template>
