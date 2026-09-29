@@ -27,7 +27,7 @@ tempo: 100 BPM — one beat = 0.6s, one bar = 2.4s; every reveal lands on a beat
 - duration: 5.4s
 - poster: 4.9s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/01-pain.html
 - type: pain_point
 - beat: frustration
