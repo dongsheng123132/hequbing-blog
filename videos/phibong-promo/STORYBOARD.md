@@ -144,7 +144,7 @@ Scene 4 (7.2–8.4s): hold.
 - duration: 7.2s
 - poster: 6.8s
 - transition_in: blur-crossfade
-- status: outline
+- status: animated
 - src: compositions/frames/06-trust.html
 - type: social_proof
 - beat: reassurance

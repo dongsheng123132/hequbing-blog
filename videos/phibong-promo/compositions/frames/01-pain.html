@@ -1,0 +1,347 @@
+<template>
+  <style>
+    @font-face{font-family:"Noto Sans SC";font-weight:400;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Regular.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans SC";font-weight:500;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Medium.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans SC";font-weight:700;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Bold.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans SC";font-weight:900;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Black.woff2") format("woff2");}
+
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      container-type: size;
+      font-family: "Noto Sans SC", sans-serif;
+      color: #111111;
+    }
+
+    /* full-bleed cream ground (clip layer, lowest track) */
+    #f01-pain-bg {
+      position: absolute;
+      inset: 0;
+      background: #fdfae7;
+    }
+
+    /* camera: slow uniform push under every hard cut; origin = stage center (y 470) */
+    #f01-pain-cam {
+      position: absolute;
+      inset: 0;
+      transform-origin: 50% 470px;
+    }
+
+    /* every beat shares one slot: flex-centered in the top 940px (center y = 470, all content < 900) */
+    .f01-pain-layer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 940px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Scene 1 — accent line + eyebrow + h1 question, centered two-line stack */
+    #f01-pain-s1 {
+      flex-direction: column;
+    }
+    #f01-pain-rule {
+      width: 60px;
+      height: 4px;
+      border-radius: 2px;
+      background: #1e2bfa;
+      margin-bottom: 1.3cqw;
+    }
+    #f01-pain-eyebrow {
+      font-size: 1.4cqw;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.08em;
+      margin-right: -0.08em;
+      margin-bottom: 1.1cqw;
+      color: #1e2bfa;
+      white-space: nowrap;
+    }
+    #f01-pain-q {
+      font-size: 4.2cqw;
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: #111111;
+      white-space: nowrap;
+      /* optical centering: the full-width ？ carries its ink on the left half */
+      margin-right: -0.4em;
+    }
+
+    /* Scenes 2–4 — display slams, same slot */
+    .f01-pain-slam {
+      font-size: 9cqw;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #111111;
+      white-space: nowrap;
+    }
+
+    /* rhythm chrome: one cobalt tick fills per pain beat */
+    #f01-pain-ticks {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 632px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+    }
+    .f01-pain-tick {
+      position: relative;
+      width: 56px;
+      height: 6px;
+      border-radius: 6px;
+      background: rgba(30, 43, 250, 0.15);
+      overflow: hidden;
+    }
+    .f01-pain-tick i {
+      position: absolute;
+      inset: 0;
+      border-radius: 6px;
+      background: #1e2bfa;
+      transform-origin: 0 50%;
+    }
+
+    /* Scene 5 — compact left-aligned recap stack (h2 scale, muted gray) */
+    #f01-pain-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.44em;
+      font-size: 2.6cqw;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #6b6b6b;
+    }
+    .f01-pain-row {
+      position: relative;
+      height: 1.2em;
+      line-height: 1.2em;
+      white-space: nowrap;
+    }
+    /* fixed widths: every CJK glyph advances 1em, minus 0.02em tracking */
+    .f01-pain-w4 {
+      width: 3.92em;
+    }
+    .f01-pain-w5 {
+      width: 4.9em;
+    }
+    /* strike box: 100 viewBox units per em; line sits on the glyph ink center (0.66em from row top) */
+    .f01-pain-strike {
+      position: absolute;
+      left: -0.2em;
+      top: 0.46em;
+      height: 0.4em;
+      overflow: visible;
+    }
+    .f01-pain-w4 .f01-pain-strike {
+      width: 4.4em;
+    }
+    .f01-pain-w5 .f01-pain-strike {
+      width: 5.4em;
+    }
+  </style>
+
+  <div
+    id="root"
+    data-composition-id="01-pain"
+    data-start="0"
+    data-duration="5.4"
+    data-width="1920"
+    data-height="1080"
+  >
+    <div id="f01-pain-bg" class="clip" data-start="0" data-duration="5.4" data-track-index="0"></div>
+
+    <div id="f01-pain-cam">
+      <div id="f01-pain-s1" class="f01-pain-layer">
+        <div id="f01-pain-rule"></div>
+        <div id="f01-pain-eyebrow">发货到菲律宾</div>
+        <div id="f01-pain-q">最怕什么？</div>
+      </div>
+
+      <div id="f01-pain-l1" class="f01-pain-layer">
+        <div id="f01-pain-p1" class="f01-pain-slam">清关卡住</div>
+      </div>
+      <div id="f01-pain-l2" class="f01-pain-layer">
+        <div id="f01-pain-p2" class="f01-pain-slam">价格说不清</div>
+      </div>
+      <div id="f01-pain-l3" class="f01-pain-layer">
+        <div id="f01-pain-p3" class="f01-pain-slam">时效没个准</div>
+      </div>
+
+      <div id="f01-pain-ticks" aria-hidden="true">
+        <div class="f01-pain-tick"><i id="f01-pain-t1"></i></div>
+        <div class="f01-pain-tick"><i id="f01-pain-t2"></i></div>
+        <div class="f01-pain-tick"><i id="f01-pain-t3"></i></div>
+      </div>
+
+      <div id="f01-pain-l5" class="f01-pain-layer">
+        <div id="f01-pain-stack">
+          <div id="f01-pain-r1" class="f01-pain-row f01-pain-w4">清关卡住<svg class="f01-pain-strike" viewBox="0 0 440 40" aria-hidden="true"><line id="f01-pain-k1" x1="12" y1="20" x2="422" y2="20" fill="none" stroke="#1e2bfa" stroke-width="14" stroke-linecap="round" stroke-dasharray="410 460" stroke-dashoffset="424"></line></svg></div>
+          <div id="f01-pain-r2" class="f01-pain-row f01-pain-w5">价格说不清<svg class="f01-pain-strike" viewBox="0 0 540 40" aria-hidden="true"><line id="f01-pain-k2" x1="12" y1="20" x2="520" y2="20" fill="none" stroke="#1e2bfa" stroke-width="14" stroke-linecap="round" stroke-dasharray="508 560" stroke-dashoffset="522"></line></svg></div>
+          <div id="f01-pain-r3" class="f01-pain-row f01-pain-w5">时效没个准<svg class="f01-pain-strike" viewBox="0 0 540 40" aria-hidden="true"><line id="f01-pain-k3" x1="12" y1="20" x2="520" y2="20" fill="none" stroke="#1e2bfa" stroke-width="14" stroke-linecap="round" stroke-dasharray="508 560" stroke-dashoffset="522"></line></svg></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // One tempo grid drives every onset: 100 BPM, beat = 0.6s.
+      const BEAT = 0.6;
+      const THIRD = BEAT / 3; // strike stagger (one beat-third)
+      const CUT = 0.01; // hard cut: the outgoing beat vanishes one tick after the incoming onset (no blank frame)
+      const DURATION = 5.4;
+      const T = {
+        open: 0,
+        question: BEAT * 1, // 0.6
+        pain1: BEAT * 2, // 1.2
+        pain2: BEAT * 4, // 2.4
+        pain3: BEAT * 6, // 3.6
+        stack: BEAT * 7, // 4.2
+        strike: BEAT * 8, // 4.8
+      };
+      // Straight strokes: length = x2 - x1 of the authored line; hidden offset = length + stroke width.
+      const K4 = 410;
+      const K5 = 508;
+      const SW = 14;
+
+      // Camera: slow uniform push running under the whole sequence.
+      tl.fromTo("#f01-pain-cam", { scale: 1 }, { scale: 1.03, duration: DURATION, ease: "none" }, 0);
+
+      // Scene 1 (0.0–1.2): accent line + eyebrow, then the question slams in on the next beat.
+      tl.fromTo(
+        "#f01-pain-rule",
+        { scaleX: 0, opacity: 0 },
+        { scaleX: 1, opacity: 1, duration: 0.4, ease: "power3.out" },
+        T.open,
+      );
+      tl.fromTo(
+        "#f01-pain-eyebrow",
+        { y: 18, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" },
+        T.open + 0.06,
+      );
+      tl.fromTo(
+        "#f01-pain-q",
+        { scale: 1.15, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.45, ease: "power4.out" },
+        T.question,
+      );
+
+      // Scene 2 (1.2–2.4): hard cut — 清关卡住 slams in alone (scale + blur slam).
+      tl.set("#f01-pain-s1", { opacity: 0 }, T.pain1 + CUT);
+      tl.fromTo(
+        "#f01-pain-p1",
+        { scale: 1.3, opacity: 0, filter: "blur(10px)" },
+        { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "power4.out" },
+        T.pain1,
+      );
+      tl.fromTo(
+        "#f01-pain-ticks",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.15, ease: "power1.out" },
+        T.pain1,
+      );
+      tl.fromTo(
+        "#f01-pain-t1",
+        { scaleX: 0 },
+        { scaleX: 1, duration: 0.3, ease: "power3.out" },
+        T.pain1 + 0.1,
+      );
+
+      // Scene 3 (2.4–3.6): hard cut — 价格说不清, same slot, slam with a side snap.
+      tl.set("#f01-pain-l1", { opacity: 0 }, T.pain2 + CUT);
+      tl.fromTo(
+        "#f01-pain-p2",
+        { x: -90, scale: 1.18, opacity: 0, filter: "blur(10px)" },
+        { x: 0, scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "expo.out" },
+        T.pain2,
+      );
+      tl.fromTo(
+        "#f01-pain-t2",
+        { scaleX: 0 },
+        { scaleX: 1, duration: 0.3, ease: "power3.out" },
+        T.pain2 + 0.1,
+      );
+
+      // Scene 4 (3.6–4.2): hard cut — 时效没个准, same slot, slam with a heavy rise.
+      tl.set("#f01-pain-l2", { opacity: 0 }, T.pain3 + CUT);
+      tl.fromTo(
+        "#f01-pain-p3",
+        { y: 70, rotation: -3, scale: 1.18, opacity: 0 },
+        { y: 0, rotation: 0, scale: 1, opacity: 1, duration: 0.4, ease: "circ.out" },
+        T.pain3,
+      );
+      tl.fromTo(
+        "#f01-pain-t3",
+        { scaleX: 0 },
+        { scaleX: 1, duration: 0.3, ease: "power3.out" },
+        T.pain3 + 0.1,
+      );
+
+      // Scene 5 (4.2–5.4): the three return together as a compact stack (pull-back arrival)...
+      tl.set("#f01-pain-l3", { opacity: 0 }, T.stack + CUT);
+      tl.set("#f01-pain-ticks", { opacity: 0 }, T.stack + CUT);
+      tl.fromTo(
+        "#f01-pain-stack",
+        { scale: 1.25, opacity: 0, filter: "blur(10px)" },
+        { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" },
+        T.stack,
+      );
+
+      // ...then on the next beat one cobalt stroke crosses out each line in turn (svg-path-draw).
+      tl.fromTo(
+        "#f01-pain-k1",
+        { strokeDashoffset: K4 + SW },
+        { strokeDashoffset: 0, duration: 0.26, ease: "power2.out" },
+        T.strike,
+      );
+      tl.fromTo(
+        "#f01-pain-k2",
+        { strokeDashoffset: K5 + SW },
+        { strokeDashoffset: 0, duration: 0.26, ease: "power2.out" },
+        T.strike + THIRD,
+      );
+      tl.fromTo(
+        "#f01-pain-k3",
+        { strokeDashoffset: K5 + SW },
+        { strokeDashoffset: 0, duration: 0.16, ease: "power2.out" },
+        T.strike + THIRD * 2,
+      );
+      // Each struck line recedes one step down the gray ladder as its stroke passes.
+      tl.fromTo(
+        "#f01-pain-r1",
+        { color: "#6b6b6b" },
+        { color: "#9a9a9a", duration: 0.24, ease: "power1.out" },
+        T.strike + 0.04,
+      );
+      tl.fromTo(
+        "#f01-pain-r2",
+        { color: "#6b6b6b" },
+        { color: "#9a9a9a", duration: 0.24, ease: "power1.out" },
+        T.strike + THIRD + 0.04,
+      );
+      tl.fromTo(
+        "#f01-pain-r3",
+        { color: "#6b6b6b" },
+        { color: "#9a9a9a", duration: 0.16, ease: "power1.out" },
+        T.strike + THIRD * 2 + 0.02,
+      );
+
+      window.__timelines["01-pain"] = tl;
+    })();
+  </script>
+</template>
