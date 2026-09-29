@@ -1,0 +1,5 @@
+{
+  "bgm": { "path": "assets/bgm/track.m4a", "volume": 0.9, "mode": "local-synth", "source": "scripts/make-bgm.py" },
+  "voices": [],
+  "sfx": []
+}

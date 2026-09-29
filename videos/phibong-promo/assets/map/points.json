@@ -1,0 +1,66 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1920,
+    1080
+  ],
+  "projection": "mercator center [117.5,19.2] scale 3350 translate [960,496.8]",
+  "points": {
+    "china-origin": {
+      "lonlat": [
+        113.3,
+        23.1
+      ],
+      "xy": [
+        714.4,
+        252.2
+      ],
+      "label": "中国 · 华南"
+    },
+    "manila": {
+      "lonlat": [
+        120.98,
+        14.6
+      ],
+      "xy": [
+        1163.5,
+        778
+      ],
+      "label": "马尼拉 Manila"
+    },
+    "hk-exit": {
+      "lonlat": [
+        114.6,
+        21.7
+      ],
+      "xy": [
+        790.4,
+        340.8
+      ],
+      "note": "sea route waypoint: out of Pearl River estuary"
+    },
+    "scs-mid": {
+      "lonlat": [
+        117.4,
+        17.2
+      ],
+      "xy": [
+        954.2,
+        619.9
+      ],
+      "note": "sea route waypoint: open South China Sea"
+    },
+    "manila-bay": {
+      "lonlat": [
+        120.55,
+        14.45
+      ],
+      "xy": [
+        1138.3,
+        787
+      ],
+      "note": "sea route waypoint: Manila Bay entrance"
+    }
+  }
+}
