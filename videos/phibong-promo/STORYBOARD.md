@@ -98,7 +98,7 @@ Scene 5 (8.4–9.6s): a cobalt pill springs in under the two cards: `双清包�
 - duration: 7.2s
 - poster: 6.8s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - src: compositions/frames/04-price.html
 - type: feature_showcase
 - beat: proof
@@ -166,7 +166,7 @@ Scene 3 (4.8–7.2s): slow camera push-in toward the hub (multi-phase-camera, ~1
 - duration: 7.2s
 - poster: 6.6s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - src: compositions/frames/07-cta.html
 - type: cta
 - beat: resolve
