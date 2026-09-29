@@ -15,7 +15,7 @@
     }
 
     /* ---- ground: plain cream field (full-bleed clip, lowest track) ---- */
-    [id="06-trust-bg"] {
+    [id="f06-trust-bg"] {
       position: absolute;
       left: 0;
       top: 0;
@@ -25,7 +25,7 @@
     }
 
     /* ---- content clip + camera (the one scaled stage wrapper; origin = hub center) ---- */
-    [id="06-trust-scene"] {
+    [id="f06-trust-scene"] {
       position: absolute;
       left: 0;
       top: 0;
@@ -33,7 +33,7 @@
       height: 1080px;
       overflow: hidden;
     }
-    [id="06-trust-camera"] {
+    [id="f06-trust-camera"] {
       position: absolute;
       left: 0;
       top: 0;
@@ -44,7 +44,7 @@
     }
 
     /* ---- wires layer: halo disc, orbit ring, hub→card connectors ---- */
-    [id="06-trust-wires"] {
+    [id="f06-trust-wires"] {
       position: absolute;
       left: 0;
       top: 0;
@@ -52,17 +52,17 @@
       height: 1080px;
       overflow: visible;
     }
-    [id="06-trust-halo"] {
+    [id="f06-trust-halo"] {
       fill: rgba(30, 43, 250, 0.05);
       stroke: none;
     }
-    [id="06-trust-ring"] {
+    [id="f06-trust-ring"] {
       fill: none;
       stroke: rgba(30, 43, 250, 0.38);
       stroke-width: 2;
       stroke-linecap: butt;
     }
-    [class~="06-trust-wire"] {
+    [class~="f06-trust-wire"] {
       fill: none;
       stroke: rgba(30, 43, 250, 0.45);
       stroke-width: 2;
@@ -70,7 +70,7 @@
     }
 
     /* ---- node dots (centered by negative margin — no CSS transform) ---- */
-    [class~="06-trust-rdot"] {
+    [class~="f06-trust-rdot"] {
       position: absolute;
       width: 10px;
       height: 10px;
@@ -78,7 +78,7 @@
       border-radius: 50%;
       background: #1e2bfa;
     }
-    [class~="06-trust-pdot"] {
+    [class~="f06-trust-pdot"] {
       position: absolute;
       box-sizing: border-box;
       width: 18px;
@@ -90,7 +90,7 @@
     }
 
     /* ---- hub (hero) ---- */
-    [id="06-trust-hub"] {
+    [id="f06-trust-hub"] {
       position: absolute;
       left: 850px;
       top: 350px;
@@ -102,7 +102,7 @@
       align-items: center;
       justify-content: center;
     }
-    [id="06-trust-hubtext"] {
+    [id="f06-trust-hubtext"] {
       display: block;
       font-size: 76px;
       font-weight: 900;
@@ -113,7 +113,7 @@
     }
 
     /* ---- guarantee cards (card-tinted) ---- */
-    [class~="06-trust-card"] {
+    [class~="f06-trust-card"] {
       position: absolute;
       box-sizing: border-box;
       width: 560px;
@@ -127,13 +127,13 @@
       border-radius: 14px;
     }
     /* origin-anchored pop: each card grows out of its tether port */
-    [class~="06-trust-card-l"] {
+    [class~="f06-trust-card-l"] {
       transform-origin: 100% 50%;
     }
-    [class~="06-trust-card-r"] {
+    [class~="f06-trust-card-r"] {
       transform-origin: 0% 50%;
     }
-    [class~="06-trust-badge"] {
+    [class~="f06-trust-badge"] {
       flex: none;
       width: 96px;
       height: 96px;
@@ -144,19 +144,19 @@
       align-items: center;
       justify-content: center;
     }
-    [class~="06-trust-badge"] svg {
+    [class~="f06-trust-badge"] svg {
       display: block;
       width: 52px;
       height: 52px;
     }
-    [class~="06-trust-txt"] {
+    [class~="f06-trust-txt"] {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       gap: 10px;
       min-width: 0;
     }
-    [class~="06-trust-title"] {
+    [class~="f06-trust-title"] {
       font-size: 54px;
       font-weight: 700;
       line-height: 1.1;
@@ -164,7 +164,7 @@
       color: #111111;
       white-space: nowrap;
     }
-    [class~="06-trust-sub"] {
+    [class~="f06-trust-sub"] {
       font-size: 30px;
       font-weight: 400;
       line-height: 1.4;
@@ -173,7 +173,7 @@
     }
 
     /* ---- 99% stat (card 1) ---- */
-    [id="06-trust-stat"] {
+    [id="f06-trust-stat"] {
       display: flex;
       align-items: baseline;
       font-size: 88px;
@@ -182,19 +182,19 @@
       color: #1e2bfa;
       white-space: nowrap;
     }
-    [id="06-trust-num"] {
+    [id="f06-trust-num"] {
       display: inline-block;
       width: 1.2em; /* fixed box: two tabular digits (0.59em each) */
       text-align: left;
       font-variant-numeric: tabular-nums;
       transform-origin: 0% 80%;
     }
-    [id="06-trust-pct"] {
+    [id="f06-trust-pct"] {
       display: inline-block;
       font-size: 0.62em;
       margin-left: 0.06em;
     }
-    [id="06-trust-label"] {
+    [id="f06-trust-label"] {
       font-size: 32px;
       font-weight: 500;
       line-height: 1.3;
@@ -203,80 +203,80 @@
     }
   </style>
 
-  <div id="root" data-composition-id="06-trust" data-start="0" data-duration="7.2" data-width="1920" data-height="1080">
-    <div id="06-trust-bg" class="clip" data-start="0" data-duration="7.2" data-track-index="0"></div>
+  <div id="root" data-composition-id="06-trust" data-start="0" data-duration="7.7" data-width="1920" data-height="1080">
+    <div id="f06-trust-bg" class="clip" data-start="0" data-duration="7.7" data-track-index="0"></div>
 
-    <div id="06-trust-scene" class="clip" data-start="0" data-duration="7.2" data-track-index="1">
-      <div id="06-trust-camera">
-        <svg id="06-trust-wires" viewBox="0 0 1920 1080" width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
-          <circle id="06-trust-halo" cx="960" cy="460" r="150" />
+    <div id="f06-trust-scene" class="clip" data-start="0" data-duration="7.7" data-track-index="1">
+      <div id="f06-trust-camera">
+        <svg id="f06-trust-wires" viewBox="0 0 1920 1080" width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+          <circle id="f06-trust-halo" cx="960" cy="460" r="150" />
           <!-- orbit ring: clockwise from 12 o'clock -->
-          <path id="06-trust-ring" d="M960 310 A150 150 0 1 1 960 610 A150 150 0 1 1 960 310" />
+          <path id="f06-trust-ring" d="M960 310 A150 150 0 1 1 960 610 A150 150 0 1 1 960 310" />
           <!-- connectors: ring point (45° diagonals) → card port -->
-          <path id="06-trust-wire-1" class="06-trust-wire" d="M853.93 353.93 L710 210" />
-          <path id="06-trust-wire-2" class="06-trust-wire" d="M1066.07 353.93 L1210 210" />
-          <path id="06-trust-wire-3" class="06-trust-wire" d="M1066.07 566.07 L1210 710" />
-          <path id="06-trust-wire-4" class="06-trust-wire" d="M853.93 566.07 L710 710" />
+          <path id="f06-trust-wire-1" class="f06-trust-wire" d="M853.93 353.93 L710 210" />
+          <path id="f06-trust-wire-2" class="f06-trust-wire" d="M1066.07 353.93 L1210 210" />
+          <path id="f06-trust-wire-3" class="f06-trust-wire" d="M1066.07 566.07 L1210 710" />
+          <path id="f06-trust-wire-4" class="f06-trust-wire" d="M853.93 566.07 L710 710" />
         </svg>
 
         <!-- card 1 · top-left -->
-        <div id="06-trust-card-1" class="06-trust-card 06-trust-card-l" style="left: 150px; top: 110px">
-          <div class="06-trust-badge">
-            <svg id="06-trust-icon-1" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="19"/><path d="M15 24.5l6 6 12-13"/></svg>
+        <div id="f06-trust-card-1" class="f06-trust-card f06-trust-card-l" style="left: 150px; top: 110px">
+          <div class="f06-trust-badge">
+            <svg id="f06-trust-icon-1" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="19"/><path d="M15 24.5l6 6 12-13"/></svg>
           </div>
-          <div class="06-trust-txt">
-            <div id="06-trust-stat"><span id="06-trust-num">0</span><span id="06-trust-pct">%</span></div>
-            <div id="06-trust-label">清关成功率</div>
+          <div class="f06-trust-txt">
+            <div id="f06-trust-stat"><span id="f06-trust-num">0</span><span id="f06-trust-pct">%</span></div>
+            <div id="f06-trust-label">清关成功率</div>
           </div>
         </div>
 
         <!-- card 2 · top-right -->
-        <div id="06-trust-card-2" class="06-trust-card 06-trust-card-r" style="left: 1210px; top: 110px">
-          <div class="06-trust-badge">
-            <svg id="06-trust-icon-2" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 44s14-12.5 14-24a14 14 0 0 0-28 0c0 11.5 14 24 14 24z"/><circle cx="24" cy="20" r="5"/></svg>
+        <div id="f06-trust-card-2" class="f06-trust-card f06-trust-card-r" style="left: 1210px; top: 110px">
+          <div class="f06-trust-badge">
+            <svg id="f06-trust-icon-2" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 44s14-12.5 14-24a14 14 0 0 0-28 0c0 11.5 14 24 14 24z"/><circle cx="24" cy="20" r="5"/></svg>
           </div>
-          <div class="06-trust-txt">
-            <div id="06-trust-r1-2" class="06-trust-title">实时追踪</div>
-            <div id="06-trust-r2-2" class="06-trust-sub">货到哪一步随时查</div>
+          <div class="f06-trust-txt">
+            <div id="f06-trust-r1-2" class="f06-trust-title">实时追踪</div>
+            <div id="f06-trust-r2-2" class="f06-trust-sub">货到哪一步随时查</div>
           </div>
         </div>
 
         <!-- card 3 · bottom-right -->
-        <div id="06-trust-card-3" class="06-trust-card 06-trust-card-r" style="left: 1210px; top: 610px">
-          <div class="06-trust-badge">
-            <svg id="06-trust-icon-3" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4l16 6v12c0 10-7 18-16 22C15 40 8 32 8 22V10z"/><path d="M17 24l5 5 9-10"/></svg>
+        <div id="f06-trust-card-3" class="f06-trust-card f06-trust-card-r" style="left: 1210px; top: 610px">
+          <div class="f06-trust-badge">
+            <svg id="f06-trust-icon-3" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4l16 6v12c0 10-7 18-16 22C15 40 8 32 8 22V10z"/><path d="M17 24l5 5 9-10"/></svg>
           </div>
-          <div class="06-trust-txt">
-            <div id="06-trust-r1-3" class="06-trust-title">货物保险</div>
-            <div id="06-trust-r2-3" class="06-trust-sub">丢损有保障</div>
+          <div class="f06-trust-txt">
+            <div id="f06-trust-r1-3" class="f06-trust-title">货物保险</div>
+            <div id="f06-trust-r2-3" class="f06-trust-sub">丢损有保障</div>
           </div>
         </div>
 
         <!-- card 4 · bottom-left -->
-        <div id="06-trust-card-4" class="06-trust-card 06-trust-card-l" style="left: 150px; top: 610px">
-          <div class="06-trust-badge">
-            <svg id="06-trust-icon-4" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="38" r="5"/><circle cx="38" cy="10" r="5"/><path d="M14 34L34 14"/><path d="M26 14h8v8"/></svg>
+        <div id="f06-trust-card-4" class="f06-trust-card f06-trust-card-l" style="left: 150px; top: 610px">
+          <div class="f06-trust-badge">
+            <svg id="f06-trust-icon-4" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="38" r="5"/><circle cx="38" cy="10" r="5"/><path d="M14 34L34 14"/><path d="M26 14h8v8"/></svg>
           </div>
-          <div class="06-trust-txt">
-            <div id="06-trust-r1-4" class="06-trust-title">自营专线</div>
-            <div id="06-trust-r2-4" class="06-trust-sub">不经中间商</div>
+          <div class="f06-trust-txt">
+            <div id="f06-trust-r1-4" class="f06-trust-title">自营专线</div>
+            <div id="f06-trust-r2-4" class="f06-trust-sub">不经中间商</div>
           </div>
         </div>
 
         <!-- ring nodes (connector starts) -->
-        <div id="06-trust-rdot-1" class="06-trust-rdot" style="left: 853.93px; top: 353.93px"></div>
-        <div id="06-trust-rdot-2" class="06-trust-rdot" style="left: 1066.07px; top: 353.93px"></div>
-        <div id="06-trust-rdot-3" class="06-trust-rdot" style="left: 1066.07px; top: 566.07px"></div>
-        <div id="06-trust-rdot-4" class="06-trust-rdot" style="left: 853.93px; top: 566.07px"></div>
+        <div id="f06-trust-rdot-1" class="f06-trust-rdot" style="left: 853.93px; top: 353.93px"></div>
+        <div id="f06-trust-rdot-2" class="f06-trust-rdot" style="left: 1066.07px; top: 353.93px"></div>
+        <div id="f06-trust-rdot-3" class="f06-trust-rdot" style="left: 1066.07px; top: 566.07px"></div>
+        <div id="f06-trust-rdot-4" class="f06-trust-rdot" style="left: 853.93px; top: 566.07px"></div>
 
         <!-- card ports (connector ends, on each card's inner edge) -->
-        <div id="06-trust-pdot-1" class="06-trust-pdot" style="left: 710px; top: 210px"></div>
-        <div id="06-trust-pdot-2" class="06-trust-pdot" style="left: 1210px; top: 210px"></div>
-        <div id="06-trust-pdot-3" class="06-trust-pdot" style="left: 1210px; top: 710px"></div>
-        <div id="06-trust-pdot-4" class="06-trust-pdot" style="left: 710px; top: 710px"></div>
+        <div id="f06-trust-pdot-1" class="f06-trust-pdot" style="left: 710px; top: 210px"></div>
+        <div id="f06-trust-pdot-2" class="f06-trust-pdot" style="left: 1210px; top: 210px"></div>
+        <div id="f06-trust-pdot-3" class="f06-trust-pdot" style="left: 1210px; top: 710px"></div>
+        <div id="f06-trust-pdot-4" class="f06-trust-pdot" style="left: 710px; top: 710px"></div>
 
         <!-- hub (hero) -->
-        <div id="06-trust-hub"><span id="06-trust-hubtext">菲邦</span></div>
+        <div id="f06-trust-hub"><span id="f06-trust-hubtext">菲邦</span></div>
       </div>
     </div>
   </div>
@@ -284,7 +284,7 @@
   <script src="assets/vendor/gsap.min.js"></script>
   <script>
     (function () {
-      var P = "06-trust-";
+      var P = "f06-trust-";
       function el(id) {
         return document.getElementById(P + id);
       }

@@ -1,0 +1,496 @@
+<template>
+  <style>
+    @font-face{font-family:"Noto Sans SC";font-weight:400;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Regular.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans SC";font-weight:500;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Medium.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans SC";font-weight:700;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Bold.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans SC";font-weight:900;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Black.woff2") format("woff2");}
+
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: "Noto Sans SC";
+      color: #111111;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* full-bleed cream ground, lowest track */
+    #f03-route-ground {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      background: #fdfae7;
+    }
+
+    /* map stage: land silhouette + route overlay + place chips share one pixel space */
+    #f03-route-stage,
+    #f03-route-panel {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+    }
+    #f03-route-camera {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      transform-origin: 960px 520px;
+      will-change: transform, opacity;
+    }
+    #f03-route-map {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      display: block;
+    }
+    #f03-route-overlay {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: visible;
+    }
+
+    .f03-route-sea {
+      fill: none;
+      stroke: #1e2bfa;
+      stroke-width: 4;
+      stroke-dasharray: 12 11;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .f03-route-air {
+      fill: none;
+      stroke: #1e2bfa;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+    }
+    .f03-route-dot {
+      fill: #1e2bfa;
+      stroke: #fdfae7;
+      stroke-width: 3;
+    }
+    .f03-route-ring {
+      fill: rgba(30, 43, 250, 0.1);
+      stroke: rgba(30, 43, 250, 0.45);
+      stroke-width: 1.5;
+    }
+    .f03-route-pulse {
+      fill: none;
+      stroke: #1e2bfa;
+      stroke-width: 2.5;
+      vector-effect: non-scaling-stroke;
+    }
+    .f03-route-vehicle {
+      color: #1e2bfa;
+    }
+    .f03-route-badge {
+      fill: #fdfae7;
+      stroke: #1e2bfa;
+      stroke-width: 2;
+    }
+
+    /* place-name chips (pill chrome, opaque cream so they read over land) */
+    .f03-route-chip {
+      position: absolute;
+      box-sizing: border-box;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 20px;
+      background: #fdfae7;
+      border: 1.5px solid rgba(30, 43, 250, 0.2);
+      border-radius: 100px;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: #111111;
+      white-space: nowrap;
+    }
+    #f03-route-chip-origin {
+      right: 1228px;
+      bottom: 856px;
+      transform-origin: 100% 100%;
+    }
+    #f03-route-chip-manila {
+      left: 1194px;
+      top: 751px;
+      padding: 0 20px 0 14px;
+      transform-origin: 0% 50%;
+    }
+    .f03-route-chip-icon {
+      width: 28px;
+      height: 28px;
+      display: block;
+      flex: none;
+      color: #1e2bfa;
+    }
+    .f03-route-chip-latin {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #1e2bfa;
+    }
+
+    /* right column: fact cards + closing pill (open sea, x 1320-1840) */
+    #f03-route-column {
+      position: absolute;
+      left: 1320px;
+      top: 196px;
+      width: 520px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .f03-route-card {
+      box-sizing: border-box;
+      width: 520px;
+      height: 176px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      background: linear-gradient(rgba(30, 43, 250, 0.04), rgba(30, 43, 250, 0.04)), #fdfae7;
+      border: 1.5px solid rgba(30, 43, 250, 0.2);
+      border-radius: 14px;
+    }
+    #f03-route-card-air {
+      margin-top: 20px;
+    }
+    .f03-route-card-text {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .f03-route-card-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .f03-route-icon-tile {
+      width: 56px;
+      height: 56px;
+      flex: none;
+      border-radius: 50%;
+      background: rgba(30, 43, 250, 0.08);
+      color: #1e2bfa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .f03-route-icon-tile svg {
+      width: 34px;
+      height: 34px;
+      display: block;
+    }
+    .f03-route-label {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #111111;
+      white-space: nowrap;
+    }
+    .f03-route-sub {
+      font-size: 26px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: #6b6b6b;
+      white-space: nowrap;
+    }
+    .f03-route-figure {
+      width: 200px;
+      flex: none;
+      display: flex;
+      align-items: baseline;
+      justify-content: flex-end;
+      color: #1e2bfa;
+    }
+    .f03-route-num {
+      display: inline-block;
+      font-size: 120px;
+      font-weight: 700;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      transform-origin: 50% 50%;
+    }
+    .f03-route-suffix {
+      display: inline-block;
+      margin-left: 6px;
+      font-size: 44px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    #f03-route-pill {
+      margin-top: 28px;
+      box-sizing: border-box;
+      height: 68px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 36px;
+      border-radius: 100px;
+      background: #1e2bfa;
+      color: #fdfae7;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      transform-origin: 0% 50%;
+    }
+  </style>
+
+  <div id="root" data-composition-id="03-route" data-width="1920" data-height="1080" data-start="0" data-duration="10.1">
+    <div id="f03-route-ground" class="clip" data-start="0" data-duration="10.1" data-track-index="0"></div>
+
+    <div id="f03-route-stage" class="clip" data-start="0" data-duration="10.1" data-track-index="1">
+      <div id="f03-route-camera">
+        <img id="f03-route-map" src="assets/map/east-asia-land.svg" alt="" width="1920" height="1080" />
+        <svg id="f03-route-overlay" viewBox="0 0 1920 1080" width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="f03-route-glow-grad" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0" stop-color="#1e2bfa" stop-opacity="0.85" />
+              <stop offset="0.4" stop-color="#1e2bfa" stop-opacity="0.35" />
+              <stop offset="1" stop-color="#1e2bfa" stop-opacity="0" />
+            </radialGradient>
+            <mask id="f03-route-sea-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1920" height="1080">
+              <path id="f03-route-sea-reveal" d="M714.4 252.2 C739.7 281.7 769.1 308.2 790.4 340.8 C849.3 431.2 887.9 534.8 954.2 619.9 C1005.2 685.3 1060.3 814.9 1138.3 787 C1146.7 784 1155.1 781 1163.5 778" fill="none" stroke="#ffffff" stroke-width="16" stroke-linecap="butt" stroke-linejoin="round" />
+            </mask>
+          </defs>
+
+          <circle id="f03-route-manila-glow" cx="1163.5" cy="778" r="110" fill="url(#f03-route-glow-grad)" />
+
+          <path id="f03-route-air" class="f03-route-air" d="M714.4 252.2 Q1080 330 1163.5 778" />
+          <path id="f03-route-sea" class="f03-route-sea" d="M714.4 252.2 C739.7 281.7 769.1 308.2 790.4 340.8 C849.3 431.2 887.9 534.8 954.2 619.9 C1005.2 685.3 1060.3 814.9 1138.3 787 C1146.7 784 1155.1 781 1163.5 778" mask="url(#f03-route-sea-mask)" />
+
+          <circle id="f03-route-origin-ring" class="f03-route-ring" cx="714.4" cy="252.2" r="18" />
+          <circle id="f03-route-origin-dot" class="f03-route-dot" cx="714.4" cy="252.2" r="9" />
+
+          <circle id="f03-route-pulse-a" class="f03-route-pulse" cx="1163.5" cy="778" r="18" />
+          <circle id="f03-route-pulse-b" class="f03-route-pulse" cx="1163.5" cy="778" r="18" />
+          <circle id="f03-route-pulse-c" class="f03-route-pulse" cx="1163.5" cy="778" r="18" />
+          <circle id="f03-route-manila-ring" class="f03-route-ring" cx="1163.5" cy="778" r="18" />
+          <circle id="f03-route-manila-dot" class="f03-route-dot" cx="1163.5" cy="778" r="9" />
+
+          <g id="f03-route-ship" class="f03-route-vehicle">
+            <circle class="f03-route-badge" cx="0" cy="0" r="22" />
+            <svg x="-15" y="-15" width="30" height="30" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 30h36l-5 9H11z"/><path d="M12 30V20h24v10"/><path d="M17 20v-6h14v6"/><path d="M24 14V8"/><path d="M4 43c3 0 3-2 6-2s3 2 6 2 3-2 6-2 3 2 6 2 3-2 6-2 3 2 6 2"/></svg>
+          </g>
+          <g id="f03-route-plane" class="f03-route-vehicle">
+            <circle class="f03-route-badge" cx="0" cy="0" r="22" />
+            <svg x="-15" y="-15" width="30" height="30" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M44 24c0-1.7-1.3-3-3-3H30L20 6h-5l5 15H11l-4-5H4l2 8-2 8h3l4-5h9l-5 15h5l10-15h11c1.7 0 3-1.3 3-3z"/></svg>
+          </g>
+        </svg>
+
+        <div id="f03-route-chip-origin" class="f03-route-chip">中国</div>
+        <div id="f03-route-chip-manila" class="f03-route-chip">
+          <svg class="f03-route-chip-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 44s14-12.5 14-24a14 14 0 0 0-28 0c0 11.5 14 24 14 24z"/><circle cx="24" cy="20" r="5"/></svg>
+          <span>马尼拉</span>
+          <span class="f03-route-chip-latin">MANILA</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="f03-route-panel" class="clip" data-start="0" data-duration="10.1" data-track-index="2">
+      <div id="f03-route-column">
+        <div id="f03-route-card-sea" class="f03-route-card">
+          <div class="f03-route-card-text">
+            <div class="f03-route-card-head">
+              <div id="f03-route-icon-sea" class="f03-route-icon-tile">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 30h36l-5 9H11z"/><path d="M12 30V20h24v10"/><path d="M17 20v-6h14v6"/><path d="M24 14V8"/><path d="M4 43c3 0 3-2 6-2s3 2 6 2 3-2 6-2 3 2 6 2 3-2 6-2 3 2 6 2"/></svg>
+              </div>
+              <div id="f03-route-label-sea" class="f03-route-label">海运</div>
+            </div>
+            <div id="f03-route-sub-sea" class="f03-route-sub">约 15 天 · 马尼拉</div>
+          </div>
+          <div class="f03-route-figure">
+            <span id="f03-route-num-sea" class="f03-route-num">0</span><span id="f03-route-suffix-sea" class="f03-route-suffix">天</span>
+          </div>
+        </div>
+
+        <div id="f03-route-card-air" class="f03-route-card">
+          <div class="f03-route-card-text">
+            <div class="f03-route-card-head">
+              <div id="f03-route-icon-air" class="f03-route-icon-tile">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M44 24c0-1.7-1.3-3-3-3H30L20 6h-5l5 15H11l-4-5H4l2 8-2 8h3l4-5h9l-5 15h5l10-15h11c1.7 0 3-1.3 3-3z"/></svg>
+              </div>
+              <div id="f03-route-label-air" class="f03-route-label">空运</div>
+            </div>
+            <div id="f03-route-sub-air" class="f03-route-sub">约 3 天 · 马尼拉</div>
+          </div>
+          <div class="f03-route-figure">
+            <span id="f03-route-num-air" class="f03-route-num">0</span><span id="f03-route-suffix-air" class="f03-route-suffix">天</span>
+          </div>
+        </div>
+
+        <div id="f03-route-pill">双清包税 · 送货到门</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/MotionPathPlugin.min.js"></script>
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      gsap.registerPlugin(MotionPathPlugin);
+
+      var byId = function (id) {
+        return document.getElementById(id);
+      };
+
+      // Fixed geometry: same 1920x1080 pixel space as assets/map/points.json
+      var ORIGIN = { x: 714.4, y: 252.2 }; // china-origin
+      var MANILA = { x: 1163.5, y: 778 }; // manila
+      var AIR_CTRL = { x: 1080, y: 330 }; // air-arc control point
+      var PLANE_START_DEG = (Math.atan2(AIR_CTRL.y - ORIGIN.y, AIR_CTRL.x - ORIGIN.x) * 180) / Math.PI;
+      var SHIP_END = 0.94; // ship parks at the Manila Bay entrance, clear of the destination dot
+      var PLANE_END = 0.93; // plane parks just north of Manila, clear of the destination dot
+
+      var camera = byId("f03-route-camera");
+      var seaPath = byId("f03-route-sea");
+      var seaReveal = byId("f03-route-sea-reveal");
+      var airPath = byId("f03-route-air");
+      var originRing = byId("f03-route-origin-ring");
+      var originDot = byId("f03-route-origin-dot");
+      var manilaRing = byId("f03-route-manila-ring");
+      var manilaDot = byId("f03-route-manila-dot");
+      var manilaGlow = byId("f03-route-manila-glow");
+      var pulseA = byId("f03-route-pulse-a");
+      var pulseB = byId("f03-route-pulse-b");
+      var pulseC = byId("f03-route-pulse-c");
+      var ship = byId("f03-route-ship");
+      var plane = byId("f03-route-plane");
+      var chipOrigin = byId("f03-route-chip-origin");
+      var chipManila = byId("f03-route-chip-manila");
+      var cardSea = byId("f03-route-card-sea");
+      var cardAir = byId("f03-route-card-air");
+      var iconSea = byId("f03-route-icon-sea");
+      var iconAir = byId("f03-route-icon-air");
+      var labelSea = byId("f03-route-label-sea");
+      var labelAir = byId("f03-route-label-air");
+      var subSea = byId("f03-route-sub-sea");
+      var subAir = byId("f03-route-sub-air");
+      var numSea = byId("f03-route-num-sea");
+      var numAir = byId("f03-route-num-air");
+      var suffixSea = byId("f03-route-suffix-sea");
+      var suffixAir = byId("f03-route-suffix-air");
+      var pill = byId("f03-route-pill");
+
+      // svg-path-draw setup: measured lengths, one dash = whole path, shifted fully out.
+      // Sea: the dashed route is revealed through a solid mask stroke so its dash pattern stays intact.
+      var seaLen = Math.ceil(seaReveal.getTotalLength() || 734) + 2;
+      var airLen = Math.ceil(airPath.getTotalLength() || 739) + 2;
+      seaReveal.style.strokeDasharray = seaLen + " " + seaLen;
+      seaReveal.style.strokeDashoffset = String(seaLen);
+      airPath.style.strokeDasharray = airLen + " " + airLen;
+      airPath.style.strokeDashoffset = String(airLen);
+
+      // Transform origins pinned to the map points (seek-safe, no bbox dependency for markers)
+      gsap.set([originRing, originDot], { svgOrigin: ORIGIN.x + " " + ORIGIN.y });
+      gsap.set([manilaRing, manilaDot, manilaGlow, pulseA, pulseB, pulseC], { svgOrigin: MANILA.x + " " + MANILA.y });
+      // Vehicles are centred on their own (0,0); park them on the origin until their ride starts
+      gsap.set(ship, { x: ORIGIN.x, y: ORIGIN.y, transformOrigin: "50% 50%" });
+      gsap.set(plane, { x: ORIGIN.x, y: ORIGIN.y, rotation: PLANE_START_DEG, transformOrigin: "50% 50%" });
+
+      var tl = gsap.timeline({ paused: true });
+
+      function pop(target, at, dur) {
+        tl.fromTo(target, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: dur || 0.5, ease: "power3.out" }, at);
+      }
+
+      // counting-dynamic-scale: value + scale share start, duration and ease
+      function countUp(numEl, target, at, dur) {
+        var state = { v: 0 };
+        tl.fromTo(
+          state,
+          { v: 0 },
+          {
+            v: target,
+            duration: dur,
+            ease: "power2.out",
+            onUpdate: function () {
+              numEl.textContent = String(Math.round(state.v));
+            },
+          },
+          at
+        );
+        tl.fromTo(numEl, { scale: 0.5 }, { scale: 1, duration: dur, ease: "power2.out" }, at);
+      }
+
+      // ── Scene 1 (0.0–1.2): land settles in full-bleed; origin marked ──
+      tl.fromTo(camera, { opacity: 0, scale: 1.03 }, { opacity: 1, scale: 1, duration: 1.2, ease: "power2.out" }, 0);
+      pop(originRing, 0.3, 0.5);
+      pop(originDot, 0.36, 0.45);
+      pop(chipOrigin, 0.6, 0.5);
+
+      // ── Scene 2 (1.2–2.4): destination pops with a finite pulsing ring ──
+      pop(manilaRing, 1.2, 0.5);
+      pop(manilaDot, 1.26, 0.45);
+      tl.fromTo(chipManila, { scale: 0, opacity: 0, x: -10 }, { scale: 1, opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 1.5);
+      [pulseA, pulseB, pulseC].forEach(function (ring, i) {
+        var at = 1.35 + i * 0.6;
+        tl.fromTo(ring, { scale: 1, opacity: 0 }, { scale: 1.3, opacity: 0.55, duration: 0.15, ease: "none" }, at);
+        tl.to(ring, { scale: 2.7, opacity: 0, duration: 1.05, ease: "power2.out" }, at + 0.15);
+      });
+
+      // ── Scene 3 (2.4–5.4): sea route draws, ship rides it; card 1 lands ──
+      tl.fromTo(cardSea, { opacity: 0, y: 28, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power3.out" }, 2.4);
+      tl.fromTo(ship, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out" }, 2.4);
+      pop(iconSea, 2.55, 0.45);
+      tl.fromTo(labelSea, { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.45, ease: "power2.out" }, 2.6);
+      tl.fromTo(seaReveal, { strokeDashoffset: seaLen }, { strokeDashoffset: 0, duration: 2.4, ease: "power1.inOut" }, 2.7);
+      tl.to(
+        ship,
+        {
+          motionPath: { path: seaPath, align: seaPath, alignOrigin: [0.5, 0.5], end: SHIP_END },
+          duration: 2.4,
+          ease: "power1.inOut",
+        },
+        2.7
+      );
+      countUp(numSea, 15, 2.7, 2.4);
+      tl.fromTo(subSea, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 3.0);
+      tl.fromTo(suffixSea, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }, 5.1);
+
+      // ── Scene 4 (5.4–8.4): air arc draws, plane flies it nose-first; card 2 lands ──
+      tl.fromTo(cardAir, { opacity: 0, y: 28, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power3.out" }, 5.4);
+      tl.fromTo(plane, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out" }, 5.4);
+      pop(iconAir, 5.55, 0.45);
+      tl.fromTo(labelAir, { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.45, ease: "power2.out" }, 5.6);
+      tl.fromTo(airPath, { strokeDashoffset: airLen }, { strokeDashoffset: 0, duration: 2.4, ease: "power1.inOut" }, 5.7);
+      tl.to(
+        plane,
+        {
+          motionPath: { path: airPath, align: airPath, alignOrigin: [0.5, 0.5], autoRotate: true, end: PLANE_END },
+          duration: 2.4,
+          ease: "power1.inOut",
+        },
+        5.7
+      );
+      countUp(numAir, 3, 5.7, 2.4);
+      tl.fromTo(subAir, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 6.0);
+      tl.fromTo(suffixAir, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }, 8.1);
+
+      // ── Scene 5 (8.4–9.6): pill springs in; Manila blooms once, then hold ──
+      tl.fromTo(pill, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: "power3.out" }, 8.4);
+      tl.fromTo(manilaGlow, { opacity: 0, scale: 0.8 }, { opacity: 0.42, scale: 1.06, duration: 0.6, ease: "power2.out" }, 8.55);
+      tl.to(manilaGlow, { opacity: 0.3, scale: 1, duration: 0.45, ease: "power1.inOut" }, 9.15);
+      tl.to(manilaRing, { scale: 1.15, duration: 0.6, ease: "power2.out" }, 8.55);
+      tl.to(manilaRing, { scale: 1, duration: 0.45, ease: "power1.inOut" }, 9.15);
+
+      window.__timelines["03-route"] = tl;
+    })();
+  </script>
+</template>

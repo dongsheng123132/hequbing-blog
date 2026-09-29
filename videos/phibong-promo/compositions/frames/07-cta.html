@@ -15,7 +15,7 @@
     }
 
     /* Full-bleed cream ground — a full-duration clip, never painted on #root */
-    [id="07-cta-ground"] {
+    [id="f07-cta-ground"] {
       position: absolute;
       inset: 0;
       background: #fdfae7;
@@ -23,7 +23,7 @@
     }
 
     /* Frame container — every frame-relative unit resolves against it (cqw / cqh) */
-    [id="07-cta-stage"] {
+    [id="f07-cta-stage"] {
       position: absolute;
       inset: 0;
       container-type: size;
@@ -31,18 +31,18 @@
     }
 
     /* Two stacked cards; the Scene 1 -> Scene 2 hard cut is an instant opacity swap */
-    [id="07-cta-card1"],
-    [id="07-cta-card2"] {
+    [id="f07-cta-card1"],
+    [id="f07-cta-card2"] {
       position: absolute;
       inset: 0;
     }
-    [id="07-cta-card2"] {
+    [id="f07-cta-card2"] {
       opacity: 0;
     }
 
     /* Content region = top 83% of the canvas (0–900px); everything centers inside it */
-    [id="07-cta-statement"],
-    [id="07-cta-lockup"] {
+    [id="f07-cta-statement"],
+    [id="f07-cta-lockup"] {
       position: absolute;
       left: 0;
       right: 0;
@@ -56,8 +56,8 @@
     }
 
     /* ---- Card 1 · statement ---- */
-    [id="07-cta-s1"],
-    [id="07-cta-s2"] {
+    [id="f07-cta-s1"],
+    [id="f07-cta-s2"] {
       font-size: 6.2cqw;
       font-weight: 900;
       line-height: 1.2;
@@ -65,14 +65,14 @@
       white-space: nowrap;
       will-change: transform, opacity;
     }
-    [id="07-cta-s1"] {
+    [id="f07-cta-s1"] {
       color: #111111;
     }
-    [id="07-cta-s2"] {
+    [id="f07-cta-s2"] {
       margin-top: 0.4cqw;
     }
     /* gradient-text-sweep · one-pass sheen: cobalt rest fill, one lighter-cobalt band */
-    [id="07-cta-s2-fill"] {
+    [id="f07-cta-s2-fill"] {
       display: inline-block;
       color: transparent;
       background-image: linear-gradient(
@@ -91,7 +91,7 @@
 
     /* ---- Card 2 · end card ---- */
     /* Concentric closing rings (atmosphere), halo around the lockup, kept inside 0–900px */
-    [id="07-cta-rings"] {
+    [id="f07-cta-rings"] {
       position: absolute;
       left: 50%;
       top: 450px;
@@ -104,33 +104,33 @@
       pointer-events: none;
       will-change: transform, opacity;
     }
-    [id="07-cta-rings"] > span {
+    [id="f07-cta-rings"] > span {
       position: absolute;
       box-sizing: border-box;
       border: 1.5px solid rgba(30, 43, 250, 0.2);
       border-radius: 50%;
     }
-    [id="07-cta-rings"] > span:nth-child(1) {
+    [id="f07-cta-rings"] > span:nth-child(1) {
       inset: 80px; /* 700px */
       opacity: 1;
     }
-    [id="07-cta-rings"] > span:nth-child(2) {
+    [id="f07-cta-rings"] > span:nth-child(2) {
       inset: 40px; /* 780px */
       opacity: 0.7;
     }
-    [id="07-cta-rings"] > span:nth-child(3) {
+    [id="f07-cta-rings"] > span:nth-child(3) {
       inset: 0; /* 860px */
       opacity: 0.45;
     }
 
-    [id="07-cta-rule"] {
+    [id="f07-cta-rule"] {
       width: 60px;
       height: 4px;
       border-radius: 2px;
       background: #1e2bfa;
       margin-bottom: 2cqw;
     }
-    [id="07-cta-name"] {
+    [id="f07-cta-name"] {
       font-size: 5cqw;
       font-weight: 900;
       line-height: 1.1;
@@ -138,7 +138,7 @@
       color: #111111;
       white-space: nowrap;
     }
-    [id="07-cta-sub"] {
+    [id="f07-cta-sub"] {
       margin-top: 1.3cqw;
       font-size: 1.6cqw;
       font-weight: 500;
@@ -148,7 +148,7 @@
       white-space: nowrap;
     }
     /* cta-button — the one solid cobalt element */
-    [id="07-cta-url"] {
+    [id="f07-cta-url"] {
       margin-top: 3cqw;
       display: inline-block;
       padding: 0.62em 1.5em;
@@ -167,30 +167,30 @@
 
   <div id="root" data-composition-id="07-cta" data-width="1920" data-height="1080">
     <div
-      id="07-cta-ground"
+      id="f07-cta-ground"
       class="clip"
       data-start="0"
       data-duration="7.2"
       data-track-index="0"
     ></div>
 
-    <div id="07-cta-stage">
+    <div id="f07-cta-stage">
       <!-- Card 1 · statement (Scene 1, 0.0–2.4s) -->
-      <div id="07-cta-card1">
-        <div id="07-cta-statement">
-          <div id="07-cta-s1">中国发菲律宾</div>
-          <div id="07-cta-s2"><span id="07-cta-s2-fill">就找菲邦</span></div>
+      <div id="f07-cta-card1">
+        <div id="f07-cta-statement">
+          <div id="f07-cta-s1">中国发菲律宾</div>
+          <div id="f07-cta-s2"><span id="f07-cta-s2-fill">就找菲邦</span></div>
         </div>
       </div>
 
       <!-- Card 2 · end card (Scenes 2–3, 2.4–7.2s) -->
-      <div id="07-cta-card2">
-        <div id="07-cta-rings"><span></span><span></span><span></span></div>
-        <div id="07-cta-lockup">
-          <div id="07-cta-rule"></div>
-          <div id="07-cta-name">菲邦国际物流</div>
-          <div id="07-cta-sub">PHIBONG · 中国 → 菲律宾专线物流</div>
-          <div id="07-cta-url">www.phibong.com</div>
+      <div id="f07-cta-card2">
+        <div id="f07-cta-rings"><span></span><span></span><span></span></div>
+        <div id="f07-cta-lockup">
+          <div id="f07-cta-rule"></div>
+          <div id="f07-cta-name">菲邦国际物流</div>
+          <div id="f07-cta-sub">PHIBONG · 中国 → 菲律宾专线物流</div>
+          <div id="f07-cta-url">www.phibong.com</div>
         </div>
       </div>
     </div>
@@ -201,13 +201,13 @@
     const tl = gsap.timeline({ paused: true });
     const byId = (id) => document.getElementById(id);
 
-    const card1 = byId("07-cta-card1");
-    const card2 = byId("07-cta-card2");
-    const s1 = byId("07-cta-s1");
-    const s2 = byId("07-cta-s2");
-    const s2Fill = byId("07-cta-s2-fill");
-    const rings = byId("07-cta-rings");
-    const url = byId("07-cta-url");
+    const card1 = byId("f07-cta-card1");
+    const card2 = byId("f07-cta-card2");
+    const s1 = byId("f07-cta-s1");
+    const s2 = byId("f07-cta-s2");
+    const s2Fill = byId("f07-cta-s2-fill");
+    const rings = byId("f07-cta-rings");
+    const url = byId("f07-cta-url");
 
     // 100 BPM grid — beat = 0.6s. Scene windows: 0.0–2.4 / 2.4–4.8 / 4.8–7.2.
 

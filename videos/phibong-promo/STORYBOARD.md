@@ -74,7 +74,7 @@ Scene 4 (3.6–4.8s): held lockup — stillness is the payload.
 - duration: 9.6s
 - poster: 9.0s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - src: compositions/frames/03-route.html
 - type: feature_showcase
 - beat: capability

@@ -16,7 +16,7 @@
     }
 
     /* ---- ground: cream field + cover atmosphere (full-bleed clip, lowest track) ---- */
-    [id="02-brand-bg"] {
+    [id="f02-brand-bg"] {
       position: absolute;
       left: 0;
       top: 0;
@@ -26,7 +26,7 @@
       background: #fdfae7;
     }
     /* clipped diagonal cobalt-tint panel at the right edge (extends past the frame so drift never exposes an edge) */
-    [id="02-brand-panel"] {
+    [id="f02-brand-panel"] {
       position: absolute;
       top: 0;
       left: 1150px;
@@ -37,7 +37,7 @@
       will-change: transform, opacity;
     }
     /* 3x3 cobalt dot grid, very subtle */
-    [id="02-brand-dots"] {
+    [id="f02-brand-dots"] {
       position: absolute;
       left: 1700px;
       top: 172px;
@@ -48,7 +48,7 @@
       opacity: 0.34;
       will-change: transform;
     }
-    [id="02-brand-dots"] > span {
+    [id="f02-brand-dots"] > span {
       display: block;
       width: 12px;
       height: 12px;
@@ -57,7 +57,7 @@
     }
 
     /* ---- centered lockup ---- */
-    [id="02-brand-lockup"] {
+    [id="f02-brand-lockup"] {
       position: absolute;
       left: 0;
       top: 0;
@@ -68,21 +68,21 @@
       align-items: center;
       justify-content: center;
     }
-    [id="02-brand-accent"] {
+    [id="f02-brand-accent"] {
       display: block;
       width: 60px;
       height: 4px;
       overflow: visible;
       margin-bottom: 1.8cqw;
     }
-    [id="02-brand-accent-line"] {
+    [id="f02-brand-accent-line"] {
       fill: none;
       stroke: #1e2bfa;
       stroke-width: 4;
       stroke-linecap: round;
     }
     /* wordmark: h1 x1.4, weight 900, near-black */
-    [id="02-brand-word"] {
+    [id="f02-brand-word"] {
       font-size: 5.88cqw;
       font-weight: 900;
       line-height: 1.08;
@@ -90,12 +90,12 @@
       color: #111111;
       white-space: nowrap;
     }
-    [id="02-brand-word"] > span {
+    [id="f02-brand-word"] > span {
       display: inline-block;
       will-change: transform, opacity;
     }
     /* PHIBONG: wide-tracked cobalt capitals */
-    [id="02-brand-latin"] {
+    [id="f02-brand-latin"] {
       margin-top: 1.15cqw;
       padding-left: 0.4em;
       font-size: 1.4cqw;
@@ -107,7 +107,7 @@
       will-change: transform, opacity;
     }
     /* solid cobalt pill, cream text (cta-button atom) */
-    [id="02-brand-pill"] {
+    [id="f02-brand-pill"] {
       margin-top: 2.3cqw;
       padding: 0.72cqw 1.9cqw;
       border-radius: 100px;
@@ -121,31 +121,31 @@
       transform-origin: 50% 50%;
       will-change: transform, opacity;
     }
-    [id="02-brand-pill"] > span {
+    [id="f02-brand-pill"] > span {
       display: inline-block;
     }
-    [id="02-brand-s4"] {
+    [id="f02-brand-s4"] {
       color: rgba(253, 250, 231, 0.62);
     }
   </style>
 
-  <div id="root" data-composition-id="02-brand" data-duration="4.8" data-width="1920" data-height="1080">
-    <div id="02-brand-bg" class="clip" data-start="0" data-duration="4.8" data-track-index="0">
-      <div id="02-brand-panel"></div>
-      <div id="02-brand-dots">
+  <div id="root" data-composition-id="02-brand" data-duration="5.3" data-width="1920" data-height="1080">
+    <div id="f02-brand-bg" class="clip" data-start="0" data-duration="5.3" data-track-index="0">
+      <div id="f02-brand-panel"></div>
+      <div id="f02-brand-dots">
         <span></span><span></span><span></span>
         <span></span><span></span><span></span>
         <span></span><span></span><span></span>
       </div>
     </div>
 
-    <div id="02-brand-lockup" class="clip" data-start="0" data-duration="4.8" data-track-index="1">
-      <svg id="02-brand-accent" viewBox="0 0 60 4" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <line id="02-brand-accent-line" x1="2" y1="2" x2="58" y2="2"></line>
+    <div id="f02-brand-lockup" class="clip" data-start="0" data-duration="5.3" data-track-index="1">
+      <svg id="f02-brand-accent" viewBox="0 0 60 4" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line id="f02-brand-accent-line" x1="2" y1="2" x2="58" y2="2"></line>
       </svg>
-      <div id="02-brand-word"><span>菲</span><span>邦</span><span>国</span><span>际</span><span>物</span><span>流</span></div>
-      <div id="02-brand-latin">PHIBONG</div>
-      <div id="02-brand-pill"><span id="02-brand-s1">中国</span> <span id="02-brand-s2">→</span> <span id="02-brand-s3">菲律宾</span> <span id="02-brand-s4">·</span> <span id="02-brand-s5">专线物流</span></div>
+      <div id="f02-brand-word"><span>菲</span><span>邦</span><span>国</span><span>际</span><span>物</span><span>流</span></div>
+      <div id="f02-brand-latin">PHIBONG</div>
+      <div id="f02-brand-pill"><span id="f02-brand-s1">中国</span> <span id="f02-brand-s2">→</span> <span id="f02-brand-s3">菲律宾</span> <span id="f02-brand-s4">·</span> <span id="f02-brand-s5">专线物流</span></div>
     </div>
   </div>
 
@@ -160,13 +160,13 @@
         return Array.prototype.slice.call(el.children);
       };
 
-      var panel = byId("02-brand-panel");
-      var dotsWrap = byId("02-brand-dots");
+      var panel = byId("f02-brand-panel");
+      var dotsWrap = byId("f02-brand-dots");
       var dots = kids(dotsWrap);
-      var line = byId("02-brand-accent-line");
-      var chars = kids(byId("02-brand-word"));
-      var latin = byId("02-brand-latin");
-      var pill = byId("02-brand-pill");
+      var line = byId("f02-brand-accent-line");
+      var chars = kids(byId("f02-brand-word"));
+      var latin = byId("f02-brand-latin");
+      var pill = byId("f02-brand-pill");
       var segs = kids(pill);
 
       var tl = gsap.timeline({ paused: true });
