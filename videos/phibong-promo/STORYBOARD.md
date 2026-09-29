@@ -121,7 +121,7 @@ Scene 4 (6.0–7.2s): footnote in text-light under the cards: `价格以官网�
 - duration: 8.4s
 - poster: 7.9s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - src: compositions/frames/05-process.html
 - type: benefit_highlight
 - beat: ease

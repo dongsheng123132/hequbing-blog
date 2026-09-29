@@ -1,0 +1,522 @@
+<template>
+  <style>
+    @font-face{font-family:"Noto Sans SC";font-weight:400;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Regular.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans SC";font-weight:500;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Medium.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans SC";font-weight:700;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Bold.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans SC";font-weight:900;font-style:normal;font-display:block;src:url("assets/fonts/NotoSansSC-Black.woff2") format("woff2");}
+
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: "Noto Sans SC";
+      color: #111111;
+    }
+
+    /* ---- ground: full-bleed cream clip on the lowest track ---- */
+    #f05-process-bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      background: #fdfae7;
+    }
+
+    /* ---- camera / container: one scaled stage wrapper (slow push-in) ---- */
+    #f05-process-world {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      container-type: size;
+      transform-origin: 960px 480px;
+    }
+
+    /* ---- slide-header: accent-line + eyebrow row, h2 below ---- */
+    .f05-process-header {
+      position: absolute;
+      left: 5cqw;
+      top: 4.6cqw;
+      margin: 0;
+    }
+    .f05-process-eyebrow-row {
+      display: flex;
+      align-items: center;
+      gap: 0.95cqw;
+    }
+    .f05-process-accent {
+      display: block;
+      width: 60px;
+      height: 4px;
+      border-radius: 2px;
+      background: #1e2bfa;
+      transform-origin: 0% 50%;
+    }
+    .f05-process-eyebrow {
+      display: block;
+      font-size: 1.4cqw;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.08em;
+      color: #1e2bfa;
+      white-space: nowrap;
+    }
+    .f05-process-h2 {
+      margin: 0.8cqw 0 0 0;
+      font-size: 2.6cqw;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #111111;
+      white-space: nowrap;
+    }
+    .f05-process-w {
+      display: inline-block;
+    }
+    /* waterfall-entry arrivals: binary opacity via tl.set at their cue */
+    .f05-process-wf {
+      opacity: 0;
+    }
+
+    /* ---- empty slots (ghost stations) — sit UNDER the track line ---- */
+    .f05-process-slot {
+      position: absolute;
+      top: 514px;
+      left: calc(192px + var(--i) * 288px); /* node centre 240 + 288·i, minus radius 48 */
+      width: 96px;
+      height: 96px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      border: 1.5px solid rgba(30, 43, 250, 0.2);
+      background: rgba(30, 43, 250, 0.04);
+      transform-origin: 50% 50%;
+    }
+
+    /* ---- track + brackets (one canvas-sized SVG, 1 unit = 1px) ---- */
+    .f05-process-svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: visible;
+    }
+    .f05-process-rail {
+      fill: none;
+      stroke: rgba(30, 43, 250, 0.15);
+      stroke-width: 4;
+    }
+    .f05-process-track {
+      fill: none;
+      stroke: #1e2bfa;
+      stroke-width: 4;
+      stroke-linecap: butt;
+    }
+    .f05-process-brk {
+      fill: none;
+      stroke: #1e2bfa;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ---- terminal dots: the line starts and lands on something ---- */
+    .f05-process-dot {
+      position: absolute;
+      top: 554px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #1e2bfa;
+      transform-origin: 50% 50%;
+    }
+    #f05-process-dot-a {
+      left: 88px;
+    }
+    #f05-process-dot-b {
+      left: 1816px;
+    }
+
+    /* ---- six nodes at fixed, evenly spaced columns (288px, centres 240 + 288·i) ---- */
+    .f05-process-node {
+      position: absolute;
+      top: 460px;
+      left: calc(96px + var(--i) * 288px);
+      width: 288px;
+      height: 220px;
+    }
+    .f05-process-count {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 14px;
+      text-align: center;
+      font-size: 1.15cqw;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.05em;
+      color: #1e2bfa;
+    }
+    /* step-circle: cream underlay (masks the line) + cobalt disc carrying the opacity ladder */
+    .f05-process-step {
+      position: absolute;
+      left: 96px;
+      top: 54px; /* circle centre = 460 + 54 + 48 = 562 = track y */
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: #fdfae7;
+      color: #fdfae7;
+      transform-origin: 50% 50%;
+    }
+    .f05-process-disc {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: #1e2bfa;
+    }
+    .f05-process-ico {
+      position: absolute;
+      left: 23px;
+      top: 23px;
+      width: 50px;
+      height: 50px;
+    }
+    .f05-process-label {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 172px;
+      text-align: center;
+      font-size: 1.6cqw;
+      font-weight: 500;
+      line-height: 1.2;
+      color: #111111;
+      white-space: nowrap;
+    }
+
+    /* ---- tag-pills (accent-light fill, 20% border, 100px radius) ---- */
+    .f05-process-pill {
+      position: absolute;
+      height: 56px;
+      box-sizing: border-box;
+      border-radius: 100px;
+      background: rgba(30, 43, 250, 0.08);
+      border: 1.5px solid rgba(30, 43, 250, 0.2);
+      color: #1e2bfa;
+      font-size: 1.45cqw;
+      font-weight: 700;
+      line-height: 53px;
+      letter-spacing: 0.04em;
+      text-align: center;
+      white-space: nowrap;
+      transform-origin: 50% 50%;
+    }
+    #f05-process-pill-a {
+      left: 1014px; /* centred on node 04 (x 1104), between the two brackets */
+      top: 376px;
+      width: 180px;
+    }
+    #f05-process-pill-b {
+      left: 848px; /* centred under the whole track (x 960) */
+      top: 736px;
+      width: 224px;
+    }
+  </style>
+
+  <div
+    id="root"
+    data-composition-id="05-process"
+    data-start="0"
+    data-duration="8.4"
+    data-width="1920"
+    data-height="1080"
+  >
+    <div id="f05-process-bg" class="clip" data-start="0" data-duration="8.4" data-track-index="0"></div>
+
+    <div id="f05-process-world">
+      <!-- Scene 1: slide-header -->
+      <div class="f05-process-header">
+        <div class="f05-process-eyebrow-row">
+          <span class="f05-process-accent"></span>
+          <span id="f05-process-eyebrow" class="f05-process-eyebrow f05-process-wf">一站式服务</span>
+        </div>
+        <div id="f05-process-h2" class="f05-process-h2"><span class="f05-process-w f05-process-wf">下单</span><span class="f05-process-w f05-process-wf">到签收，</span><span class="f05-process-w f05-process-wf">一条线</span><span class="f05-process-w f05-process-wf">走完</span></div>
+      </div>
+
+      <!-- ghost stations (the empty array region the nodes assemble into) -->
+      <div class="f05-process-slot" style="--i: 0"></div>
+      <div class="f05-process-slot" style="--i: 1"></div>
+      <div class="f05-process-slot" style="--i: 2"></div>
+      <div class="f05-process-slot" style="--i: 3"></div>
+      <div class="f05-process-slot" style="--i: 4"></div>
+      <div class="f05-process-slot" style="--i: 5"></div>
+
+      <!-- track rail + drawn line + Scene 3 brackets -->
+      <svg class="f05-process-svg" viewBox="0 0 1920 1080" width="1920" height="1080" aria-hidden="true">
+        <path class="f05-process-rail" d="M96 562 H1824" />
+        <path id="f05-process-track" class="f05-process-track" d="M96 562 H1824" />
+        <path id="f05-process-brk-a" class="f05-process-brk" d="M816 452 V424 Q816 404 836 404 H1002" />
+        <path id="f05-process-brk-b" class="f05-process-brk" d="M1392 452 V424 Q1392 404 1372 404 H1206" />
+      </svg>
+
+      <div id="f05-process-dot-a" class="f05-process-dot"></div>
+      <div id="f05-process-dot-b" class="f05-process-dot"></div>
+
+      <!-- Scene 2: six step nodes -->
+      <div id="f05-process-node-1" class="f05-process-node" style="--i: 0">
+        <div class="f05-process-count f05-process-wf">01</div>
+        <div class="f05-process-step">
+          <div class="f05-process-disc"></div>
+          <svg class="f05-process-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 5l17 8.5v21L24 43 7 34.5v-21z"/><path d="M7 13.5L24 22l17-8.5"/><path d="M24 22v21"/><path d="M15.5 9.2l17 8.5"/></svg>
+        </div>
+        <div class="f05-process-label f05-process-wf">下单</div>
+      </div>
+
+      <div id="f05-process-node-2" class="f05-process-node" style="--i: 1">
+        <div class="f05-process-count f05-process-wf">02</div>
+        <div class="f05-process-step">
+          <div class="f05-process-disc"></div>
+          <svg class="f05-process-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 42V17l19-10 19 10v25"/><path d="M12 42V24h24v18"/><path d="M12 30h24"/><path d="M12 36h24"/></svg>
+        </div>
+        <div class="f05-process-label f05-process-wf">入仓</div>
+      </div>
+
+      <div id="f05-process-node-3" class="f05-process-node" style="--i: 2">
+        <div class="f05-process-count f05-process-wf">03</div>
+        <div class="f05-process-step">
+          <div class="f05-process-disc"></div>
+          <svg class="f05-process-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5h17l9 9v29H12z"/><path d="M29 5v9h9"/><path d="M18 22h14"/><path d="M18 29h14"/><path d="M18 36h8"/></svg>
+        </div>
+        <div class="f05-process-label f05-process-wf">出口报关</div>
+      </div>
+
+      <div id="f05-process-node-4" class="f05-process-node" style="--i: 3">
+        <div class="f05-process-count f05-process-wf">04</div>
+        <div class="f05-process-step">
+          <div class="f05-process-disc"></div>
+          <svg class="f05-process-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 30h36l-5 9H11z"/><path d="M12 30V20h24v10"/><path d="M17 20v-6h14v6"/><path d="M24 14V8"/><path d="M4 43c3 0 3-2 6-2s3 2 6 2 3-2 6-2 3 2 6 2 3-2 6-2 3 2 6 2"/></svg>
+        </div>
+        <div class="f05-process-label f05-process-wf">海运 / 空运</div>
+      </div>
+
+      <div id="f05-process-node-5" class="f05-process-node" style="--i: 4">
+        <div class="f05-process-count f05-process-wf">05</div>
+        <div class="f05-process-step">
+          <div class="f05-process-disc"></div>
+          <svg class="f05-process-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="19"/><path d="M15 24.5l6 6 12-13"/></svg>
+        </div>
+        <div class="f05-process-label f05-process-wf">菲律宾清关</div>
+      </div>
+
+      <div id="f05-process-node-6" class="f05-process-node" style="--i: 5">
+        <div class="f05-process-count f05-process-wf">06</div>
+        <div class="f05-process-step">
+          <div class="f05-process-disc"></div>
+          <svg class="f05-process-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h24v22H4z"/><path d="M28 19h8l7 8v7H28"/><circle cx="12" cy="36" r="4"/><circle cx="35" cy="36" r="4"/></svg>
+        </div>
+        <div class="f05-process-label f05-process-wf">送货上门</div>
+      </div>
+
+      <!-- Scene 3: pills -->
+      <div id="f05-process-pill-a" class="f05-process-pill">双清包税</div>
+      <div id="f05-process-pill-b" class="f05-process-pill">全程可追踪</div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script>
+    (function () {
+      var scope = document.querySelector('[data-composition-id="05-process"]') || document;
+      function one(sel) {
+        return scope.querySelector(sel);
+      }
+      function all(sel) {
+        return Array.prototype.slice.call(scope.querySelectorAll(sel));
+      }
+
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+      var F = 1 / 60;
+
+      // Geometry mirrored from the CSS — fixed positions, no runtime layout measurement.
+      var LINE_X0 = 96; // track path start (px)
+      var LINE_X1 = 1824; // track path end (px)
+      var NODE_X0 = 240; // node 01 centre
+      var NODE_GAP = 288; // even column pitch
+      var LINE_START = 1.2; // Scene 2 opens
+      var LINE_DUR = 4.8; // Scene 2 closes at 6.0
+      var SPEED = (LINE_X1 - LINE_X0) / LINE_DUR; // 360 px/s, linear draw
+      function reachAt(x) {
+        return LINE_START + (x - LINE_X0) / SPEED; // node i -> 1.6 + 0.8·i
+      }
+      var LADDER = [1, 0.85, 0.7, 0.55]; // step-circle opacity ladder (frame.md)
+
+      // waterfall-entry: binary reveal + whip up from below, power4.out
+      function whip(el, at, dy, dur) {
+        tl.set(el, { opacity: 1, y: dy }, at);
+        tl.to(el, { y: 0, duration: dur, ease: "power4.out" }, at);
+      }
+
+      // svg-path-draw: dash = measured length (+pad so round caps stay hidden)
+      function prepDraw(el, pad) {
+        var len = el.getTotalLength();
+        var dash = len + pad;
+        var hidden = dash + pad / 2;
+        el.style.strokeDasharray = dash + "px " + dash + "px";
+        el.style.strokeDashoffset = hidden + "px";
+        return hidden;
+      }
+
+      // ---- camera: slow push-in under the whole shot ----
+      tl.fromTo(
+        one("#f05-process-world"),
+        { scale: 1 },
+        { scale: 1.03, duration: 8.4, ease: "none" },
+        0,
+      );
+
+      // ---- Scene 1 (0.0–1.2): header + empty track region ----
+      tl.fromTo(
+        one(".f05-process-accent"),
+        { scaleX: 0 },
+        { scaleX: 1, duration: 0.4, ease: "power2.out" },
+        0.05,
+      );
+      whip(one("#f05-process-eyebrow"), 0.1, 40, 0.16);
+
+      tl.fromTo(
+        one(".f05-process-rail"),
+        { opacity: 0 },
+        { opacity: 1, duration: 0.5, ease: "power1.out" },
+        0.1,
+      );
+      all(".f05-process-slot").forEach(function (slot, i) {
+        tl.fromTo(
+          slot,
+          { scale: 0.6, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.45, ease: "power3.out" },
+          0.2 + i * 0.06,
+        );
+      });
+
+      // h2 on the next beat (0.6): anchor travels furthest, pieces overlap by a frame
+      var WORDS = [
+        { dy: 72, dur: 0.18 },
+        { dy: 48, dur: 0.15 },
+        { dy: 48, dur: 0.15 },
+        { dy: 64, dur: 0.16 },
+      ];
+      var tw = 0.6;
+      all(".f05-process-w").forEach(function (el, i) {
+        whip(el, tw, WORDS[i].dy, WORDS[i].dur);
+        tw = tw + WORDS[i].dur - F;
+      });
+
+      // ---- Scene 2 (1.2–6.0): line draws L->R, nodes pop as it reaches them ----
+      var track = one("#f05-process-track");
+      var trackHidden = prepDraw(track, 0);
+      tl.fromTo(
+        track,
+        { strokeDashoffset: trackHidden },
+        { strokeDashoffset: 0, duration: LINE_DUR, ease: "none" },
+        LINE_START,
+      );
+      tl.fromTo(
+        one("#f05-process-dot-a"),
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.4, ease: "power3.out" },
+        reachAt(LINE_X0),
+      );
+
+      var steps = all(".f05-process-step");
+      var discs = all(".f05-process-disc");
+      var counts = all(".f05-process-count");
+      var labels = all(".f05-process-label");
+
+      steps.forEach(function (step, i) {
+        var tNode = reachAt(NODE_X0 + i * NODE_GAP);
+
+        // spring-pop-entrance (smooth power3 settle, no overshoot)
+        tl.fromTo(
+          step,
+          { scale: 0, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.5, ease: "power3.out" },
+          tNode,
+        );
+
+        // cream icon traces in inside the fresh circle (one gesture)
+        Array.prototype.slice
+          .call(step.querySelectorAll(".f05-process-ico path, .f05-process-ico circle"))
+          .forEach(function (p) {
+            var h = prepDraw(p, 4);
+            tl.fromTo(
+              p,
+              { strokeDashoffset: h },
+              { strokeDashoffset: 0, duration: 0.4, ease: "power2.out" },
+              tNode + 0.1,
+            );
+          });
+
+        // counter then label whip up (waterfall)
+        whip(counts[i], tNode + 0.08, 28, 0.13);
+        whip(labels[i], tNode + 0.08 + 0.13 - F, 44, 0.17);
+
+        // earlier nodes step down the ladder; the newest stays full cobalt
+        for (var j = 0; j < i; j++) {
+          var d = i - j;
+          if (d < LADDER.length) {
+            tl.to(discs[j], { opacity: LADDER[d], duration: 0.3, ease: "power1.out" }, tNode);
+          }
+        }
+      });
+
+      tl.fromTo(
+        one("#f05-process-dot-b"),
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.4, ease: "power3.out" },
+        reachAt(LINE_X1),
+      );
+
+      // ---- Scene 3 (6.0–7.2): brackets over 03 & 05, shared pill, track pill ----
+      var S3 = 6.0;
+      all(".f05-process-brk").forEach(function (b) {
+        var h = prepDraw(b, 4);
+        tl.fromTo(
+          b,
+          { strokeDashoffset: h },
+          { strokeDashoffset: 0, duration: 0.45, ease: "power2.out" },
+          S3,
+        );
+      });
+      tl.to([discs[2], discs[4]], { opacity: 1, duration: 0.35, ease: "power1.out" }, S3);
+      tl.fromTo(
+        one("#f05-process-pill-a"),
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.5, ease: "power3.out" },
+        S3 + 0.3,
+      );
+      tl.fromTo(
+        one("#f05-process-pill-b"),
+        { scale: 0, opacity: 0, y: 16 },
+        { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+        S3 + 0.6,
+      );
+      tl.to(
+        [discs[0], discs[1], discs[3]],
+        { opacity: 1, duration: 0.4, ease: "power1.out" },
+        S3 + 0.6,
+      );
+
+      // ---- Scene 4 (7.2–8.4): hold (camera push continues underneath) ----
+
+      window.__timelines["05-process"] = tl;
+    })();
+  </script>
+</template>
