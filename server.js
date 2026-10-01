@@ -123,6 +123,7 @@ const server = http.createServer((req, res) => {
     '/cases': 'cases.html',
     '/case': 'case.html',
     '/services': 'services.html',
+    '/geo': 'geo.html',
     '/about': 'about.html',
     '/privacy': 'privacy.html',
     '/support': 'support.html',

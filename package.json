@@ -6,7 +6,8 @@
     "start": "node server.js",
     "dev": "node server.js",
     "collect": "node scripts/collector.js",
-    "sitemap": "node scripts/generate-blog-sitemap.js"
+    "sitemap": "node scripts/generate-blog-sitemap.js && node scripts/build-static.js",
+    "build:static": "node scripts/build-static.js"
   },
   "keywords": ["AI咨询", "企业AI落地", "大模型"],
   "author": "贺去病",

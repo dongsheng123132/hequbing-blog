@@ -1,10 +1,14 @@
-# 贺去病 · 博客部署说明（Vercel）
+# 贺去病商业咨询 · 网站（Vercel）
 
-域名是：https://blog.hequbing.com/
+- 主站：https://www.hequbing.com/ （首页、服务与报价 /services、GEO 优化 /geo、关于 /about、AI 落地情报 /cases）
+- 博客：https://blog.hequbing.com/ （同一套代码，按域名分流）
 
-本项目已适配 Vercel 的 Serverless API：
-- 静态页面在 `public/`
-- 接口位于 `api/`（`/api/posts`、`/api/posts/[slug]`）读取 `data/posts.json`
+结构：
+- 静态页面在 `public/`；文章页 `/post?slug=xxx` 由 `api/render-post.js` 服务端渲染（模板 `data/post-template.html`）
+- 接口位于 `api/`（`/api/posts`、`/api/posts/[slug]`、`/api/cases`）读取 `data/*.json`
+- GEO 相关的做法和待办见 `GEO-PLAN.md`
+
+改价格时要同步改：`public/index.html`（页面 + JSON-LD）、`public/services.html`、`public/geo.html`、`public/llms.txt`、`data/services.json`。
 
 ## 推荐：使用 GitHub 自动部署（最简单）
 
@@ -33,7 +37,8 @@
 
 ## 内容维护
 
-- **新增/修改文章**：编辑 `data/posts.json`，字段包括 `title`、`date`、`summary`、`tags`、`content`（HTML）。
+- **新增/修改文章**：编辑 `data/posts.json`，字段包括 `title`、`date`、`summary`、`tags`、`content`（HTML）。改完跑 `npm run sitemap`：更新 sitemap、首页和归档页的静态文章列表、FAQ 结构化数据。
+- **改 FAQ**：直接改页面里的 `<details>` 问答，再跑 `npm run sitemap`，结构化数据会自动同步。
 - **样式与品牌**：修改 `public/styles.css` 与 `public/favicon.svg`。
 
 ## 本地开发

@@ -7,6 +7,7 @@
     { "source": "/cases", "destination": "/cases.html" },
     { "source": "/case", "destination": "/case.html" },
     { "source": "/services", "destination": "/services.html" },
+    { "source": "/geo", "destination": "/geo.html" },
     { "source": "/about", "destination": "/about.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/support", "destination": "/support.html" },
