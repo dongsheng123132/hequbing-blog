@@ -146,6 +146,13 @@ const server = http.createServer((req, res) => {
     res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
     return res.end('禁止访问');
   }
+  // 与 Vercel cleanUrls 一致：目录取 index.html，无扩展名的路径补 .html（如 /old、/old/services）
+  if (fs.existsSync(safePath) && fs.statSync(safePath).isDirectory()) {
+    return sendFile(res, path.join(safePath, 'index.html'));
+  }
+  if (!path.extname(safePath) && fs.existsSync(safePath + '.html')) {
+    return sendFile(res, safePath + '.html');
+  }
   return sendFile(res, safePath);
 });
 
