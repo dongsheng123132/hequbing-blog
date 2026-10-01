@@ -10,6 +10,15 @@
 
 改价格时要同步改：`public/index.html`（页面 + JSON-LD）、`public/services.html`、`public/geo.html`、`public/llms.txt`、`data/services.json`。
 
+## 版本与回滚
+
+- 改版前（2026-09，「AI 落地实战派」绿色版）的完整代码在分支 `old-site-2026-09`（commit 1805616）。要整站回到旧版：把 main 恢复成这个分支，或在 Vercel 后台对旧部署点 Instant Rollback。
+- 旧版首页、服务页、关于页的存档在线上 `/old`、`/old/services`、`/old/about`（noindex，不进 sitemap）。
+
+## 注意：Vercel Hobby 的提交者校验
+
+Hobby 计划下，Vercel 只部署作者是账号本人的提交。作者是别人、或带 `Co-authored-by` AI 署名的提交会被拦下，不会上线。用 AI 工具改完后，最后一个提交要以本人身份提交，再推送到 main。
+
 ## 推荐：使用 GitHub 自动部署（最简单）
 
 这是维护成本最低的方式。
