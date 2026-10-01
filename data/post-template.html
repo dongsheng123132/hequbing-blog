@@ -1,17 +1,19 @@
 <!DOCTYPE html>
+<!-- 文章页模板：由 api/render-post.js 在服务端填充 {{...}}，让爬虫和 AI 引擎不执行 JS 也能读到正文 -->
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>文章详情 | 贺去病 · 博客</title>
-  <meta name="description" content="贺去病博客文章详情页。" id="meta-desc" />
-  <meta property="og:title" content="贺去病 · 博客" id="og-title" />
-  <meta property="og:description" content="贺去病博客文章详情页。" id="og-desc" />
+  <title>{{PAGE_TITLE}}</title>
+  <meta name="description" content="{{DESCRIPTION}}" id="meta-desc" />
+  {{ROBOTS}}<link rel="canonical" href="{{URL}}" />
+  <meta property="og:title" content="{{OG_TITLE}}" id="og-title" />
+  <meta property="og:description" content="{{DESCRIPTION}}" id="og-desc" />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://blog.hequbing.com/post" id="og-url" />
+  <meta property="og:url" content="{{URL}}" id="og-url" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/styles.css" />
-  <script type="application/ld+json" id="schema-json"></script>
+  <script type="application/ld+json" id="schema-json">{{SCHEMA}}</script>
 </head>
 <body>
   <div id="post-progress" class="post-progress"></div>
@@ -36,9 +38,9 @@
     </div>
 
     <article id="post" class="post-detail">
-      <h2 id="post-title"></h2>
-      <div class="meta" id="post-meta"></div>
-      <div id="post-content" class="content"></div>
+      <h2 id="post-title">{{POST_TITLE}}</h2>
+      <div class="meta" id="post-meta">{{POST_META}}</div>
+      <div id="post-content" class="content">{{POST_CONTENT}}</div>
 
       <div class="share-bar" id="share-bar">
         <span class="share-label">分享：</span>

@@ -10,7 +10,7 @@
     { "source": "/about", "destination": "/about.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/support", "destination": "/support.html" },
-    { "source": "/post", "destination": "/post.html" },
+    { "source": "/post", "destination": "/api/render-post" },
     { "source": "/archive", "destination": "/archive.html" },
     { "source": "/tags", "destination": "/tags.html" }
   ],

@@ -2,6 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const url = require('url');
+const { renderPostPage } = require('./api/render-post');
 
 const PORT = process.env.PORT || 3000;
 const PUBLIC_DIR = path.join(__dirname, 'public');
@@ -108,6 +109,13 @@ const server = http.createServer((req, res) => {
     return sendJson(res, 200, found);
   }
 
+  // --- 文章页：服务端渲染（与 Vercel 上的 api/render-post.js 同一份逻辑） ---
+  if (pathname === '/post') {
+    const { status, html } = renderPostPage(String(query.slug || ''));
+    res.writeHead(status, { 'Content-Type': 'text/html; charset=utf-8' });
+    return res.end(html);
+  }
+
   // --- Static pages (clean URLs) ---
   const pageMap = {
     '/': 'index.html',
@@ -118,7 +126,6 @@ const server = http.createServer((req, res) => {
     '/about': 'about.html',
     '/privacy': 'privacy.html',
     '/support': 'support.html',
-    '/post': 'post.html',
     '/archive': 'archive.html',
     '/tags': 'tags.html',
   };

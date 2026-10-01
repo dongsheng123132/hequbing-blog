@@ -1,11 +1,14 @@
 #!/usr/bin/env node
 /**
- * 自动生成 blog.hequbing.com 的 sitemap.xml（从 data/posts.json 驱动）
- * 用法：node scripts/generate-blog-sitemap.js
+ * 自动生成 sitemap.xml（主站页面 + 从 data/posts.json 驱动的博客文章）
+ * www 和 blog 两个域名共用同一份 public/，robots.txt 在两边都声明了这份 sitemap，
+ * 所以一份文件里可以同时列两个域名的 URL。只列 canonical 地址，避免重复。
+ * 用法：npm run sitemap
  */
 const fs = require('fs');
 const path = require('path');
 
+const WWW_URL = 'https://www.hequbing.com';
 const SITE_URL = 'https://blog.hequbing.com';
 const POSTS_PATH = path.join(__dirname, '..', 'data', 'posts.json');
 const OUTPUT = path.join(__dirname, '..', 'public', 'sitemap.xml');
@@ -14,10 +17,12 @@ function generateSitemap() {
   const posts = JSON.parse(fs.readFileSync(POSTS_PATH, 'utf-8'));
 
   const staticPages = [
-    { url: '/', priority: '1.0', changefreq: 'daily' },
-    { url: '/archive', priority: '0.9', changefreq: 'daily' },
-    { url: '/tags', priority: '0.7', changefreq: 'weekly' },
-    { url: '/about', priority: '0.6', changefreq: 'monthly' },
+    { url: WWW_URL + '/', priority: '1.0', changefreq: 'weekly' },
+    { url: WWW_URL + '/services', priority: '0.9', changefreq: 'monthly' },
+    { url: WWW_URL + '/about', priority: '0.8', changefreq: 'monthly' },
+    { url: WWW_URL + '/cases', priority: '0.6', changefreq: 'daily' },
+    { url: SITE_URL + '/archive', priority: '0.9', changefreq: 'daily' },
+    { url: SITE_URL + '/tags', priority: '0.6', changefreq: 'weekly' },
   ];
 
   const today = new Date().toISOString().split('T')[0];
@@ -25,7 +30,7 @@ function generateSitemap() {
 
   for (const page of staticPages) {
     xml += `  <url>
-    <loc>${SITE_URL}${page.url}</loc>
+    <loc>${page.url}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
