@@ -2,12 +2,15 @@
   "name": "hequbing-ai-consulting",
   "version": "2.0.0",
   "description": "贺去病 AI 咨询 - AI 落地实战派，帮中小企业用好 AI",
+  "engines": { "node": "24.x" },
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
     "collect": "node scripts/collector.js",
     "sitemap": "node scripts/generate-blog-sitemap.js && node scripts/build-static.js",
-    "build:static": "node scripts/build-static.js"
+    "build:static": "node scripts/build-static.js",
+    "build": "npm run sitemap",
+    "test": "node --test tests/site.test.cjs"
   },
   "keywords": ["AI咨询", "企业AI落地", "大模型"],
   "author": "贺去病",

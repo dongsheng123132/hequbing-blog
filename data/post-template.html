@@ -21,7 +21,7 @@
   <header class="site-header">
     <div class="container">
       <div class="header-row">
-        <h1 class="site-title"><a href="/archive" class="brand">贺去病 · 博客</a></h1>
+        <div class="site-title"><a href="/archive" class="brand">贺去病 · 博客</a></div>
         <nav class="nav">
           <a href="/archive">归档</a>
           <a href="/tags">标签</a>
@@ -38,8 +38,8 @@
       <a href="/archive">← 返回归档</a>
     </div>
 
-    <article id="post" class="post-detail">
-      <h2 id="post-title">{{POST_TITLE}}</h2>
+    <article id="post" class="post-detail" data-rendered-slug="{{POST_SLUG}}">
+      <h1 id="post-title">{{POST_TITLE}}</h1>
       <div class="meta" id="post-meta">{{POST_META}}</div>
       <div id="post-content" class="content">{{POST_CONTENT}}</div>
 

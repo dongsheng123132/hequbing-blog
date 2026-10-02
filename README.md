@@ -50,6 +50,10 @@ Hobby 计划下，Vercel 只部署作者是账号本人的提交。作者是别�
 - **改 FAQ**：直接改页面里的 `<details>` 问答，再跑 `npm run sitemap`，结构化数据会自动同步。
 - **样式与品牌**：修改 `public/styles.css` 与 `public/favicon.svg`。
 
+运行环境固定为 Node.js 24（package.json engines），覆盖 Vercel 项目里已停用的 Node.js 20 设置。部署时会运行 `npm run build`，从文章库生成列表、精选入口、sitemap 和 FAQ 数据；本地验证用 `npm test`。上线后确认主站 `/geo`、两类报价及博客完整正文，不能仅凭提交成功判断发布成功。
+
+文章内容的唯一编辑源为 `data/posts.json`。精选公众号整理版通过 `source.type=author_wechat` 生成首页与作者页的入口；`date` 为网站发布日期，`dateModified` 为实质更新日期，原文链接在 `source.url` 与正文末尾保留。历史导出与审查材料不参与网站构建。
+
 ## 本地开发
 
 本地预览：

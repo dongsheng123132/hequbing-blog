@@ -47,10 +47,12 @@ function renderPostPage(slug) {
       headline: post.title,
       description: post.summary,
       datePublished: post.date,
+      ...(post.dateModified ? { dateModified: post.dateModified } : {}),
       keywords: (post.tags || []).join(', '),
-      author: { '@type': 'Person', name: '贺去病', url: 'https://www.hequbing.com/about' },
+      author: { '@type': 'Person', '@id': 'https://www.hequbing.com/about#person', name: '贺去病', alternateName: '贺方升', url: 'https://www.hequbing.com/about' },
       publisher: { '@type': 'Person', name: '贺去病' },
       mainEntityOfPage: url,
+      ...(post.source && post.source.url ? { isBasedOn: post.source.url } : {}),
     };
     vars = {
       PAGE_TITLE: escapeHtml(post.title + ' | 贺去病 · 博客'),
@@ -61,8 +63,10 @@ function renderPostPage(slug) {
       // 防止正文里出现 </script> 截断 JSON-LD
       SCHEMA: JSON.stringify(schema).replace(/</g, '\\u003c'),
       POST_TITLE: escapeHtml(post.title),
+      POST_SLUG: escapeHtml(post.slug),
       POST_META:
         '<span>' + escapeHtml(post.date || '') + '</span>' +
+        '<a href="https://www.hequbing.com/about">作者：贺去病（贺方升）</a>' +
         '<span>阅读约 ' + estimateReadTime(post.content) + ' 分钟</span>' +
         (post.tags || []).map(t =>
           '<a class="case-card-tag" style="text-decoration:none" href="/archive?tag=' +
@@ -81,6 +85,7 @@ function renderPostPage(slug) {
       ROBOTS: '<meta name="robots" content="noindex" />\n  ',
       SCHEMA: '{}',
       POST_TITLE: '',
+      POST_SLUG: '',
       POST_META: '',
       POST_CONTENT: '',
     };

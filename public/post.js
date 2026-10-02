@@ -53,9 +53,11 @@
       description: post.summary,
       datePublished: post.date,
       keywords: (post.tags || []).join(', '),
-      author: { '@type': 'Person', name: '贺去病' },
+      ...(post.dateModified ? { dateModified: post.dateModified } : {}),
+      author: { '@type': 'Person', '@id': 'https://www.hequbing.com/about#person', name: '贺去病', alternateName: '贺方升', url: 'https://www.hequbing.com/about' },
       publisher: { '@type': 'Person', name: '贺去病' },
-      mainEntityOfPage: 'https://blog.hequbing.com/post?slug=' + encodeURIComponent(post.slug)
+      mainEntityOfPage: 'https://blog.hequbing.com/post?slug=' + encodeURIComponent(post.slug),
+      ...(post.source && post.source.url ? { isBasedOn: post.source.url } : {})
     });
 
     const minutes = estimateReadTime(post.content);
@@ -179,6 +181,9 @@
     currentSlug = getQueryParam('slug');
     const titleEl = document.getElementById('post-title');
     const contentEl = document.getElementById('post-content');
+    const articleEl = document.getElementById('post');
+    const hasRenderedBody = articleEl &&
+      articleEl.dataset.renderedSlug === currentSlug && contentEl.innerHTML.trim();
 
     if (!currentSlug) {
       titleEl.textContent = '未指定文章';
@@ -187,8 +192,11 @@
     }
 
     try {
-      const post = await fetchJSON('/api/posts/' + encodeURIComponent(currentSlug));
-      renderMeta(post);
+      // 完整正文由服务端提供；详情接口仅为旧版空模板兜底。
+      if (!hasRenderedBody) {
+        const post = await fetchJSON('/api/posts/' + encodeURIComponent(currentSlug));
+        renderMeta(post);
+      }
 
       let posts = [];
       try {
@@ -201,6 +209,7 @@
       setupShare();
       setupProgress();
     } catch (e) {
+      if (hasRenderedBody) return;
       titleEl.textContent = '文章加载失败';
       contentEl.innerHTML = '<p style="color:#ff6b6b">' + e.message + '</p>' +
         '<p><a href="/archive">返回归档</a></p>';

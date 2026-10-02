@@ -532,6 +532,8 @@ a.project-chip:hover {
 
 /* Post meta tags (from post.js) */
 .post-detail .meta { align-items: center; }
+.post-detail > h1 { font-size: clamp(24px, 4vw, 34px); line-height: 1.4; margin: 0 0 16px; overflow-wrap: anywhere; }
+.post-detail .meta > a { color: var(--link); }
 .post-detail .meta .case-card-tag { margin-right: 4px; color: var(--text); }
 .post-detail .meta .case-card-tag:hover { border-color: var(--primary); color: var(--primary); }
 

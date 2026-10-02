@@ -45,6 +45,13 @@ function renderPostList(posts, limit, indent) {
   return `${indent}<ul class="post-list-static">\n${items.join('\n')}\n${indent}</ul>`;
 }
 
+function renderSelectedWorks(posts, indent) {
+  const selected = posts.filter(p => p.source && p.source.type === 'author_wechat');
+  return `${indent}<div class="mini-grid">\n` + selected.map(p =>
+    `${indent}  <div class="mini-card"><h3><a href="${BLOG_URL}/post?slug=${encodeURIComponent(p.slug)}">${escapeHtml(p.title)}</a></h3><p>${escapeHtml(p.summary)}</p></div>`
+  ).join('\n') + `\n${indent}</div>`;
+}
+
 function renderFaqJsonLd(html, indent) {
   const faqBlock = html.match(/<div class="faq-details">([\s\S]*?)\n\s*<\/div>/);
   if (!faqBlock) return null;
@@ -76,6 +83,12 @@ function build() {
     const file = path.join(PUBLIC_DIR, f);
     const before = fs.readFileSync(file, 'utf-8');
     let html = before;
+
+    html = html.replace(
+      /^([ \t]*)<!-- AUTO:SELECTED-WORKS:START -->[\s\S]*?<!-- AUTO:SELECTED-WORKS:END -->/gm,
+      (all, indent) => `${indent}<!-- AUTO:SELECTED-WORKS:START -->\n` +
+        renderSelectedWorks(posts, indent) + `\n${indent}<!-- AUTO:SELECTED-WORKS:END -->`
+    );
 
     html = html.replace(
       /^([ \t]*)<!-- AUTO:POSTS:START(?: limit=(\d+))? -->[\s\S]*?<!-- AUTO:POSTS:END -->/gm,

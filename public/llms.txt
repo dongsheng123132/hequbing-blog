@@ -24,6 +24,17 @@
 ## 文章
 
 - [文章归档](https://blog.hequbing.com/archive): AI 落地、AI 工具与开源项目的实践记录
+- [CAD对象级统计](https://blog.hequbing.com/post?slug=cad-ai-dwg-dxf-object-audit): DWG/DXF输入、对象位置与分类边界
+- [Task Passport任务护照](https://blog.hequbing.com/post?slug=task-passport-ai-handoff): 任务交接、状态版本与冲突检测
+- [OpenCodex工作台](https://blog.hequbing.com/post?slug=opencodex-multi-terminal-workbench): 多终端、进程生命周期与模型配置
+- [U-King开发实践](https://blog.hequbing.com/post?slug=uking-installation-engineering): 安装状态、配置写回与用户状态保护
+- [经营咨询合作流程](https://blog.hequbing.com/post?slug=ai-business-consulting-process): 三阶段报价、范围和增量核算
+- [陪伴式FDE](https://blog.hequbing.com/post?slug=companion-fde-delivery): 现场实施、交付和持续复盘
+- [AnythingChina中国通](https://blog.hequbing.com/post?slug=anythingchina-logistics-to-ai): 供应链线索与获授权的线下联系；规模数字为长期目标
+- [U-Hermes便携环境](https://blog.hequbing.com/post?slug=u-hermes-portable-ai-environment): 历史版本、许可及运行条件
+- [GEO验收方法](https://blog.hequbing.com/post?slug=geo-delivery-discovery-business): 交付、引用观测与有效询盘分开验收
+
+网站整理日期：2026-10-02。历史版本、报价与能力边界见各篇正文；收录、AI引用和询盘效果尚未测量。本文件仅提供内容导航，不是任何平台保证收录或引用的机制。
 
 ## Optional
 
