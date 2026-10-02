@@ -58,6 +58,11 @@ const server = http.createServer((req, res) => {
   const pathname = decodeURIComponent(parsed.pathname || '/');
   const query = parsed.query || {};
 
+  if (pathname === '/' && (req.headers.host || '').split(':')[0] === 'blog.hequbing.com') {
+    res.writeHead(308, { Location: 'https://blog.hequbing.com/archive' });
+    return res.end();
+  }
+
   // --- API: Cases ---
   if (pathname === '/api/cases' && req.method === 'GET') {
     let cases = readJSON('cases.json');

@@ -4,6 +4,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
+const http = require('node:http');
 const { spawn, spawnSync } = require('node:child_process');
 const { once } = require('node:events');
 const { renderPostPage } = require('../api/render-post');
@@ -130,6 +131,19 @@ test('真实HTTP路由返回新GEO、服务页和完整文章，未知文章404'
   });
   try {
     const base = await ready;
+    const blogRoot = await new Promise((resolve, reject) => {
+      const req = http.get(base + '/', { headers: { Host: 'blog.hequbing.com' } }, res => {
+        res.resume();
+        resolve({ status: res.statusCode, location: res.headers.location });
+      });
+      req.setTimeout(5000, () => req.destroy(new Error('Host routing timed out')));
+      req.on('error', reject);
+    });
+    assert.equal(blogRoot.status, 308);
+    assert.equal(blogRoot.location, 'https://blog.hequbing.com/archive');
+    const mainRoot = await fetch(base + '/', { signal: AbortSignal.timeout(5000) });
+    assert.equal(mainRoot.status, 200);
+    assert.ok((await mainRoot.text()).includes('id="practice"'));
     for (const route of ['/geo', '/services', '/archive']) {
       const r = await fetch(base + route, { signal: AbortSignal.timeout(5000) });
       assert.equal(r.status, 200, route);

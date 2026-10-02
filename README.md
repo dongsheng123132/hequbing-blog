@@ -1,7 +1,7 @@
 # 贺去病商业咨询 · 网站（Vercel）
 
 - 主站：https://www.hequbing.com/ （首页、服务与报价 /services、GEO 优化 /geo、关于 /about、AI 落地情报 /cases）
-- 博客：https://blog.hequbing.com/ （同一套代码，按域名分流）
+- 博客：https://blog.hequbing.com/ （入口永久跳转 /archive；与主站共用代码）
 
 结构：
 - 静态页面在 `public/`；文章页 `/post?slug=xxx` 由 `api/render-post.js` 服务端渲染（模板 `data/post-template.html`）

@@ -2,8 +2,10 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/", "has": [{ "type": "host", "value": "blog.hequbing.com" }], "destination": "https://blog.hequbing.com/archive", "permanent": true }
+  ],
   "rewrites": [
-    { "source": "/", "has": [{ "type": "host", "value": "blog.hequbing.com" }], "destination": "/archive.html" },
     { "source": "/cases", "destination": "/cases.html" },
     { "source": "/case", "destination": "/case.html" },
     { "source": "/services", "destination": "/services.html" },
