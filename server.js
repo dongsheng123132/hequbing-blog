@@ -62,6 +62,10 @@ const server = http.createServer((req, res) => {
     res.writeHead(308, { Location: 'https://blog.hequbing.com/archive' });
     return res.end();
   }
+  if (pathname === '/en' && (req.headers.host || '').split(':')[0] === 'blog.hequbing.com') {
+    res.writeHead(308, { Location: 'https://blog.hequbing.com/en/archive' });
+    return res.end();
+  }
 
   // --- API: Cases ---
   if (pathname === '/api/cases' && req.method === 'GET') {
@@ -115,8 +119,8 @@ const server = http.createServer((req, res) => {
   }
 
   // --- 文章页：服务端渲染（与 Vercel 上的 api/render-post.js 同一份逻辑） ---
-  if (pathname === '/post') {
-    const { status, html } = renderPostPage(String(query.slug || ''));
+  if (pathname === '/post' || pathname === '/en/post') {
+    const { status, html } = renderPostPage(String(query.slug || ''), pathname === '/en/post' ? 'en' : 'zh-CN');
     res.writeHead(status, { 'Content-Type': 'text/html; charset=utf-8' });
     return res.end(html);
   }

@@ -54,6 +54,10 @@ Hobby 计划下，Vercel 只部署作者是账号本人的提交。作者是别�
 
 文章内容的唯一编辑源为 `data/posts.json`。精选公众号整理版通过 `source.type=author_wechat` 生成首页与作者页的入口；`date` 为网站发布日期，`dateModified` 为实质更新日期，原文链接在 `source.url` 与正文末尾保留。历史导出与审查材料不参与网站构建。
 
+英文入口为 `https://www.hequbing.com/en`，文章归档为 `https://blog.hequbing.com/en/archive`。五个英文页面的文案源在 `scripts/build-english.js`，生成到 `public/en/`；文章译文放在原文章的 `translations.en`（title、summary、tags、date、dateModified、content），由同一个文章渲染器生成 `/en/post?slug=...`。报价数字从 `data/services.json` 读取。改完运行 `npm run build` 和 `npm test`，不要直接改生成的英文 HTML。
+
+`lib/localization.js` 维护中英文 URL 对应关系。构建为首页、服务、GEO、关于和归档生成双向 hreflang 与语言入口；文章仅在实际存在英文译文时声明语言对应。未翻译文章的英文地址返回 404/noindex，不自动重定向或显示中文正文。新增译文后 sitemap 与英文归档会自动更新。
+
 ## 本地开发
 
 本地预览：

@@ -9,6 +9,7 @@
   'use strict';
 
   let currentSlug = null;
+  let isEnglish = false;
 
   function getQueryParam(name) {
     return new URLSearchParams(window.location.search).get(name);
@@ -140,7 +141,7 @@
         if (type === 'weibo') {
           window.open(
             'https://service.weibo.com/share/share.php?url=' + encodeURIComponent(url) +
-            '&title=' + encodeURIComponent('【' + title + '】贺去病博客'),
+            '&title=' + encodeURIComponent(isEnglish ? title + ' | Hequbing' : '【' + title + '】贺去病博客'),
             '_blank', 'width=600,height=520'
           );
         } else if (type === 'x') {
@@ -152,11 +153,11 @@
         } else if (type === 'copy') {
           if (navigator.clipboard) {
             navigator.clipboard.writeText(url).then(function () {
-              btn.textContent = '已复制 ✓';
-              setTimeout(function () { btn.textContent = '复制链接'; }, 1500);
+              btn.textContent = isEnglish ? 'Copied ✓' : '已复制 ✓';
+              setTimeout(function () { btn.textContent = isEnglish ? 'Copy link' : '复制链接'; }, 1500);
             });
           } else {
-            btn.textContent = '复制失败';
+            btn.textContent = isEnglish ? 'Copy failed' : '复制失败';
           }
         }
       });
@@ -182,8 +183,16 @@
     const titleEl = document.getElementById('post-title');
     const contentEl = document.getElementById('post-content');
     const articleEl = document.getElementById('post');
+    isEnglish = articleEl && articleEl.dataset.language === 'en';
     const hasRenderedBody = articleEl &&
       articleEl.dataset.renderedSlug === currentSlug && contentEl.innerHTML.trim();
+
+    // 英文正文、导航与相关文章由相同渲染核心输出，不用中文API覆盖。
+    if (isEnglish) {
+      if (hasRenderedBody) setupShare();
+      setupProgress();
+      return;
+    }
 
     if (!currentSlug) {
       titleEl.textContent = '未指定文章';
@@ -204,8 +213,10 @@
         posts.sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); });
       } catch (e) { /* 列表失败不影响正文 */ }
 
-      renderNav(posts);
-      renderRelated(posts);
+      if (posts.length) {
+        renderNav(posts);
+        renderRelated(posts);
+      }
       setupShare();
       setupProgress();
     } catch (e) {

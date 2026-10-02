@@ -3,9 +3,12 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/", "has": [{ "type": "host", "value": "blog.hequbing.com" }], "destination": "https://blog.hequbing.com/archive", "permanent": true }
+    { "source": "/", "has": [{ "type": "host", "value": "blog.hequbing.com" }], "destination": "https://blog.hequbing.com/archive", "permanent": true },
+    { "source": "/en", "has": [{ "type": "host", "value": "blog.hequbing.com" }], "destination": "https://blog.hequbing.com/en/archive", "permanent": true }
   ],
   "rewrites": [
+    { "source": "/en/post", "destination": "/api/render-post-en" },
+    { "source": "/en", "destination": "/en/index.html" },
     { "source": "/cases", "destination": "/cases.html" },
     { "source": "/case", "destination": "/case.html" },
     { "source": "/services", "destination": "/services.html" },

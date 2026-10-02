@@ -38,9 +38,10 @@
   if (document.body) {
     var btn = document.createElement('button');
     btn.className = 'back-to-top';
-    btn.title = '返回顶部';
+    var backLabel = document.documentElement.lang === 'en' ? 'Back to top' : '返回顶部';
+    btn.title = backLabel;
     btn.innerHTML = '↑';
-    btn.setAttribute('aria-label', '返回顶部');
+    btn.setAttribute('aria-label', backLabel);
     document.body.appendChild(btn);
 
     function onScroll() {

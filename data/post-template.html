@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <!-- 文章页模板：由 api/render-post.js 在服务端填充 {{...}}，让爬虫和 AI 引擎不执行 JS 也能读到正文 -->
-<html lang="zh-CN">
+<html lang="{{LANG}}">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{PAGE_TITLE}}</title>
   <meta name="description" content="{{DESCRIPTION}}" id="meta-desc" />
   {{ROBOTS}}<link rel="canonical" href="{{URL}}" />
+  {{ALTERNATES}}
   <meta property="og:title" content="{{OG_TITLE}}" id="og-title" />
   <meta property="og:description" content="{{DESCRIPTION}}" id="og-desc" />
   <meta property="og:type" content="article" />
@@ -21,13 +22,13 @@
   <header class="site-header">
     <div class="container">
       <div class="header-row">
-        <div class="site-title"><a href="/archive" class="brand">贺去病 · 博客</a></div>
+        <div class="site-title"><a href="{{ARCHIVE_URL}}" class="brand">{{BRAND}}</a></div>
         <nav class="nav">
-          <a href="/archive">归档</a>
-          <a href="/tags">标签</a>
-          <a href="/about">关于</a>
-          <a href="/ai-nav/">AI导航</a>
-            <a href="https://www.hequbing.com/">商业咨询</a>
+          <a href="{{ARCHIVE_URL}}">{{ARCHIVE_LABEL}}</a>
+          {{EXTRA_NAV}}
+          <a href="{{ABOUT_URL}}">{{ABOUT_LABEL}}</a>
+          <a href="{{MAIN_URL}}">{{HOME_LABEL}}</a>
+          {{LANGUAGE_SWITCH}}
         </nav>
       </div>
     </div>
@@ -35,40 +36,39 @@
 
   <main class="container">
     <div class="post-breadcrumb">
-      <a href="/archive">← 返回归档</a>
+      <a href="{{ARCHIVE_URL}}">{{BACK_LABEL}}</a>
     </div>
 
-    <article id="post" class="post-detail" data-rendered-slug="{{POST_SLUG}}">
+    <article id="post" class="post-detail" data-rendered-slug="{{POST_SLUG}}" data-language="{{LANG}}">
       <h1 id="post-title">{{POST_TITLE}}</h1>
       <div class="meta" id="post-meta">{{POST_META}}</div>
       <div id="post-content" class="content">{{POST_CONTENT}}</div>
 
       <div class="share-bar" id="share-bar">
-        <span class="share-label">分享：</span>
-        <button class="share-btn" data-share="weibo" title="分享到微博">微博</button>
-        <button class="share-btn" data-share="x" title="分享到 X">X</button>
-        <button class="share-btn" data-share="copy" title="复制链接">复制链接</button>
+        <span class="share-label">{{SHARE_LABEL}}</span>
+        <button class="share-btn" data-share="weibo" title="{{WEIBO_TITLE}}">{{WEIBO_LABEL}}</button>
+        <button class="share-btn" data-share="x" title="{{X_TITLE}}">X</button>
+        <button class="share-btn" data-share="copy" title="{{COPY_LABEL}}">{{COPY_LABEL}}</button>
       </div>
     </article>
 
-    <nav class="post-nav" id="post-nav"></nav>
+    <nav class="post-nav" id="post-nav">{{POST_NAV}}</nav>
 
     <section class="related-section" id="related-section">
-      <h2 class="section-title">相关文章</h2>
-      <div id="related-posts" class="related-grid"></div>
+      <h2 class="section-title">{{RELATED_LABEL}}</h2>
+      <div id="related-posts" class="related-grid">{{RELATED_POSTS}}</div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content">
-        <span>© <span id="year"></span> 贺去病 · hequbing.com · 博客</span>
+        <span>© <span id="year"></span> {{BRAND}} · hequbing.com</span>
         <div class="footer-links">
-          <a href="/archive">归档</a>
-          <a href="/tags">标签</a>
-          <a href="/about">关于</a>
-          <a href="/ai-nav/">AI导航</a>
-            <a href="https://www.hequbing.com/">商业咨询</a>
+          <a href="{{ARCHIVE_URL}}">{{ARCHIVE_LABEL}}</a>
+          <a href="{{ABOUT_URL}}">{{ABOUT_LABEL}}</a>
+          <a href="{{MAIN_URL}}">{{HOME_LABEL}}</a>
+          {{LANGUAGE_SWITCH}}
         </div>
       </div>
     </div>

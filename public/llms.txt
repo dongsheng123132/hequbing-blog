@@ -36,6 +36,14 @@
 
 网站整理日期：2026-10-02。历史版本、报价与能力边界见各篇正文；收录、AI引用和询盘效果尚未测量。本文件仅提供内容导航，不是任何平台保证收录或引用的机制。
 
+## English editions
+
+- [English homepage](https://www.hequbing.com/en): Hequbing Business Consulting; AI implementation and projects
+- [Services and pricing](https://www.hequbing.com/en/services): Business consulting and development as two distinct service tracks; prices in CNY
+- [About Hequbing](https://www.hequbing.com/en/about): He Fangsheng / Dosen, background and public work
+- [GEO services](https://www.hequbing.com/en/geo): Scope, evaluation and pricing; no ranking guarantee
+- [English articles](https://blog.hequbing.com/en/archive): Nine selected editions with original sources and evidence boundaries
+
 ## Optional
 
 - [AI 落地情报](https://www.hequbing.com/cases): 整理的公开行业研究，不是本机构的交付案例

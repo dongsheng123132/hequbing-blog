@@ -12,6 +12,8 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { pagePairs, alternateLinks } = require('../lib/localization');
+const { buildEnglish } = require('./build-english');
 
 const PUBLIC_DIR = path.join(__dirname, '..', 'public');
 const POSTS_PATH = path.join(__dirname, '..', 'data', 'posts.json');
@@ -84,6 +86,18 @@ function build() {
     const before = fs.readFileSync(file, 'utf-8');
     let html = before;
 
+    const pair = pagePairs.find(p => p.file === f);
+    if (pair) {
+      const head = '<!-- AUTO:LANGUAGE:START -->\n  ' + alternateLinks(pair.zh, pair.en) + '\n  <!-- AUTO:LANGUAGE:END -->';
+      const nav = '<!-- AUTO:LANGUAGE-NAV:START --><a href="' + pair.en + '" lang="en">English</a><!-- AUTO:LANGUAGE-NAV:END -->';
+      html = html.includes('<!-- AUTO:LANGUAGE:START -->')
+        ? html.replace(/<!-- AUTO:LANGUAGE:START -->[\s\S]*?<!-- AUTO:LANGUAGE:END -->/, head)
+        : html.replace('</head>', '  ' + head + '\n</head>');
+      html = html.includes('<!-- AUTO:LANGUAGE-NAV:START -->')
+        ? html.replace(/<!-- AUTO:LANGUAGE-NAV:START -->[\s\S]*?<!-- AUTO:LANGUAGE-NAV:END -->/, nav)
+        : html.replace(/(<nav class="nav">[\s\S]*?)(\s*<\/nav>)/, '$1\n          ' + nav + '$2');
+    }
+
     html = html.replace(
       /^([ \t]*)<!-- AUTO:SELECTED-WORKS:START -->[\s\S]*?<!-- AUTO:SELECTED-WORKS:END -->/gm,
       (all, indent) => `${indent}<!-- AUTO:SELECTED-WORKS:START -->\n` +
@@ -113,6 +127,7 @@ function build() {
       console.log('updated', f);
     }
   }
+  buildEnglish(posts);
 }
 
 build();

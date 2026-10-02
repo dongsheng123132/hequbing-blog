@@ -7,6 +7,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { pagePairs, postUrl, escapeHtml } = require('../lib/localization');
 
 const WWW_URL = 'https://www.hequbing.com';
 const SITE_URL = 'https://blog.hequbing.com';
@@ -25,6 +26,7 @@ function generateSitemap() {
     { url: SITE_URL + '/archive', priority: '0.9', changefreq: 'daily' },
     { url: SITE_URL + '/tags', priority: '0.6', changefreq: 'weekly' },
   ];
+  staticPages.push(...pagePairs.map(p => ({ url: p.en, priority: '0.8', changefreq: 'monthly' })));
 
   const today = new Date().toISOString().split('T')[0];
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
@@ -44,7 +46,18 @@ function generateSitemap() {
   for (const p of sorted) {
     xml += `  <url>
     <loc>${SITE_URL}/post?slug=${p.slug}</loc>
-    <lastmod>${p.date || today}</lastmod>
+    <lastmod>${p.dateModified || p.date || today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+`;
+  }
+
+  const translated = sorted.filter(p => p.translations && p.translations.en);
+  for (const p of translated) {
+    xml += `  <url>
+    <loc>${escapeHtml(postUrl(p.slug, 'en'))}</loc>
+    <lastmod>${p.translations.en.dateModified || p.translations.en.date}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -53,7 +66,7 @@ function generateSitemap() {
 
   xml += `</urlset>`;
   fs.writeFileSync(OUTPUT, xml, 'utf-8');
-  console.log(`Sitemap generated: ${OUTPUT} (${staticPages.length + sorted.length} URLs)`);
+  console.log(`Sitemap generated: ${OUTPUT} (${staticPages.length + sorted.length + translated.length} URLs)`);
 }
 
 generateSitemap();
