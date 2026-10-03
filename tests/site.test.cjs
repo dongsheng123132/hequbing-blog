@@ -164,10 +164,11 @@ test('英文前端保留服务端译文，列表API不可用也不请求或覆�
   assert.equal(result.elements['post-content'].innerHTML, result.p.translations.en.content);
 });
 
-test('五个静态英文页面、双向语言入口、55个canonical地址和两类报价完整', () => {
+test('静态双语页面、观察入口、canonical 地址和两类报价完整', () => {
   const sitemap = fs.readFileSync(path.join(root, 'public/sitemap.xml'), 'utf8');
   const urls = Array.from(sitemap.matchAll(/<loc>(.*?)<\/loc>/g), m => m[1]);
-  assert.equal(urls.length, 55);
+  assert.equal(urls.length, 56);
+  assert.ok(urls.includes('https://www.hequbing.com/observe'));
   assert.equal(new Set(urls).size, urls.length);
   for (const pair of pagePairs) {
     const zh = fs.readFileSync(path.join(root, 'public', pair.file), 'utf8');
@@ -231,10 +232,16 @@ test('真实HTTP路由返回新GEO、服务页和完整文章，未知文章404'
     const mainRoot = await fetch(base + '/', { signal: AbortSignal.timeout(5000) });
     assert.equal(mainRoot.status, 200);
     assert.ok((await mainRoot.text()).includes('id="practice"'));
-    for (const route of ['/geo', '/services', '/archive']) {
+    for (const route of ['/geo', '/services', '/archive', '/observe']) {
       const r = await fetch(base + route, { signal: AbortSignal.timeout(5000) });
       assert.equal(r.status, 200, route);
     }
+    const observe = await (await fetch(base + '/observe/manifest.json', { signal: AbortSignal.timeout(5000) })).json();
+    assert.equal(observe.transport, 'github');
+    assert.equal(observe.api, null);
+    const catalog = await (await fetch(base + '/observe/catalog.json', { signal: AbortSignal.timeout(5000) })).json();
+    for (const id of ['cpent', 'phibong']) assert.ok(catalog.records.some(r => r.company.id === id));
+    assert.equal((await fetch(base + '/observe/SKILL.md', { signal: AbortSignal.timeout(5000) })).status, 200);
     const r = await fetch(base + '/post?slug=' + selected[0].slug, { signal: AbortSignal.timeout(5000) });
     assert.equal(r.status, 200);
     assert.ok((await r.text()).includes(selected[0].content));

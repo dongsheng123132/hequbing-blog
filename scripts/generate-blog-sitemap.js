@@ -21,6 +21,7 @@ function generateSitemap() {
     { url: WWW_URL + '/', priority: '1.0', changefreq: 'weekly' },
     { url: WWW_URL + '/services', priority: '0.9', changefreq: 'monthly' },
     { url: WWW_URL + '/geo', priority: '0.9', changefreq: 'monthly' },
+    { url: WWW_URL + '/observe', priority: '0.8', changefreq: 'weekly' },
     { url: WWW_URL + '/about', priority: '0.8', changefreq: 'monthly' },
     { url: WWW_URL + '/cases', priority: '0.6', changefreq: 'daily' },
     { url: SITE_URL + '/archive', priority: '0.9', changefreq: 'daily' },

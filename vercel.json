@@ -2,11 +2,16 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
+  "headers": [
+    { "source": "/observe/SKILL.md", "headers": [{ "key": "Content-Type", "value": "text/plain; charset=utf-8" }] },
+    { "source": "/observe/:path*", "headers": [{ "key": "X-Content-Type-Options", "value": "nosniff" }] }
+  ],
   "redirects": [
     { "source": "/", "has": [{ "type": "host", "value": "blog.hequbing.com" }], "destination": "https://blog.hequbing.com/archive", "permanent": true },
     { "source": "/en", "has": [{ "type": "host", "value": "blog.hequbing.com" }], "destination": "https://blog.hequbing.com/en/archive", "permanent": true }
   ],
   "rewrites": [
+    { "source": "/observe", "destination": "/observe/index.html" },
     { "source": "/en/post", "destination": "/api/render-post-en" },
     { "source": "/en", "destination": "/en/index.html" },
     { "source": "/cases", "destination": "/cases.html" },
