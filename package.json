@@ -9,7 +9,8 @@
     "collect": "node scripts/collector.js",
     "sitemap": "node scripts/generate-blog-sitemap.js && node scripts/build-static.js",
     "build:static": "node scripts/build-static.js",
-    "build": "npm run sitemap",
+    "build": "npm run sitemap && npm run build:observe",
+    "build:observe": "node modules/observe/src/cli.js build --out public/observe",
     "test": "node --test tests/site.test.cjs"
   },
   "keywords": ["AI咨询", "企业AI落地", "大模型"],

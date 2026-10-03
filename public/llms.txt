@@ -12,6 +12,7 @@
 
 ## 服务
 
+- [AI 品牌认知观察](https://www.hequbing.com/observe): 电源线与菲律宾专线的开放企业资料；[贡献 SKILL](https://www.hequbing.com/observe/SKILL.md) 指导企业 AI 查询、投稿和纠错，收录不等于认证或排名。
 - [服务与报价](https://www.hequbing.com/services): 三档咨询服务的交付物、周期、价格、适合人群，AI 开发与交付，合作方式，常见问题
 - [GEO 优化](https://www.hequbing.com/geo): 什么是 GEO、各 AI 平台的信息来源、具体做法、效果衡量、价格
 - [首页](https://www.hequbing.com/): 品牌介绍、五大服务方向、合作流程、可核验的真实交付

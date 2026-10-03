@@ -1,0 +1,3 @@
+[submodule "modules/observe"]
+	path = modules/observe
+	url = https://github.com/dongsheng123132/hequbing-company-registry.git
