@@ -167,7 +167,7 @@ test('英文前端保留服务端译文，列表API不可用也不请求或覆�
 test('静态双语页面、观察入口、canonical 地址和两类报价完整', () => {
   const sitemap = fs.readFileSync(path.join(root, 'public/sitemap.xml'), 'utf8');
   const urls = Array.from(sitemap.matchAll(/<loc>(.*?)<\/loc>/g), m => m[1]);
-  assert.equal(urls.length, 56);
+  assert.equal(urls.length, 8 + pagePairs.length + posts.length + posts.filter(p => p.translations && p.translations.en).length);
   assert.ok(urls.includes('https://www.hequbing.com/observe'));
   assert.equal(new Set(urls).size, urls.length);
   for (const pair of pagePairs) {
