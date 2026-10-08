@@ -167,8 +167,9 @@ test('英文前端保留服务端译文，列表API不可用也不请求或覆�
 test('静态双语页面、观察入口、canonical 地址和两类报价完整', () => {
   const sitemap = fs.readFileSync(path.join(root, 'public/sitemap.xml'), 'utf8');
   const urls = Array.from(sitemap.matchAll(/<loc>(.*?)<\/loc>/g), m => m[1]);
-  assert.equal(urls.length, 8 + pagePairs.length + posts.length + posts.filter(p => p.translations && p.translations.en).length);
+  assert.equal(urls.length, 9 + pagePairs.length + posts.length + posts.filter(p => p.translations && p.translations.en).length);
   assert.ok(urls.includes('https://www.hequbing.com/observe'));
+  assert.ok(urls.includes('https://www.hequbing.com/observe/rankings'));
   assert.equal(new Set(urls).size, urls.length);
   for (const pair of pagePairs) {
     const zh = fs.readFileSync(path.join(root, 'public', pair.file), 'utf8');
@@ -232,7 +233,7 @@ test('真实HTTP路由返回新GEO、服务页和完整文章，未知文章404'
     const mainRoot = await fetch(base + '/', { signal: AbortSignal.timeout(5000) });
     assert.equal(mainRoot.status, 200);
     assert.ok((await mainRoot.text()).includes('id="practice"'));
-    for (const route of ['/geo', '/services', '/archive', '/observe']) {
+    for (const route of ['/geo', '/services', '/archive', '/observe', '/observe/rankings']) {
       const r = await fetch(base + route, { signal: AbortSignal.timeout(5000) });
       assert.equal(r.status, 200, route);
     }
@@ -240,7 +241,14 @@ test('真实HTTP路由返回新GEO、服务页和完整文章，未知文章404'
     assert.equal(observe.transport, 'github');
     assert.equal(observe.api, null);
     const catalog = await (await fetch(base + '/observe/catalog.json', { signal: AbortSignal.timeout(5000) })).json();
-    for (const id of ['cpent', 'phibong']) assert.ok(catalog.records.some(r => r.company.id === id));
+    for (const id of ['cpent', 'phibong', 'kingbill-design']) assert.ok(catalog.records.some(r => r.company.id === id));
+    const rankings = await (await fetch(base + '/observe/rankings')).text();
+    assert.match(rankings, /<base href="\/observe\/rankings\/">/);
+    const design = await (await fetch(base + '/observe/rankings/data/2026-10/industrial-design.json')).json();
+    assert.equal(design.status, 'planned');
+    assert.equal(design.reportable, false);
+    assert.deepEqual(design.rows, []);
+    assert.equal(design.candidateReview.entities[0].id, 'kingbill-design');
     assert.equal((await fetch(base + '/observe/SKILL.md', { signal: AbortSignal.timeout(5000) })).status, 200);
     const r = await fetch(base + '/post?slug=' + selected[0].slug, { signal: AbortSignal.timeout(5000) });
     assert.equal(r.status, 200);

@@ -11,6 +11,7 @@
     { "source": "/en", "has": [{ "type": "host", "value": "blog.hequbing.com" }], "destination": "https://blog.hequbing.com/en/archive", "permanent": true }
   ],
   "rewrites": [
+    { "source": "/observe/rankings", "destination": "/observe/rankings/index.html" },
     { "source": "/observe", "destination": "/observe/index.html" },
     { "source": "/en/post", "destination": "/api/render-post-en" },
     { "source": "/en", "destination": "/en/index.html" },
