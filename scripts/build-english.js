@@ -4,6 +4,7 @@
 // public/en/*.html is generated. Prices are read from the existing service data.
 const fs = require('fs');
 const path = require('path');
+const { renderPersonal } = require('../lib/personal-pages');
 const { WWW, BLOG, pagePairs, escapeHtml: esc, postUrl, alternateLinks } = require('../lib/localization');
 const root = path.join(__dirname, '..');
 const services = JSON.parse(fs.readFileSync(path.join(root, 'data/services.json'), 'utf8'));
@@ -46,18 +47,6 @@ function buildEnglish(posts) {
   const translated = posts.filter(p => p.translations && p.translations.en);
   const org = { '@type': 'Organization', '@id': WWW + '/#org', name: 'Hequbing Business Consulting', alternateName: '贺去病商业咨询', url: WWW + '/en', founder: person, email: 'hefangsheng@gmail.com' };
   const pages = {
-    'index.html': {
-      title: 'Hequbing Business Consulting | Practical AI implementation & GEO',
-      description: 'Hequbing (He Fangsheng / Dosen) helps businesses plan and implement AI. Business diagnosis, growth pilots, AI tools and GEO, with public scope and CNY pricing.',
-      eyebrow: 'HEQUBING BUSINESS CONSULTING',
-      heading: 'Make AI useful in your business',
-      intro: 'I connect business problems with working AI tools. Start with a defined opportunity, test it in a real workflow, then decide what deserves further investment.',
-      body: section('Choose the right starting point', '<div class="mini-grid"><div class="mini-card"><h3>Business consulting</h3><p>Diagnose opportunities, implement a growth pilot and review the business results. Suitable for owners and management teams deciding where AI can help.</p><a href="' + WWW + '/en/services#consulting">Scope and public pricing →</a></div><div class="mini-card"><h3>AI development and delivery</h3><p>For teams with a defined requirement: a proof of concept, custom agent or workflow, tool deployment and training.</p><a href="' + WWW + '/en/services#dev">Development services →</a></div><div class="mini-card"><h3>GEO and customer discovery</h3><p>Organize verifiable information and accessible pages, then observe how AI answers relevant customer questions.</p><a href="' + WWW + '/en/geo">Method and measurement →</a></div></div>') +
-        section('Work and engineering notes', '<p class="section-lede">Nine English editions of my practice articles. Each retains the source, version context and limits of the evidence.</p>' + cards(translated), 'practice') +
-        section('About the founder', '<div class="prose"><p>I am Hequbing, also known as He Fangsheng and Dosen. My work has moved from search technology and entrepreneurship to logistics, international business and AI product development.</p><p>I participate in business diagnosis and technical implementation. <a href="' + WWW + '/en/about">Read my background and project notes</a>.</p></div>') +
-        section('Start with a conversation', '<p>A free 30-minute conversation can help define the question. It is separate from a paid diagnostic project.</p>' + contact, 'contact'),
-      schema: [org, person],
-    },
     'services.html': {
       title: 'AI consulting & development services | Hequbing Business Consulting',
       description: `Business consulting: ${price('diagnosis')} diagnosis, ${price('pilot')} pilot and annual partnership ${price('annual')}. AI development: POC ${price('poc')}.`,
@@ -73,17 +62,6 @@ function buildEnglish(posts) {
           ['Can we work remotely?', 'Yes. Confirm the collaboration schedule, system access and any on-site work during scoping.'],
         ])) + section('Discuss your requirements', contact, 'contact'),
       schema: [{ '@type': 'ItemList', name: 'AI consulting and development services', itemListElement: [...englishServices.map(s => ({ '@type': 'Service', name: s.name, description: s.description + ' ' + s.duration, provider: { '@id': WWW + '/#org' }, url: WWW + '/en/services#' + s.id, offers: offer(s.id) })), { '@type': 'Service', name: 'AI proof of concept', provider: { '@id': WWW + '/#org' }, url: WWW + '/en/services#dev', offers: offer('poc') }].map((item, i) => ({ '@type': 'ListItem', position: i + 1, item })) }],
-    },
-    'about.html': {
-      title: 'About Hequbing (He Fangsheng / Dosen) | AI consulting & projects',
-      description: 'Meet Hequbing, also known as He Fangsheng and Dosen: founder of Hequbing Business Consulting, AI developer and author of engineering practice notes.',
-      eyebrow: 'FOUNDER', heading: 'Hequbing · He Fangsheng · Dosen',
-      intro: 'I combine business experience with hands-on software work. Hequbing (贺去病) and He Fangsheng (贺方升) refer to the same person; Dosen is another name I use.',
-      body: section('Background', '<div class="prose"><p>My career spans around 20 years, beginning with search technology, followed by entrepreneurship, logistics-related business and international medical-supply market development. I now focus on AI business consulting and product development.</p><p>That experience informs two areas of work: helping owners choose practical AI opportunities, and building tools from problems encountered during implementation. My approach is described in <a href="' + postUrl('companion-fde-delivery', 'en') + '">embedded AI implementation</a>.</p></div>') +
-        section('Projects and practice', '<p class="section-lede">These notes describe projects, historical versions, methods and controlled tests. Their evidence and limits are stated in each article.</p>' + cards(translated)) +
-        section('Public work and identity', '<div class="prose"><p>Public repositories are available on <a href="https://github.com/dongsheng123132">GitHub: dongsheng123132</a>. The project articles identify the relevant source materials and distinguish project goals from implemented capabilities.</p><p><a href="' + WWW + '/en/services">Service scope and pricing</a> cover business consulting and technical delivery separately. For Chinese background information and the broader article archive, use the Chinese language link.</p></div>') +
-        section('Contact', contact, 'contact'),
-      schema: [{ ...person, '@type': 'Person', sameAs: ['https://github.com/dongsheng123132'], knowsAbout: ['AI implementation', 'AI agents', 'Workflow automation', 'GEO', 'Supply chains'] }],
     },
     'geo.html': {
       title: 'GEO services: AI visibility, citations & evaluation | Hequbing',
@@ -113,6 +91,10 @@ function buildEnglish(posts) {
   const out = path.join(root, 'public/en');
   fs.mkdirSync(out, { recursive: true });
   for (const pair of pagePairs) {
+    if (pair.file === 'index.html' || pair.file === 'about.html') {
+      fs.writeFileSync(path.join(out, pair.file), renderPersonal(pair.file.replace('.html', ''), 'en', posts), 'utf8');
+      continue;
+    }
     const p = pages[pair.file];
     const schema = JSON.stringify({ '@context': 'https://schema.org', '@graph': p.schema }).replace(/</g, '\\u003c');
     const nav = [['index.html', WWW + '/en', 'Home'], ['services.html', WWW + '/en/services', 'Services'], ['geo.html', WWW + '/en/geo', 'GEO'], ['about.html', WWW + '/en/about', 'About'], ['archive.html', BLOG + '/en/archive', 'Articles']].map(([file, url, label]) => `<a href="${url}"${file === pair.file ? ' class="active" aria-current="page"' : ''}>${label}</a>`).join('\n          ');

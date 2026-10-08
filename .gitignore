@@ -1,4 +1,5 @@
 node_modules/
+.local/
 public/observe/
 要上传的素材/
 .DS_Store

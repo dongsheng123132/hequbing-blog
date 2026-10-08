@@ -1,0 +1,35 @@
+/* 本人微信名片：完整展示原图，页面与旧版深色服务页共用。 */
+.personal-contact-card{box-sizing:border-box;width:min(100%,360px);padding:20px;background:#fff;color:#202723;border:1px solid #dedfd8;border-radius:4px;text-align:center}
+.wechat-image-link{display:block;background:#fff;line-height:0;border-radius:2px;overflow:hidden}
+.wechat-image-link img{display:block;width:100%;height:auto;object-fit:contain;background:#fff}
+.wechat-image-link:focus-visible,.wechat-card-actions>*:focus-visible,.wechat-lightbox button:focus-visible,.wechat-popup-close:focus-visible{outline:3px solid #9d8257;outline-offset:4px}
+.personal-contact-card .wechat-scan-note{margin:13px 0 7px;color:#68716a;font-size:12px;line-height:1.65}
+.personal-contact-card .wechat-account{margin:0;color:#34493e;font-size:14px;line-height:1.8}
+.wechat-account strong{margin-left:10px;user-select:all;font-size:20px;color:#193e35;letter-spacing:.03em}
+.wechat-card-actions{display:flex;gap:10px;margin-top:16px;justify-content:center}
+.wechat-card-actions>*{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;border:1px solid #cdd5cc;border-radius:2px;background:#fff;color:#193e35;font:inherit;font-size:13px;line-height:1.4;text-decoration:none;cursor:pointer}
+.wechat-card-actions>button{background:#193e35;color:#fff;border-color:#193e35}
+.wechat-card-actions>*:hover{background:#eaf0e8;color:#193e35}
+.personal-contact-card .wechat-copy-status{min-height:20px;margin:10px 0 0;font-size:12px;line-height:1.6;color:#536154}
+.wechat-inline-contact{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;margin:72px 0 36px;padding-top:44px;border-top:1px solid #848e803b}
+.wechat-inline-contact>div:first-child{max-width:480px}
+.wechat-float{position:fixed;right:24px;bottom:24px;z-index:999}
+.wechat-float-btn{width:56px;height:56px;display:flex;align-items:center;justify-content:center;border:0;border-radius:50%;background:#193e35;color:#fff;box-shadow:0 4px 18px #12251c25;cursor:pointer;font-size:22px}
+.wechat-popup{box-sizing:border-box;display:none;position:absolute;bottom:70px;right:0;width:324px;min-width:0;max-height:calc(100dvh - 110px);overflow:auto;padding:26px 20px 16px;background:#f6f5f1;color:#202723;border:1px solid #dedfd8;border-radius:6px;box-shadow:0 12px 45px #101b1633;text-align:center}
+.wechat-popup.show{display:block}
+.wechat-popup[hidden]{display:none!important}
+.wechat-popup h4{margin:0 20px 14px;font-size:15px;line-height:1.5;color:#202723}
+.wechat-popup p{margin:12px 0 0;font-size:12px;line-height:1.6;color:#627165}
+.wechat-popup .wechat-qr-frame{width:100%;height:auto;margin:0;background:#fff}
+.wechat-popup .wechat-qr-frame img{display:block;width:100%;height:auto;object-fit:contain;border-radius:0}
+.wechat-popup-close{position:absolute;top:5px;right:5px;width:36px;height:36px;background:transparent;color:#193e35;border:0;cursor:pointer;font-size:26px;line-height:1}
+.wechat-lightbox{box-sizing:border-box;width:min(640px,calc(100vw - 28px));max-width:none;max-height:calc(100dvh - 28px);padding:16px;border:0;border-radius:4px;background:#fff;color:#202723;overflow:auto;box-shadow:0 30px 120px #0005}
+.wechat-lightbox::backdrop{background:rgb(14 26 21 / .76);backdrop-filter:blur(5px)}
+.wechat-lightbox-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 4px 10px}
+.wechat-lightbox .wechat-lightbox-bar h2{margin:0;font:600 16px/1.5 system-ui,sans-serif;color:#202723}
+.wechat-lightbox-bar button{display:grid;place-items:center;flex:none;width:40px;height:40px;background:#f1f3ec;border:0;border-radius:50%;color:#193e35;cursor:pointer;font-size:28px;line-height:1}
+.wechat-lightbox>img{display:block;width:auto;max-width:100%;height:auto;max-height:calc(100dvh - 164px);margin:0 auto;object-fit:contain;background:#fff}
+.wechat-lightbox>p{margin:12px 0 4px;text-align:center;font-size:13px;line-height:1.6;color:#46544a}
+.wechat-lightbox>p a{color:#193e35;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:640px){.personal-contact-card{width:min(100%,360px);margin-inline:auto;padding:16px}.wechat-inline-contact{grid-template-columns:1fr;gap:28px;margin-top:48px}.wechat-float{right:16px;bottom:16px}.wechat-popup{width:min(324px,calc(100vw - 32px));max-height:calc(100dvh - 104px)}.wechat-lightbox{padding:10px}.wechat-lightbox>img{max-height:calc(100dvh - 150px)}}
+@media print{.wechat-float,.wechat-lightbox,.wechat-card-actions{display:none!important}.personal-contact-card{break-inside:avoid}}

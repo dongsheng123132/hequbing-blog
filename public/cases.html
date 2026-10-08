@@ -10,6 +10,7 @@
   <meta property="og:description" content="精选 AI 企业落地案例，按行业和场景分类浏览。" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/contact.css">
 </head>
 <body>
   <header class="site-header">
@@ -80,11 +81,9 @@
 
   <!-- WeChat Float -->
   <div class="wechat-float">
-    <div class="wechat-popup" id="wechat-popup">
+    <div class="wechat-popup" id="wechat-popup"><button type="button" class="wechat-popup-close" data-wechat-popup-close aria-label="关闭微信联系窗口">×</button>
       <h4>预约免费 30 分钟沟通</h4>
-      <div class="qr-placeholder">
-        <div class="contact-code">微信号<br><strong>hecare888</strong></div>
-      </div>
+      <div class="wechat-qr-frame"><a class="wechat-image-link" href="/images/hequbing-wechat-original.jpg" data-wechat-image aria-label="点击放大微信二维码"><img src="/images/hequbing-wechat-original.jpg" width="888" height="1131" alt="贺去病本人提供的微信名片二维码" loading="lazy" decoding="async"></a></div><div class="wechat-popup-actions" data-contact-card><p class="wechat-account">微信号 <strong data-wechat-id>hecare888</strong></p><div class="wechat-card-actions"><button type="button" data-copy-wechat>复制微信号</button><a href="/images/hequbing-wechat-original.jpg" download="hequbing-wechat.jpg">保存二维码</a></div><p data-copy-status aria-live="polite" role="status"></p></div>
       <p>复制微信号，备注「咨询」</p>
     </div>
     <button class="wechat-float-btn" onclick="toggleWechat()" title="微信咨询">💬</button>
@@ -188,5 +187,10 @@
 
     init();
   </script>
+<dialog id="wechat-lightbox" class="wechat-lightbox" aria-labelledby="wechat-lightbox-title">
+  <div class="wechat-lightbox-bar"><h2 id="wechat-lightbox-title">添加贺去病的微信</h2><button type="button" data-wechat-close aria-label="关闭二维码">×</button></div>
+  <img src="/images/hequbing-wechat-original.jpg" width="888" height="1131" alt="贺去病微信名片原图，扫描二维码添加好友">
+  <p>微信号：<strong>hecare888</strong> · <a href="/images/hequbing-wechat-original.jpg" download="hequbing-wechat.jpg">保存原图</a></p>
+</dialog>
 </body>
 </html>

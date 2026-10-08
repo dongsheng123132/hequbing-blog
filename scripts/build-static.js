@@ -14,6 +14,8 @@ const fs = require('fs');
 const path = require('path');
 const { pagePairs, alternateLinks } = require('../lib/localization');
 const { buildEnglish } = require('./build-english');
+const { buildPersonalChinese } = require('../lib/personal-pages');
+const { enhanceContactHtml } = require('./contact-block');
 
 const PUBLIC_DIR = path.join(__dirname, '..', 'public');
 const POSTS_PATH = path.join(__dirname, '..', 'data', 'posts.json');
@@ -77,6 +79,7 @@ function renderFaqJsonLd(html, indent) {
 }
 
 function build() {
+  buildPersonalChinese();
   const posts = JSON.parse(fs.readFileSync(POSTS_PATH, 'utf-8'))
     .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
@@ -122,12 +125,20 @@ function build() {
       }
     );
 
+    html = enhanceContactHtml(html);
     if (html !== before) {
       fs.writeFileSync(file, html, 'utf-8');
       console.log('updated', f);
     }
   }
   buildEnglish(posts);
+  const englishDir = path.join(PUBLIC_DIR, 'en');
+  for (const f of fs.readdirSync(englishDir).filter(f => f.endsWith('.html'))) {
+    const file = path.join(englishDir, f);
+    const before = fs.readFileSync(file, 'utf8');
+    const html = enhanceContactHtml(before);
+    if (html !== before) fs.writeFileSync(file, html, 'utf8');
+  }
 }
 
 build();

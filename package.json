@@ -12,7 +12,7 @@
     "build": "npm run sitemap && npm run build:observe && npm run build:rankings",
     "build:observe": "node modules/observe/src/cli.js build --out public/observe",
     "build:rankings": "node scripts/build-rankings.mjs",
-    "test": "node --test tests/site.test.cjs"
+    "test": "node tests/site.test.cjs && node tests/contact.test.cjs"
   },
   "keywords": ["AI咨询", "企业AI落地", "大模型"],
   "author": "贺去病",
