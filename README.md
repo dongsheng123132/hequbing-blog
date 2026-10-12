@@ -65,3 +65,5 @@ Hobby 计划下，Vercel 只部署作者是账号本人的提交。作者是别�
 node server.js
 ```
 访问 http://localhost:3000
+
+作品目录的唯一数据源为 `lib/project-catalog.js`，包含中英文介绍、类别、当前阶段和公开入口；`lib/personal-pages.js` 生成两种语言的首页、关于页与 `public/llms.txt` 项目导航。修改清单后运行 `npm run build` 和 `npm test`，不要直接改生成页面。

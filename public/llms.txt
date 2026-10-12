@@ -22,6 +22,29 @@
 - [关于贺去病](https://www.hequbing.com/about): 创始人经历、身份与荣誉、作品清单（均有公开链接）
 - [GitHub](https://github.com/dongsheng123132): 全部公开仓库
 
+<!-- AUTO:PROJECTS:START -->
+## 项目与开源作品
+
+- [U-Claw 虾盘](https://github.com/dongsheng123132/u-claw): 便携 U 盘工作空间，让配置、记忆与会话随身带走。公开源码，持续迭代。（持续迭代）
+- [本象协议 · 2Origin](https://2origin.org): AI 提交语义事务，由确定性编译器校验后落地。保留对象、状态与来源，让字段能回答「凭什么」。（协议与参考实现） [GitHub](https://github.com/dongsheng123132/2origin)
+- [U-King](https://www.u-king.org): 把 AI 工具部署、模型配置与使用支持，做成能交付的产品。（持续迭代）
+- [OpenCodex](https://github.com/dongsheng123132/opencodex): 以项目文件夹为起点，在同一工作台分屏运行 AI 编程终端。当前为持续迭代的早期版本。（早期版本）
+- [泊舟 AI 小程序 · PodApp](https://github.com/dongsheng123132/podapp): 贴在 AI 工作台旁的小程序舱，提供切图、真二维码替换和图片标注等动作。人和 AI 共用同一条执行路径。（早期版本 · 可下载）
+- [任务护照 · Task Passport](https://github.com/dongsheng123132/task-passport): 把目标、当前状态、验证事实与下一步带到 Claude、Codex 等工具。支持任务打包和版本冲突检测。（开放协议 · 早期工具）
+- [影核 · ActionParity](https://github.com/dongsheng123132/action-parity): 让 GUI、CLI、MCP 与 API 调用同一个无界面动作核心。开放规范、SDK 与可执行示例一起维护。（开放规范与 SDK）
+- [U-Hermes 马盘](https://github.com/dongsheng123132/u-hermes): 基于 Hermes Agent 的便携产品。公开仓提供 Linux 启动盘脚本与文档，Windows 成品版的启动器为闭源。（产品 · 部分开源）
+- [品牌 AI 认知榜](https://www.hequbing.com/observe/rankings): 从同一道采购问题出发，记录品牌提及、核对企业资料，公开调查进展与方法。（持续研究）
+- [Open365](https://github.com/dongsheng123132/Open365): 公开源码的 Windows 维护工具，围绕清理、启动项与网络问题提供可查看的操作。（开源工具）
+- [Redline 文件工作台](https://github.com/dongsheng123132/redline): 预览多种文件、圈选标注，选择 AI 处理，再逐处对照新产物。当前为早期工作台，保留源文件。（早期原型）
+- [Harness Doctor](https://github.com/dongsheng123132/harness-doctor): 只读检查 DSH、Claude Code、Codex 与 OpenClaw 的路径、版本和环境，生成脱敏支持包。（已发布 CLI）
+- [FastCP](https://github.com/dongsheng123132/fastcp): 为批量 U 盘部署与多目标复制设计，支持并行写入、增量复制和哈希校验，提供跨平台二进制。（可下载工具）
+- [长文档一致性检查](https://github.com/dongsheng123132/doc-consistency): 离线检查编号、交叉引用、术语漂移和合稿遗漏。支持 Word、Markdown 与纯文本，发现附精确位置。（开源工具）
+- [PaperGuard 论文体检](https://github.com/dongsheng123132/paperguard): 扫描统计自洽、数字一致与图片复用的潜在问题，输出报告辅助人工复核。疑点并非学术不端结论。（研究工具 · 早期版本）
+- [格子科研计算机](https://github.com/dongsheng123132/grid-research-computer): 用阳性对照与可复跑判据，检查 AI 是否把数据库空白误当成科学发现。公开失败过程、负结果与边界。（研究实验）
+- [2Origin Computer 本源计算架构](https://github.com/dongsheng123132/2origin-computer): 围绕状态持久化、动作迁移和经验积累探索长程 AI 计算机。开放架构草案、实验记录与长程任务挑战。（架构草案）
+- [TUNGKE 探客](https://github.com/dongsheng123132/ai-tungke): 结合地图地点检索、AI 搜索与行业数据的外贸获客平台。公开前端项目，持续探索客户发现与评估。（早期项目）
+<!-- AUTO:PROJECTS:END -->
+
 ## 文章
 
 - [文章归档](https://blog.hequbing.com/archive): AI 落地、AI 工具与开源项目的实践记录
