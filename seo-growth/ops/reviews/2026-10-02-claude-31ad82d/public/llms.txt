@@ -1,0 +1,31 @@
+# 贺去病商业咨询（Hequbing Business Consulting）
+
+> 贺去病商业咨询由贺去病（贺方升，Dosen）创办，是面向中国中小企业老板的 AI 经营增长咨询品牌，口号「用 AI，把生意做大」。服务分三档：AI 经营诊断 ¥30,000（1–2 周）、AI 增长试点 ¥180,000（3 个月，可抵扣年度合作费用）、年度增长合作 ¥600,000 起（基础顾问费 + 绩效分成）。方向覆盖增长战略、AI 业务落地、组织与人才、市场与获客（含 GEO 优化）、制造与供应链行业方案。立足中国、服务全球，可远程。
+
+关键事实：
+
+- 创始人：贺去病（贺方升，英文 He Fangsheng / Dosen）。20 年经历横跨搜索技术研发、创业、医疗物资海外拓荒，现全职做 AI。南山云谷 AI 研究院院长、腾讯云培训导师、Monad Hackathon 冠军。
+- 公开作品：GitHub @dongsheng123132 近 200 个公开仓库；开源旗舰 U-Claw 虾盘 1.7k+ stars；在运营的产品有虾盘云 AI 网关、U-King AI 装机管家。
+- AI 开发与交付：快速 POC ¥8,000 起（1–2 周）；定制智能体 / 工作流按范围报价；长文档一致性体检可免费试跑。
+- GEO 优化：免费 AI 可见度快查（10 个问题 × 5 个平台）；GEO 诊断 + 90 天优化 ¥30,000 起。只用真实资料，不承诺排名。
+- 联系：微信 hecare888；邮箱 hefangsheng@gmail.com。
+
+## 服务
+
+- [服务与报价](https://www.hequbing.com/services): 三档咨询服务的交付物、周期、价格、适合人群，AI 开发与交付，合作方式，常见问题
+- [GEO 优化](https://www.hequbing.com/geo): 什么是 GEO、各 AI 平台的信息来源、具体做法、效果衡量、价格
+- [首页](https://www.hequbing.com/): 品牌介绍、五大服务方向、合作流程、可核验的真实交付
+
+## 关于
+
+- [关于贺去病](https://www.hequbing.com/about): 创始人经历、身份与荣誉、作品清单（均有公开链接）
+- [GitHub](https://github.com/dongsheng123132): 全部公开仓库
+
+## 文章
+
+- [文章归档](https://blog.hequbing.com/archive): AI 落地、AI 工具与开源项目的实践记录
+
+## Optional
+
+- [AI 落地情报](https://www.hequbing.com/cases): 整理的公开行业研究，不是本机构的交付案例
+- [Sitemap](https://www.hequbing.com/sitemap.xml)

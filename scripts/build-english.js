@@ -117,6 +117,7 @@ function buildEnglish(posts) {
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/styles.css" />
   <script type="application/ld+json">${schema}</script>
+  <script defer src="https://stats.u-claw.org.cn/script.js" data-website-id="1b52c547-9f17-495d-947f-88bf29c8faaf" data-domains="www.hequbing.com,hequbing.com,blog.hequbing.com"></script>
 </head>
 <body>
   <header class="site-header"><div class="container"><div class="header-row">

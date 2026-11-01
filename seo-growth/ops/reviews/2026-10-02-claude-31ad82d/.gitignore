@@ -1,0 +1,4 @@
+node_modules/
+要上传的素材/
+.DS_Store
+.env

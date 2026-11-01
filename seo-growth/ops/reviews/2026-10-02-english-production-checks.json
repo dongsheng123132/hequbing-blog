@@ -1,0 +1,195 @@
+{
+  "checkedAt": "2026-10-02T07:17:50.484Z",
+  "scope": "English release and Chinese regressions; public HTTP through local proxy",
+  "passed": true,
+  "checks": [
+    {
+      "url": "https://www.hequbing.com/",
+      "status": 200,
+      "bytes": 29639,
+      "elapsedMs": 898,
+      "passed": true
+    },
+    {
+      "url": "https://www.hequbing.com/en",
+      "status": 200,
+      "bytes": 9023,
+      "elapsedMs": 1359,
+      "passed": true
+    },
+    {
+      "url": "https://www.hequbing.com/services",
+      "status": 200,
+      "bytes": 20270,
+      "elapsedMs": 1429,
+      "passed": true
+    },
+    {
+      "url": "https://www.hequbing.com/en/services",
+      "status": 200,
+      "bytes": 10357,
+      "elapsedMs": 1353,
+      "passed": true
+    },
+    {
+      "url": "https://www.hequbing.com/about",
+      "status": 200,
+      "bytes": 17588,
+      "elapsedMs": 423,
+      "passed": true
+    },
+    {
+      "url": "https://www.hequbing.com/en/about",
+      "status": 200,
+      "bytes": 8468,
+      "elapsedMs": 476,
+      "passed": true
+    },
+    {
+      "url": "https://www.hequbing.com/geo",
+      "status": 200,
+      "bytes": 17320,
+      "elapsedMs": 522,
+      "passed": true
+    },
+    {
+      "url": "https://www.hequbing.com/en/geo",
+      "status": 200,
+      "bytes": 8358,
+      "elapsedMs": 472,
+      "passed": true
+    },
+    {
+      "url": "https://blog.hequbing.com/archive",
+      "status": 200,
+      "bytes": 9732,
+      "elapsedMs": 1384,
+      "passed": true
+    },
+    {
+      "url": "https://blog.hequbing.com/en/archive",
+      "status": 200,
+      "bytes": 8480,
+      "elapsedMs": 1383,
+      "passed": true
+    },
+    {
+      "url": "https://blog.hequbing.com/en/post?slug=cad-ai-dwg-dxf-object-audit",
+      "status": 200,
+      "bytes": 11364,
+      "elapsedMs": 1403,
+      "passed": true
+    },
+    {
+      "url": "https://blog.hequbing.com/en/post?slug=task-passport-ai-handoff",
+      "status": 200,
+      "bytes": 9913,
+      "elapsedMs": 1350,
+      "passed": true
+    },
+    {
+      "url": "https://blog.hequbing.com/en/post?slug=opencodex-multi-terminal-workbench",
+      "status": 200,
+      "bytes": 10273,
+      "elapsedMs": 432,
+      "passed": true
+    },
+    {
+      "url": "https://blog.hequbing.com/en/post?slug=uking-installation-engineering",
+      "status": 200,
+      "bytes": 10861,
+      "elapsedMs": 408,
+      "passed": true
+    },
+    {
+      "url": "https://blog.hequbing.com/en/post?slug=ai-business-consulting-process",
+      "status": 200,
+      "bytes": 11275,
+      "elapsedMs": 440,
+      "passed": true
+    },
+    {
+      "url": "https://blog.hequbing.com/en/post?slug=companion-fde-delivery",
+      "status": 200,
+      "bytes": 10991,
+      "elapsedMs": 397,
+      "passed": true
+    },
+    {
+      "url": "https://blog.hequbing.com/en/post?slug=anythingchina-logistics-to-ai",
+      "status": 200,
+      "bytes": 11218,
+      "elapsedMs": 430,
+      "passed": true
+    },
+    {
+      "url": "https://blog.hequbing.com/en/post?slug=u-hermes-portable-ai-environment",
+      "status": 200,
+      "bytes": 11107,
+      "elapsedMs": 398,
+      "passed": true
+    },
+    {
+      "url": "https://blog.hequbing.com/en/post?slug=geo-delivery-discovery-business",
+      "status": 200,
+      "bytes": 11653,
+      "elapsedMs": 422,
+      "passed": true
+    },
+    {
+      "url": "https://blog.hequbing.com/post?slug=cad-ai-dwg-dxf-object-audit",
+      "status": 200,
+      "bytes": 11466,
+      "elapsedMs": 459,
+      "passed": true
+    },
+    {
+      "url": "https://blog.hequbing.com/en",
+      "status": 308,
+      "bytes": 15,
+      "elapsedMs": 307,
+      "passed": true
+    },
+    {
+      "url": "https://blog.hequbing.com/en/post?slug=hello-world",
+      "status": 404,
+      "bytes": 3361,
+      "elapsedMs": 393,
+      "passed": true
+    },
+    {
+      "url": "https://www.hequbing.com/sitemap.xml",
+      "status": 200,
+      "bytes": 10385,
+      "elapsedMs": 402,
+      "passed": true
+    },
+    {
+      "url": "https://www.hequbing.com/styles.css",
+      "status": 200,
+      "bytes": 37006,
+      "elapsedMs": 450,
+      "passed": true
+    },
+    {
+      "url": "https://www.hequbing.com/post.js",
+      "status": 200,
+      "bytes": 8688,
+      "elapsedMs": 390,
+      "passed": true
+    },
+    {
+      "url": "https://www.hequbing.com/site.js",
+      "status": 200,
+      "bytes": 2325,
+      "elapsedMs": 472,
+      "passed": true
+    }
+  ],
+  "outcomes": {
+    "indexing": "not_measured",
+    "rankings": "not_measured",
+    "aiCitations": "not_measured",
+    "inquiries": "not_measured"
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "categories": [
+    {
+      "id": "chat",
+      "name": "对话 & 写作 (Chat & Writing)",
+      "icon": "💬"
+    },
+    {
+      "id": "image_video",
+      "name": "图像 & 视频 (Image & Video)",
+      "icon": "🎨"
+    },
+    {
+      "id": "coding",
+      "name": "编程 & 开发 (Coding)",
+      "icon": "💻"
+    },
+    {
+      "id": "productivity",
+      "name": "办公 & 效率 (Productivity)",
+      "icon": "⚡"
+    },
+    {
+      "id": "directory",
+      "name": "导航 & 发现 (Directories)",
+      "icon": "🧭"
+    }
+  ],
+  "tools": [
+    {
+      "name": "DeepSeek",
+      "description": "国产开源之光，深度求索，推理能力极强，性价比极高。",
+      "url": "https://chat.deepseek.com/",
+      "category": "chat",
+      "tags": ["Domestic", "Free/Paid"],
+      "icon": "https://chat.deepseek.com/favicon.ico"
+    },
+    {
+      "name": "Kimi 智能助手",
+      "description": "月之暗面出品，超长上下文支持，读长文神器。",
+      "url": "https://kimi.moonshot.cn/",
+      "category": "chat",
+      "tags": ["Domestic", "Free"],
+      "icon": "https://statics.moonshot.cn/kimi-chat/favicon.ico"
+    },
+    {
+      "name": "ChatGPT",
+      "description": "OpenAI 出品，AI 时代的开创者，目前最强的综合模型 (GPT-4o)。",
+      "url": "https://chatgpt.com/",
+      "category": "chat",
+      "tags": ["Global", "Freemium"],
+      "icon": "https://chatgpt.com/favicon.ico"
+    },
+    {
+      "name": "Claude",
+      "description": "Anthropic 出品，不仅写作自然，更是编程神器 (Claude 3.5 Sonnet)。",
+      "url": "https://claude.ai/",
+      "category": "chat",
+      "tags": ["Global", "Freemium"],
+      "icon": "https://claude.ai/favicon.ico"
+    },
+    {
+      "name": "豆包",
+      "description": "字节跳动出品，语音交互体验极佳，日常助手。",
+      "url": "https://www.doubao.com/",
+      "category": "chat",
+      "tags": ["Domestic", "Free"],
+      "icon": "https://lf-flow-web-cdn.doubao.com/obj/flow-web-cdn/doubao/web/logo-icon.png"
+    },
+    {
+      "name": "Perplexity",
+      "description": "AI 搜索引擎，代替谷歌搜索的最佳选择，引用来源精准。",
+      "url": "https://www.perplexity.ai/",
+      "category": "chat",
+      "tags": ["Global", "Freemium"],
+      "icon": "https://www.perplexity.ai/favicon.ico"
+    },
+    {
+      "name": "Midjourney",
+      "description": "目前画质最强的 AI 绘画工具，需在 Discord 使用。",
+      "url": "https://www.midjourney.com/",
+      "category": "image_video",
+      "tags": ["Global", "Paid"],
+      "icon": "https://www.midjourney.com/favicon.ico"
+    },
+    {
+      "name": "即梦 AI (Jimeng)",
+      "description": "字节跳动出品，图像与视频生成，效果惊艳，可控性高。",
+      "url": "https://jimeng.jianying.com/",
+      "category": "image_video",
+      "tags": ["Domestic", "Freemium"],
+      "icon": "https://jimeng.jianying.com/favicon.ico"
+    },
+    {
+      "name": "可灵 AI (Kling)",
+      "description": "快手出品，视频生成领域的佼佼者，物理模拟真实。",
+      "url": "https://klingai.kuaishou.com/",
+      "category": "image_video",
+      "tags": ["Domestic", "Freemium"],
+      "icon": "https://klingai.kuaishou.com/favicon.ico"
+    },
+    {
+      "name": "Runway",
+      "description": "好莱坞级别的 AI 视频编辑与生成工具 (Gen-3)。",
+      "url": "https://runwayml.com/",
+      "category": "image_video",
+      "tags": ["Global", "Paid"],
+      "icon": "https://runwayml.com/favicon.ico"
+    },
+    {
+      "name": "Suno",
+      "description": "AI 音乐生成神器，这首歌我也能写。",
+      "url": "https://suno.com/",
+      "category": "image_video",
+      "tags": ["Global", "Freemium"],
+      "icon": "https://suno.com/favicon.ico"
+    },
+    {
+      "name": "Cursor",
+      "description": "VS Code 的最强 AI 修改版，写代码效率翻倍。",
+      "url": "https://www.cursor.com/",
+      "category": "coding",
+      "tags": ["Global", "Freemium"],
+      "icon": "https://www.cursor.com/favicon.ico"
+    },
+    {
+      "name": "Trae",
+      "description": "字节跳动出品的 AI IDE，内置 Claude/GPT-4，更懂中文开发者。",
+      "url": "https://www.trae.ai/",
+      "category": "coding",
+      "tags": ["Domestic", "Free"],
+      "icon": "https://www.trae.ai/favicon.ico"
+    },
+    {
+      "name": "v0.dev",
+      "description": "Vercel 出品，用自然语言生成 UI 界面 (React/Tailwind)。",
+      "url": "https://v0.dev/",
+      "category": "coding",
+      "tags": ["Global", "Freemium"],
+      "icon": "https://v0.dev/favicon.ico"
+    },
+    {
+      "name": "Gamma",
+      "description": "AI 生成 PPT 和幻灯片，排版精美，省时省力。",
+      "url": "https://gamma.app/",
+      "category": "productivity",
+      "tags": ["Global", "Freemium"],
+      "icon": "https://gamma.app/favicon.ico"
+    },
+    {
+      "name": "通义听悟",
+      "description": "阿里出品，会议转录、总结神器。",
+      "url": "https://tingwu.aliyun.com/",
+      "category": "productivity",
+      "tags": ["Domestic", "Freemium"],
+      "icon": "https://tingwu.aliyun.com/favicon.ico"
+    },
+    {
+      "name": "Futurepedia",
+      "description": "全球最大的 AI 工具目录库，更新速度快。",
+      "url": "https://www.futurepedia.io/",
+      "category": "directory",
+      "tags": ["Global", "Directory"],
+      "icon": "https://www.futurepedia.io/favicon.ico"
+    },
+    {
+      "name": "Product Hunt",
+      "description": "全球新产品发布平台，虽然不是纯 AI，但所有好用的新 AI 都在这首发。",
+      "url": "https://www.producthunt.com/",
+      "category": "directory",
+      "tags": ["Global", "Directory"],
+      "icon": "https://www.producthunt.com/favicon.ico"
+    },
+    {
+      "name": "Watcha 观猹",
+      "description": "国内优质 AI 社区与榜单，不仅有工具，还有深度评测。",
+      "url": "https://watcha.cn/",
+      "category": "directory",
+      "tags": ["Domestic", "Directory"],
+      "icon": "https://watcha.cn/favicon.ico"
+    }
+  ]
+}

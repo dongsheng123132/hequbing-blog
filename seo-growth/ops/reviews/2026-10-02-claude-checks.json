@@ -1,0 +1,22 @@
+{
+  "commit": "31ad82dfc1c20ef125d5540b01eef035dbedeafd",
+  "postsWithFullServerRenderedBody": 25,
+  "missingPostStatus": 404,
+  "jsonLdParsed": true,
+  "emptyJsonLdContainers": [
+    "case.html"
+  ],
+  "staticBuildChangedFiles": [
+    "archive.html",
+    "geo.html",
+    "index.html",
+    "services.html"
+  ],
+  "buildOutput": "updated archive.html\nupdated geo.html\nupdated index.html\nupdated services.html",
+  "apiFailureResult": {
+    "initialBodyExists": true,
+    "titleAfterFailure": "文章加载失败",
+    "bodyPreserved": false
+  },
+  "sourceTreeModified": false
+}
