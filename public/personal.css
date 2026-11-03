@@ -55,3 +55,20 @@
 @media(max-width:760px){.about-credentials{font-size:10.5px;margin-top:20px;padding-left:12px}}
 .hero-trust,.hero-credentials,.hero-intro{overflow-wrap:anywhere;word-break:break-word}
 @media(max-width:760px){.hero-copy{padding-right:2px}.hero-trust,.hero-credentials{max-width:100%}}
+
+/* ==== 2026-11-03 数据条（参考乔木的「大号衬线数字 + 小号说明」）==== */
+.stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat-cell{display:flex;align-items:baseline;gap:14px;padding:30px 0;border-left:1px solid var(--line);padding-left:28px}
+.stat-cell:first-child{border-left:0;padding-left:0}
+.stat-num{font:600 clamp(30px,3.4vw,46px)/1 var(--serif);color:var(--green);letter-spacing:-1px;white-space:nowrap}
+.stat-num em{font-style:normal;font-size:.55em;letter-spacing:0;margin-left:2px}
+.stat-label{font-size:11.5px;line-height:1.65;color:var(--muted)}
+@media(max-width:900px){.stat-cell{padding-left:18px;gap:10px}.stat-num{font-size:32px}.stat-label{font-size:10.5px}}
+@media(max-width:760px){
+  .stat-strip{grid-template-columns:1fr 1fr}
+  .stat-cell{padding:20px 0;border-left:0;padding-left:0;gap:10px}
+  .stat-cell:nth-child(n+3){border-top:1px solid var(--line)}
+  .stat-cell:nth-child(2n){padding-left:16px;border-left:1px solid var(--line)}
+  .stat-num{font-size:30px}
+  .stat-label{font-size:10.5px}
+}
