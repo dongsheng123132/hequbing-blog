@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "1.0",
+  "id": "industrial-design",
+  "title": "工业设计公司 AI 认知榜",
+  "issue": "2026-10",
+  "status": "planned",
+  "reportable": false,
+  "reason": "已纳入金标设计并建立调查题库，尚未开始模型采样；同业候选、主体与案例仍待核验，当前不展示名次。",
+  "market": "中国市场的工业产品设计服务采购场景",
+  "cadence": "计划每月一期，样本不足时发布调查进展，不强排名次。",
+  "sampleCount": null,
+  "entityCount": null,
+  "engines": [],
+  "rows": [],
+  "prompts": [
+    {
+      "id": "id01",
+      "purpose": "ranking",
+      "text": "中国企业开发一款实体产品，采购工业设计服务时，可以比较哪些设计公司？请区分工业产品设计与室内、建筑、网站设计，只列出有依据的候选，不确定请说明。"
+    },
+    {
+      "id": "id02",
+      "purpose": "ranking",
+      "text": "深圳的消费电子项目需要产品外观与结构设计，可以比较哪些工业设计公司？请说明哪些服务范围仍需向公司核对。"
+    },
+    {
+      "id": "id03",
+      "purpose": "ranking",
+      "text": "广东家电品牌开发新产品，需要产品研究、外观设计及样机验证，可以向哪些工业设计公司询价？请区分设计服务商与代工厂，不确定请标明。"
+    },
+    {
+      "id": "id04",
+      "purpose": "ranking",
+      "text": "中国智能硬件品牌需要从产品定义到结构设计的服务，可以比较哪些设计公司？请不要把设计案例自动当成全流程交付能力的证明。"
+    },
+    {
+      "id": "id05",
+      "purpose": "ranking",
+      "text": "中国制造企业为海外市场开发自主品牌实体产品，需要产品外观及配套包装设计，可以比较哪些工业设计服务商？请标明还需核实的实际案例与设计分工。"
+    },
+    {
+      "id": "id06",
+      "purpose": "ranking",
+      "text": "小型硬件团队寻找中国工业设计公司，先做外观和结构方案再验证样机，有哪些可进一步询价的候选？不要编造价格、起订项目金额或交付周期。"
+    },
+    {
+      "id": "id07",
+      "purpose": "behavior",
+      "text": "向工业设计公司询价，应提供哪些产品功能、目标用户、市场、现有技术、预算、交付文件及时间信息？"
+    },
+    {
+      "id": "id08",
+      "purpose": "behavior",
+      "text": "核对工业设计公司的案例和设计奖项时，应怎样确认主体、项目分工、知识产权、保密条款以及样机和量产责任？"
+    }
+  ],
+  "methodologyVersion": "0.2.1",
+  "candidateReview": {
+    "id": "industrial-design",
+    "scope": "面向中国企业的实体产品工业设计服务，涵盖产品研究、外观与结构设计；室内、建筑、网站设计及纯代工厂不直接混排。",
+    "reviewStatus": "pending",
+    "entities": [
+      {
+        "id": "kingbill-design",
+        "name": "金标设计 King-Bill Design",
+        "aliases": [
+          "金标设计",
+          "金标源创",
+          "King-Bill Design",
+          "King Bill Design",
+          "深圳市金标源创工业设计有限公司"
+        ],
+        "legalName": "深圳市金标源创工业设计有限公司",
+        "affiliation": "用户指定纳入，关联关系待确认",
+        "sourceStatus": "official_page_read",
+        "sources": [
+          {
+            "url": "https://kingbilldesign.com/alone/alone.php?id=680",
+            "supports": "品牌、主体名称及外观、结构、包装和工业产品品牌设计服务介绍"
+          },
+          {
+            "url": "https://kingbilldesign.com/alone/alone.php?id=681",
+            "supports": "产品设计服务范围及开发流程介绍"
+          },
+          {
+            "url": "https://kingbilldesign.com/alone/alone.php?id=686",
+            "supports": "深圳、佛山联系地点及设计咨询入口"
+          }
+        ],
+        "pending": [
+          "独立主体核验及发起人关联关系确认",
+          "奖项和案例的归属、年份及实际设计分工核验",
+          "扩充并核对同类设计服务商候选，避免仅凭种子企业形成排名",
+          "尚未模型采样，需按同题跨模型协议采集并检查漏收录企业"
+        ]
+      }
+    ],
+    "evidenceBoundary": "来源仅证明企业官网公开介绍了有关业务，不等于独立核验主体、资质、产能或履约能力；候选清单不是排名，也不代表行业全量。",
+    "updatedAt": "2026-10-08"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "sampleId": "example-only",
+  "industryId": "philippines-logistics",
+  "promptId": "ph01",
+  "prompt": "从中国发货到菲律宾，选择专线物流服务商时，可以比较哪些公司？请只列出你有依据的候选，不确定就说明。",
+  "engine": "example-provider",
+  "model": "example-model",
+  "channel": "api",
+  "ts": "2026-10-05T00:00:00Z",
+  "region": "unknown",
+  "locale": "zh-CN",
+  "batch": "example-only",
+  "webSearch": false,
+  "run": 1,
+  "raw": "这只是格式示例，不是模型实测回答。",
+  "synthetic": true
+}

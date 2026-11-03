@@ -1,0 +1,320 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "legalName": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "maxItems": 30
+    },
+    "websites": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1500,
+        "format": "uri",
+        "pattern": "^https://"
+      },
+      "maxItems": 10,
+      "minItems": 1
+    },
+    "country": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 80,
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      },
+      "maxItems": 30,
+      "minItems": 1
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1500,
+            "format": "uri",
+            "pattern": "^https://"
+          },
+          "sourceType": {
+            "enum": [
+              "company_website",
+              "official_register",
+              "third_party",
+              "owner_supplied"
+            ]
+          },
+          "observedAt": {
+            "type": "string",
+            "format": "date"
+          },
+          "note": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "id",
+          "url",
+          "sourceType",
+          "observedAt",
+          "note"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 50,
+      "minItems": 1
+    },
+    "offerings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          },
+          "kind": {
+            "enum": [
+              "product",
+              "logistics",
+              "advisory"
+            ]
+          },
+          "category": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1500
+          },
+          "evidenceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^[a-z0-9][a-z0-9-]*$"
+            },
+            "maxItems": 20,
+            "minItems": 1
+          },
+          "route": {
+            "type": "object",
+            "properties": {
+              "originCountry": {
+                "type": "string",
+                "pattern": "^[A-Z]{2}$"
+              },
+              "originCity": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "destinationCountry": {
+                "type": "string",
+                "pattern": "^[A-Z]{2}$"
+              },
+              "destinationCity": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "mode": {
+                "enum": [
+                  "sea",
+                  "air",
+                  "road",
+                  "rail",
+                  "multimodal"
+                ]
+              }
+            },
+            "required": [
+              "originCountry",
+              "originCity",
+              "destinationCountry",
+              "destinationCity",
+              "mode"
+            ],
+            "additionalProperties": false
+          },
+          "inquiryUrl": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1500,
+            "format": "uri",
+            "pattern": "^https://"
+          },
+          "inquiryFields": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "maxItems": 30
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "category",
+          "title",
+          "description",
+          "evidenceIds",
+          "inquiryUrl",
+          "inquiryFields"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 100
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1500
+          },
+          "evidenceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^[a-z0-9][a-z0-9-]*$"
+            },
+            "maxItems": 20,
+            "minItems": 1
+          },
+          "validUntil": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "field",
+          "value",
+          "evidenceIds",
+          "validUntil"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 100
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 300
+      },
+      "maxItems": 40
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "legalName",
+    "aliases",
+    "websites",
+    "country",
+    "categories",
+    "summary",
+    "evidence",
+    "offerings",
+    "facts",
+    "unknowns"
+  ],
+  "additionalProperties": false
+}

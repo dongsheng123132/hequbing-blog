@@ -1,0 +1,51 @@
+[
+  {
+    "name": "geo",
+    "url": "https://www.hequbing.com/geo",
+    "status": 404,
+    "bodyChars": 79,
+    "newConsultingBrand": false,
+    "fullArticleBody": false,
+    "headers": {
+      "server": "Vercel",
+      "cache": null
+    }
+  },
+  {
+    "name": "services",
+    "url": "https://www.hequbing.com/services",
+    "status": 200,
+    "bodyChars": 7571,
+    "newConsultingBrand": false,
+    "fullArticleBody": false,
+    "headers": {
+      "server": "Vercel",
+      "cache": "HIT"
+    }
+  },
+  {
+    "name": "post",
+    "url": "https://blog.hequbing.com/post?slug=ai-housing-era",
+    "status": 200,
+    "bodyChars": 2492,
+    "newConsultingBrand": false,
+    "fullArticleBody": false,
+    "headers": {
+      "server": "Vercel",
+      "cache": "MISS"
+    }
+  },
+  {
+    "name": "postsApi",
+    "url": "https://blog.hequbing.com/api/posts",
+    "status": 200,
+    "bodyChars": 5541,
+    "newConsultingBrand": false,
+    "fullArticleBody": false,
+    "headers": {
+      "server": "Vercel",
+      "cache": "MISS"
+    },
+    "articleCount": 25
+  }
+]

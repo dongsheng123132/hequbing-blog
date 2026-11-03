@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!-- 文章页模板：由 api/render-post.js 在服务端填充 {{...}}，让爬虫和 AI 引擎不执行 JS 也能读到正文 -->
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{PAGE_TITLE}}</title>
+  <meta name="description" content="{{DESCRIPTION}}" id="meta-desc" />
+  {{ROBOTS}}<link rel="canonical" href="{{URL}}" />
+  {{ALTERNATES}}
+  <meta property="og:title" content="{{OG_TITLE}}" id="og-title" />
+  <meta property="og:description" content="{{DESCRIPTION}}" id="og-desc" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{URL}}" id="og-url" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json" id="schema-json">{{SCHEMA}}</script>
+<script defer src="https://stats.u-claw.org.cn/script.js" data-website-id="1b52c547-9f17-495d-947f-88bf29c8faaf" data-domains="www.hequbing.com,hequbing.com,blog.hequbing.com"></script>
+</head>
+<body>
+  <div id="post-progress" class="post-progress"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-row">
+        <div class="site-title"><a href="{{ARCHIVE_URL}}" class="brand">{{BRAND}}</a></div>
+        <nav class="nav">
+          <a href="{{ARCHIVE_URL}}">{{ARCHIVE_LABEL}}</a>
+          {{EXTRA_NAV}}
+          <a href="{{ABOUT_URL}}">{{ABOUT_LABEL}}</a>
+          <a href="{{MAIN_URL}}">{{HOME_LABEL}}</a>
+          {{LANGUAGE_SWITCH}}
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="post-breadcrumb">
+      <a href="{{ARCHIVE_URL}}">{{BACK_LABEL}}</a>
+    </div>
+
+    <article id="post" class="post-detail" data-rendered-slug="{{POST_SLUG}}" data-language="{{LANG}}">
+      <h1 id="post-title">{{POST_TITLE}}</h1>
+      <div class="meta" id="post-meta">{{POST_META}}</div>
+      <div id="post-content" class="content">{{POST_CONTENT}}</div>
+
+      <div class="share-bar" id="share-bar">
+        <span class="share-label">{{SHARE_LABEL}}</span>
+        <button class="share-btn" data-share="weibo" title="{{WEIBO_TITLE}}">{{WEIBO_LABEL}}</button>
+        <button class="share-btn" data-share="x" title="{{X_TITLE}}">X</button>
+        <button class="share-btn" data-share="copy" title="{{COPY_LABEL}}">{{COPY_LABEL}}</button>
+      </div>
+    </article>
+
+    <nav class="post-nav" id="post-nav">{{POST_NAV}}</nav>
+
+    <section class="related-section" id="related-section">
+      <h2 class="section-title">{{RELATED_LABEL}}</h2>
+      <div id="related-posts" class="related-grid">{{RELATED_POSTS}}</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <span>© <span id="year"></span> {{BRAND}} · hequbing.com</span>
+        <div class="footer-links">
+          <a href="{{ARCHIVE_URL}}">{{ARCHIVE_LABEL}}</a>
+          <a href="{{ABOUT_URL}}">{{ABOUT_LABEL}}</a>
+          <a href="{{MAIN_URL}}">{{HOME_LABEL}}</a>
+          {{LANGUAGE_SWITCH}}
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/site.js"></script>
+  <script src="/post.js"></script>
+</body>
+</html>

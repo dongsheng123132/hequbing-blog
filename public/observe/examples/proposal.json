@@ -1,0 +1,12 @@
+{
+  "schemaVersion":"1.0", "operation":"create", "expectedVersion":0,
+  "idempotencyKey":"replace-with-a-unique-request-id", "publicationConsent":true,
+  "reason":"格式示例，example.com 为占位域名。请替换为真实企业与获准公开的资料后再提交。",
+  "company": {
+    "id":"replace-with-company-id", "name":"示例企业（请替换）", "legalName":null, "aliases":[],
+    "websites":["https://example.com/"], "country":"CN", "categories":["power-cords"],
+    "summary":"填写有来源的企业介绍。",
+    "evidence":[{"id":"company-site","url":"https://example.com/","sourceType":"company_website","observedAt":"2026-10-03","note":"请填写来源中能核对的具体信息。"}],
+    "offerings":[], "facts":[], "unknowns":["实际生产主体与产品范围待补充"]
+  }
+}

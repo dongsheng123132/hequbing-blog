@@ -1,0 +1,115 @@
+{
+  "name": "贺去病 · AI 品牌认知观察",
+  "version": "0.1.0",
+  "schemaVersion": "1.0",
+  "basePath": "/observe",
+  "skill": "/observe/SKILL.md",
+  "api": null,
+  "openapi": "/observe/openapi.json",
+  "catalog": "/observe/catalog.json",
+  "transport": "github",
+  "github": {
+    "repository": "dongsheng123132/hequbing-company-registry",
+    "issues": "https://github.com/dongsheng123132/hequbing-company-registry/issues"
+  },
+  "license": {
+    "data": "CC-BY-4.0",
+    "terms": "/observe/DATA-LICENSE.md",
+    "software": "MIT"
+  },
+  "capabilities": {
+    "search": true,
+    "contribution": true,
+    "correction": true,
+    "inquiryDraft": true,
+    "quoteSubmission": false,
+    "payment": false
+  },
+  "actions": [
+    {
+      "id": "company.search",
+      "access": "public",
+      "description": "按类别、国家路线和关键词查询；固定按 ID 排序，不代表推荐名次",
+      "http": []
+    },
+    {
+      "id": "company.get",
+      "access": "public",
+      "description": "获取企业、产品服务、证据与版本",
+      "http": []
+    },
+    {
+      "id": "company.history",
+      "access": "public",
+      "description": "查询已发布的企业资料变更历史",
+      "http": []
+    },
+    {
+      "id": "catalog.export",
+      "access": "public",
+      "description": "导出公开快照；排除投稿、身份令牌和私有询价",
+      "http": []
+    },
+    {
+      "id": "proposal.validate",
+      "access": "public",
+      "description": "校验格式、证据引用、冲突与疑似重复",
+      "http": []
+    },
+    {
+      "id": "proposal.submit",
+      "access": "contributor",
+      "description": "提交待核验资料；不会直接覆盖企业记录",
+      "http": []
+    },
+    {
+      "id": "proposal.get",
+      "access": "contributor",
+      "description": "读取自己的提交与处理结果",
+      "http": []
+    },
+    {
+      "id": "proposal.list",
+      "access": "reviewer",
+      "description": "维护者审核队列",
+      "http": []
+    },
+    {
+      "id": "proposal.review",
+      "access": "reviewer",
+      "description": "接受／拒绝提交；保留所有已发布版本",
+      "http": []
+    },
+    {
+      "id": "inquiry.prepare",
+      "access": "public",
+      "description": "生成询价草稿和缺项清单；不发送、不报价、不存储需求",
+      "http": []
+    }
+  ],
+  "dataPolicy": "仅企业公开资料；投稿须声明公开授权；收录不等于资质认证。私有需求不进入公开快照。",
+  "ranking": {
+    "status": "separate-module",
+    "engine": "ai-recognition-index",
+    "link": "https://www.hequbing.com/observe/rankings/",
+    "notice": "已发布调查范围与进度；目录顺序不代表排名，采样不足时不出榜。"
+  },
+  "extensions": {
+    "quotes": {
+      "status": "reserved",
+      "required": [
+        "companyId",
+        "offeringId",
+        "requestId",
+        "currency",
+        "unit",
+        "quantity",
+        "taxes",
+        "validUntil",
+        "visibility",
+        "expectedVersion",
+        "idempotencyKey"
+      ]
+    }
+  }
+}

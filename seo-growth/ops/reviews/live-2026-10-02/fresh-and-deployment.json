@@ -1,0 +1,56 @@
+[
+  {
+    "name": "freshGeo",
+    "status": 404,
+    "cache": null,
+    "newBrand": false,
+    "emptyBody": false,
+    "title": "404: NOT_FOUND"
+  },
+  {
+    "name": "freshServices",
+    "status": 200,
+    "cache": "HIT",
+    "newBrand": false,
+    "emptyBody": false,
+    "title": "AI 咨询服务 | 贺去病 AI 咨询"
+  },
+  {
+    "name": "freshPost",
+    "status": 200,
+    "cache": "HIT",
+    "newBrand": false,
+    "emptyBody": true,
+    "title": "文章详情 | 贺去病 · 博客"
+  },
+  {
+    "name": "commitStatus",
+    "status": 200,
+    "cache": null,
+    "state": "failure",
+    "statuses": [
+      {
+        "context": "Vercel",
+        "state": "failure",
+        "description": "Deployment has failed — run this Vercel CLI command: npx vercel inspect dpl_D3mCdZA2udQZHo56J29wMCgDCtVq --logs",
+        "targetUrl": "https://vercel.com/hfshfgs-projects/hequbing-blog/D3mCdZA2udQZHo56J29wMCgDCtVq"
+      }
+    ],
+    "checkRuns": []
+  },
+  {
+    "name": "commitChecks",
+    "status": 200,
+    "cache": null,
+    "statuses": [],
+    "checkRuns": [
+      {
+        "name": "Vercel Preview Comments",
+        "status": "completed",
+        "conclusion": "success",
+        "outputTitle": "✅ No unresolved feedback",
+        "outputSummary": "💬 0 unresolved, 0 resolved."
+      }
+    ]
+  }
+]

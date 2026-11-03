@@ -1,0 +1,138 @@
+{
+  "company": {
+    "id": "kingbill-design",
+    "name": "金标设计 King-Bill Design",
+    "legalName": "深圳市金标源创工业设计有限公司",
+    "aliases": [
+      "金标设计",
+      "金标源创",
+      "King-Bill Design",
+      "King Bill Design"
+    ],
+    "websites": [
+      "https://www.kingbilldesign.com/",
+      "https://kingbilldesign.com/"
+    ],
+    "country": "CN",
+    "categories": [
+      "industrial-design"
+    ],
+    "summary": "官网介绍的工业产品设计服务商，面向自主品牌提供产品研究、外观与结构设计，以及产品包装和品牌设计。用户指定纳入观察；主体登记、项目交付和奖项归属尚待独立核验。",
+    "evidence": [
+      {
+        "id": "about",
+        "url": "https://kingbilldesign.com/alone/alone.php?id=680",
+        "sourceType": "company_website",
+        "observedAt": "2026-10-08",
+        "note": "官网页面标题及介绍列出深圳市金标源创工业设计有限公司与金标设计品牌；列出外观、结构、包装及工业产品领域品牌设计服务。品牌创立、个人履历及奖项不视为企业登记或独立认证。"
+      },
+      {
+        "id": "services",
+        "url": "https://kingbilldesign.com/alone/alone.php?id=681",
+        "sourceType": "company_website",
+        "observedAt": "2026-10-08",
+        "note": "官网介绍面向自主品牌的产品设计、产品规划、外观、结构与包装设计流程。仅记录自述范围，不承诺实际交付能力与效果。"
+      },
+      {
+        "id": "contact",
+        "url": "https://kingbilldesign.com/alone/alone.php?id=686",
+        "sourceType": "company_website",
+        "observedAt": "2026-10-08",
+        "note": "官网列出深圳与佛山联系地点和设计咨询入口。佛山地址的中英文楼栋及楼层表述不同，实际联系地点和签约主体待确认；不转录个人联系方式。"
+      }
+    ],
+    "offerings": [
+      {
+        "id": "product-design",
+        "kind": "advisory",
+        "category": "industrial-design",
+        "title": "产品研究与外观设计",
+        "description": "官网自述提供产品定位、定义、外观设计与手板相关服务；具体交付文件、样机责任和量产范围按项目确认。",
+        "evidenceIds": [
+          "about",
+          "services"
+        ],
+        "inquiryUrl": "https://kingbilldesign.com/alone/alone.php?id=686",
+        "inquiryFields": [
+          "产品类型与用途",
+          "目标用户与销售市场",
+          "现有样机或规格",
+          "设计范围与交付文件",
+          "预算与期望周期",
+          "知识产权及保密要求"
+        ]
+      },
+      {
+        "id": "structural-design",
+        "kind": "advisory",
+        "category": "industrial-design",
+        "title": "产品结构设计与工程跟进",
+        "description": "官网自述提供工程制图、结构研究、结构手板及模具技术跟进；样机制作、开模及生产由谁负责需另行约定。",
+        "evidenceIds": [
+          "about",
+          "services"
+        ],
+        "inquiryUrl": "https://kingbilldesign.com/alone/alone.php?id=686",
+        "inquiryFields": [
+          "产品用途与功能要求",
+          "外观方案及器件资料",
+          "材料与工艺限制",
+          "结构设计与样机范围",
+          "量产及开模安排",
+          "预算与期望周期",
+          "知识产权及保密要求"
+        ]
+      },
+      {
+        "id": "packaging-brand-design",
+        "kind": "advisory",
+        "category": "industrial-design",
+        "title": "工业产品包装与品牌设计",
+        "description": "官网自述提供产品包装、品牌标志及视觉形象设计；按具体产品及目标市场确认服务与交付范围。",
+        "evidenceIds": [
+          "about",
+          "services"
+        ],
+        "inquiryUrl": "https://kingbilldesign.com/alone/alone.php?id=686",
+        "inquiryFields": [
+          "产品与品牌资料",
+          "目标用户与销售渠道",
+          "包装或品牌设计范围",
+          "尺寸材料与运输要求",
+          "预算与期望周期",
+          "知识产权及保密要求"
+        ]
+      }
+    ],
+    "facts": [
+      {
+        "field": "服务范围",
+        "value": "产品研究、外观设计、结构设计、产品包装及工业产品领域的品牌设计（官网自述）。",
+        "evidenceIds": [
+          "about",
+          "services"
+        ],
+        "validUntil": null
+      },
+      {
+        "field": "联系地点",
+        "value": "官网列出深圳及佛山联系地点；实际地址和签约主体需咨询确认。",
+        "evidenceIds": [
+          "contact"
+        ],
+        "validUntil": null
+      }
+    ],
+    "unknowns": [
+      "企业登记与品牌、签约主体对应关系尚未查询官方登记",
+      "用户指定纳入观察，与项目发起人的关联关系待确认",
+      "官网奖项及客户案例尚未核对获奖主体、年份、项目分工及使用授权",
+      "佛山联系地址中英文表述不同，实际楼栋、楼层和办公主体待确认",
+      "项目价格、周期、知识产权归属、保密和量产责任需按合同确认"
+    ]
+  },
+  "version": 1,
+  "verification": "source_recorded",
+  "publishedAt": "2026-10-08T06:58:57.797Z",
+  "updatedAt": "2026-10-08T06:58:57.797Z"
+}

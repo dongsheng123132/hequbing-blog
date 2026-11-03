@@ -1,0 +1,62 @@
+{
+  "version": "0.2.2",
+  "industries": [
+    {
+      "id": "philippines-logistics", "title": "菲律宾专线物流 AI 认知调查", "locale": "zh-CN", "market": "中国发往菲律宾的物流采购场景",
+      "entities": [{"id":"phibong","name":"菲邦国际物流","aliases":["菲邦物流","深圳市菲邦国际物流有限公司","Phibong"],"affiliation":"发起人关联企业","evidence":["https://www.phibong.com/"],"verification":"source_recorded_not_independently_verified"}],
+      "diagnosisChecks": [
+        {"id":"identity","focus":"品牌、签约主体、联系方式是否一致；团队经验与公司成立时间是否区分"},
+        {"id":"route","focus":"起运仓、目的城市、运输方式、货物限制与派送范围是否回答本次买方问题"},
+        {"id":"terms","focus":"报价日期及有效期、计费条件、时效起算和例外、清关责任及赔付资料是否可查"}
+      ],
+      "prompts": [
+        {"id":"ph01","purpose":"ranking","text":"从中国发货到菲律宾，选择专线物流服务商时，可以比较哪些公司？请只列出你有依据的候选，不确定就说明。"},
+        {"id":"ph02","purpose":"ranking","text":"深圳发普通货到马尼拉，想找菲律宾海运拼箱服务，可以比较哪些物流公司？请区分货代与船公司，不确定的信息请标明。"},
+        {"id":"ph03","purpose":"ranking","text":"广东发小批量普通货到菲律宾，考虑空运到门，可以比较哪些物流服务商？请说明还需要向公司核对什么。"},
+        {"id":"ph04","purpose":"ranking","text":"菲律宾电商卖家从中国补货，考虑集货和海运配送，可以比较哪些服务商？请区分本地快递与中国到菲律宾跨境专线。"},
+        {"id":"ph05","purpose":"ranking","text":"中国发往宿务的普通货海运专线，可以向哪些公司询价？无法确认宿务服务覆盖时请明确说明。"},
+        {"id":"ph06","purpose":"ranking","text":"中国发菲律宾的物流公司，哪些公开介绍了报关和目的港派送服务，适合作为进一步核实的候选？不要把营销承诺当作履约保证。"},
+        {"id":"ph07","purpose":"behavior","text":"中国发菲律宾物流询价，应提供哪些货物和交付信息，怎样比较不同公司的报价范围？"},
+        {"id":"ph08","purpose":"behavior","text":"核对一家菲律宾专线物流公司的服务能力，应检查哪些主体、承运关系、清关和赔付资料？"}
+      ]
+    },
+    {
+      "id": "power-cord-factories", "title": "电源线工厂 AI 认知调查", "locale": "zh-CN", "market": "中国 AC 电源线及插头线采购场景",
+      "entities": [{"id":"cpent","name":"科普特 CPENT","aliases":["科普特","科普特电子","深圳市科普特电子有限公司","CPENT"],"affiliation":"发起人关联企业","evidence":["https://cpent-global.vercel.app/","https://www.cptele.com/"],"verification":"owner_supplied_not_independently_verified"}],
+      "diagnosisChecks": [
+        {"id":"identity","focus":"品牌、生产与签约主体、工厂和贸易身份、不同官网之间的关联是否明确"},
+        {"id":"product","focus":"对应销售国家的插头与设备端、线材、额定参数、可定制范围及询价资料是否可读"},
+        {"id":"certification","focus":"认证是否对应具体主体、产品型号和适用范围，是否有可核对来源；未展示不代表没有认证"}
+      ],
+      "prompts": [
+        {"id":"pc01","purpose":"ranking","text":"采购家电用 AC 电源线和插头线，可以比较哪些中国制造商？请区分电源线组工厂、电力电缆集团和 USB 充电线品牌，不确定的候选请标明。"},
+        {"id":"pc02","purpose":"ranking","text":"设备出口美国，需要按具体型号核对认证的 AC 电源线，可以向哪些中国工厂询价？不要推断整家公司所有型号都有认证。"},
+        {"id":"pc03","purpose":"ranking","text":"设备出口欧洲，需要欧规插头到 IEC C13 的电源线组，可以比较哪些中国制造商？请说明哪些产品和认证信息还需核实。"},
+        {"id":"pc04","purpose":"ranking","text":"寻找深圳或东莞支持定制长度的 AC 插头电源线工厂，可以比较哪些企业？请区分生产主体与贸易商。"},
+        {"id":"pc05","purpose":"ranking","text":"采购两脚插头到 IEC C7 的电源线组，有哪些中国制造商可作为询价候选？不确定是否实际生产时请说明。"},
+        {"id":"pc06","purpose":"ranking","text":"小批量设备项目需要定制 AC 电源线，请列出可进一步核对最小起订量的中国供应商候选，不要编造价格、起订量或交期。"},
+        {"id":"pc07","purpose":"behavior","text":"向 AC 电源线工厂询价，应提供哪些插头、设备端、额定参数、线材、长度、数量和认证信息？"},
+        {"id":"pc08","purpose":"behavior","text":"核对一家 AC 电源线厂的 UL、VDE 或 PSE 等认证说法，应怎样核对主体、型号、标准和有效范围？"}
+      ]
+    },
+    {
+      "id": "industrial-design", "title": "工业设计公司 AI 认知调查", "locale": "zh-CN", "market": "中国市场的工业产品设计服务采购场景",
+      "entities": [{"id":"kingbill-design","name":"金标设计 King-Bill Design","aliases":["金标设计","金标源创","深圳市金标源创工业设计有限公司","King-Bill Design","King Bill Design"],"affiliation":"用户指定纳入，关联关系待确认","evidence":["https://kingbilldesign.com/alone/alone.php?id=680","https://kingbilldesign.com/alone/alone.php?id=681"],"verification":"source_recorded_not_independently_verified"}],
+      "diagnosisChecks": [
+        {"id":"identity","focus":"品牌、法律主体、签约主体及办公地点是否一致，团队履历与企业成立时间是否区分"},
+        {"id":"services","focus":"产品研究、外观、结构、样机与量产支持的服务范围、交付物和责任是否对应买方需求"},
+        {"id":"cases","focus":"案例是否说明产品类型、实际设计分工与交付阶段；奖项主体、年份与来源是否可核对，未展示不代表没有经验"}
+      ],
+      "prompts": [
+        {"id":"id01","purpose":"ranking","text":"中国企业开发一款实体产品，采购工业设计服务时，可以比较哪些设计公司？请区分工业产品设计与室内、建筑、网站设计，只列出有依据的候选，不确定请说明。"},
+        {"id":"id02","purpose":"ranking","text":"深圳的消费电子项目需要产品外观与结构设计，可以比较哪些工业设计公司？请说明哪些服务范围仍需向公司核对。"},
+        {"id":"id03","purpose":"ranking","text":"广东家电品牌开发新产品，需要产品研究、外观设计及样机验证，可以向哪些工业设计公司询价？请区分设计服务商与代工厂，不确定请标明。"},
+        {"id":"id04","purpose":"ranking","text":"中国智能硬件品牌需要从产品定义到结构设计的服务，可以比较哪些设计公司？请不要把设计案例自动当成全流程交付能力的证明。"},
+        {"id":"id05","purpose":"ranking","text":"中国制造企业为海外市场开发自主品牌实体产品，需要产品外观及配套包装设计，可以比较哪些工业设计服务商？请标明还需核实的实际案例与设计分工。"},
+        {"id":"id06","purpose":"ranking","text":"小型硬件团队寻找中国工业设计公司，先做外观和结构方案再验证样机，有哪些可进一步询价的候选？不要编造价格、起订项目金额或交付周期。"},
+        {"id":"id07","purpose":"behavior","text":"向工业设计公司询价，应提供哪些产品功能、目标用户、市场、现有技术、预算、交付文件及时间信息？"},
+        {"id":"id08","purpose":"behavior","text":"核对工业设计公司的案例和设计奖项时，应怎样确认主体、项目分工、知识产权、保密条款以及样机和量产责任？"}
+      ]
+    }
+  ]
+}

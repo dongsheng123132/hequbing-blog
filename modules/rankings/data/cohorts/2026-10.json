@@ -1,0 +1,350 @@
+{
+  "schemaVersion": "1.0",
+  "issue": "2026-10",
+  "updatedAt": "2026-10-08",
+  "status": "candidate_review",
+  "evidenceBoundary": "来源仅证明企业官网公开介绍了有关业务，不等于独立核验主体、资质、产能或履约能力；候选清单不是排名，也不代表行业全量。",
+  "industries": [
+    {
+      "id": "philippines-logistics",
+      "scope": "面向中国发货人的中国至菲律宾跨境专线或货代服务；综合国际快递和船公司另作回答中的背景实体，不直接混排。",
+      "reviewStatus": "pending",
+      "entities": [
+        {
+          "id": "phibong",
+          "name": "菲邦国际物流",
+          "aliases": [
+            "菲邦物流",
+            "深圳市菲邦国际物流有限公司",
+            "Phibong"
+          ],
+          "legalName": "深圳市菲邦国际物流有限公司",
+          "affiliation": "发起人关联企业",
+          "sourceStatus": "official_page_read",
+          "sources": [
+            {
+              "url": "https://www.phibong.com/",
+              "supports": "官网主体名称与菲律宾海运、空运、到门业务介绍"
+            }
+          ],
+          "pending": [
+            "独立主体核验",
+            "团队经验年限与公司成立年份的区分",
+            "具体航线与资质核验"
+          ]
+        },
+        {
+          "id": "lingshun",
+          "name": "凌顺国际物流",
+          "aliases": [
+            "凌顺物流",
+            "深圳市凌顺国际物流有限公司"
+          ],
+          "legalName": "深圳市凌顺国际物流有限公司",
+          "affiliation": "未核对关联关系",
+          "sourceStatus": "official_page_read",
+          "sources": [
+            {
+              "url": "https://shun-express.com/ph/",
+              "supports": "官网主体名称与中国至菲律宾空海运专线介绍"
+            }
+          ],
+          "pending": [
+            "独立主体核验",
+            "实际承运、清关与目的城市覆盖"
+          ]
+        },
+        {
+          "id": "ptoph",
+          "name": "菲通空运",
+          "aliases": [
+            "菲通空运物流",
+            "PtoPH"
+          ],
+          "legalName": null,
+          "affiliation": "未核对关联关系",
+          "sourceStatus": "official_page_read",
+          "sources": [
+            {
+              "url": "https://www.ptoph.com/",
+              "supports": "中国至菲律宾空海运、仓储及菲律宾本地快递介绍"
+            }
+          ],
+          "pending": [
+            "签约主体与品牌对应关系",
+            "同名企业消歧",
+            "跨境业务与本地快递区分"
+          ]
+        },
+        {
+          "id": "dfpost",
+          "name": "通达方国际物流",
+          "aliases": [
+            "通达方物流",
+            "DFPOST"
+          ],
+          "legalName": null,
+          "affiliation": "未核对关联关系",
+          "sourceStatus": "official_page_read",
+          "sources": [
+            {
+              "url": "https://www.dfpost.com/zx_philippines",
+              "supports": "菲律宾专线与清关、末端配送业务介绍"
+            },
+            {
+              "url": "https://www.dfpost.com/abouts",
+              "supports": "品牌及综合国际物流业务介绍"
+            }
+          ],
+          "pending": [
+            "注册主体的一手来源",
+            "菲律宾专线当前服务边界；不将通用海空铁文案解释为中菲铁路"
+          ]
+        },
+        {
+          "id": "golucky",
+          "name": "喜运达",
+          "aliases": [
+            "GoLucky",
+            "GoLucky Express"
+          ],
+          "legalName": null,
+          "affiliation": "未核对关联关系",
+          "sourceStatus": "official_page_read",
+          "sources": [
+            {
+              "url": "https://www.goluckyvip.com/",
+              "supports": "东南亚空海运与菲律宾仓储业务介绍"
+            }
+          ],
+          "pending": [
+            "注册主体与品牌对应关系",
+            "中国至菲律宾具体起运与派送范围"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "power-cord-factories",
+      "scope": "AC 电源线组、插头线制造商及其中国生产主体；电力电缆集团和 USB 充电线品牌不因名称近似纳入。境外总部品牌需核对中国生产主体后再确认同业范围。",
+      "reviewStatus": "pending",
+      "entities": [
+        {
+          "id": "cpent",
+          "name": "科普特 CPENT",
+          "aliases": [
+            "科普特",
+            "科普特电子",
+            "深圳市科普特电子有限公司",
+            "CPENT"
+          ],
+          "legalName": "深圳市科普特电子有限公司",
+          "affiliation": "发起人关联企业",
+          "sourceStatus": "official_page_read",
+          "sources": [
+            {
+              "url": "https://www.cptele.com/",
+              "supports": "官网主体名称及电源线、插头产品目录"
+            },
+            {
+              "url": "https://cpent-global.vercel.app/",
+              "supports": "用户提供的另一个品牌站入口，页面关联待核对",
+              "status": "owner_supplied_page_unread"
+            }
+          ],
+          "pending": [
+            "两站主体关联",
+            "生产主体与具体型号认证核验"
+          ]
+        },
+        {
+          "id": "longwell",
+          "name": "良维 Longwell",
+          "aliases": [
+            "良維",
+            "Longwell"
+          ],
+          "legalName": null,
+          "affiliation": "未核对关联关系",
+          "sourceStatus": "official_search_index_only",
+          "sources": [
+            {
+              "url": "https://www.longwell.com/cn/",
+              "supports": "官网搜索结果中的品牌名称"
+            },
+            {
+              "url": "https://www.longwell.com/en/product_list.php?lm=2",
+              "supports": "官网搜索结果中的 Power Cords 类目；页面未直接读取"
+            }
+          ],
+          "pending": [
+            "完整官网页面与主体核验",
+            "中国生产主体及产品适用范围"
+          ]
+        },
+        {
+          "id": "wellshin",
+          "name": "维熹 Well Shin",
+          "aliases": [
+            "维熹",
+            "維熹",
+            "Well Shin",
+            "Wellshin"
+          ],
+          "legalName": "维熹科技股份有限公司",
+          "affiliation": "未核对关联关系",
+          "sourceStatus": "official_page_read",
+          "sources": [
+            {
+              "url": "https://www.wellshin.com.tw/cn/",
+              "supports": "主体名称及 AC 电源线、插头、连接器、线组类目"
+            }
+          ],
+          "pending": [
+            "中国生产主体与品牌关系",
+            "与具体采购场景的可比性"
+          ]
+        },
+        {
+          "id": "isheng",
+          "name": "镒胜 I-SHENG",
+          "aliases": [
+            "鎰勝",
+            "镒胜",
+            "I-SHENG"
+          ],
+          "legalName": "I-SHENG ELECTRIC WIRE & CABLE CO., LTD.",
+          "affiliation": "未核对关联关系",
+          "sourceStatus": "official_page_read",
+          "sources": [
+            {
+              "url": "https://www.isheng.com.tw/",
+              "supports": "英文公司名称与 AC 电源线组产品介绍"
+            }
+          ],
+          "pending": [
+            "中文注册全称",
+            "中国生产主体与品牌关系",
+            "具体型号核验"
+          ]
+        },
+        {
+          "id": "xuanhua",
+          "name": "煊华 Xuanhua",
+          "aliases": [
+            "Ningbo Xuanhua",
+            "Ningbo Xuanhua Industrial",
+            "煊华",
+            "煊华实业",
+            "宁波煊华实业有限公司"
+          ],
+          "legalName": "宁波煊华实业有限公司",
+          "affiliation": "未核对关联关系",
+          "sourceStatus": "official_page_read",
+          "sources": [
+            {
+              "url": "https://www.acpowercables.com/",
+              "supports": "英文主体名称、浙江余姚地址及 AC 电源线插头产品介绍"
+            },
+            {
+              "url": "https://www.cha-tou.com/",
+              "supports": "中文官网的主体全称、产品目录及英文官网互链"
+            }
+          ],
+          "pending": [
+            "认证与生产能力独立核验"
+          ]
+        },
+        {
+          "id": "nbwell",
+          "name": "唯尔 Well Electric",
+          "aliases": [
+            "Ningbo Well Electric",
+            "Ningbo Well Electric Appliance",
+            "唯尔电器",
+            "宁波唯尔电器有限公司"
+          ],
+          "legalName": "宁波唯尔电器有限公司",
+          "affiliation": "未核对关联关系",
+          "sourceStatus": "official_page_read",
+          "sources": [
+            {
+              "url": "https://www.nbwell.com/",
+              "supports": "英文主体名称、余姚地址与电源线生产业务介绍"
+            },
+            {
+              "url": "https://cn.nbwell.com/about/",
+              "supports": "中文官网的主体全称与电源线产品介绍"
+            }
+          ],
+          "pending": [
+            "中国与泰国生产主体和型号适用范围"
+          ]
+        },
+        {
+          "id": "yunhuan",
+          "name": "云环 Yunhuan",
+          "aliases": [
+            "云环",
+            "Yunhuan"
+          ],
+          "legalName": null,
+          "affiliation": "未核对关联关系",
+          "sourceStatus": "official_search_index_only",
+          "sources": [
+            {
+              "url": "https://www.yunhuan.com/",
+              "supports": "官网搜索结果中的电源线产品及集团、关联公司名称；页面未直接读取"
+            }
+          ],
+          "pending": [
+            "完整官网页面",
+            "云环集团与维润主体关系",
+            "实际生产主体及 AC 产品范围"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "industrial-design",
+      "scope": "面向中国企业的实体产品工业设计服务，涵盖产品研究、外观与结构设计；室内、建筑、网站设计及纯代工厂不直接混排。",
+      "reviewStatus": "pending",
+      "entities": [
+        {
+          "id": "kingbill-design",
+          "name": "金标设计 King-Bill Design",
+          "aliases": [
+            "金标设计",
+            "金标源创",
+            "King-Bill Design",
+            "King Bill Design",
+            "深圳市金标源创工业设计有限公司"
+          ],
+          "legalName": "深圳市金标源创工业设计有限公司",
+          "affiliation": "用户指定纳入，关联关系待确认",
+          "sourceStatus": "official_page_read",
+          "sources": [
+            {
+              "url": "https://kingbilldesign.com/alone/alone.php?id=680",
+              "supports": "品牌、主体名称及外观、结构、包装和工业产品品牌设计服务介绍"
+            },
+            {
+              "url": "https://kingbilldesign.com/alone/alone.php?id=681",
+              "supports": "产品设计服务范围及开发流程介绍"
+            },
+            {
+              "url": "https://kingbilldesign.com/alone/alone.php?id=686",
+              "supports": "深圳、佛山联系地点及设计咨询入口"
+            }
+          ],
+          "pending": [
+            "独立主体核验及发起人关联关系确认",
+            "奖项和案例的归属、年份及实际设计分工核验",
+            "扩充并核对同类设计服务商候选，避免仅凭种子企业形成排名",
+            "尚未模型采样，需按同题跨模型协议采集并检查漏收录企业"
+          ]
+        }
+      ]
+    }
+  ]
+}

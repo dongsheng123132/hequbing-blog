@@ -1,0 +1,366 @@
+{
+  "schemaVersion": "1.0",
+  "revision": 3,
+  "records": [
+    {
+      "company": {
+        "id": "cpent",
+        "name": "科普特 CPENT",
+        "legalName": "深圳市科普特电子有限公司",
+        "aliases": [
+          "科普特电子",
+          "CPENT"
+        ],
+        "websites": [
+          "https://cpent-global.vercel.app/",
+          "https://www.cptele.com/"
+        ],
+        "country": "CN",
+        "categories": [
+          "power-cords",
+          "cable-harnesses"
+        ],
+        "summary": "用户提供的电源线与连接器企业资料，涵盖 AC 电源线、IEC 连接器与定制线束。企业介绍来自授权本地网站内容；证书具体型号、主体和有效性需独立核验。",
+        "evidence": [
+          {
+            "id": "website-source",
+            "url": "https://cpent-global.vercel.app/",
+            "sourceType": "owner_supplied",
+            "observedAt": "2026-10-03",
+            "note": "用户提供网站；本次从其授权本地网站源 data.mjs 的 SITE 与 CATS 核对名称和产品分类，线上页面未成功抓取。未公开本地客户素材、证书扫描件或开票资料。"
+          }
+        ],
+        "offerings": [
+          {
+            "id": "ac-power-cords",
+            "kind": "product",
+            "category": "power-cords",
+            "title": "AC 电源线与插头线",
+            "description": "网站资料列出不同市场插头规格的 AC 电源线。具体型号、额定参数和认证范围按实际型号核验。",
+            "evidenceIds": [
+              "website-source"
+            ],
+            "inquiryUrl": "https://cpent-global.vercel.app/",
+            "inquiryFields": [
+              "目标销售国家",
+              "插头及设备端型号",
+              "额定电压与电流",
+              "线材规格与长度",
+              "数量",
+              "认证要求",
+              "交货地点",
+              "期望交期"
+            ]
+          },
+          {
+            "id": "iec-cord-sets",
+            "kind": "product",
+            "category": "power-cords",
+            "title": "IEC 连接器与电源线组",
+            "description": "网站产品分类包含 IEC C5、C7、C13 等设备端连接器及线组；选型需核对具体参数。",
+            "evidenceIds": [
+              "website-source"
+            ],
+            "inquiryUrl": "https://cpent-global.vercel.app/",
+            "inquiryFields": [
+              "两端连接器型号",
+              "额定电压与电流",
+              "线材规格与长度",
+              "数量",
+              "认证要求",
+              "交货地点",
+              "期望交期"
+            ]
+          },
+          {
+            "id": "custom-harnesses",
+            "kind": "product",
+            "category": "cable-harnesses",
+            "title": "定制线束",
+            "description": "网站资料列有 OEM／ODM 定制线束；需按图纸或样品确认能力与报价。",
+            "evidenceIds": [
+              "website-source"
+            ],
+            "inquiryUrl": "https://cpent-global.vercel.app/",
+            "inquiryFields": [
+              "用途",
+              "图纸或规格说明",
+              "端子型号",
+              "线材规格与长度",
+              "数量",
+              "检测要求",
+              "交货地点",
+              "期望交期"
+            ]
+          }
+        ],
+        "facts": [
+          {
+            "field": "产品分类",
+            "value": "AC 电源线、IEC 连接器与电源线组、定制线束（用户提供的网站内容）。",
+            "evidenceIds": [
+              "website-source"
+            ],
+            "validUntil": null
+          }
+        ],
+        "unknowns": [
+          "英文公司名称存在历史写法差异，合同主体须核实",
+          "深圳与梧州主体及工厂关系须按具体订单确认",
+          "认证按主体、型号、标准及有效期核验，不作全公司通用认证背书",
+          "价格、起订量、产能和交期需供应商按单确认"
+        ]
+      },
+      "version": 1,
+      "publishedAt": "2026-10-03T05:12:53.605Z",
+      "updatedAt": "2026-10-03T05:12:53.605Z",
+      "verification": "source_recorded"
+    },
+    {
+      "company": {
+        "id": "kingbill-design",
+        "name": "金标设计 King-Bill Design",
+        "legalName": "深圳市金标源创工业设计有限公司",
+        "aliases": [
+          "金标设计",
+          "金标源创",
+          "King-Bill Design",
+          "King Bill Design"
+        ],
+        "websites": [
+          "https://www.kingbilldesign.com/",
+          "https://kingbilldesign.com/"
+        ],
+        "country": "CN",
+        "categories": [
+          "industrial-design"
+        ],
+        "summary": "官网介绍的工业产品设计服务商，面向自主品牌提供产品研究、外观与结构设计，以及产品包装和品牌设计。用户指定纳入观察；主体登记、项目交付和奖项归属尚待独立核验。",
+        "evidence": [
+          {
+            "id": "about",
+            "url": "https://kingbilldesign.com/alone/alone.php?id=680",
+            "sourceType": "company_website",
+            "observedAt": "2026-10-08",
+            "note": "官网页面标题及介绍列出深圳市金标源创工业设计有限公司与金标设计品牌；列出外观、结构、包装及工业产品领域品牌设计服务。品牌创立、个人履历及奖项不视为企业登记或独立认证。"
+          },
+          {
+            "id": "services",
+            "url": "https://kingbilldesign.com/alone/alone.php?id=681",
+            "sourceType": "company_website",
+            "observedAt": "2026-10-08",
+            "note": "官网介绍面向自主品牌的产品设计、产品规划、外观、结构与包装设计流程。仅记录自述范围，不承诺实际交付能力与效果。"
+          },
+          {
+            "id": "contact",
+            "url": "https://kingbilldesign.com/alone/alone.php?id=686",
+            "sourceType": "company_website",
+            "observedAt": "2026-10-08",
+            "note": "官网列出深圳与佛山联系地点和设计咨询入口。佛山地址的中英文楼栋及楼层表述不同，实际联系地点和签约主体待确认；不转录个人联系方式。"
+          }
+        ],
+        "offerings": [
+          {
+            "id": "product-design",
+            "kind": "advisory",
+            "category": "industrial-design",
+            "title": "产品研究与外观设计",
+            "description": "官网自述提供产品定位、定义、外观设计与手板相关服务；具体交付文件、样机责任和量产范围按项目确认。",
+            "evidenceIds": [
+              "about",
+              "services"
+            ],
+            "inquiryUrl": "https://kingbilldesign.com/alone/alone.php?id=686",
+            "inquiryFields": [
+              "产品类型与用途",
+              "目标用户与销售市场",
+              "现有样机或规格",
+              "设计范围与交付文件",
+              "预算与期望周期",
+              "知识产权及保密要求"
+            ]
+          },
+          {
+            "id": "structural-design",
+            "kind": "advisory",
+            "category": "industrial-design",
+            "title": "产品结构设计与工程跟进",
+            "description": "官网自述提供工程制图、结构研究、结构手板及模具技术跟进；样机制作、开模及生产由谁负责需另行约定。",
+            "evidenceIds": [
+              "about",
+              "services"
+            ],
+            "inquiryUrl": "https://kingbilldesign.com/alone/alone.php?id=686",
+            "inquiryFields": [
+              "产品用途与功能要求",
+              "外观方案及器件资料",
+              "材料与工艺限制",
+              "结构设计与样机范围",
+              "量产及开模安排",
+              "预算与期望周期",
+              "知识产权及保密要求"
+            ]
+          },
+          {
+            "id": "packaging-brand-design",
+            "kind": "advisory",
+            "category": "industrial-design",
+            "title": "工业产品包装与品牌设计",
+            "description": "官网自述提供产品包装、品牌标志及视觉形象设计；按具体产品及目标市场确认服务与交付范围。",
+            "evidenceIds": [
+              "about",
+              "services"
+            ],
+            "inquiryUrl": "https://kingbilldesign.com/alone/alone.php?id=686",
+            "inquiryFields": [
+              "产品与品牌资料",
+              "目标用户与销售渠道",
+              "包装或品牌设计范围",
+              "尺寸材料与运输要求",
+              "预算与期望周期",
+              "知识产权及保密要求"
+            ]
+          }
+        ],
+        "facts": [
+          {
+            "field": "服务范围",
+            "value": "产品研究、外观设计、结构设计、产品包装及工业产品领域的品牌设计（官网自述）。",
+            "evidenceIds": [
+              "about",
+              "services"
+            ],
+            "validUntil": null
+          },
+          {
+            "field": "联系地点",
+            "value": "官网列出深圳及佛山联系地点；实际地址和签约主体需咨询确认。",
+            "evidenceIds": [
+              "contact"
+            ],
+            "validUntil": null
+          }
+        ],
+        "unknowns": [
+          "企业登记与品牌、签约主体对应关系尚未查询官方登记",
+          "用户指定纳入观察，与项目发起人的关联关系待确认",
+          "官网奖项及客户案例尚未核对获奖主体、年份、项目分工及使用授权",
+          "佛山联系地址中英文表述不同，实际楼栋、楼层和办公主体待确认",
+          "项目价格、周期、知识产权归属、保密和量产责任需按合同确认"
+        ]
+      },
+      "version": 1,
+      "verification": "source_recorded",
+      "publishedAt": "2026-10-08T06:58:57.797Z",
+      "updatedAt": "2026-10-08T06:58:57.797Z"
+    },
+    {
+      "company": {
+        "id": "phibong",
+        "name": "菲邦国际物流",
+        "legalName": "深圳市菲邦国际物流有限公司",
+        "aliases": [
+          "菲邦物流",
+          "Phibong"
+        ],
+        "websites": [
+          "https://www.phibong.com/"
+        ],
+        "country": "CN",
+        "categories": [
+          "international-logistics"
+        ],
+        "summary": "官网介绍的菲律宾专线服务商，提供海运、空运及门到门服务。首批由项目发起人提供网站，已记录来源，尚未独立核验资质、承运关系及履约表现。",
+        "evidence": [
+          {
+            "id": "website",
+            "url": "https://www.phibong.com/",
+            "sourceType": "company_website",
+            "observedAt": "2026-10-03",
+            "note": "官网首页列出公司名称、深圳仓地址和菲律宾海运／空运服务。营销价格及不同位置的时效表述不作为有效报价。"
+          }
+        ],
+        "offerings": [
+          {
+            "id": "ph-sea",
+            "kind": "logistics",
+            "category": "international-logistics",
+            "title": "菲律宾海运专线",
+            "description": "官网自述提供菲律宾海运及门到门服务；货类、清关责任和实际时效需按单确认。",
+            "evidenceIds": [
+              "website"
+            ],
+            "route": {
+              "originCountry": "CN",
+              "originCity": "深圳",
+              "destinationCountry": "PH",
+              "destinationCity": "马尼拉",
+              "mode": "sea"
+            },
+            "inquiryUrl": "https://www.phibong.com/",
+            "inquiryFields": [
+              "起运地",
+              "目的地及邮编",
+              "货物名称与用途",
+              "件数",
+              "总体积立方米",
+              "总重量公斤",
+              "是否带电或含液体",
+              "清关与税费安排",
+              "计划出货日期"
+            ]
+          },
+          {
+            "id": "ph-air",
+            "kind": "logistics",
+            "category": "international-logistics",
+            "title": "菲律宾空运专线",
+            "description": "官网自述提供菲律宾空运服务；计费重量、最低收费及附加费需按单确认。",
+            "evidenceIds": [
+              "website"
+            ],
+            "route": {
+              "originCountry": "CN",
+              "originCity": "深圳",
+              "destinationCountry": "PH",
+              "destinationCity": "马尼拉",
+              "mode": "air"
+            },
+            "inquiryUrl": "https://www.phibong.com/",
+            "inquiryFields": [
+              "起运地",
+              "目的地及邮编",
+              "货物名称与用途",
+              "每件尺寸厘米",
+              "总重量公斤",
+              "是否带电或含液体",
+              "计划出货日期"
+            ]
+          }
+        ],
+        "facts": [
+          {
+            "field": "业务范围",
+            "value": "菲律宾海运、空运与门到门服务（官网自述）。",
+            "evidenceIds": [
+              "website"
+            ],
+            "validUntil": null
+          }
+        ],
+        "unknowns": [
+          "企业主体与经营资质尚未查询官方登记",
+          "官网优惠价没有明确有效期，不能作为当前成交价",
+          "官网海运与空运时效存在不同表述，须按单确认",
+          "承运／代理关系、清关责任、保险与货类限制待确认"
+        ]
+      },
+      "version": 1,
+      "publishedAt": "2026-10-03T05:12:53.605Z",
+      "updatedAt": "2026-10-03T05:12:53.605Z",
+      "verification": "source_recorded"
+    }
+  ],
+  "contentHash": "be0eaeb1000f88c2c31f33314819be780f6165e6906e09b9b60425f64a7665ac",
+  "notice": "首批为发起人提供的来源资料；收录不等于认证、推荐或排名。来源内容未经独立核验。"
+}

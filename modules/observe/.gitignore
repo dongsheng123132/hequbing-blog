@@ -1,0 +1,6 @@
+.local/
+dist/
+node_modules/
+*.bak
+*.tmp
+.tmp/

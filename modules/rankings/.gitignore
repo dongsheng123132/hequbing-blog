@@ -1,0 +1,6 @@
+node_modules/
+.local/
+site/dist/
+skill-package/
+.env*
+*.key

@@ -1,0 +1,114 @@
+{
+  "company": {
+    "id": "cpent",
+    "name": "科普特 CPENT",
+    "legalName": "深圳市科普特电子有限公司",
+    "aliases": [
+      "科普特电子",
+      "CPENT"
+    ],
+    "websites": [
+      "https://cpent-global.vercel.app/",
+      "https://www.cptele.com/"
+    ],
+    "country": "CN",
+    "categories": [
+      "power-cords",
+      "cable-harnesses"
+    ],
+    "summary": "用户提供的电源线与连接器企业资料，涵盖 AC 电源线、IEC 连接器与定制线束。企业介绍来自授权本地网站内容；证书具体型号、主体和有效性需独立核验。",
+    "evidence": [
+      {
+        "id": "website-source",
+        "url": "https://cpent-global.vercel.app/",
+        "sourceType": "owner_supplied",
+        "observedAt": "2026-10-03",
+        "note": "用户提供网站；本次从其授权本地网站源 data.mjs 的 SITE 与 CATS 核对名称和产品分类，线上页面未成功抓取。未公开本地客户素材、证书扫描件或开票资料。"
+      }
+    ],
+    "offerings": [
+      {
+        "id": "ac-power-cords",
+        "kind": "product",
+        "category": "power-cords",
+        "title": "AC 电源线与插头线",
+        "description": "网站资料列出不同市场插头规格的 AC 电源线。具体型号、额定参数和认证范围按实际型号核验。",
+        "evidenceIds": [
+          "website-source"
+        ],
+        "inquiryUrl": "https://cpent-global.vercel.app/",
+        "inquiryFields": [
+          "目标销售国家",
+          "插头及设备端型号",
+          "额定电压与电流",
+          "线材规格与长度",
+          "数量",
+          "认证要求",
+          "交货地点",
+          "期望交期"
+        ]
+      },
+      {
+        "id": "iec-cord-sets",
+        "kind": "product",
+        "category": "power-cords",
+        "title": "IEC 连接器与电源线组",
+        "description": "网站产品分类包含 IEC C5、C7、C13 等设备端连接器及线组；选型需核对具体参数。",
+        "evidenceIds": [
+          "website-source"
+        ],
+        "inquiryUrl": "https://cpent-global.vercel.app/",
+        "inquiryFields": [
+          "两端连接器型号",
+          "额定电压与电流",
+          "线材规格与长度",
+          "数量",
+          "认证要求",
+          "交货地点",
+          "期望交期"
+        ]
+      },
+      {
+        "id": "custom-harnesses",
+        "kind": "product",
+        "category": "cable-harnesses",
+        "title": "定制线束",
+        "description": "网站资料列有 OEM／ODM 定制线束；需按图纸或样品确认能力与报价。",
+        "evidenceIds": [
+          "website-source"
+        ],
+        "inquiryUrl": "https://cpent-global.vercel.app/",
+        "inquiryFields": [
+          "用途",
+          "图纸或规格说明",
+          "端子型号",
+          "线材规格与长度",
+          "数量",
+          "检测要求",
+          "交货地点",
+          "期望交期"
+        ]
+      }
+    ],
+    "facts": [
+      {
+        "field": "产品分类",
+        "value": "AC 电源线、IEC 连接器与电源线组、定制线束（用户提供的网站内容）。",
+        "evidenceIds": [
+          "website-source"
+        ],
+        "validUntil": null
+      }
+    ],
+    "unknowns": [
+      "英文公司名称存在历史写法差异，合同主体须核实",
+      "深圳与梧州主体及工厂关系须按具体订单确认",
+      "认证按主体、型号、标准及有效期核验，不作全公司通用认证背书",
+      "价格、起订量、产能和交期需供应商按单确认"
+    ]
+  },
+  "version": 1,
+  "publishedAt": "2026-10-03T05:12:53.605Z",
+  "updatedAt": "2026-10-03T05:12:53.605Z",
+  "verification": "source_recorded"
+}

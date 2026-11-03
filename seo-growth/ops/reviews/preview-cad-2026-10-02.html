@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- 文章页模板：由 api/render-post.js 在服务端填充 {{...}}，让爬虫和 AI 引擎不执行 JS 也能读到正文 -->
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CAD AI如何生成可复核的门窗对象清单：DWG与DXF实践 | 贺去病 · 博客</title>
+  <meta name="description" content="从168樘窗、22个门的对象级实践，看CAD AI怎样保留位置、分类依据与验收边界。截图与原件输入不同，不作为模型排行榜。" id="meta-desc" />
+  <link rel="canonical" href="https://blog.hequbing.com/post?slug=cad-ai-dwg-dxf-object-audit" />
+  <meta property="og:title" content="CAD AI如何生成可复核的门窗对象清单：DWG与DXF实践" id="og-title" />
+  <meta property="og:description" content="从168樘窗、22个门的对象级实践，看CAD AI怎样保留位置、分类依据与验收边界。截图与原件输入不同，不作为模型排行榜。" id="og-desc" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://blog.hequbing.com/post?slug=cad-ai-dwg-dxf-object-audit" id="og-url" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json" id="schema-json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"CAD AI如何生成可复核的门窗对象清单：DWG与DXF实践","description":"从168樘窗、22个门的对象级实践，看CAD AI怎样保留位置、分类依据与验收边界。截图与原件输入不同，不作为模型排行榜。","datePublished":"2026-10-02","dateModified":"2026-10-02","keywords":"CAD AI, 本象协议, AI落地","author":{"@type":"Person","@id":"https://www.hequbing.com/about#person","name":"贺去病","alternateName":"贺方升","url":"https://www.hequbing.com/about"},"publisher":{"@type":"Person","name":"贺去病"},"mainEntityOfPage":"https://blog.hequbing.com/post?slug=cad-ai-dwg-dxf-object-audit","isBasedOn":"https://mp.weixin.qq.com/s/E2rnY8tL65rX6eefSwXIQQ"}</script>
+</head>
+<body>
+  <div id="post-progress" class="post-progress"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-row">
+        <div class="site-title"><a href="/archive" class="brand">贺去病 · 博客</a></div>
+        <nav class="nav">
+          <a href="/archive">归档</a>
+          <a href="/tags">标签</a>
+          <a href="/about">关于</a>
+          <a href="/ai-nav/">AI导航</a>
+            <a href="https://www.hequbing.com/">商业咨询</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="post-breadcrumb">
+      <a href="/archive">← 返回归档</a>
+    </div>
+
+    <article id="post" class="post-detail" data-rendered-slug="cad-ai-dwg-dxf-object-audit">
+      <h1 id="post-title">CAD AI如何生成可复核的门窗对象清单：DWG与DXF实践</h1>
+      <div class="meta" id="post-meta"><span>2026-10-02</span><a href="https://www.hequbing.com/about">作者：贺去病（贺方升）</a><span>阅读约 4 分钟</span><a class="case-card-tag" style="text-decoration:none" href="/archive?tag=CAD%20AI">#CAD AI</a><a class="case-card-tag" style="text-decoration:none" href="/archive?tag=%E6%9C%AC%E8%B1%A1%E5%8D%8F%E8%AE%AE">#本象协议</a><a class="case-card-tag" style="text-decoration:none" href="/archive?tag=AI%E8%90%BD%E5%9C%B0">#AI落地</a></div>
+      <div id="post-content" class="content"><p>CAD AI 项目最后需要交付的，往往不是一句“共有多少扇窗”，而是一张能逐条回到原图的清单。我在这次实践里，把受控 DWG 和官方 DXF 读成对象、关系及证据：客户可以追问某个对象在哪里、为什么这样分类、哪些部分还没有恢复。</p>
+<p>以下数据来自我在公众号记录的项目过程，证据状态为 <strong>2026-08-13</strong>，不是对所有图纸的能力承诺。原始客户图纸在授权环境中处理，公开材料采用脱敏展示。</p>
+<h2>为什么一张总览截图不够</h2>
+<p>同一项目的截图问答给出了7个窗、5个门；读取原始DWG的对象级流程得到168樘窗、22个门。两边拿到的输入不同：PNG没有完整的实体handle、坐标、图层、块归属和代理载荷。这个对比说明了输入信息的损失，不能当成公平的模型排名。</p>
+<p>如果客户继续问“第97个窗在哪里”，结果就必须带稳定ID和位置，而不是只给一个总数。</p>
+<h2>194个候选与190个实际对象怎么区分</h2>
+<table><thead><tr><th>统计项</th><th>本次记录</th><th>含义</th></tr></thead><tbody><tr><td>候选总数</td><td>194</td><td>4个块定义模板，加190个实际放置对象</td></tr><tr><td>实际对象</td><td>190</td><td>168个窗、22个门、0个未分类</td></tr><tr><td>位置锚点</td><td>190/190</td><td>实际放置对象均恢复位置锚点</td></tr></tbody></table>
+<p>对象使用类似 <code>opening:38A</code> 的ID，保留稳定handle、分类依据、载荷指纹和位置证据。数量有异议时，可以查具体对象、解码器、依据和派生过程。</p>
+<p>这里的168指窗樘或窗洞对象，不是玻璃片数量。GNU LibreDWG独立确认的是194个候选总数，没有独立确认168/22的分类。精确轮廓、朝向和bbox仍待恢复；位置锚点不等于已经恢复完整几何。</p>
+<h2>第二份输入：官方DXF图框模板</h2>
+<p>另一份输入是City of San Diego官方DS-3179 Construction Plan DXF模板。我的导入记录为187个本象对象、319条关系，文件版本AC1032，头部单位inch，约定的10项机器约束通过10/10。</p>
+<p>记录内容包括Sheet Index的页码、专业码及标题，Greenbook 2024、Whitebook 2024、California MUTCD 2026等引用标准，以及NAME OF COMPANY、SITE ADDRESS、PHONE、EMAIL等待填字段。引用标准被识别出来，不表示图纸已符合这些标准；10/10仅对应本次约定的检查项。</p>
+<h2>一份可验收的CAD AI结果应交什么</h2>
+<ul><li>源文件身份、版本与SHA-256，说明本次检查的是哪份图。</li><li>对象清单、分类结果、稳定ID，以及位置或回图证据。</li><li>问题清单、统计表、机器检查项及其来源。</li><li>未覆盖的对象和规则、剩余风险、需专业人员复核的结论。</li></ul>
+<p>可按项目输出HTML、PDF、CSV、JSON或.origin证据包。表图核对、版本差异、图签检查和规则预检，都应先约定对象范围和通过标准，再决定是否适合自动化。</p>
+<h2>合作先从一张图、一个问题开始</h2>
+<p>请先说明最想查什么、怎样算通过、最终由谁复核，以及哪些资料不能外传。先用小样交出对象清单、问题样例和回图依据，有用再扩大到整套图集。</p>
+<p>目前没有完成同图、同范围、同验收标准的人工作业盲测，因此不宣称效率提高十倍。规则预检也不等于政府审批，不替代建筑师、工程师或其他专业人员的判断与签章。</p>
+<p>这条对象与证据的思路，与我开发的<a href="https://blog.hequbing.com/post?slug=benxiang-protocol">本象协议</a>相关；协议仓库为<a href="https://github.com/dongsheng123132/2origin">2origin</a>。需要CAD小样评估，可查看<a href="https://www.hequbing.com/services#dev">AI开发与交付</a>后联系我。</p><hr><p>作者：<a href="https://www.hequbing.com/about">贺去病（贺方升）</a>。网站整理日期：2026-10-02。本文根据我的公众号文章<a href="https://mp.weixin.qq.com/s/E2rnY8tL65rX6eefSwXIQQ">《我们让ai读懂了CAD，普通 AI 数出 7 个窗，我们交付了 168 个可复核对象｜CAD AI 项目承接》</a>整理；原文图示及发布记录见公众号。</p><p>合作联系：微信 <strong>hecare888</strong>；邮箱 <a href="mailto:hefangsheng@gmail.com">hefangsheng@gmail.com</a>。<a href="https://www.hequbing.com/services">查看服务范围与报价</a>。</p></div>
+
+      <div class="share-bar" id="share-bar">
+        <span class="share-label">分享：</span>
+        <button class="share-btn" data-share="weibo" title="分享到微博">微博</button>
+        <button class="share-btn" data-share="x" title="分享到 X">X</button>
+        <button class="share-btn" data-share="copy" title="复制链接">复制链接</button>
+      </div>
+    </article>
+
+    <nav class="post-nav" id="post-nav"></nav>
+
+    <section class="related-section" id="related-section">
+      <h2 class="section-title">相关文章</h2>
+      <div id="related-posts" class="related-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <span>© <span id="year"></span> 贺去病 · hequbing.com · 博客</span>
+        <div class="footer-links">
+          <a href="/archive">归档</a>
+          <a href="/tags">标签</a>
+          <a href="/about">关于</a>
+          <a href="/ai-nav/">AI导航</a>
+            <a href="https://www.hequbing.com/">商业咨询</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/site.js"></script>
+  <script src="/post.js"></script>
+</body>
+</html>

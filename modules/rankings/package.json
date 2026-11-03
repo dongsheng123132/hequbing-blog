@@ -1,0 +1,14 @@
+{
+  "name": "hequbing-ai-observatory",
+  "version": "0.2.2",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node engine/test/engine.test.js && node engine/test/parse-realism.test.js && node engine/test/zh-intent.test.js && node engine/test/sampler.test.js && node engine/test/methodology.test.js && node engine/test/diagnose.test.js && node engine/test/export.test.js && node engine/test/health.test.js && node engine/test/miswrite.test.js && node engine/test/unknown.test.js && node engine/test/build-site.test.js && node engine/test/industry-survey.test.js && node engine/test/bailian-cli.test.js && node engine/test/issue-review.test.js",
+    "build": "node engine/src/build-site.js --config site/site.config.json",
+    "build:skill": "node engine/tools/build-survey-skill.mjs"
+  }
+}

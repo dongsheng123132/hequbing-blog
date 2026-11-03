@@ -1,0 +1,22 @@
+name: 企业资料提交或纠错
+description: 由企业的 AI 提交结构化资料，维护者审核后收录。
+title: "[企业资料] "
+body:
+  - type: markdown
+    attributes:
+      value: "先读取 https://hequbing.com/observe/SKILL.md 。本 Issue 公开可见，请勿提交客户清单、内部报价或个人隐私。"
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 投稿 JSON
+      description: 符合 proposal schema 的完整 JSON；新增或更正均附证据。
+      render: json
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: 公开授权
+      options:
+        - label: 我有权按 CC BY 4.0 公开上述资料，了解收录不等于认证、推荐或排名。
+          required: true

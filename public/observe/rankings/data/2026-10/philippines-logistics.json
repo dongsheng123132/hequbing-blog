@@ -1,0 +1,179 @@
+{
+  "schemaVersion": "1.0",
+  "id": "philippines-logistics",
+  "title": "菲律宾专线物流 AI 认知榜",
+  "issue": "2026-10",
+  "status": "collecting",
+  "reportable": false,
+  "reason": "首期调查采样中；候选企业同业核验和跨模型同题采样尚未齐备。",
+  "market": "中国发往菲律宾的物流采购场景",
+  "cadence": "计划每月一期，样本不足时发布调查进展，不强排名次。",
+  "sampleCount": null,
+  "entityCount": null,
+  "engines": [],
+  "rows": [],
+  "prompts": [
+    {
+      "id": "ph01",
+      "purpose": "ranking",
+      "text": "从中国发货到菲律宾，选择专线物流服务商时，可以比较哪些公司？请只列出你有依据的候选，不确定就说明。"
+    },
+    {
+      "id": "ph02",
+      "purpose": "ranking",
+      "text": "深圳发普通货到马尼拉，想找菲律宾海运拼箱服务，可以比较哪些物流公司？请区分货代与船公司，不确定的信息请标明。"
+    },
+    {
+      "id": "ph03",
+      "purpose": "ranking",
+      "text": "广东发小批量普通货到菲律宾，考虑空运到门，可以比较哪些物流服务商？请说明还需要向公司核对什么。"
+    },
+    {
+      "id": "ph04",
+      "purpose": "ranking",
+      "text": "菲律宾电商卖家从中国补货，考虑集货和海运配送，可以比较哪些服务商？请区分本地快递与中国到菲律宾跨境专线。"
+    },
+    {
+      "id": "ph05",
+      "purpose": "ranking",
+      "text": "中国发往宿务的普通货海运专线，可以向哪些公司询价？无法确认宿务服务覆盖时请明确说明。"
+    },
+    {
+      "id": "ph06",
+      "purpose": "ranking",
+      "text": "中国发菲律宾的物流公司，哪些公开介绍了报关和目的港派送服务，适合作为进一步核实的候选？不要把营销承诺当作履约保证。"
+    },
+    {
+      "id": "ph07",
+      "purpose": "behavior",
+      "text": "中国发菲律宾物流询价，应提供哪些货物和交付信息，怎样比较不同公司的报价范围？"
+    },
+    {
+      "id": "ph08",
+      "purpose": "behavior",
+      "text": "核对一家菲律宾专线物流公司的服务能力，应检查哪些主体、承运关系、清关和赔付资料？"
+    }
+  ],
+  "methodologyVersion": "0.2.1",
+  "candidateReview": {
+    "id": "philippines-logistics",
+    "scope": "面向中国发货人的中国至菲律宾跨境专线或货代服务；综合国际快递和船公司另作回答中的背景实体，不直接混排。",
+    "reviewStatus": "pending",
+    "entities": [
+      {
+        "id": "phibong",
+        "name": "菲邦国际物流",
+        "aliases": [
+          "菲邦物流",
+          "深圳市菲邦国际物流有限公司",
+          "Phibong"
+        ],
+        "legalName": "深圳市菲邦国际物流有限公司",
+        "affiliation": "发起人关联企业",
+        "sourceStatus": "official_page_read",
+        "sources": [
+          {
+            "url": "https://www.phibong.com/",
+            "supports": "官网主体名称与菲律宾海运、空运、到门业务介绍"
+          }
+        ],
+        "pending": [
+          "独立主体核验",
+          "团队经验年限与公司成立年份的区分",
+          "具体航线与资质核验"
+        ]
+      },
+      {
+        "id": "lingshun",
+        "name": "凌顺国际物流",
+        "aliases": [
+          "凌顺物流",
+          "深圳市凌顺国际物流有限公司"
+        ],
+        "legalName": "深圳市凌顺国际物流有限公司",
+        "affiliation": "未核对关联关系",
+        "sourceStatus": "official_page_read",
+        "sources": [
+          {
+            "url": "https://shun-express.com/ph/",
+            "supports": "官网主体名称与中国至菲律宾空海运专线介绍"
+          }
+        ],
+        "pending": [
+          "独立主体核验",
+          "实际承运、清关与目的城市覆盖"
+        ]
+      },
+      {
+        "id": "ptoph",
+        "name": "菲通空运",
+        "aliases": [
+          "菲通空运物流",
+          "PtoPH"
+        ],
+        "legalName": null,
+        "affiliation": "未核对关联关系",
+        "sourceStatus": "official_page_read",
+        "sources": [
+          {
+            "url": "https://www.ptoph.com/",
+            "supports": "中国至菲律宾空海运、仓储及菲律宾本地快递介绍"
+          }
+        ],
+        "pending": [
+          "签约主体与品牌对应关系",
+          "同名企业消歧",
+          "跨境业务与本地快递区分"
+        ]
+      },
+      {
+        "id": "dfpost",
+        "name": "通达方国际物流",
+        "aliases": [
+          "通达方物流",
+          "DFPOST"
+        ],
+        "legalName": null,
+        "affiliation": "未核对关联关系",
+        "sourceStatus": "official_page_read",
+        "sources": [
+          {
+            "url": "https://www.dfpost.com/zx_philippines",
+            "supports": "菲律宾专线与清关、末端配送业务介绍"
+          },
+          {
+            "url": "https://www.dfpost.com/abouts",
+            "supports": "品牌及综合国际物流业务介绍"
+          }
+        ],
+        "pending": [
+          "注册主体的一手来源",
+          "菲律宾专线当前服务边界；不将通用海空铁文案解释为中菲铁路"
+        ]
+      },
+      {
+        "id": "golucky",
+        "name": "喜运达",
+        "aliases": [
+          "GoLucky",
+          "GoLucky Express"
+        ],
+        "legalName": null,
+        "affiliation": "未核对关联关系",
+        "sourceStatus": "official_page_read",
+        "sources": [
+          {
+            "url": "https://www.goluckyvip.com/",
+            "supports": "东南亚空海运与菲律宾仓储业务介绍"
+          }
+        ],
+        "pending": [
+          "注册主体与品牌对应关系",
+          "中国至菲律宾具体起运与派送范围"
+        ]
+      }
+    ],
+    "evidenceBoundary": "来源仅证明企业官网公开介绍了有关业务，不等于独立核验主体、资质、产能或履约能力；候选清单不是排名，也不代表行业全量。",
+    "updatedAt": "2026-10-08"
+  }
+}
