@@ -1,45 +1,101 @@
 <!DOCTYPE html>
+<!-- 文章页模板：由 api/render-post.js 在服务端填充 {{...}}，让爬虫和 AI 引擎不执行 JS 也能读到正文 -->
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>文章详情 | 贺去病hecare+的个人博客</title>
-    <link rel="stylesheet" href="/styles.css" />
-  </head>
-  <body>
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <header class="site-header">
-      <div class="container">
-        <div class="header-row">
-          <h1 class="site-title"><a href="/" class="brand">贺去病hecare+ · 博客</a></h1>
-          <nav class="nav">
-            <a href="/">首页</a>
-            <a href="/about">关于</a>
-            <a href="/archive">归档</a>
-            <a href="/tags">标签</a>
-            <a href="/ai-nav/">AI导航</a>
-          </nav>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>文章详情 | 贺去病 · 博客</title>
+  <meta name="description" content="贺去病博客文章详情页。" id="meta-desc" />
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href="https://blog.hequbing.com/post" />
+  
+  <meta property="og:title" content="贺去病 · 博客" id="og-title" />
+  <meta property="og:description" content="贺去病博客文章详情页。" id="og-desc" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://blog.hequbing.com/post" id="og-url" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json" id="schema-json">{}</script>
+</head>
+<body>
+  <div id="post-progress" class="post-progress"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-row">
+        <div class="site-title"><a href="https://blog.hequbing.com/archive" class="brand">贺去病 · 博客</a></div>
+        <nav class="nav">
+          <a href="https://blog.hequbing.com/archive">归档</a>
+          <a href="https://blog.hequbing.com/tags">标签</a><a href="https://blog.hequbing.com/ai-nav/">AI导航</a>
+          <a href="https://www.hequbing.com/about">关于</a>
+          <a href="https://www.hequbing.com/">商业咨询</a>
+          
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="post-breadcrumb">
+      <a href="https://blog.hequbing.com/archive">← 返回归档</a>
+    </div>
+
+    <article id="post" class="post-detail" data-rendered-slug="" data-language="zh-CN">
+      <h1 id="post-title"></h1>
+      <div class="meta" id="post-meta"></div>
+      <div id="post-content" class="content"></div>
+
+      <div class="share-bar" id="share-bar">
+        <span class="share-label">分享：</span>
+        <button class="share-btn" data-share="weibo" title="分享到微博">微博</button>
+        <button class="share-btn" data-share="x" title="分享到 X">X</button>
+        <button class="share-btn" data-share="copy" title="复制链接">复制链接</button>
+      </div>
+
+      <section class="post-cta" id="post-cta" aria-label="联系贺去病AI工作室">
+        <div class="post-cta-card">
+          <div class="post-cta-copy">
+            <p class="post-cta-eyebrow">HEQUBING AI CONSULTING · GEO/AI 营销</p>
+            <h2 class="post-cta-title">让 AI 先认识你，再推荐你</h2>
+            <p class="post-cta-desc">帮小企业先被 AI 认识、再被 AI 推荐。有具体的生意想聊？直接联系贺去病AI工作室，先免费聊 30 分钟，看看有没有合适的合作起点。</p>
+            <div class="post-cta-contact">
+              <span class="post-cta-brand">贺去病AI工作室</span>
+              <a href="tel:18607105700">电话 18607105700</a>
+              <a href="mailto:hefangsheng@gmail.com">邮箱 hefangsheng@gmail.com</a>
+              <a href="https://www.hequbing.com/">商业咨询介绍 ↗</a>
+            </div>
+          </div>
+          <div class="post-cta-qr">
+            <a class="post-cta-qr-link" href="/images/hequbing-wechat-original.jpg" aria-label="查看贺去病微信二维码原图"><img src="/images/hequbing-wechat-original.jpg" width="888" height="1131" alt="贺去病微信二维码，添加微信号 hecare888" loading="lazy" decoding="async"></a>
+            <p class="post-cta-wechat">微信 <strong>hecare888</strong> · 扫码添加</p>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <nav class="post-nav" id="post-nav"></nav>
+
+    <section class="related-section" id="related-section">
+      <h2 class="section-title">相关文章</h2>
+      <div id="related-posts" class="related-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <span>© <span id="year"></span> 贺去病 · 博客 · hequbing.com</span>
+        <div class="footer-links">
+          <a href="https://blog.hequbing.com/archive">归档</a>
+          <a href="https://www.hequbing.com/about">关于</a>
+          <a href="https://www.hequbing.com/">商业咨询</a>
+          
         </div>
       </div>
-    </header>
+    </div>
+  </footer>
 
-    <main class="container">
-      <article id="post" class="post-detail">
-        <h2 id="post-title"></h2>
-        <div class="meta">
-          <span id="post-date"></span>
-        </div>
-        <div id="post-content" class="content"></div>
-      </article>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">© <span id="year"></span> 贺去病hecare+</div>
-    </footer>
-
-    <script src="/post.js"></script>
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-  </body>
-  </html>
+  <script src="/site.js"></script>
+  <script src="/post.js"></script>
+</body>
+</html>

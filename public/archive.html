@@ -3,9 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>归档 | 贺去病hecare+ · 博客</title>
-    <link rel="stylesheet" href="/styles.css" />
+    <title>文章归档 | 贺去病 · 博客</title>
+    <meta name="description" content="贺去病博客文章归档：AI 状态工程、可验证的 AI 创作、白鼓挑战、本象协议等实践记录，支持搜索与标签筛选。" />
+    <link rel="canonical" href="https://blog.hequbing.com/archive" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
     <!-- AUTO:LANGUAGE:START -->
   <link rel="alternate" hreflang="zh-CN" href="https://blog.hequbing.com/archive" />
   <link rel="alternate" hreflang="en" href="https://blog.hequbing.com/en/archive" />
@@ -16,13 +18,13 @@
     <header class="site-header">
       <div class="container">
         <div class="header-row">
-          <h1 class="site-title"><a href="/" class="brand">贺去病hecare+ · 博客</a></h1>
+          <h1 class="site-title"><a href="/archive" class="brand">贺去病 · 博客</a></h1>
           <nav class="nav">
-            <a href="/">首页</a>
-            <a href="/about">关于</a>
-            <a href="/archive">归档</a>
+            <a href="/archive" class="active">归档</a>
             <a href="/tags">标签</a>
+            <a href="/about">关于</a>
             <a href="/ai-nav/">AI导航</a>
+            <a href="https://www.hequbing.com/">商业咨询</a>
           <!-- AUTO:LANGUAGE-NAV:START --><a href="https://blog.hequbing.com/en/archive" lang="en">English</a><!-- AUTO:LANGUAGE-NAV:END -->
           </nav>
         </div>
@@ -30,19 +32,106 @@
     </header>
 
     <main class="container">
-      <section class="post-detail">
-        <h2>文章归档</h2>
-        <div id="archive" class="archive-list"></div>
+      <section class="post-detail blog-home">
+        <div class="blog-home-head">
+          <h2>文章归档</h2>
+          <p class="hero-sub" id="archive-sub">加载中…</p>
+        </div>
+
+        <div class="filter-bar">
+          <input id="search" type="search" class="search" placeholder="搜索标题或摘要…" />
+        </div>
+        <div class="filter-bar">
+          <span class="filter-label">标签：</span>
+          <div id="tag-filters" class="filter-group"></div>
+        </div>
+
+        <div id="archive" class="archive-list">
+          <!-- AUTO:POSTS:START -->
+          <ul class="post-list-static">
+            <li><time datetime="2026-11-03">2026-11-03</time><a href="https://blog.hequbing.com/post?slug=geo-d04">少林功夫与机关枪：营销武器的更迭</a></li>
+            <li><time datetime="2026-11-02">2026-11-02</time><a href="https://blog.hequbing.com/post?slug=geo-d03">诺基亚与苹果：时代代差的教训</a></li>
+            <li><time datetime="2026-11-01">2026-11-01</time><a href="https://blog.hequbing.com/post?slug=geo-d02">广告不是给人看的，是给AI看的</a></li>
+            <li><time datetime="2026-10-31">2026-10-31</time><a href="https://blog.hequbing.com/post?slug=geo-d01">AI是你的助理、员工和秘书</a></li>
+            <li><time datetime="2026-10-29">2026-10-29</time><a href="https://blog.hequbing.com/post?slug=geo-c07">轮椅不止一种：分众市场的AI解法</a></li>
+            <li><time datetime="2026-10-27">2026-10-27</time><a href="https://blog.hequbing.com/post?slug=geo-c06">给自闭症儿童的小礼物：AI的精准连接</a></li>
+            <li><time datetime="2026-10-26">2026-10-26</time><a href="https://blog.hequbing.com/post?slug=geo-c05">青藏高原的葡萄糖饮料：卖给场景，不卖所有人</a></li>
+            <li><time datetime="2026-10-25">2026-10-25</time><a href="https://blog.hequbing.com/post?slug=geo-c04">场景型产品的爆发机会</a></li>
+            <li><time datetime="2026-10-22">2026-10-22</time><a href="https://blog.hequbing.com/post?slug=geo-c03">小，不是劣势，是灵活</a></li>
+            <li><time datetime="2026-10-21">2026-10-21</time><a href="https://blog.hequbing.com/post?slug=geo-c02">隐形冠军的真相：大家的水平其实差不多</a></li>
+            <li><time datetime="2026-10-20">2026-10-20</time><a href="https://blog.hequbing.com/post?slug=geo-c01">大厂能加工，小厂也能加工</a></li>
+            <li><time datetime="2026-10-18">2026-10-18</time><a href="https://blog.hequbing.com/post?slug=geo-b07">你的客户，已经活在AI里了</a></li>
+            <li><time datetime="2026-10-17">2026-10-17</time><a href="https://blog.hequbing.com/post?slug=geo-b06">千人千面的AI广告长什么样</a></li>
+            <li><time datetime="2026-10-15">2026-10-15</time><a href="https://blog.hequbing.com/post?slug=geo-b05">为什么传统广告失效了</a></li>
+            <li><time datetime="2026-10-14">2026-10-14</time><a href="https://blog.hequbing.com/post?slug=geo-b04">从“被看见”到“被推荐”</a></li>
+            <li><time datetime="2026-10-13">2026-10-13</time><a href="https://blog.hequbing.com/post?slug=geo-b03">什么是GEO：让AI在回答里推荐你</a></li>
+            <li><time datetime="2026-10-12">2026-10-12</time><a href="https://blog.hequbing.com/post?slug=geo-b02">百度给链接，AI给答案——代差就在这里</a></li>
+            <li><time datetime="2026-10-11">2026-10-11</time><a href="https://blog.hequbing.com/post?slug=geo-b01">广告投给AI秘书，不是投给人</a></li>
+            <li><time datetime="2026-10-10">2026-10-10</time><a href="https://blog.hequbing.com/post?slug=geo-a08">AI时代，老板最该升级的是认知</a></li>
+            <li><time datetime="2026-10-09">2026-10-09</time><a href="https://blog.hequbing.com/post?slug=geo-a07">技术天才老板缺的不是能力，是上场机会</a></li>
+            <li><time datetime="2026-10-08">2026-10-08</time><a href="https://blog.hequbing.com/post?slug=deepseek-agi-voyage-entrepreneurship">DeepSeek 在找“相信地球是圆的”跨界人才</a></li>
+            <li><time datetime="2026-10-08">2026-10-08</time><a href="https://blog.hequbing.com/post?slug=geo-a06">比亚迪的零部件，可能就产自你隔壁巷子</a></li>
+            <li><time datetime="2026-10-04">2026-10-04</time><a href="https://blog.hequbing.com/post?slug=geo-a05">隐形冠军：小厂凭什么活得比大厂好</a></li>
+            <li><time datetime="2026-10-03">2026-10-03</time><a href="https://blog.hequbing.com/post?slug=geo-a04">行业第一和你的差距，可能只有0.1秒</a></li>
+            <li><time datetime="2026-10-02">2026-10-02</time><a href="https://blog.hequbing.com/post?slug=cad-ai-dwg-dxf-object-audit">CAD AI如何生成可复核的门窗对象清单：DWG与DXF实践</a></li>
+            <li><time datetime="2026-10-02">2026-10-02</time><a href="https://blog.hequbing.com/post?slug=task-passport-ai-handoff">Task Passport任务护照：Claude、Codex、DSH如何接力同一任务</a></li>
+            <li><time datetime="2026-10-02">2026-10-02</time><a href="https://blog.hequbing.com/post?slug=opencodex-multi-terminal-workbench">OpenCodex：本地多终端AI编程工作台的设计与使用</a></li>
+            <li><time datetime="2026-10-02">2026-10-02</time><a href="https://blog.hequbing.com/post?slug=uking-installation-engineering">U-King一键安装的开发实践：配置、进程与排障</a></li>
+            <li><time datetime="2026-10-02">2026-10-02</time><a href="https://blog.hequbing.com/post?slug=ai-business-consulting-process">贺去病商业咨询：AI经营诊断、增长试点与合作流程</a></li>
+            <li><time datetime="2026-10-02">2026-10-02</time><a href="https://blog.hequbing.com/post?slug=companion-fde-delivery">陪伴式FDE：企业AI落地怎样交付、验收与持续复盘</a></li>
+            <li><time datetime="2026-10-02">2026-10-02</time><a href="https://blog.hequbing.com/post?slug=anythingchina-logistics-to-ai">AnythingChina中国通：从物流与工厂经历到AI项目</a></li>
+            <li><time datetime="2026-10-02">2026-10-02</time><a href="https://blog.hequbing.com/post?slug=u-hermes-portable-ai-environment">U-Hermes便携AI工作环境：版本、上手与运行条件</a></li>
+            <li><time datetime="2026-10-02">2026-10-02</time><a href="https://blog.hequbing.com/post?slug=geo-delivery-discovery-business">GEO如何验收：交付、被发现与真实业务结果</a></li>
+            <li><time datetime="2026-10-02">2026-10-02</time><a href="https://blog.hequbing.com/post?slug=geo-a03">承诺“交钱就成世界冠军”的，都是骗子</a></li>
+            <li><time datetime="2026-10-01">2026-10-01</time><a href="https://blog.hequbing.com/post?slug=geo-a02">清华不是人人都能上，但大学可以</a></li>
+            <li><time datetime="2026-09-30">2026-09-30</time><a href="https://blog.hequbing.com/post?slug=geo-a01">你的企业，连“考试”都没参加过</a></li>
+            <li><time datetime="2026-09-07">2026-09-07</time><a href="https://blog.hequbing.com/post?slug=ai-housing-era">别只盯着苹果涨价，AI 的“住房时代”才刚开始</a></li>
+            <li><time datetime="2026-08-10">2026-08-10</time><a href="https://blog.hequbing.com/post?slug=long-term-ai-computer-challenge">公司只有一个人，口气却想挑战整个 AI 行业：长程 AI 计算机正式接榜</a></li>
+            <li><time datetime="2026-08-10">2026-08-10</time><a href="https://blog.hequbing.com/post?slug=doc-consistency-147-findings">查错工具的第一版，在真书稿上报了 147 条，其中 143 条是它自己错</a></li>
+            <li><time datetime="2026-08-09">2026-08-09</time><a href="https://blog.hequbing.com/post?slug=long-document-consistency">长文档的成本不在写，在保一致</a></li>
+            <li><time datetime="2026-08-07">2026-08-07</time><a href="https://blog.hequbing.com/post?slug=codex-cli-chinese-tutorial">Codex CLI 中文教程：保姆级上手指南</a></li>
+            <li><time datetime="2026-08-07">2026-08-07</time><a href="https://blog.hequbing.com/post?slug=open365-open-source">Open365：不联网上传的开源 Windows 电脑清理工具</a></li>
+            <li><time datetime="2026-08-07">2026-08-07</time><a href="https://blog.hequbing.com/post?slug=u-claw-usb-offline-ai">U-Claw 虾盘：离线装好全部 AI 的 U 盘</a></li>
+            <li><time datetime="2026-08-07">2026-08-07</time><a href="https://blog.hequbing.com/post?slug=uking-usb-ai-installer">不会敲代码也想用上 Claude、Codex？U-King 一键装好</a></li>
+            <li><time datetime="2026-08-07">2026-08-07</time><a href="https://blog.hequbing.com/post?slug=marine-docx-structure">政务红头文件 16 表零丢失：docx 结构化还原实战</a></li>
+            <li><time datetime="2026-08-06">2026-08-06</time><a href="https://blog.hequbing.com/post?slug=benxiang-protocol">本象协议开源：给 AI 一套不会失忆的世界状态层</a></li>
+            <li><time datetime="2026-08-06">2026-08-06</time><a href="https://blog.hequbing.com/post?slug=media-publish">media-publish：20+ 平台一键发布</a></li>
+            <li><time datetime="2026-08-06">2026-08-06</time><a href="https://blog.hequbing.com/post?slug=rulekeeper">《规则怪谈·无限层》：一部规则可以被机器验证的 AI 连载小说</a></li>
+            <li><time datetime="2026-08-06">2026-08-06</time><a href="https://blog.hequbing.com/post?slug=benxiang-skills-launch">三个 AI 技能上线 ClawHub 与 SkillHub：把「上下文必炸」变成可验证的事务</a></li>
+            <li><time datetime="2026-08-06">2026-08-06</time><a href="https://blog.hequbing.com/post?slug=shadowbench-w-world-first">全球第一个「AI 状态回写正确性」榜单：ShadowBench-W</a></li>
+            <li><time datetime="2026-08-06">2026-08-06</time><a href="https://blog.hequbing.com/post?slug=ai-cant-write-long-novels">AI 为什么写不了长篇小说？——「上下文必炸」的真相</a></li>
+            <li><time datetime="2026-08-06">2026-08-06</time><a href="https://blog.hequbing.com/post?slug=the-zero-slot">The Zero Slot：第二部机器可验证的 AI 连载小说（英文/LitRPG）</a></li>
+            <li><time datetime="2026-08-06">2026-08-06</time><a href="https://blog.hequbing.com/post?slug=white-drum-challenge">白鼓挑战：AI 挑战人类最长小说纪录，状态全程可验证</a></li>
+            <li><time datetime="2026-01-02">2026-01-02</time><a href="https://blog.hequbing.com/post?slug=blog-upgrade-vercel">博客架构升级：全面拥抱 Serverless</a></li>
+            <li><time datetime="2026-01-02">2026-01-02</time><a href="https://blog.hequbing.com/post?slug=searchhub-release">SearchHub 发布：一次搜索，聚合全网智慧</a></li>
+            <li><time datetime="2025-10-21">2025-10-21</time><a href="https://blog.hequbing.com/post?slug=blue-light-filter-pro">防蓝光护眼助手：Chrome 插件推荐</a></li>
+            <li><time datetime="2025-10-21">2025-10-21</time><a href="https://blog.hequbing.com/post?slug=yang-zhenning-tribute">致敬华人科技之光：杨振宁先生</a></li>
+            <li><time datetime="2025-10-03">2025-10-03</time><a href="https://blog.hequbing.com/post?slug=backend-deploy-guide">后端部署指南：从本地到云端</a></li>
+            <li><time datetime="2025-10-02">2025-10-02</time><a href="https://blog.hequbing.com/post?slug=frontend-architecture-notes">前端架构笔记：从组件到模块化</a></li>
+            <li><time datetime="2025-10-01">2025-10-01</time><a href="https://blog.hequbing.com/post?slug=hello-world">贺去病的第一篇博客</a></li>
+            <li><time datetime="2025-10-01">2025-10-01</time><a href="https://blog.hequbing.com/post?slug=about-hequbing">关于我：贺去病</a></li>
+          </ul>
+          <!-- AUTO:POSTS:END -->
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container">© <span id="year"></span> 贺去病hecare+</div>
+      <div class="container">
+        <div class="footer-content">
+          <span>© <span id="year"></span> 贺去病 · hequbing.com · 博客</span>
+          <div class="footer-links">
+            <a href="/archive">归档</a>
+            <a href="/tags">标签</a>
+            <a href="/about">关于</a>
+            <a href="/ai-nav/">AI导航</a>
+            <a href="https://www.hequbing.com/">商业咨询</a>
+          </div>
+        </div>
+      </div>
     </footer>
 
+    <script src="/site.js"></script>
     <script src="/archive.js"></script>
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
   </body>
-  </html>
+</html>
