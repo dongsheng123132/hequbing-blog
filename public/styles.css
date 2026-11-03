@@ -920,3 +920,24 @@ a.project-chip:hover {
   .compare-table tbody th { white-space: normal; width: 64px; }
   .compare-table thead th:first-child { width: 64px; }
 }
+
+/* ---- 文章页 CTA 联系卡（贺去病AI工作室） ---- */
+.post-cta { margin: 2.5rem 0 1rem; border: 1px solid #e8e1d3; border-radius: 14px; background: #faf7f0; padding: 1.5rem 1.75rem; }
+.post-cta-card { display: flex; gap: 1.75rem; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.post-cta-eyebrow { margin: 0 0 .4rem; font-size: 11px; letter-spacing: .08em; color: #b08a2e; text-transform: uppercase; }
+.post-cta-title { margin: 0 0 .5rem; font-size: 1.5rem; line-height: 1.3; color: #1f1b16; }
+.post-cta-desc { margin: 0 0 1rem; font-size: .95rem; line-height: 1.65; color: #55504a; max-width: 46em; }
+.post-cta-contact { display: flex; flex-wrap: wrap; gap: .55rem 1.2rem; align-items: baseline; font-size: .95rem; }
+.post-cta-contact .post-cta-brand { font-weight: 700; color: #1f1b16; }
+.post-cta-contact a { color: #8a6d1f; text-decoration: none; border-bottom: 1px solid rgba(138,109,31,.35); }
+.post-cta-contact a:hover { color: #6b5314; border-bottom-color: #6b5314; }
+.post-cta-qr { text-align: center; flex: 0 0 auto; }
+.post-cta-qr-link { display: inline-block; }
+.post-cta-qr img { width: 132px; height: auto; border-radius: 10px; border: 1px solid #e8e1d3; display: block; }
+.post-cta-wechat { margin: .5rem 0 0; font-size: .85rem; color: #55504a; }
+.post-cta-wechat strong { color: #1f1b16; }
+@media (max-width: 640px) {
+  .post-cta { padding: 1.25rem; }
+  .post-cta-card { flex-direction: column; align-items: flex-start; }
+  .post-cta-qr img { width: 168px; }
+}
