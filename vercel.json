@@ -13,6 +13,7 @@
   "rewrites": [
     { "source": "/observe/rankings", "destination": "/observe/rankings/index.html" },
     { "source": "/observe", "destination": "/observe/index.html" },
+    { "source": "/apps/hackerpodcasts", "destination": "/apps/hackerpodcasts/index.html" },
     { "source": "/en/post", "destination": "/api/render-post-en" },
     { "source": "/en", "destination": "/en/index.html" },
     { "source": "/cases", "destination": "/cases.html" },
