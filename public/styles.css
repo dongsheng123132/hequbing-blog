@@ -357,3 +357,84 @@ a.project-chip:hover {
 /* Modal */
 .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: grid; place-items: center; z-index: 1000; }
 .modal { width: min(860px, 92vw); background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+
+/* ============================================================
+   内容页组件（/geo /services /fde /ai-landing /ai-consulting-price /cases 共用）
+   这些类在 2026-11 之前没有任何样式定义，页面虽然有内容但表格和问答是裸的。
+   全部走 CSS 变量，跟随现有主题；不改其它页面观感。
+   ============================================================ */
+.page-hero { padding: 28px 0 8px; }
+.hero-eyebrow { margin: 0 0 8px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.hero-sub { margin: 10px 0 18px; font-size: 17px; color: var(--muted); max-width: 68ch; }
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin: 18px 0 8px; }
+
+.section-title { margin: 40px 0 12px; font-size: 24px; line-height: 1.35; color: var(--text); scroll-margin-top: 80px; }
+.answer-first {
+  margin: 0 0 14px; padding: 14px 18px; font-size: 17px; line-height: 1.75;
+  background: var(--panel); border: 1px solid var(--border); border-left: 4px solid var(--primary);
+  border-radius: 8px; color: var(--text);
+}
+.prose p { margin: 12px 0; color: var(--text); }
+.prose ul, .prose ol { padding-left: 22px; }
+.prose li { margin: 6px 0; }
+.note { margin: 10px 0 0; font-size: 13px; line-height: 1.7; color: var(--muted); }
+.note a, .prose a, .answer-first a { color: var(--link); }
+
+.table-wrap { margin: 16px 0 8px; overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; background: var(--panel); -webkit-overflow-scrolling: touch; }
+.compare-table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 560px; }
+.compare-table th, .compare-table td { padding: 11px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); }
+.compare-table thead th { background: var(--chip-bg); color: var(--text); font-weight: 600; white-space: nowrap; }
+.compare-table tbody th { font-weight: 600; color: var(--text); background: rgba(255,255,255,.02); white-space: nowrap; }
+.compare-table tbody tr:last-child th, .compare-table tbody tr:last-child td { border-bottom: 0; }
+.compare-table tbody tr:hover { background: var(--card-hover); }
+
+.num-list { margin: 16px 0; padding: 0; list-style: none; counter-reset: step; }
+.num-list > li { position: relative; margin: 0 0 12px; padding: 14px 16px 14px 54px; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; }
+.num-list > li::before {
+  counter-increment: step; content: counter(step);
+  position: absolute; left: 14px; top: 14px; width: 26px; height: 26px; border-radius: 50%;
+  display: grid; place-items: center; font-size: 13px; font-weight: 700;
+  background: var(--primary); color: #0b0d10;
+}
+.num-list > li b { display: block; margin-bottom: 4px; }
+.num-list > li span { display: block; font-size: 15px; color: var(--muted); line-height: 1.7; }
+
+.mini-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+.mini-card { padding: 16px 18px; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; }
+.mini-card h3 { margin: 0 0 8px; font-size: 16px; color: var(--text); }
+.mini-card p { margin: 0; font-size: 14px; line-height: 1.7; color: var(--muted); }
+.mini-card a { color: var(--link); }
+.mini-card .price { font-size: 22px; font-weight: 700; color: var(--primary); margin: 6px 0 2px; }
+.mini-card .meta { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+
+.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+.why-item { padding: 16px 18px; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; }
+.why-item h3 { margin: 0 0 6px; font-size: 15px; color: var(--text); }
+.why-item p { margin: 0; font-size: 14px; line-height: 1.7; color: var(--muted); }
+
+.faq-details { margin: 16px 0; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--panel); }
+.faq-details details { border-bottom: 1px solid var(--border); }
+.faq-details details:last-child { border-bottom: 0; }
+.faq-details summary { padding: 14px 18px; cursor: pointer; font-size: 16px; font-weight: 600; color: var(--text); list-style: none; }
+.faq-details summary::-webkit-details-marker { display: none; }
+.faq-details summary::after { content: '+'; float: right; color: var(--muted); font-weight: 400; }
+.faq-details details[open] summary::after { content: '−'; }
+.faq-details summary:hover { background: var(--card-hover); }
+.faq-details details > p { margin: 0; padding: 0 18px 16px; font-size: 15px; line-height: 1.75; color: var(--muted); }
+
+.contact-panel {
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; align-items: center;
+  padding: 26px; background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+}
+.contact-panel h2 { margin: 0 0 8px; font-size: 20px; }
+.contact-panel p { margin: 0; color: var(--muted); font-size: 15px; }
+.contact-list { margin: 0; padding: 0; list-style: none; font-size: 15px; }
+.contact-list li { margin: 6px 0; color: var(--muted); }
+.contact-list b { color: var(--text); margin-right: 8px; }
+.contact-list a, .contact-list strong { color: var(--link); }
+
+@media (max-width: 768px) {
+  .contact-panel { grid-template-columns: 1fr; }
+  .section-title { font-size: 21px; }
+  .answer-first { font-size: 16px; }
+}

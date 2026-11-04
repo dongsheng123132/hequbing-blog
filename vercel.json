@@ -2,14 +2,459 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/observe/SKILL.md",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/observe/:path*",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
+    },
+    {
+      "source": "/llms.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).svg",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).webp",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).woff2",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://blog.hequbing.com/archive",
+      "permanent": true
+    },
+    {
+      "source": "/en",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://blog.hequbing.com/en/archive",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "cad-dwg-dxf-object-audit"
+        }
+      ],
+      "destination": "/case/cad-dwg-dxf-object-audit",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "gov-docx-16-tables"
+        }
+      ],
+      "destination": "/case/gov-docx-16-tables",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "doc-consistency-first-version"
+        }
+      ],
+      "destination": "/case/doc-consistency-first-version",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "uking-installation-engineering"
+        }
+      ],
+      "destination": "/case/uking-installation-engineering",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "companion-fde-delivery"
+        }
+      ],
+      "destination": "/case/companion-fde-delivery",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "geo-delivery-discovery-business"
+        }
+      ],
+      "destination": "/case/geo-delivery-discovery-business",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "tcl-ai-customer-service"
+        }
+      ],
+      "destination": "/case/tcl-ai-customer-service",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "pinduoduo-ai-product-description"
+        }
+      ],
+      "destination": "/case/pinduoduo-ai-product-description",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "zhongtong-express-ai-sorting"
+        }
+      ],
+      "destination": "/case/zhongtong-express-ai-sorting",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "beiyi-hospital-ai-diagnosis"
+        }
+      ],
+      "destination": "/case/beiyi-hospital-ai-diagnosis",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "new-oriental-ai-teaching"
+        }
+      ],
+      "destination": "/case/new-oriental-ai-teaching",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "pacific-insurance-ai-claims"
+        }
+      ],
+      "destination": "/case/pacific-insurance-ai-claims",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "coze-build-ai-agent"
+        }
+      ],
+      "destination": "/case/coze-build-ai-agent",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "law-firm-ai-contract-review"
+        }
+      ],
+      "destination": "/case/law-firm-ai-contract-review",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "manufacturing-ai-quality-inspection"
+        }
+      ],
+      "destination": "/case/manufacturing-ai-quality-inspection",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "hr-ai-resume-screening"
+        }
+      ],
+      "destination": "/case/hr-ai-resume-screening",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "dify-build-enterprise-qa"
+        }
+      ],
+      "destination": "/case/dify-build-enterprise-qa",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "real-estate-ai-copywriting"
+        }
+      ],
+      "destination": "/case/real-estate-ai-copywriting",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "ai-proposal-writing"
+        }
+      ],
+      "destination": "/case/ai-proposal-writing",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "restaurant-ai-order-taking"
+        }
+      ],
+      "destination": "/case/restaurant-ai-order-taking",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "github-copilot-roi"
+        }
+      ],
+      "destination": "/case/github-copilot-roi",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "has": [
+        {
+          "type": "query",
+          "key": "slug",
+          "value": "xhs-ai-auto-comment-plugin"
+        }
+      ],
+      "destination": "/case/xhs-ai-auto-comment-plugin",
+      "permanent": true
+    },
+    {
+      "source": "/case",
+      "destination": "/cases",
+      "permanent": true
+    }
+  ],
   "rewrites": [
-    { "source": "/cases", "destination": "/cases.html" },
-    { "source": "/case", "destination": "/case.html" },
-    { "source": "/services", "destination": "/services.html" },
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/post", "destination": "/post.html" },
-    { "source": "/archive", "destination": "/archive.html" },
-    { "source": "/tags", "destination": "/tags.html" }
+    {
+      "source": "/observe/rankings",
+      "destination": "/observe/rankings/index.html"
+    },
+    {
+      "source": "/observe",
+      "destination": "/observe/index.html"
+    },
+    {
+      "source": "/en/post",
+      "destination": "/api/render-post-en"
+    },
+    {
+      "source": "/en",
+      "destination": "/en/index.html"
+    },
+    {
+      "source": "/cases",
+      "destination": "/cases.html"
+    },
+    {
+      "source": "/services",
+      "destination": "/services.html"
+    },
+    {
+      "source": "/geo",
+      "destination": "/geo.html"
+    },
+    {
+      "source": "/old",
+      "destination": "/old/index.html"
+    },
+    {
+      "source": "/old/services",
+      "destination": "/old/services.html"
+    },
+    {
+      "source": "/old/about",
+      "destination": "/old/about.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/support",
+      "destination": "/support.html"
+    },
+    {
+      "source": "/post",
+      "destination": "/api/render-post"
+    },
+    {
+      "source": "/archive",
+      "destination": "/archive.html"
+    },
+    {
+      "source": "/tags",
+      "destination": "/tags.html"
+    },
+    {
+      "source": "/fde",
+      "destination": "/fde.html"
+    },
+    {
+      "source": "/ai-landing",
+      "destination": "/ai-landing.html"
+    },
+    {
+      "source": "/ai-consulting-price",
+      "destination": "/ai-consulting-price.html"
+    }
   ],
   "functions": {
     "api/**/*.js": {

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>小红书 AI 自动评论获客插件：Chrome 扩展实现智能营销 | 贺去病商业咨询</title>
+  <meta name="description" content="基于 Chrome Extension Manifest V3 开发的小红书自动化营销工具，支持 AI 智能评论生成、自动点赞、精准获客，帮助运营人员高效拓客引流。" />
+  <link rel="canonical" href="https://www.hequbing.com/case/xhs-ai-auto-comment-plugin" />
+  <meta property="og:title" content="小红书 AI 自动评论获客插件：Chrome 扩展实现智能营销" />
+  <meta property="og:description" content="基于 Chrome Extension Manifest V3 开发的小红书自动化营销工具，支持 AI 智能评论生成、自动点赞、精准获客，帮助运营人员高效拓客引流。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.hequbing.com/case/xhs-ai-auto-comment-plugin" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/contact.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"小红书 AI 自动评论获客插件：Chrome 扩展实现智能营销","description":"基于 Chrome Extension Manifest V3 开发的小红书自动化营销工具，支持 AI 智能评论生成、自动点赞、精准获客，帮助运营人员高效拓客引流。","datePublished":"2026-03-25","dateModified":"2026-03-25","inLanguage":"zh-CN","author":{"@id":"https://www.hequbing.com/about#person"},"publisher":{"@id":"https://www.hequbing.com/#org"},"mainEntityOfPage":"https://www.hequbing.com/case/xhs-ai-auto-comment-plugin","url":"https://www.hequbing.com/case/xhs-ai-auto-comment-plugin","isPartOf":{"@id":"https://www.hequbing.com/cases#page"},"about":[{"@type":"Thing","name":"社交电商"},{"@type":"Thing","name":"营销获客"}],"disambiguatingDescription":"本文为作者本人交付的项目记录。"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.hequbing.com/"},{"@type":"ListItem","position":2,"name":"AI 落地情报","item":"https://www.hequbing.com/cases"},{"@type":"ListItem","position":3,"name":"小红书 AI 自动评论获客插件：Chrome 扩展实现智能营销","item":"https://www.hequbing.com/case/xhs-ai-auto-comment-plugin"}]}]}</script>
+  <style>.case-detail h1{font-size:28px;line-height:1.35;margin:0 0 12px}</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-row">
+        <div class="site-title"><a href="/" class="brand"><span class="brand-name">贺去病商业咨询<small>HEQUBING BUSINESS CONSULTING</small></span></a></div>
+        <nav class="nav">
+          <a href="/services">服务与报价</a>
+          <a href="/geo">GEO 优化</a>
+          <a href="/fde">FDE</a>
+          <a href="/#delivered">真实交付</a>
+          <a href="/about">关于贺去病</a>
+          <a href="https://blog.hequbing.com/archive">文章</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav aria-label="面包屑" style="margin-top:16px;font-size:14px;color:var(--muted)">
+      <a href="/" style="color:var(--muted);text-decoration:none">首页</a> ›
+      <a href="/cases" style="color:var(--muted);text-decoration:none">AI 落地情报</a> ›
+      <span>小红书 AI 自动评论获客插件：Chrome 扩展实现智能营销</span>
+    </nav>
+
+    <article class="case-detail">
+      <h1>小红书 AI 自动评论获客插件：Chrome 扩展实现智能营销</h1>
+      <div class="meta">
+        <span>2026-03-25</span>
+        <span class="case-card-tag industry">社交电商</span>
+        <span class="case-card-tag scenario">营销获客</span>
+        <span class="case-card-tag">小红书</span><span class="case-card-tag">Chrome插件</span><span class="case-card-tag">AI评论</span><span class="case-card-tag">自动化营销</span><span class="case-card-tag">获客引流</span>
+      </div>
+      <div class="intel-notice"><strong>✅ 自研项目 · 本人交付。</strong>这是我自己做的项目，可以点开代码或链接核验。 · <a href="https://github.com/dongsheng123132/xhs-ai-comment-plugin-lh" target="_blank" rel="noopener">查看原文</a></div>
+      <div class="content"><h3>背景</h3><p>小红书是国内最重要的种草营销平台之一，品牌商家和个人 IP 都需要通过评论互动来触达目标用户、建立信任、实现引流转化。但手动评论效率极低，内容质量参差不齐，难以规模化运营。</p><h3>功能特性</h3><ul><li><strong>AI 智能评论</strong>：基于笔记内容自动生成高质量、拟人化评论，避免机械感</li><li><strong>自动点赞</strong>：批量自动点赞目标笔记，提升账号活跃度和曝光</li><li><strong>精准获客</strong>：通过评论互动精准触达目标用户，实现私域引流</li><li><strong>评论记录</strong>：完整记录每条评论操作，方便追踪效果和复盘优化</li><li><strong>多人设管理</strong>：支持多种评论风格和人设切换，适配不同营销场景</li><li><strong>灵活配置</strong>：评论频率、内容模板、目标筛选等均可自定义</li></ul><h3>技术实现</h3><ul><li><strong>Chrome Extension Manifest V3</strong>：采用最新扩展标准，安全性更高</li><li><strong>Service Worker 后台</strong>：持久化后台任务管理</li><li><strong>Content Script 注入</strong>：与小红书页面无缝交互</li><li><strong>Chrome Storage API</strong>：本地持久化配置和操作记录</li><li><strong>模块化架构</strong>：AI 评论、评论操作、笔记处理、配置管理独立模块</li></ul><h3>适用场景</h3><ul><li>小红书品牌推广与种草营销</li><li>电商卖家小红书引流获客</li><li>个人 IP 打造与粉丝互动</li><li>MCN 机构批量账号运营</li><li>本地生活商家小红书获客</li></ul><h3>关键启示</h3><p>社交平台的评论互动是低成本获客的核心手段。通过 AI + 自动化工具，运营人员可以将评论效率提升数十倍，同时保持内容的自然度和个性化。Chrome 插件形态让工具即装即用，无需复杂部署。</p></div>
+    </article>
+
+    <div class="case-cta">
+      <h3>想在你的企业复制这套做法？</h3>
+      <p>先说清你的行业、客户和现在最卡的一步，我给你一个判断，能做的说怎么做，不能做的直说。</p>
+      <button class="btn btn-primary" data-wechat-trigger onclick="toggleWechat()">微信咨询 →</button>
+    </div>
+
+    <p class="note" style="margin:24px 0 8px">延伸阅读：<a href="/fde">FDE 是什么</a> · <a href="/ai-landing">企业 AI 落地怎么做</a> · <a href="/ai-consulting-price">AI 咨询收费</a> · <a href="/services">服务与报价</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <span>© <span id="year">2026</span> 贺去病商业咨询 · 立足中国 · 服务全球</span>
+        <div class="footer-links">
+          <a href="/cases">行业情报</a>
+          <a href="/services">服务与报价</a>
+          <a href="/geo">GEO 优化</a>
+          <a href="/fde">FDE</a>
+          <a href="/ai-landing">AI 落地</a>
+          <a href="/ai-consulting-price">收费标准</a>
+          <a href="/about">关于</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="wechat-float">
+    <div class="wechat-popup" id="wechat-popup"><button type="button" class="wechat-popup-close" data-wechat-popup-close aria-label="关闭微信联系窗口">×</button>
+      <h4>预约免费 30 分钟沟通</h4>
+      <div class="wechat-qr-frame"><a class="wechat-image-link" href="/images/hequbing-wechat-original.jpg" data-wechat-image aria-label="点击放大微信二维码"><img src="/images/hequbing-wechat-original.jpg" width="888" height="1131" alt="贺去病本人提供的微信名片二维码" loading="lazy" decoding="async"></a></div><div class="wechat-popup-actions" data-contact-card><p class="wechat-account">微信号 <strong data-wechat-id>hecare888</strong></p><div class="wechat-card-actions"><button type="button" data-copy-wechat>复制微信号</button><a href="/images/hequbing-wechat-original.jpg" download="hequbing-wechat.jpg">保存二维码</a></div><p data-copy-status aria-live="polite" role="status"></p></div>
+      <p>复制微信号，备注「咨询」</p>
+    </div>
+    <button class="wechat-float-btn" onclick="toggleWechat()" title="微信咨询">💬</button>
+  </div>
+  <script src="/site.js"></script>
+<dialog id="wechat-lightbox" class="wechat-lightbox" aria-labelledby="wechat-lightbox-title">
+  <div class="wechat-lightbox-bar"><h2 id="wechat-lightbox-title">添加贺去病的微信</h2><button type="button" data-wechat-close aria-label="关闭二维码">×</button></div>
+  <img src="/images/hequbing-wechat-original.jpg" width="888" height="1131" alt="贺去病微信名片原图，扫描二维码添加好友">
+  <p>微信号：<strong>hecare888</strong> · <a href="/images/hequbing-wechat-original.jpg" download="hequbing-wechat.jpg">保存原图</a></p>
+</dialog>
+</body>
+</html>

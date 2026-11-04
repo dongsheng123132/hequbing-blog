@@ -1,0 +1,266 @@
+[
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "cad-dwg-dxf-object-audit"
+      }
+    ],
+    "destination": "/case/cad-dwg-dxf-object-audit",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "gov-docx-16-tables"
+      }
+    ],
+    "destination": "/case/gov-docx-16-tables",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "doc-consistency-first-version"
+      }
+    ],
+    "destination": "/case/doc-consistency-first-version",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "uking-installation-engineering"
+      }
+    ],
+    "destination": "/case/uking-installation-engineering",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "companion-fde-delivery"
+      }
+    ],
+    "destination": "/case/companion-fde-delivery",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "geo-delivery-discovery-business"
+      }
+    ],
+    "destination": "/case/geo-delivery-discovery-business",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "tcl-ai-customer-service"
+      }
+    ],
+    "destination": "/case/tcl-ai-customer-service",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "pinduoduo-ai-product-description"
+      }
+    ],
+    "destination": "/case/pinduoduo-ai-product-description",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "zhongtong-express-ai-sorting"
+      }
+    ],
+    "destination": "/case/zhongtong-express-ai-sorting",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "beiyi-hospital-ai-diagnosis"
+      }
+    ],
+    "destination": "/case/beiyi-hospital-ai-diagnosis",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "new-oriental-ai-teaching"
+      }
+    ],
+    "destination": "/case/new-oriental-ai-teaching",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "pacific-insurance-ai-claims"
+      }
+    ],
+    "destination": "/case/pacific-insurance-ai-claims",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "coze-build-ai-agent"
+      }
+    ],
+    "destination": "/case/coze-build-ai-agent",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "law-firm-ai-contract-review"
+      }
+    ],
+    "destination": "/case/law-firm-ai-contract-review",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "manufacturing-ai-quality-inspection"
+      }
+    ],
+    "destination": "/case/manufacturing-ai-quality-inspection",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "hr-ai-resume-screening"
+      }
+    ],
+    "destination": "/case/hr-ai-resume-screening",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "dify-build-enterprise-qa"
+      }
+    ],
+    "destination": "/case/dify-build-enterprise-qa",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "real-estate-ai-copywriting"
+      }
+    ],
+    "destination": "/case/real-estate-ai-copywriting",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "ai-proposal-writing"
+      }
+    ],
+    "destination": "/case/ai-proposal-writing",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "restaurant-ai-order-taking"
+      }
+    ],
+    "destination": "/case/restaurant-ai-order-taking",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "github-copilot-roi"
+      }
+    ],
+    "destination": "/case/github-copilot-roi",
+    "permanent": true
+  },
+  {
+    "source": "/case",
+    "has": [
+      {
+        "type": "query",
+        "key": "slug",
+        "value": "xhs-ai-auto-comment-plugin"
+      }
+    ],
+    "destination": "/case/xhs-ai-auto-comment-plugin",
+    "permanent": true
+  }
+]

@@ -6,7 +6,10 @@
     "start": "node server.js",
     "dev": "node server.js",
     "collect": "node scripts/collector.js",
-    "sitemap": "node scripts/generate-sitemap.js"
+    "cases": "node scripts/build-cases.js",
+    "sitemap": "node scripts/build-cases.js && node scripts/generate-sitemap.js",
+    "check": "node scripts/check-seo.js",
+    "build": "node scripts/build-cases.js && node scripts/generate-sitemap.js && node scripts/build-static.js"
   },
   "keywords": [
     "AI咨询",
