@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>企业 AI 落地怎么做？2026 年从选场景到验收的 6 步流程 · 贺去病商业咨询</title>
+  <meta name="description" content="企业 AI 落地怎么做：6 步实施流程、8 条失败原因、场景评分表、官网公开价格（POC ¥8,000 起、诊断 ¥30,000、增长试点 ¥180,000 / 90 天）、三层验收口径与 5 条不该做的硬条件。只写真实交付，不承诺提升百分比。" />
+  <link rel="canonical" href="https://www.hequbing.com/ai-landing" />
+  <meta property="og:title" content="企业 AI 落地怎么做？从选场景到验收的 6 步流程 | 贺去病商业咨询" />
+  <meta property="og:description" content="AI 落地的场景评分表、8 条失败原因、公开价格、三层验收口径，以及 5 条不该做 AI 落地的硬条件。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.hequbing.com/ai-landing" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": "企业 AI 落地实施",
+        "serviceType": "企业 AI 落地与实施",
+        "provider": { "@id": "https://www.hequbing.com/#org" },
+        "url": "https://www.hequbing.com/ai-landing",
+        "description": "企业 AI 落地实施：进场调研、场景评分、小样验证、接进日常流程、培训交接与三层验收。先判断该不该做、从哪个场景做，再决定要不要投钱。",
+        "offers": [
+          { "@type": "Offer", "name": "快速 POC 验证", "priceSpecification": { "@type": "PriceSpecification", "minPrice": 8000, "priceCurrency": "CNY" }, "description": "1–2 周，一个场景的可运行小样与结论" },
+          { "@type": "Offer", "name": "AI 经营诊断", "price": "30000", "priceCurrency": "CNY", "description": "1–2 周，场景清单与评分、数据现状、建议顺序" },
+          { "@type": "Offer", "name": "AI 增长试点", "price": "180000", "priceCurrency": "CNY", "description": "90 天，一个场景上线 + 培训交接 + 三层验收报告" },
+          { "@type": "Offer", "name": "年度增长合作", "priceSpecification": { "@type": "PriceSpecification", "minPrice": 600000, "priceCurrency": "CNY" }, "description": "1 年起，基础顾问费 + 绩效分成" }
+        ]
+      },
+      {
+        "@type": "Article",
+        "headline": "企业 AI 落地怎么做？2026 年从选场景到验收的 6 步流程",
+        "author": { "@id": "https://www.hequbing.com/about#person" },
+        "publisher": { "@id": "https://www.hequbing.com/#org" },
+        "datePublished": "2026-11-04",
+        "dateModified": "2026-11-04",
+        "mainEntityOfPage": "https://www.hequbing.com/ai-landing",
+        "inLanguage": "zh-CN"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.hequbing.com/" },
+          { "@type": "ListItem", "position": 2, "name": "服务与报价", "item": "https://www.hequbing.com/services" },
+          { "@type": "ListItem", "position": 3, "name": "企业 AI 落地怎么做", "item": "https://www.hequbing.com/ai-landing" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- AUTO:FAQ-JSONLD:START -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "AI 落地一定要先有数据中台吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不需要。落地只要某一个场景要用的那几张表，怎么清洗是这个场景自己的事。真要建中台，等两三个场景跑通、知道要什么数据再建。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "公司只有几十个人，现在做 AI 落地是不是太早？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不早，但场景要更小。小公司流程短、一个人就能拍板，适合从文档处理、报价草稿、客服问答这类单点开始；弱在没人专职维护，交接要做实。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "直接买通用大模型的 API 不就行了，为什么还要找人做落地？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "能生成和能接进流程是两件事。API 按量付费很便宜，难的是数据在谁手里、谁有权限、错了谁负责。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "内部没人懂 AI，全靠外部团队做行不行？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "能做完，但会停在交付那一刻。至少要有一个内部的人看得懂提示词、改得动字段、判断得了结果对不对。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "报价里不包含什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不含模型与云资源使用费（按量计费，直接付服务商）、不含客户侧整理数据的人力、不含硬件与网络改造，都提前写进报价单。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "交付之后外部团队撤了，这套东西还能用吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "标准是内部能自己改：操作卡、常见错误清单、提示词与字段映射文档都留在客户手里，账号与代码归属写进合同。做不到不签字。"
+          }
+        }
+      ]
+    }
+  </script>
+  <!-- AUTO:FAQ-JSONLD:END -->
+  <!-- AUTO:LANGUAGE:START -->
+  <link rel="alternate" hreflang="zh-CN" href="https://www.hequbing.com/ai-landing" />
+  <link rel="alternate" hreflang="en" href="https://www.hequbing.com/en/ai-landing" />
+  <link rel="alternate" hreflang="x-default" href="https://www.hequbing.com/ai-landing" />
+  <!-- AUTO:LANGUAGE:END -->
+  <link rel="stylesheet" href="/contact.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-row">
+        <div class="site-title"><a href="/" class="brand"><span class="brand-name">贺去病商业咨询<small>HEQUBING BUSINESS CONSULTING</small></span></a></div>
+        <nav class="nav">
+          <a href="/services">服务与报价</a>
+          <a href="/geo">GEO 优化</a><a href="/fde">FDE</a>
+          <a href="/ai-landing" class="active">AI 落地</a>
+          <a href="/#delivered">真实交付</a>
+          <a href="/about">关于贺去病</a>
+          <a href="https://blog.hequbing.com/archive">文章</a>
+          <!-- AUTO:LANGUAGE-NAV:START --><a href="https://www.hequbing.com/en/ai-landing" lang="en">English</a><!-- AUTO:LANGUAGE-NAV:END -->
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero page-hero">
+      <p class="hero-eyebrow">企业 AI 应用 · AI 落地实施</p>
+      <h1>企业 AI 落地怎么做？2026 年从选场景到验收的 6 步流程</h1>
+      <p class="hero-sub">企业 AI 落地的正确顺序是：先用 1–2 周判断该不该做、从哪个场景做，再用 2–4 周做小样验证，然后才花钱接进日常流程；验收分交付完成、被发现与理解、业务结果三层记录，工具装了多少台、培训了多少人不算业务成果。</p>
+      <p class="hero-sub">做成与否取决于场景选得对不对、数据是否现成、一线愿不愿意用，而不是模型多强。价格用官网公开报价。</p>
+      <div class="hero-cta" style="justify-content:flex-start">
+        <a href="#scenario" class="btn btn-primary">先看场景怎么选 →</a>
+        <a href="#cost" class="btn btn-outline">看价格与周期</a>
+      </div>
+    </section>
+
+    <p class="note">口径说明：价格为 2026-11-04 官网公开报价；评分与占比来自本人项目经验，属经验估算，不是行业统计；不引用未经核实的失败率等数字。</p>
+
+    <h2 class="section-title" id="what">AI 落地到底是什么？和「上个 AI 工具」「做个 demo」「数字化转型」有什么区别？</h2>
+    <p class="answer-first">AI 落地是把 AI 能力接进一条已经在跑的业务流程，落地之后这条流程的产出物、责任人和验收口径都要有可核对的变化；只买账号、只做演示、只在方案里写清楚，都不算 AI 落地。</p>
+    <div class="prose">
+      <p>判断方法：谁每天用它？他哪一步工作变了？变了之后谁核对结果？三个都答得具体才算接进流程，有一个答不上来就还是「上了个工具」。</p>
+    </div>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead><tr><th></th><th>AI 落地</th><th>上个 AI 工具</th><th>做个 demo</th><th>数字化转型</th></tr></thead>
+        <tbody>
+          <tr><th>交付物</th><td>一条改过的流程，加可复算产出</td><td>一批账号和操作手册</td><td>一段能演示的效果</td><td>一套系统与数据底座</td></tr>
+          <tr><th>谁在用</th><td>一线每天用，工作量变了</td><td>买了，说不清谁在用</td><td>演示完就停</td><td>全员按新流程走</td></tr>
+          <tr><th>怎么算成</th><td>三层验收，业务结果单独记</td><td>装了多少台、培训多少人</td><td>老板看过、反响不错</td><td>系统上线、验收通过</td></tr>
+          <tr><th>典型失败</th><td>场景选错，人不用</td><td>买完没人打开</td><td>真实数据一进来就崩</td><td>系统建好，业务没变</td></tr>
+          <tr><th>周期</th><td>6 周–3 个月一个场景</td><td>几天</td><td>几天–2 周</td><td>1–3 年</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section-title" id="fail">企业 AI 落地最常见的失败原因是什么？</h2>
+    <p class="answer-first">最常见的失败不是模型不行，是立项起点错了：从「我们有什么 AI 工具」开始，而不是从「哪一步在漏钱、漏时间」开始。下面 8 条按我见到的频率排序。</p>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead><tr><th>排序</th><th>症状（你会看到）</th><th>根因</th><th>怎么避免</th></tr></thead>
+        <tbody>
+          <tr><th>1</th><td>选了最想做的场景，不是最该做的</td><td>立项动力来自「老板看过某个演示」</td><td>用评分表打分，先做分最高、后果最轻的</td></tr>
+          <tr><th>2</th><td>数据散在微信、Excel、纸面和老员工脑子里</td><td>系统只记结果不记过程，中间状态没落过盘</td><td>先导一遍数据；导不出来就换场景</td></tr>
+          <tr><th>3</th><td>一线觉得多了一道活，绕过去用老办法</td><td>AI 只是新增入口，没嵌进他本来打开的界面</td><td>接进现有界面，先问一线会用在哪一步</td></tr>
+          <tr><th>4</th><td>验收退化成演示，好看就算成了</td><td>立项没定验收口径，最后只能比效果</td><td>签约前把验收单、基线、复测日期写进合同</td></tr>
+          <tr><th>5</th><td>只有一个人在推，人一走就停</td><td>没交接没文档，知识在外部团队手里</td><td>培训与交接列成独立一步，交不到能自己改不算完</td></tr>
+          <tr><th>6</th><td>一次错误就被封盘，尤其报价和对客承诺</td><td>没评估出错后果，也没设人工复核</td><td>先做草稿加人复核，代价降下来再谈自动发</td></tr>
+          <tr><th>7</th><td>AI 算的和财务算的对不上，没人认这数</td><td>口径没对齐：AI 按文本生成，财务按开票核算</td><td>验收单写清用哪套口径；只让它找数不算数</td></tr>
+          <tr><th>8</th><td>工具买了流程没改，多一个要维护的系统</td><td>采购和流程改造拆成两件事，没人改流程</td><td>采购前先写「哪步不做了」，写不出来就别买</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose">
+      <p>原因是成本结构「前面便宜、后面贵」：做个演示一天就够，接进流程却要处理数据在哪、谁有权限、错了谁负责、口径对不对，这些模型替不了你。所以失败几乎都发生在演示之后。</p>
+    </div>
+
+    <h2 class="section-title" id="scenario">AI 落地应该从哪个场景开始？</h2>
+    <p class="answer-first">从一个痛得具体、数据现成、人愿意用、错一次不翻车、3 个月内能看出真假的场景开始；5 个条件满足 4 个以上再投钱，只满足两三个的先做 POC。</p>
+    <div class="mini-grid">
+      <div class="mini-card"><h3>业务痛点强度</h3><p>5 分=每周都因为它丢单、返工或加班；1 分=有没有都行。决定有没有人催。</p></div>
+      <div class="mini-card"><h3>数据是否现成</h3><p>5 分=已在系统里、格式规整；1 分=散在聊天记录和纸面。决定会不会变成录入。</p></div>
+      <div class="mini-card"><h3>人是否愿意用</h3><p>5 分=一线主动问什么时候能用；1 分=一提就有人反对。决定还有没有人打开。</p></div>
+      <div class="mini-card"><h3>出错后果</h3><p>5 分=错了能回滚；1 分=错一次就对客赔钱。决定要不要加复核。</p></div>
+      <div class="mini-card"><h3>3 个月能否验证</h3><p>5 分=3 个月内能看到差异；1 分=一年后才见效。决定能不能止损。</p></div>
+    </div>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead><tr><th>场景</th><th>痛点</th><th>数据</th><th>意愿</th><th>后果</th><th>3 个月</th><th>初判结论</th></tr></thead>
+        <tbody>
+          <tr><th>客服（售前咨询、售后工单）</th><td>5</td><td>4</td><td>4</td><td>3</td><td>5</td><td>优先：只做答案草稿，不做自动回复</td></tr>
+          <tr><th>销售跟进（线索、会前摘要、提醒）</th><td>5</td><td>3</td><td>4</td><td>5</td><td>4</td><td>优先：从会前 5 分钟摘要切入</td></tr>
+          <tr><th>报价（B2B 非标报价）</th><td>4</td><td>3</td><td>3</td><td>1</td><td>4</td><td>谨慎：草稿加人复核，不自动发</td></tr>
+          <tr><th>内容生产（产品资料、案例、公众号）</th><td>3</td><td>4</td><td>4</td><td>4</td><td>5</td><td>可做：适合当第一个练手场景</td></tr>
+          <tr><th>文档处理（合同、发票、报关、图纸）</th><td>4</td><td>3</td><td>3</td><td>2</td><td>5</td><td>可做：抽取和判断分开，判断留人</td></tr>
+          <tr><th>质检（外观、尺寸、装配）</th><td>4</td><td>2</td><td>2</td><td>2</td><td>2</td><td>不建议第一个做：投入大、验证慢</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:10px">评分是初判：数据在 ERP 里的报价，和散在业务员微信里的，是两个场景。判断要有人既懂业务又懂系统，见 <a href="/fde">FDE 是什么</a>。</p>
+
+    <h2 class="section-title" id="process">AI 落地的 6 步流程怎么走？</h2>
+    <p class="answer-first">AI 落地实施分 6 步：进场调研 → 定场景与验收口径 → 做小样 → 接进日常流程 → 培训与交接 → 复测与扩大。每步都有产出物和「什么算做完」，没过不往下走。</p>
+    <ol class="num-list">
+      <li><b>进场调研（3–5 天）</b><span>跟着一线干一天：看他打开哪些表、抄哪些数、卡在哪一步，再画出「谁在等谁」。产出物：流程现状图 + 人工耗时清单。什么算做完：能指着任一节点说出「谁做、做多久、错了会怎样」。</span></li>
+      <li><b>定场景与验收口径（3–5 天）</b><span>用评分表选一个场景，当场把口径写死：看哪个数、基线取哪段、多少天复测、什么算失败。产出物：场景定义 + 验收单。什么算做完：负责人签字，基线是系统导出的记录。</span></li>
+      <li><b>做小样（1–3 周）</b><span>只做那一条流程，用真实数据，不追求覆盖所有情况；先让能用的 70% 跑通，把明显会错的挡在复核前。产出物：小样 + 已知失败清单。什么算做完：一线跑过 20 次真实任务，能说出它什么时候会错。</span></li>
+      <li><b>接进日常流程（2–4 周）</b><span>最容易被跳过。把输出放进人本来就打开的地方（企业微信、ERP、表格），不新增入口；同时定谁复核、错了怎么回滚。产出物：流程说明 + 回滚方案。什么算做完：连续两周没人提醒也在正常用。</span></li>
+      <li><b>培训与交接（1 周）</b><span>只讲三件事：什么该信、什么必须核、错了找谁。产出物：操作卡 + 常见错误清单 + 责任人名单。什么算做完：内部有人能独立改一次提示词或字段映射。</span></li>
+      <li><b>复测与扩大（2–4 周）</b><span>用第 2 步的验收单复测，三层分别出结论，好坏都写，坏了就停。产出物：三层验收报告 + 下一场景建议。什么算做完：客户按报告决定继续、扩大还是停掉。</span></li>
+    </ol>
+    <p class="note">一个场景从进场到验收通常 6–10 周；供应方大部分时间在开发，说明流程还没想清楚。</p>
+
+    <h2 class="section-title" id="cost">一次 AI 落地要花多少钱、多久？</h2>
+    <p class="answer-first">按官网公开报价：快速 POC 验证 ¥8,000 起（1–2 周）、AI 经营诊断 ¥30,000（1–2 周）、AI 增长试点 ¥180,000（90 天）、年度增长合作 ¥600,000 起（1 年起，顾问费加绩效分成）。成本最低的顺序是先 POC 或诊断，再谈试点。</p>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead><tr><th>服务</th><th>价格</th><th>周期</th><th>什么时候做</th><th>拿到什么</th></tr></thead>
+        <tbody>
+          <tr><th>快速 POC 验证</th><td>¥8,000 起</td><td>1–2 周</td><td>说不清该不该做</td><td>可运行小样 + 结论（含「建议不做」）</td></tr>
+          <tr><th>AI 经营诊断</th><td>¥30,000 / 次</td><td>1–2 周</td><td>想做但不知从哪开始</td><td>场景清单与评分、数据现状、建议顺序</td></tr>
+          <tr><th>AI 增长试点</th><td>¥180,000</td><td>90 天</td><td>方向定了，要接进流程</td><td>一个场景上线、培训交接、三层验收报告</td></tr>
+          <tr><th>年度增长合作</th><td>¥600,000 起 / 年</td><td>1 年起</td><td>已有多个场景在跑</td><td>顾问费加分成，多场景按季度排</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose">
+      <p>POC 或诊断买的是判断不是系统：1–2 周能确认数据在不在、后果能不能接受、一线愿不愿意用，一件否定就省下试点费。周期压不下去不在写代码：一线改习惯要两三周，等结果要 1–3 个月。完整边界见 <a href="/services">服务与报价</a>。</p>
+    </div>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead><tr><th>钱花在哪</th><th>大致占比</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><th>进场调研与流程摸底</th><td>10%–15%</td><td>跟着一线干一天，比开一周会有效</td></tr>
+          <tr><th>数据整理与清洗</th><td>20%–35%</td><td>最容易被低估；要现场采数的更高</td></tr>
+          <tr><th>开发与集成</th><td>20%–30%</td><td>模型调用不是大头，接进现有系统才是</td></tr>
+          <tr><th>培训与交接</th><td>10%–15%</td><td>决定 3 个月后还有没有人用</td></tr>
+          <tr><th>复盘与复测</th><td>5%–10%</td><td>决定第二个场景能不能复用第一个人力</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:10px">占比是经验估算，来自本人在制造与 B2B 项目上的投入结构，不是行业统计；质检这类要现场采数的项目，数据占比明显更高。</p>
+
+    <h2 class="section-title" id="accept">AI 落地怎么验收？</h2>
+    <p class="answer-first">分三层，分开记录：交付完成（约定的东西是否齐全、能跑、能交接）、被发现与理解（真实问题下能不能找到、看懂、用对）、业务结果（有没有值得跟进的业务，成本或工时是否真的变了）。工具装多少台、培训多少人是工作记录，不算营收成果。</p>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead><tr><th>层级</th><th>查什么</th><th>可核查的证据</th><th>这一层不算什么</th></tr></thead>
+        <tbody>
+          <tr><th>一、交付完成</th><td>产出物是否齐全、能跑、能交接</td><td>清单逐项核对；账号与代码归属；客户自己操作一次</td><td>会议次数、加班时长</td></tr>
+          <tr><th>二、被发现与理解</th><td>真实的人用真实问题提问，能否找到、看懂、用对</td><td>固定问题集的测试记录（问题、时间、谁问的、结果）</td><td>演示环境里的完美回答</td></tr>
+          <tr><th>三、业务结果</th><td>有没有值得跟进的业务；成本、工时、返工率是否变了</td><td>询盘与线索、报价与成交流转记录；前后同口径对比</td><td>安装台数、培训人数、账号开通数</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose">
+      <p>三层混在一起，验收一定退化成演示：清单最好核对，业务结果要等，演示当天最好看。分开记的坏消息来得早——第二层没过说明没人用，第三层不必等。别人踩过的坑见 <a href="/cases">AI 落地情报</a>。</p>
+    </div>
+
+    <h2 class="section-title" id="not-do">什么情况下不该做 AI 落地？</h2>
+    <p class="answer-first">下面 5 条里任何一条成立，我的建议都是先不做，或者只花 ¥8,000 做一次 POC 把不确定性打掉。</p>
+    <div class="mini-grid">
+      <div class="mini-card"><h3>1. 这个流程本身就该砍掉</h3><p>先砍流程再加 AI，等于把浪费自动化。判断法：这一步的产出有没有人真的在用？</p></div>
+      <div class="mini-card"><h3>2. 数据不在系统里，也没人愿意整理</h3><p>第一件事会变成好几周录入。该由业务方决定做不做，不该甩给外部。</p></div>
+      <div class="mini-card"><h3>3. 出错后果不可回滚，又没人工复核</h3><p>报价、合同、对客承诺、安全相关的判断，没复核不该自动化。</p></div>
+      <div class="mini-card"><h3>4. 要的是「我们有 AI」，不是「少两个人」</h3><p>立项没有业务指标，验收一定退化成演示。花钱买到的只是一次内部汇报。</p></div>
+      <div class="mini-card"><h3>5. 没有内部责任人</h3><p>全靠外部团队，交付完就停。至少要有一个能拍板、能改流程、也能承受失败的人。</p></div>
+    </div>
+    <p class="note">最容易做成的企业：年营收 1 亿元以上，有稳定产品和客户，数据至少一半在系统里，一线有人在抱怨具体某一步。跑过 66 个手套工厂、做了 20 多年生意之后，我判断能不能做 AI 落地，看的就是这几件事。</p>
+
+    <h2 class="section-title" id="faq">关于企业 AI 落地，还有哪些常见问题？</h2>
+    <p class="answer-first">被问得最多的是四件事：要不要先建数据中台、人少能不能做、买了 API 为什么还要找人、外部团队走了东西还能不能用。答案见下。</p>
+    <div class="faq-details">
+      <details open>
+        <summary>AI 落地一定要先有数据中台吗？</summary>
+        <p>不需要。落地只要某一个场景要用的那几张表，怎么清洗是这个场景自己的事。真要建中台，等两三个场景跑通、知道要什么数据再建。</p>
+      </details>
+      <details>
+        <summary>公司只有几十个人，现在做 AI 落地是不是太早？</summary>
+        <p>不早，但场景要更小。小公司流程短、一个人就能拍板，适合从文档处理、报价草稿、客服问答这类单点开始；弱在没人专职维护，交接要做实。</p>
+      </details>
+      <details>
+        <summary>直接买通用大模型的 API 不就行了，为什么还要找人做落地？</summary>
+        <p>能生成和能接进流程是两件事。API 按量付费很便宜，难的是数据在谁手里、谁有权限、错了谁负责。</p>
+      </details>
+      <details>
+        <summary>内部没人懂 AI，全靠外部团队做行不行？</summary>
+        <p>能做完，但会停在交付那一刻。至少要有一个内部的人看得懂提示词、改得动字段、判断得了结果对不对。</p>
+      </details>
+      <details>
+        <summary>报价里不包含什么？</summary>
+        <p>不含模型与云资源使用费（按量计费，直接付服务商）、不含客户侧整理数据的人力、不含硬件与网络改造，都提前写进报价单。</p>
+      </details>
+      <details>
+        <summary>交付之后外部团队撤了，这套东西还能用吗？</summary>
+        <p>标准是内部能自己改：操作卡、常见错误清单、提示词与字段映射文档都留在客户手里，账号与代码归属写进合同。做不到不签字。</p>
+      </details>
+    </div>
+    <p class="note">做过多款 AI 产品的体会：U-Claw 虾盘有 1.7k stars、U-King 做到一键安装，价值都不在「模型多强」，而在「打开就能用、出错能自己救」。企业 AI 应用和 AI 场景落地是同一件事。</p>
+
+    <section class="contact-panel" id="contact" style="margin-top:48px">
+      <div>
+        <h2>要不要先花 1–2 周，把该不该做弄清楚？</h2>
+        <p>AI 经营诊断 ¥30,000（1–2 周），或先做 POC ¥8,000 起。微信发送「AI 落地 + 公司名 + 行业」，先回三个问题再谈。</p>
+        <button class="btn btn-primary" data-wechat-trigger onclick="toggleWechat()">预约 AI 落地诊断 →</button>
+      </div>
+      <ul class="contact-list">
+        <li><b>微信</b><strong data-wechat-id>hecare888</strong></li>
+        <li><b>邮箱</b><a href="mailto:hefangsheng@gmail.com">hefangsheng@gmail.com</a></li>
+      </ul>
+    </section>
+
+    <p class="note">作者：贺去病（贺方升）。资料核对日期：2026-11-04。相关页面：<a href="/services">服务与报价</a>、<a href="/geo">GEO 优化</a>、<a href="/fde">FDE 是什么</a>、<a href="/cases">AI 落地情报</a>、<a href="/about">关于贺去病</a>。文中经历用于解释判断依据，不构成对任何企业结果的承诺；AI 转型不是一次项目，是若干可验收的小场景连起来的路。</p>
+    <p class="note">贺去病商业咨询 · 深圳 · 微信 <strong data-wechat-id>hecare888</strong> · 邮箱 <a href="mailto:hefangsheng@gmail.com">hefangsheng@gmail.com</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <span>© <span id="year">2026</span> 贺去病商业咨询 · 立足中国 · 服务全球</span>
+        <p class="last-updated" style="font-size:13px;color:var(--muted);margin:0 0 8px">最后更新 2026-11-04 · 作者：贺去病（贺方升） · <a href="/about" style="color:inherit;text-decoration:underline">关于作者</a></p><div class="footer-links">
+          <a href="/services">服务与报价</a>
+          <a href="/geo">GEO 优化</a>
+          <a href="/ai-landing">AI 落地</a>
+          <a href="/about">关于</a>
+          <a href="/cases">AI 落地情报</a>
+          <a href="https://blog.hequbing.com/archive">文章</a>
+          <a href="https://github.com/dongsheng123132" target="_blank" rel="noopener">GitHub</a>
+        <a href="/fde">FDE</a><a href="/ai-consulting-price">收费标准</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="wechat-float">
+    <div class="wechat-popup" id="wechat-popup"><button type="button" class="wechat-popup-close" data-wechat-popup-close aria-label="关闭微信联系窗口">×</button>
+      <h4>预约一次 AI 落地诊断</h4>
+      <div class="wechat-qr-frame"><a class="wechat-image-link" href="/images/hequbing-wechat-original.jpg" data-wechat-image aria-label="点击放大微信二维码"><img src="/images/hequbing-wechat-original.jpg" width="888" height="1131" alt="贺去病本人提供的微信名片二维码" loading="lazy" decoding="async"></a></div><div class="wechat-popup-actions" data-contact-card><p class="wechat-account">微信号 <strong data-wechat-id>hecare888</strong></p><div class="wechat-card-actions"><button type="button" data-copy-wechat>复制微信号</button><a href="/images/hequbing-wechat-original.jpg" download="hequbing-wechat.jpg">保存二维码</a></div><p data-copy-status aria-live="polite" role="status"></p></div>
+      <p>发送「AI 落地 + 公司名 + 行业」</p>
+    </div>
+    <button class="wechat-float-btn" onclick="toggleWechat()" title="微信预约">💬</button>
+  </div>
+
+  <script src="/site.js"></script>
+<dialog id="wechat-lightbox" class="wechat-lightbox" aria-labelledby="wechat-lightbox-title">
+  <div class="wechat-lightbox-bar"><h2 id="wechat-lightbox-title">要加贺去病的微信吗？</h2><button type="button" data-wechat-close aria-label="关闭二维码">×</button></div>
+  <img src="/images/hequbing-wechat-original.jpg" width="888" height="1131" alt="贺去病微信名片原图，扫描二维码添加好友">
+  <p>微信号：<strong>hecare888</strong> · <a href="/images/hequbing-wechat-original.jpg" download="hequbing-wechat.jpg">保存原图</a></p>
+</dialog>
+</body>
+</html>

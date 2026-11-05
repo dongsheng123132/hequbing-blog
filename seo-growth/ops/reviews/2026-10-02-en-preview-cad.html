@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- 文章页模板：由 api/render-post.js 在服务端填充 {{...}}，让爬虫和 AI 引擎不执行 JS 也能读到正文 -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CAD AI auditing: traceable window and door inventories from DWG and DXF | Hequbing</title>
+  <meta name="description" content="An object-level CAD workflow records counts, locations and classification evidence, with clear limits on geometry recovery and validation." id="meta-desc" />
+  <link rel="canonical" href="https://blog.hequbing.com/en/post?slug=cad-ai-dwg-dxf-object-audit" />
+  <link rel="alternate" hreflang="zh-CN" href="https://blog.hequbing.com/post?slug=cad-ai-dwg-dxf-object-audit" />
+  <link rel="alternate" hreflang="en" href="https://blog.hequbing.com/en/post?slug=cad-ai-dwg-dxf-object-audit" />
+  <link rel="alternate" hreflang="x-default" href="https://blog.hequbing.com/post?slug=cad-ai-dwg-dxf-object-audit" />
+  <meta property="og:title" content="CAD AI auditing: traceable window and door inventories from DWG and DXF" id="og-title" />
+  <meta property="og:description" content="An object-level CAD workflow records counts, locations and classification evidence, with clear limits on geometry recovery and validation." id="og-desc" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://blog.hequbing.com/en/post?slug=cad-ai-dwg-dxf-object-audit" id="og-url" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json" id="schema-json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"CAD AI auditing: traceable window and door inventories from DWG and DXF","description":"An object-level CAD workflow records counts, locations and classification evidence, with clear limits on geometry recovery and validation.","datePublished":"2026-10-02","dateModified":"2026-10-02","keywords":"CAD AI, Benxiang Protocol, AI implementation","inLanguage":"en","author":{"@type":"Person","@id":"https://www.hequbing.com/about#person","name":"Hequbing (He Fangsheng)","alternateName":["贺去病","贺方升","Dosen"],"url":"https://www.hequbing.com/en/about"},"publisher":{"@type":"Person","name":"Hequbing"},"mainEntityOfPage":"https://blog.hequbing.com/en/post?slug=cad-ai-dwg-dxf-object-audit","isBasedOn":"https://mp.weixin.qq.com/s/E2rnY8tL65rX6eefSwXIQQ"}</script>
+</head>
+<body>
+  <div id="post-progress" class="post-progress"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-row">
+        <div class="site-title"><a href="https://blog.hequbing.com/en/archive" class="brand">Hequbing · Articles</a></div>
+        <nav class="nav">
+          <a href="https://blog.hequbing.com/en/archive">Articles</a>
+          
+          <a href="https://www.hequbing.com/en/about">About</a>
+          <a href="https://www.hequbing.com/en">Business consulting</a>
+          <a href="https://blog.hequbing.com/post?slug=cad-ai-dwg-dxf-object-audit" lang="zh-CN">中文</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="post-breadcrumb">
+      <a href="https://blog.hequbing.com/en/archive">← All articles</a>
+    </div>
+
+    <article id="post" class="post-detail" data-rendered-slug="cad-ai-dwg-dxf-object-audit" data-language="en">
+      <h1 id="post-title">CAD AI auditing: traceable window and door inventories from DWG and DXF</h1>
+      <div class="meta" id="post-meta"><span>2026-10-02</span><a href="https://www.hequbing.com/en/about">By Hequbing (He Fangsheng)</a><span>3 min read</span><a class="case-card-tag" style="text-decoration:none" href="https://blog.hequbing.com/en/archive">#CAD AI</a><a class="case-card-tag" style="text-decoration:none" href="https://blog.hequbing.com/en/archive">#Benxiang Protocol</a><a class="case-card-tag" style="text-decoration:none" href="https://blog.hequbing.com/en/archive">#AI implementation</a></div>
+      <div id="post-content" class="content"><p>A CAD AI deliverable needs more than a sentence saying how many windows a drawing contains. In this project, I worked with controlled DWG input and an official DXF template to produce objects, relationships and evidence that could be traced back to the drawing.</p><p>The figures come from my project record, with an evidence date of <strong>13 August 2026</strong>. They describe these inputs, not a promise for every drawing. Client drawings were processed in an authorized environment; public illustrations were redacted.</p>
+<h2>Why an overview screenshot is insufficient</h2><p>A screenshot-based response reported 7 windows and 5 doors. The object-level workflow reading the original DWG reported 168 window-opening objects and 22 doors. These were different inputs: a PNG does not preserve complete entity handles, coordinates, layers, block membership or proxy payloads. This illustrates information loss, not a fair ranking of models.</p><p>If a client asks where the 97th window is, the result needs an object ID and location. A total alone cannot answer that question.</p>
+<h2>194 candidates versus 190 placed objects</h2><table><thead><tr><th>Item</th><th>Recorded result</th><th>Meaning</th></tr></thead><tbody><tr><td>Candidates</td><td>194</td><td>4 block-definition templates plus 190 placed objects</td></tr><tr><td>Placed objects</td><td>190</td><td>168 windows, 22 doors, none unclassified</td></tr><tr><td>Location anchors</td><td>190/190</td><td>An anchor for each placed object</td></tr></tbody></table><p>Objects such as <code>opening:38A</code> retain stable handles, classification basis, payload fingerprints and location evidence. A disputed count can be investigated through the object, decoder, basis and derivation record.</p><p>The 168 figure refers to window or window-opening objects, not panes of glass. GNU LibreDWG independently confirmed the total of 194 candidates; it did not independently confirm the 168/22 classification. Exact outlines, orientation and bounding boxes remained unfinished. A location anchor is not complete geometry.</p>
+<h2>A second input: an official DXF template</h2><p>The other input was the City of San Diego DS-3179 Construction Plan DXF template. My import record contained 187 Benxiang objects and 319 relationships, file version AC1032 and header units of inches. The ten agreed machine constraints passed 10/10.</p><p>The record preserved Sheet Index page numbers, discipline codes and titles; references to Greenbook 2024, Whitebook 2024 and California MUTCD 2026; and fields such as NAME OF COMPANY, SITE ADDRESS, PHONE and EMAIL. Recognizing a standard does not establish compliance. The 10/10 result concerns only the agreed checks.</p>
+<h2>What an auditable result should contain</h2><ul><li>Source-file identity, version and SHA-256, identifying the exact input.</li><li>An inventory, classifications, stable IDs and location or drawing evidence.</li><li>Issue lists, totals, machine checks and their sources.</li><li>Uncovered objects and rules, residual risks and conclusions requiring professional review.</li></ul><p>Outputs can be agreed as HTML, PDF, CSV, JSON or an .origin package. Table-to-drawing checks, version differences, title blocks and rule prechecks need scope and acceptance criteria before automation is assessed.</p>
+<h2>Start with one drawing and one question</h2><p>Tell me what needs checking, what counts as a pass, who will review it and what cannot leave your environment. A sample can establish the inventory, issue examples and evidence before expanding to a drawing set.</p><p>A human-workflow blind comparison using the same drawing, scope and criteria has not been completed. I make no tenfold-efficiency claim. Prechecks are not government approval and do not replace qualified professionals' judgment or sign-off.</p><p>This approach relates to my <a href="https://blog.hequbing.com/post?slug=benxiang-protocol">Benxiang Protocol article (Chinese)</a> and the <a href="https://github.com/dongsheng123132/2origin">2origin repository</a>. See <a href="https://www.hequbing.com/en/services#dev">AI development and delivery</a> for sample assessments.</p><hr><p>By <a href="https://www.hequbing.com/en/about">Hequbing (He Fangsheng / Dosen)</a>. English edition prepared on 2 October 2026, based on my <a href="https://mp.weixin.qq.com/s/E2rnY8tL65rX6eefSwXIQQ">WeChat article (Chinese)</a>. Original illustrations and publication records are available there.</p><p>Contact: WeChat <strong>hecare888</strong>; <a href="mailto:hefangsheng@gmail.com">hefangsheng@gmail.com</a>. <a href="https://www.hequbing.com/en/services">Services and pricing</a>.</p></div>
+
+      <div class="share-bar" id="share-bar">
+        <span class="share-label">Share:</span>
+        <button class="share-btn" data-share="weibo" title="Share on Weibo">Weibo</button>
+        <button class="share-btn" data-share="x" title="Share on X">X</button>
+        <button class="share-btn" data-share="copy" title="Copy link">Copy link</button>
+      </div>
+    </article>
+
+    <nav class="post-nav" id="post-nav"><a class="post-nav-link prev" href="https://blog.hequbing.com/en/post?slug=task-passport-ai-handoff"><span>← Previous</span><b>Task Passport: handing a task between Claude, Codex and DSH</b></a></nav>
+
+    <section class="related-section" id="related-section">
+      <h2 class="section-title">Related articles</h2>
+      <div id="related-posts" class="related-grid"><a class="related-card" href="https://blog.hequbing.com/en/post?slug=task-passport-ai-handoff"><b class="related-title">Task Passport: handing a task between Claude, Codex and DSH</b><span class="related-summary">Task Passport preserves goals, verified facts, artifact references and next steps, while version checks reject stale writes.</span></a><a class="related-card" href="https://blog.hequbing.com/en/post?slug=uking-installation-engineering"><b class="related-title">Building U-King: configuration, processes and real-machine failures</b><span class="related-summary">Lessons from configuration write-back, same-name process termination and actual installation-state detection in a multi-tool AI installer.</span></a><a class="related-card" href="https://blog.hequbing.com/en/post?slug=ai-business-consulting-process"><b class="related-title">Hequbing Business Consulting: diagnosis, pilots and delivery</b><span class="related-summary">Three stages of AI business consulting, with CNY pricing, agreed scope, acceptance criteria and attribution of incremental results.</span></a></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <span>© <span id="year"></span> Hequbing · Articles · hequbing.com</span>
+        <div class="footer-links">
+          <a href="https://blog.hequbing.com/en/archive">Articles</a>
+          <a href="https://www.hequbing.com/en/about">About</a>
+          <a href="https://www.hequbing.com/en">Business consulting</a>
+          <a href="https://blog.hequbing.com/post?slug=cad-ai-dwg-dxf-object-audit" lang="zh-CN">中文</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/site.js"></script>
+  <script src="/post.js"></script>
+</body>
+</html>

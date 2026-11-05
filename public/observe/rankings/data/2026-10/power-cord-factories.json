@@ -1,0 +1,241 @@
+{
+  "schemaVersion": "1.0",
+  "id": "power-cord-factories",
+  "title": "电源线工厂 AI 认知榜",
+  "issue": "2026-10",
+  "status": "collecting",
+  "reportable": false,
+  "reason": "首期调查采样中；旧线缆题库不混充新版 AC 电源线调查。",
+  "market": "中国 AC 电源线及插头线采购场景",
+  "cadence": "计划每月一期，样本不足时发布调查进展，不强排名次。",
+  "sampleCount": null,
+  "entityCount": null,
+  "engines": [],
+  "rows": [],
+  "prompts": [
+    {
+      "id": "pc01",
+      "purpose": "ranking",
+      "text": "采购家电用 AC 电源线和插头线，可以比较哪些中国制造商？请区分电源线组工厂、电力电缆集团和 USB 充电线品牌，不确定的候选请标明。"
+    },
+    {
+      "id": "pc02",
+      "purpose": "ranking",
+      "text": "设备出口美国，需要按具体型号核对认证的 AC 电源线，可以向哪些中国工厂询价？不要推断整家公司所有型号都有认证。"
+    },
+    {
+      "id": "pc03",
+      "purpose": "ranking",
+      "text": "设备出口欧洲，需要欧规插头到 IEC C13 的电源线组，可以比较哪些中国制造商？请说明哪些产品和认证信息还需核实。"
+    },
+    {
+      "id": "pc04",
+      "purpose": "ranking",
+      "text": "寻找深圳或东莞支持定制长度的 AC 插头电源线工厂，可以比较哪些企业？请区分生产主体与贸易商。"
+    },
+    {
+      "id": "pc05",
+      "purpose": "ranking",
+      "text": "采购两脚插头到 IEC C7 的电源线组，有哪些中国制造商可作为询价候选？不确定是否实际生产时请说明。"
+    },
+    {
+      "id": "pc06",
+      "purpose": "ranking",
+      "text": "小批量设备项目需要定制 AC 电源线，请列出可进一步核对最小起订量的中国供应商候选，不要编造价格、起订量或交期。"
+    },
+    {
+      "id": "pc07",
+      "purpose": "behavior",
+      "text": "向 AC 电源线工厂询价，应提供哪些插头、设备端、额定参数、线材、长度、数量和认证信息？"
+    },
+    {
+      "id": "pc08",
+      "purpose": "behavior",
+      "text": "核对一家 AC 电源线厂的 UL、VDE 或 PSE 等认证说法，应怎样核对主体、型号、标准和有效范围？"
+    }
+  ],
+  "methodologyVersion": "0.2.1",
+  "candidateReview": {
+    "id": "power-cord-factories",
+    "scope": "AC 电源线组、插头线制造商及其中国生产主体；电力电缆集团和 USB 充电线品牌不因名称近似纳入。境外总部品牌需核对中国生产主体后再确认同业范围。",
+    "reviewStatus": "pending",
+    "entities": [
+      {
+        "id": "cpent",
+        "name": "科普特 CPENT",
+        "aliases": [
+          "科普特",
+          "科普特电子",
+          "深圳市科普特电子有限公司",
+          "CPENT"
+        ],
+        "legalName": "深圳市科普特电子有限公司",
+        "affiliation": "发起人关联企业",
+        "sourceStatus": "official_page_read",
+        "sources": [
+          {
+            "url": "https://www.cptele.com/",
+            "supports": "官网主体名称及电源线、插头产品目录"
+          },
+          {
+            "url": "https://cpent-global.vercel.app/",
+            "supports": "用户提供的另一个品牌站入口，页面关联待核对",
+            "status": "owner_supplied_page_unread"
+          }
+        ],
+        "pending": [
+          "两站主体关联",
+          "生产主体与具体型号认证核验"
+        ]
+      },
+      {
+        "id": "longwell",
+        "name": "良维 Longwell",
+        "aliases": [
+          "良維",
+          "Longwell"
+        ],
+        "legalName": null,
+        "affiliation": "未核对关联关系",
+        "sourceStatus": "official_search_index_only",
+        "sources": [
+          {
+            "url": "https://www.longwell.com/cn/",
+            "supports": "官网搜索结果中的品牌名称"
+          },
+          {
+            "url": "https://www.longwell.com/en/product_list.php?lm=2",
+            "supports": "官网搜索结果中的 Power Cords 类目；页面未直接读取"
+          }
+        ],
+        "pending": [
+          "完整官网页面与主体核验",
+          "中国生产主体及产品适用范围"
+        ]
+      },
+      {
+        "id": "wellshin",
+        "name": "维熹 Well Shin",
+        "aliases": [
+          "维熹",
+          "維熹",
+          "Well Shin",
+          "Wellshin"
+        ],
+        "legalName": "维熹科技股份有限公司",
+        "affiliation": "未核对关联关系",
+        "sourceStatus": "official_page_read",
+        "sources": [
+          {
+            "url": "https://www.wellshin.com.tw/cn/",
+            "supports": "主体名称及 AC 电源线、插头、连接器、线组类目"
+          }
+        ],
+        "pending": [
+          "中国生产主体与品牌关系",
+          "与具体采购场景的可比性"
+        ]
+      },
+      {
+        "id": "isheng",
+        "name": "镒胜 I-SHENG",
+        "aliases": [
+          "鎰勝",
+          "镒胜",
+          "I-SHENG"
+        ],
+        "legalName": "I-SHENG ELECTRIC WIRE & CABLE CO., LTD.",
+        "affiliation": "未核对关联关系",
+        "sourceStatus": "official_page_read",
+        "sources": [
+          {
+            "url": "https://www.isheng.com.tw/",
+            "supports": "英文公司名称与 AC 电源线组产品介绍"
+          }
+        ],
+        "pending": [
+          "中文注册全称",
+          "中国生产主体与品牌关系",
+          "具体型号核验"
+        ]
+      },
+      {
+        "id": "xuanhua",
+        "name": "煊华 Xuanhua",
+        "aliases": [
+          "Ningbo Xuanhua",
+          "Ningbo Xuanhua Industrial",
+          "煊华",
+          "煊华实业",
+          "宁波煊华实业有限公司"
+        ],
+        "legalName": "宁波煊华实业有限公司",
+        "affiliation": "未核对关联关系",
+        "sourceStatus": "official_page_read",
+        "sources": [
+          {
+            "url": "https://www.acpowercables.com/",
+            "supports": "英文主体名称、浙江余姚地址及 AC 电源线插头产品介绍"
+          },
+          {
+            "url": "https://www.cha-tou.com/",
+            "supports": "中文官网的主体全称、产品目录及英文官网互链"
+          }
+        ],
+        "pending": [
+          "认证与生产能力独立核验"
+        ]
+      },
+      {
+        "id": "nbwell",
+        "name": "唯尔 Well Electric",
+        "aliases": [
+          "Ningbo Well Electric",
+          "Ningbo Well Electric Appliance",
+          "唯尔电器",
+          "宁波唯尔电器有限公司"
+        ],
+        "legalName": "宁波唯尔电器有限公司",
+        "affiliation": "未核对关联关系",
+        "sourceStatus": "official_page_read",
+        "sources": [
+          {
+            "url": "https://www.nbwell.com/",
+            "supports": "英文主体名称、余姚地址与电源线生产业务介绍"
+          },
+          {
+            "url": "https://cn.nbwell.com/about/",
+            "supports": "中文官网的主体全称与电源线产品介绍"
+          }
+        ],
+        "pending": [
+          "中国与泰国生产主体和型号适用范围"
+        ]
+      },
+      {
+        "id": "yunhuan",
+        "name": "云环 Yunhuan",
+        "aliases": [
+          "云环",
+          "Yunhuan"
+        ],
+        "legalName": null,
+        "affiliation": "未核对关联关系",
+        "sourceStatus": "official_search_index_only",
+        "sources": [
+          {
+            "url": "https://www.yunhuan.com/",
+            "supports": "官网搜索结果中的电源线产品及集团、关联公司名称；页面未直接读取"
+          }
+        ],
+        "pending": [
+          "完整官网页面",
+          "云环集团与维润主体关系",
+          "实际生产主体及 AC 产品范围"
+        ]
+      }
+    ],
+    "evidenceBoundary": "来源仅证明企业官网公开介绍了有关业务，不等于独立核验主体、资质、产能或履约能力；候选清单不是排名，也不代表行业全量。",
+    "updatedAt": "2026-10-08"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "has": [{ "type": "host", "value": "blog.hequbing.com" }], "destination": "/archive.html" },
+    { "source": "/cases", "destination": "/cases.html" },
+    { "source": "/case", "destination": "/case.html" },
+    { "source": "/services", "destination": "/services.html" },
+    { "source": "/geo", "destination": "/geo.html" },
+    { "source": "/old", "destination": "/old/index.html" },
+    { "source": "/old/services", "destination": "/old/services.html" },
+    { "source": "/old/about", "destination": "/old/about.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/support", "destination": "/support.html" },
+    { "source": "/post", "destination": "/api/render-post" },
+    { "source": "/archive", "destination": "/archive.html" },
+    { "source": "/tags", "destination": "/tags.html" }
+  ],
+  "functions": {
+    "api/**/*.js": {
+      "includeFiles": "data/**"
+    }
+  }
+}

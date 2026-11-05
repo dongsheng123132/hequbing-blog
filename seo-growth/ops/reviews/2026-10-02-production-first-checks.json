@@ -1,0 +1,135 @@
+{
+  "checked_at": "2026-10-02T06:11:25.826Z",
+  "channel": "public_https_via_local_proxy",
+  "expected_posts": 34,
+  "checks": [
+    {
+      "url": "https://www.hequbing.com/",
+      "status": 200,
+      "chars": 20831,
+      "passed": true,
+      "cache": "MISS"
+    },
+    {
+      "url": "https://www.hequbing.com/geo",
+      "status": 200,
+      "chars": 11541,
+      "passed": true,
+      "cache": "MISS"
+    },
+    {
+      "url": "https://www.hequbing.com/services",
+      "status": 200,
+      "chars": 14200,
+      "passed": true,
+      "cache": "MISS"
+    },
+    {
+      "url": "https://www.hequbing.com/about",
+      "passed": false,
+      "error": "fetch failed"
+    },
+    {
+      "url": "https://blog.hequbing.com/",
+      "status": 200,
+      "chars": 20831,
+      "passed": false,
+      "cache": "HIT"
+    },
+    {
+      "url": "https://blog.hequbing.com/api/posts",
+      "status": 200,
+      "chars": 7447,
+      "passed": true,
+      "cache": "MISS"
+    },
+    {
+      "url": "https://www.hequbing.com/sitemap.xml",
+      "status": 200,
+      "chars": 7750,
+      "passed": true,
+      "cache": "MISS"
+    },
+    {
+      "url": "https://blog.hequbing.com/post?slug=ai-housing-era",
+      "status": 200,
+      "chars": 10166,
+      "passed": true,
+      "cache": "MISS"
+    },
+    {
+      "url": "https://blog.hequbing.com/post?slug=missing-post-verify",
+      "status": 404,
+      "chars": 2815,
+      "passed": true,
+      "cache": "MISS"
+    },
+    {
+      "url": "https://blog.hequbing.com/post?slug=cad-ai-dwg-dxf-object-audit",
+      "status": 200,
+      "chars": 6409,
+      "passed": true,
+      "cache": "MISS"
+    },
+    {
+      "url": "https://blog.hequbing.com/post?slug=task-passport-ai-handoff",
+      "status": 200,
+      "chars": 6109,
+      "passed": true,
+      "cache": "MISS"
+    },
+    {
+      "url": "https://blog.hequbing.com/post?slug=opencodex-multi-terminal-workbench",
+      "status": 200,
+      "chars": 6037,
+      "passed": true,
+      "cache": "MISS"
+    },
+    {
+      "url": "https://blog.hequbing.com/post?slug=uking-installation-engineering",
+      "status": 200,
+      "chars": 6024,
+      "passed": true,
+      "cache": "MISS"
+    },
+    {
+      "url": "https://blog.hequbing.com/post?slug=ai-business-consulting-process",
+      "status": 200,
+      "chars": 6048,
+      "passed": true,
+      "cache": "MISS"
+    },
+    {
+      "url": "https://blog.hequbing.com/post?slug=companion-fde-delivery",
+      "status": 200,
+      "chars": 6019,
+      "passed": true,
+      "cache": "MISS"
+    },
+    {
+      "url": "https://blog.hequbing.com/post?slug=anythingchina-logistics-to-ai",
+      "status": 200,
+      "chars": 5801,
+      "passed": true,
+      "cache": "MISS"
+    },
+    {
+      "url": "https://blog.hequbing.com/post?slug=u-hermes-portable-ai-environment",
+      "status": 200,
+      "chars": 5899,
+      "passed": true,
+      "cache": "MISS"
+    },
+    {
+      "url": "https://blog.hequbing.com/post?slug=geo-delivery-discovery-business",
+      "status": 200,
+      "chars": 5927,
+      "passed": true,
+      "cache": "MISS"
+    }
+  ],
+  "passed": false,
+  "ranking": "not_measured",
+  "ai_citations": "not_measured",
+  "inquiries": "not_measured"
+}

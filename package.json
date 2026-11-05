@@ -14,7 +14,9 @@
     "build": "npm run sitemap && npm run build:observe && npm run build:rankings",
     "build:observe": "node modules/observe/src/cli.js build --out public/observe",
     "build:rankings": "node scripts/build-rankings.mjs",
-    "test": "node tests/site.test.cjs && node tests/contact.test.cjs && node tests/projects.test.cjs"
+    "test": "node tests/site.test.cjs && node tests/contact.test.cjs && node tests/projects.test.cjs",
+    "cases": "node scripts/build-cases.js",
+    "check": "node scripts/check-seo.js"
   },
   "keywords": [
     "AI咨询",

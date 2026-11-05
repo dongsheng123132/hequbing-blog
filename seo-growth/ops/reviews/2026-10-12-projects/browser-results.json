@@ -1,0 +1,77 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "path": "/",
+      "width": 1440,
+      "projects": 18,
+      "overflow": false
+    },
+    {
+      "path": "/en",
+      "width": 1440,
+      "projects": 18,
+      "overflow": false
+    },
+    {
+      "path": "/about",
+      "width": 1440,
+      "projects": 18,
+      "overflow": false
+    },
+    {
+      "path": "/en/about",
+      "width": 1440,
+      "projects": 18,
+      "overflow": false
+    },
+    {
+      "path": "/",
+      "width": 390,
+      "projects": 18,
+      "overflow": false
+    },
+    {
+      "path": "/en",
+      "width": 390,
+      "projects": 18,
+      "overflow": false
+    },
+    {
+      "path": "/about",
+      "width": 390,
+      "projects": 18,
+      "overflow": false
+    },
+    {
+      "path": "/en/about",
+      "width": 390,
+      "projects": 18,
+      "overflow": false
+    },
+    {
+      "path": "/",
+      "width": 320,
+      "projects": 18,
+      "overflow": false
+    },
+    {
+      "path": "/en",
+      "width": 320,
+      "projects": 18,
+      "overflow": false
+    },
+    {
+      "path": "/about",
+      "width": 320,
+      "projects": 18,
+      "overflow": false
+    },
+    {
+      "path": "/en/about",
+      "width": 320,
+      "projects": 18,
+      "overflow": false
+    }
+  ]
+}

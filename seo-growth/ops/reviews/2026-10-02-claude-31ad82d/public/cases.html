@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI 落地行业情报 | 贺去病商业咨询</title>
+  <meta name="description" content="精选 AI 企业落地案例，覆盖智能客服、内容生成、数据分析等场景，帮你找到适合自己企业的 AI 方案。" />
+  <link rel="canonical" href="https://www.hequbing.com/cases" />
+  <meta property="og:title" content="AI 落地行业情报 | 贺去病" />
+  <meta property="og:description" content="精选 AI 企业落地案例，按行业和场景分类浏览。" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-row">
+        <div class="site-title"><a href="/" class="brand"><span class="brand-name">贺去病商业咨询<small>HEQUBING BUSINESS CONSULTING</small></span></a></div>
+        <nav class="nav">
+          <a href="/services">服务与报价</a>
+          <a href="/geo">GEO 优化</a>
+          <a href="/#delivered">真实交付</a>
+          <a href="/about">关于贺去病</a>
+          <a href="https://blog.hequbing.com/archive">文章</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" style="padding: 32px;">
+      <h2>AI 落地行业情报</h2>
+      <p class="hero-sub">追踪最新 AI 企业落地实战，找到适合你的 AI 方案</p>
+    </section>
+
+    <div class="intel-notice">
+      <strong>这里收录的是公开行业研究，不是我的交付案例。</strong>
+      别人家把 AI 用在哪个环节、拿到什么数字、踩了什么坑——我整理出来，方便你判断自己这行值不值得上 AI。
+      每条卡片下方都标了来源。
+      <em>我自己交付的项目在 <a href="/#delivered">首页「我做过什么」</a>，每条都能点进去核验。</em>
+    </div>
+
+    <!-- Filters -->
+    <div class="filter-bar">
+      <input id="search" type="search" class="search" placeholder="搜索案例标题或关键词…" />
+    </div>
+    <div class="filter-bar">
+      <span class="filter-label">行业：</span>
+      <div id="industry-filters" class="filter-group"></div>
+    </div>
+    <div class="filter-bar">
+      <span class="filter-label">场景：</span>
+      <div id="scenario-filters" class="filter-group"></div>
+    </div>
+
+    <!-- Cases Grid -->
+    <div id="cases-grid" class="cases-grid"></div>
+
+    <!-- CTA -->
+    <div class="case-cta" style="margin-top: 48px;">
+      <h3>没有找到你的行业？</h3>
+      <p>AI 的应用远不止这些，扫码告诉我你的场景，免费帮你分析</p>
+      <button class="btn btn-primary" onclick="toggleWechat()">微信咨询 →</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <span>© <span id="year">2026</span> 贺去病商业咨询 · 立足中国 · 服务全球</span>
+        <div class="footer-links">
+          <a href="/cases">行业情报</a>
+          <a href="/services">服务与报价</a>
+          <a href="/about">关于</a>
+          <a href="https://blog.hequbing.com/archive">博客</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WeChat Float -->
+  <div class="wechat-float">
+    <div class="wechat-popup" id="wechat-popup">
+      <h4>预约免费 30 分钟沟通</h4>
+      <div class="qr-placeholder">
+        <div class="contact-code">微信号<br><strong>hecare888</strong></div>
+      </div>
+      <p>复制微信号，备注「咨询」</p>
+    </div>
+    <button class="wechat-float-btn" onclick="toggleWechat()" title="微信咨询">💬</button>
+  </div>
+
+  <script src="/site.js"></script>
+  <script>
+    let allCases = [];
+    let activeIndustry = '';
+    let activeScenario = '';
+
+    async function init() {
+      try {
+        const res = await fetch('/api/cases');
+        allCases = await res.json();
+      } catch (e) {
+        document.getElementById('cases-grid').innerHTML = '<p style="color:#ff6b6b">加载失败</p>';
+        return;
+      }
+
+      // Build industry filters
+      const industries = [...new Set(allCases.map(c => c.industry))];
+      const industryContainer = document.getElementById('industry-filters');
+      industryContainer.innerHTML = '<span class="tag-chip active" data-val="">全部</span>';
+      industries.forEach(ind => {
+        industryContainer.innerHTML += `<span class="tag-chip" data-val="${ind}">${ind}</span>`;
+      });
+
+      // Build scenario filters
+      const scenarios = [...new Set(allCases.map(c => c.scenario))];
+      const scenarioContainer = document.getElementById('scenario-filters');
+      scenarioContainer.innerHTML = '<span class="tag-chip active" data-val="">全部</span>';
+      scenarios.forEach(sc => {
+        scenarioContainer.innerHTML += `<span class="tag-chip" data-val="${sc}">${sc}</span>`;
+      });
+
+      // Events
+      industryContainer.addEventListener('click', e => {
+        const chip = e.target.closest('.tag-chip');
+        if (!chip) return;
+        activeIndustry = chip.dataset.val;
+        [...industryContainer.querySelectorAll('.tag-chip')].forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        render();
+      });
+
+      scenarioContainer.addEventListener('click', e => {
+        const chip = e.target.closest('.tag-chip');
+        if (!chip) return;
+        activeScenario = chip.dataset.val;
+        [...scenarioContainer.querySelectorAll('.tag-chip')].forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        render();
+      });
+
+      document.getElementById('search').addEventListener('input', render);
+
+      render();
+    }
+
+    function render() {
+      const q = (document.getElementById('search').value || '').toLowerCase();
+      const filtered = allCases.filter(c => {
+        const matchSearch = !q || c.title.toLowerCase().includes(q) || (c.summary || '').toLowerCase().includes(q);
+        const matchIndustry = !activeIndustry || c.industry === activeIndustry;
+        const matchScenario = !activeScenario || c.scenario === activeScenario;
+        return matchSearch && matchIndustry && matchScenario;
+      });
+
+      // Sort by hot_score desc
+      filtered.sort((a, b) => (b.hot_score || 0) - (a.hot_score || 0));
+
+      const grid = document.getElementById('cases-grid');
+      if (filtered.length === 0) {
+        grid.innerHTML = '<p style="color:var(--muted); text-align:center; padding: 40px;">暂无匹配案例</p>';
+        return;
+      }
+      grid.innerHTML = filtered.map(c => `
+        <div class="case-card">
+          <div class="case-card-header">
+            <div>
+              <span class="case-card-tag industry">${c.industry}</span>
+              <span class="case-card-tag scenario">${c.scenario}</span>
+            </div>
+            <span class="case-card-score">🔥 ${c.hot_score}</span>
+          </div>
+          <h3 class="case-card-title">${c.title}</h3>
+          <div class="case-card-meta">
+            ${(c.tags || []).map(t => `<span class="case-card-tag">${t}</span>`).join('')}
+          </div>
+          <p class="case-card-summary">${c.summary}</p>
+          <div class="case-card-source">${
+            c.source === '自研项目'
+              ? '✅ 自研项目 · 本人交付'
+              : '📊 ' + (c.source || '行业研究') + ' · 非本人交付'
+          }</div>
+          <a class="case-card-link" href="/case?slug=${c.slug}">查看情报详情 →</a>
+        </div>
+      `).join('');
+    }
+
+    init();
+  </script>
+</body>
+</html>

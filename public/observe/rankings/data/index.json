@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "1.0",
+  "siteName": "品牌 AI 认知榜",
+  "generatedAt": "2026-10-12T06:45:05.362Z",
+  "datasets": [
+    {
+      "id": "philippines-logistics",
+      "title": "菲律宾专线物流 AI 认知榜",
+      "url": "data/2026-10/philippines-logistics.json",
+      "pageUrl": "2026-10/philippines-logistics.html",
+      "status": "collecting",
+      "issue": "2026-10",
+      "reportable": false,
+      "sampleCount": null,
+      "entityCount": null,
+      "engines": [],
+      "regions": [],
+      "isSynthetic": false
+    },
+    {
+      "id": "power-cord-factories",
+      "title": "电源线工厂 AI 认知榜",
+      "url": "data/2026-10/power-cord-factories.json",
+      "pageUrl": "2026-10/power-cord-factories.html",
+      "status": "collecting",
+      "issue": "2026-10",
+      "reportable": false,
+      "sampleCount": null,
+      "entityCount": null,
+      "engines": [],
+      "regions": [],
+      "isSynthetic": false
+    },
+    {
+      "id": "industrial-design",
+      "title": "工业设计公司 AI 认知榜",
+      "url": "data/2026-10/industrial-design.json",
+      "pageUrl": "2026-10/industrial-design.html",
+      "status": "planned",
+      "issue": "2026-10",
+      "reportable": false,
+      "sampleCount": null,
+      "entityCount": null,
+      "engines": [],
+      "regions": [],
+      "isSynthetic": false
+    }
+  ]
+}

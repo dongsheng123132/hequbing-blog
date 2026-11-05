@@ -1,0 +1,2087 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AI 品牌认知观察 · 企业资料 API",
+    "version": "0.1.0"
+  },
+  "servers": [
+    {
+      "url": "/observe/api/v1"
+    }
+  ],
+  "paths": {
+    "/companies": {
+      "get": {
+        "operationId": "company.search",
+        "summary": "按类别、国家路线和关键词查询；固定按 ID 排序，不代表推荐名次",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "destinationCountry",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "originCountry",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "mode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "成功：{ok:true,data:...}"
+          },
+          "400": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "401": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "403": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "404": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "409": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "422": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "429": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "503": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          }
+        }
+      }
+    },
+    "/companies/{id}": {
+      "get": {
+        "operationId": "company.get",
+        "summary": "获取企业、产品服务、证据与版本",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "成功：{ok:true,data:...}"
+          },
+          "400": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "401": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "403": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "404": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "409": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "422": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "429": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "503": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          }
+        }
+      }
+    },
+    "/companies/{id}/history": {
+      "get": {
+        "operationId": "company.history",
+        "summary": "查询已发布的企业资料变更历史",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "成功：{ok:true,data:...}"
+          },
+          "400": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "401": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "403": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "404": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "409": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "422": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "429": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "503": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          }
+        }
+      }
+    },
+    "/catalog": {
+      "get": {
+        "operationId": "catalog.export",
+        "summary": "导出公开快照；排除投稿、身份令牌和私有询价",
+        "parameters": [],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "成功：{ok:true,data:...}"
+          },
+          "400": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "401": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "403": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "404": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "409": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "422": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "429": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "503": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          }
+        }
+      }
+    },
+    "/proposals/validate": {
+      "post": {
+        "operationId": "proposal.validate",
+        "summary": "校验格式、证据引用、冲突与疑似重复",
+        "parameters": [],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "成功：{ok:true,data:...}"
+          },
+          "400": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "401": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "403": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "404": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "409": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "422": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "429": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "503": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "schemaVersion": {
+                    "const": "1.0"
+                  },
+                  "operation": {
+                    "enum": [
+                      "create",
+                      "replace"
+                    ]
+                  },
+                  "company": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 80,
+                        "pattern": "^[a-z0-9][a-z0-9-]*$"
+                      },
+                      "name": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 200
+                      },
+                      "legalName": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 200
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "aliases": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 200
+                        },
+                        "maxItems": 30
+                      },
+                      "websites": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 1500,
+                          "format": "uri",
+                          "pattern": "^https://"
+                        },
+                        "maxItems": 10,
+                        "minItems": 1
+                      },
+                      "country": {
+                        "type": "string",
+                        "pattern": "^[A-Z]{2}$"
+                      },
+                      "categories": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 80,
+                          "pattern": "^[a-z0-9][a-z0-9-]*$"
+                        },
+                        "maxItems": 30,
+                        "minItems": 1
+                      },
+                      "summary": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 2000
+                      },
+                      "evidence": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 80,
+                              "pattern": "^[a-z0-9][a-z0-9-]*$"
+                            },
+                            "url": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 1500,
+                              "format": "uri",
+                              "pattern": "^https://"
+                            },
+                            "sourceType": {
+                              "enum": [
+                                "company_website",
+                                "official_register",
+                                "third_party",
+                                "owner_supplied"
+                              ]
+                            },
+                            "observedAt": {
+                              "type": "string",
+                              "format": "date"
+                            },
+                            "note": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 1000
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "url",
+                            "sourceType",
+                            "observedAt",
+                            "note"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "maxItems": 50,
+                        "minItems": 1
+                      },
+                      "offerings": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 80,
+                              "pattern": "^[a-z0-9][a-z0-9-]*$"
+                            },
+                            "kind": {
+                              "enum": [
+                                "product",
+                                "logistics",
+                                "advisory"
+                              ]
+                            },
+                            "category": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 80,
+                              "pattern": "^[a-z0-9][a-z0-9-]*$"
+                            },
+                            "title": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 200
+                            },
+                            "description": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 1500
+                            },
+                            "evidenceIds": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 80,
+                                "pattern": "^[a-z0-9][a-z0-9-]*$"
+                              },
+                              "maxItems": 20,
+                              "minItems": 1
+                            },
+                            "route": {
+                              "type": "object",
+                              "properties": {
+                                "originCountry": {
+                                  "type": "string",
+                                  "pattern": "^[A-Z]{2}$"
+                                },
+                                "originCity": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "minLength": 1,
+                                      "maxLength": 200
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                },
+                                "destinationCountry": {
+                                  "type": "string",
+                                  "pattern": "^[A-Z]{2}$"
+                                },
+                                "destinationCity": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "minLength": 1,
+                                      "maxLength": 200
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                },
+                                "mode": {
+                                  "enum": [
+                                    "sea",
+                                    "air",
+                                    "road",
+                                    "rail",
+                                    "multimodal"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "originCountry",
+                                "originCity",
+                                "destinationCountry",
+                                "destinationCity",
+                                "mode"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "inquiryUrl": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 1500,
+                              "format": "uri",
+                              "pattern": "^https://"
+                            },
+                            "inquiryFields": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 100
+                              },
+                              "maxItems": 30
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "kind",
+                            "category",
+                            "title",
+                            "description",
+                            "evidenceIds",
+                            "inquiryUrl",
+                            "inquiryFields"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "maxItems": 100
+                      },
+                      "facts": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 120
+                            },
+                            "value": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 1500
+                            },
+                            "evidenceIds": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 80,
+                                "pattern": "^[a-z0-9][a-z0-9-]*$"
+                              },
+                              "maxItems": 20,
+                              "minItems": 1
+                            },
+                            "validUntil": {
+                              "anyOf": [
+                                {
+                                  "type": "string",
+                                  "format": "date"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "value",
+                            "evidenceIds",
+                            "validUntil"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "maxItems": 100
+                      },
+                      "unknowns": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 300
+                        },
+                        "maxItems": 40
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "legalName",
+                      "aliases",
+                      "websites",
+                      "country",
+                      "categories",
+                      "summary",
+                      "evidence",
+                      "offerings",
+                      "facts",
+                      "unknowns"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "expectedVersion": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "idempotencyKey": {
+                    "type": "string",
+                    "minLength": 8,
+                    "maxLength": 120
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1500
+                  },
+                  "publicationConsent": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "schemaVersion",
+                  "operation",
+                  "company",
+                  "expectedVersion",
+                  "idempotencyKey",
+                  "reason",
+                  "publicationConsent"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/proposals": {
+      "post": {
+        "operationId": "proposal.submit",
+        "summary": "提交待核验资料；不会直接覆盖企业记录",
+        "parameters": [],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功：{ok:true,data:...}"
+          },
+          "400": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "401": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "403": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "404": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "409": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "422": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "429": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "503": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "schemaVersion": {
+                    "const": "1.0"
+                  },
+                  "operation": {
+                    "enum": [
+                      "create",
+                      "replace"
+                    ]
+                  },
+                  "company": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 80,
+                        "pattern": "^[a-z0-9][a-z0-9-]*$"
+                      },
+                      "name": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 200
+                      },
+                      "legalName": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 200
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "aliases": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 200
+                        },
+                        "maxItems": 30
+                      },
+                      "websites": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 1500,
+                          "format": "uri",
+                          "pattern": "^https://"
+                        },
+                        "maxItems": 10,
+                        "minItems": 1
+                      },
+                      "country": {
+                        "type": "string",
+                        "pattern": "^[A-Z]{2}$"
+                      },
+                      "categories": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 80,
+                          "pattern": "^[a-z0-9][a-z0-9-]*$"
+                        },
+                        "maxItems": 30,
+                        "minItems": 1
+                      },
+                      "summary": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 2000
+                      },
+                      "evidence": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 80,
+                              "pattern": "^[a-z0-9][a-z0-9-]*$"
+                            },
+                            "url": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 1500,
+                              "format": "uri",
+                              "pattern": "^https://"
+                            },
+                            "sourceType": {
+                              "enum": [
+                                "company_website",
+                                "official_register",
+                                "third_party",
+                                "owner_supplied"
+                              ]
+                            },
+                            "observedAt": {
+                              "type": "string",
+                              "format": "date"
+                            },
+                            "note": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 1000
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "url",
+                            "sourceType",
+                            "observedAt",
+                            "note"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "maxItems": 50,
+                        "minItems": 1
+                      },
+                      "offerings": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 80,
+                              "pattern": "^[a-z0-9][a-z0-9-]*$"
+                            },
+                            "kind": {
+                              "enum": [
+                                "product",
+                                "logistics",
+                                "advisory"
+                              ]
+                            },
+                            "category": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 80,
+                              "pattern": "^[a-z0-9][a-z0-9-]*$"
+                            },
+                            "title": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 200
+                            },
+                            "description": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 1500
+                            },
+                            "evidenceIds": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 80,
+                                "pattern": "^[a-z0-9][a-z0-9-]*$"
+                              },
+                              "maxItems": 20,
+                              "minItems": 1
+                            },
+                            "route": {
+                              "type": "object",
+                              "properties": {
+                                "originCountry": {
+                                  "type": "string",
+                                  "pattern": "^[A-Z]{2}$"
+                                },
+                                "originCity": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "minLength": 1,
+                                      "maxLength": 200
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                },
+                                "destinationCountry": {
+                                  "type": "string",
+                                  "pattern": "^[A-Z]{2}$"
+                                },
+                                "destinationCity": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "minLength": 1,
+                                      "maxLength": 200
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                },
+                                "mode": {
+                                  "enum": [
+                                    "sea",
+                                    "air",
+                                    "road",
+                                    "rail",
+                                    "multimodal"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "originCountry",
+                                "originCity",
+                                "destinationCountry",
+                                "destinationCity",
+                                "mode"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "inquiryUrl": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 1500,
+                              "format": "uri",
+                              "pattern": "^https://"
+                            },
+                            "inquiryFields": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 100
+                              },
+                              "maxItems": 30
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "kind",
+                            "category",
+                            "title",
+                            "description",
+                            "evidenceIds",
+                            "inquiryUrl",
+                            "inquiryFields"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "maxItems": 100
+                      },
+                      "facts": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 120
+                            },
+                            "value": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 1500
+                            },
+                            "evidenceIds": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 80,
+                                "pattern": "^[a-z0-9][a-z0-9-]*$"
+                              },
+                              "maxItems": 20,
+                              "minItems": 1
+                            },
+                            "validUntil": {
+                              "anyOf": [
+                                {
+                                  "type": "string",
+                                  "format": "date"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "value",
+                            "evidenceIds",
+                            "validUntil"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "maxItems": 100
+                      },
+                      "unknowns": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 300
+                        },
+                        "maxItems": 40
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "legalName",
+                      "aliases",
+                      "websites",
+                      "country",
+                      "categories",
+                      "summary",
+                      "evidence",
+                      "offerings",
+                      "facts",
+                      "unknowns"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "expectedVersion": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "idempotencyKey": {
+                    "type": "string",
+                    "minLength": 8,
+                    "maxLength": 120
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1500
+                  },
+                  "publicationConsent": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "schemaVersion",
+                  "operation",
+                  "company",
+                  "expectedVersion",
+                  "idempotencyKey",
+                  "reason",
+                  "publicationConsent"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "proposal.list",
+        "summary": "维护者审核队列",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "pending",
+                "accepted",
+                "rejected"
+              ]
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功：{ok:true,data:...}"
+          },
+          "400": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "401": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "403": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "404": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "409": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "422": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "429": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "503": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          }
+        }
+      }
+    },
+    "/proposals/{id}": {
+      "get": {
+        "operationId": "proposal.get",
+        "summary": "读取自己的提交与处理结果",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功：{ok:true,data:...}"
+          },
+          "400": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "401": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "403": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "404": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "409": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "422": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "429": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "503": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          }
+        }
+      }
+    },
+    "/proposals/{id}/review": {
+      "post": {
+        "operationId": "proposal.review",
+        "summary": "接受／拒绝提交；保留所有已发布版本",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功：{ok:true,data:...}"
+          },
+          "400": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "401": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "403": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "404": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "409": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "422": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "429": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "503": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "expectedProposalVersion": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "decision": {
+                    "enum": [
+                      "accept",
+                      "reject"
+                    ]
+                  },
+                  "note": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1500
+                  }
+                },
+                "required": [
+                  "expectedProposalVersion",
+                  "decision",
+                  "note"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/inquiries/prepare": {
+      "post": {
+        "operationId": "inquiry.prepare",
+        "summary": "生成询价草稿和缺项清单；不发送、不报价、不存储需求",
+        "parameters": [],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "成功：{ok:true,data:...}"
+          },
+          "400": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "401": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "403": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "404": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "409": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "422": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "429": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          },
+          "503": {
+            "description": "失败：{ok:false,error:{code,message,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80,
+                    "pattern": "^[a-z0-9][a-z0-9-]*$"
+                  },
+                  "offeringId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80,
+                    "pattern": "^[a-z0-9][a-z0-9-]*$"
+                  },
+                  "requirements": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "field": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 100
+                        },
+                        "value": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 1000
+                        }
+                      },
+                      "required": [
+                        "field",
+                        "value"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "maxItems": 40
+                  }
+                },
+                "required": [
+                  "companyId",
+                  "offeringId",
+                  "requirements"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "company": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "legalName": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "maxItems": 30
+          },
+          "websites": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1500,
+              "format": "uri",
+              "pattern": "^https://"
+            },
+            "maxItems": 10,
+            "minItems": 1
+          },
+          "country": {
+            "type": "string",
+            "pattern": "^[A-Z]{2}$"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^[a-z0-9][a-z0-9-]*$"
+            },
+            "maxItems": 30,
+            "minItems": 1
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80,
+                  "pattern": "^[a-z0-9][a-z0-9-]*$"
+                },
+                "url": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1500,
+                  "format": "uri",
+                  "pattern": "^https://"
+                },
+                "sourceType": {
+                  "enum": [
+                    "company_website",
+                    "official_register",
+                    "third_party",
+                    "owner_supplied"
+                  ]
+                },
+                "observedAt": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "note": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1000
+                }
+              },
+              "required": [
+                "id",
+                "url",
+                "sourceType",
+                "observedAt",
+                "note"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 50,
+            "minItems": 1
+          },
+          "offerings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80,
+                  "pattern": "^[a-z0-9][a-z0-9-]*$"
+                },
+                "kind": {
+                  "enum": [
+                    "product",
+                    "logistics",
+                    "advisory"
+                  ]
+                },
+                "category": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80,
+                  "pattern": "^[a-z0-9][a-z0-9-]*$"
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1500
+                },
+                "evidenceIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80,
+                    "pattern": "^[a-z0-9][a-z0-9-]*$"
+                  },
+                  "maxItems": 20,
+                  "minItems": 1
+                },
+                "route": {
+                  "type": "object",
+                  "properties": {
+                    "originCountry": {
+                      "type": "string",
+                      "pattern": "^[A-Z]{2}$"
+                    },
+                    "originCity": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 200
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "destinationCountry": {
+                      "type": "string",
+                      "pattern": "^[A-Z]{2}$"
+                    },
+                    "destinationCity": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 200
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "mode": {
+                      "enum": [
+                        "sea",
+                        "air",
+                        "road",
+                        "rail",
+                        "multimodal"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "originCountry",
+                    "originCity",
+                    "destinationCountry",
+                    "destinationCity",
+                    "mode"
+                  ],
+                  "additionalProperties": false
+                },
+                "inquiryUrl": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1500,
+                  "format": "uri",
+                  "pattern": "^https://"
+                },
+                "inquiryFields": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "maxItems": 30
+                }
+              },
+              "required": [
+                "id",
+                "kind",
+                "category",
+                "title",
+                "description",
+                "evidenceIds",
+                "inquiryUrl",
+                "inquiryFields"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 100
+          },
+          "facts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "field": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "value": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1500
+                },
+                "evidenceIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80,
+                    "pattern": "^[a-z0-9][a-z0-9-]*$"
+                  },
+                  "maxItems": 20,
+                  "minItems": 1
+                },
+                "validUntil": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "field",
+                "value",
+                "evidenceIds",
+                "validUntil"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 100
+          },
+          "unknowns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            },
+            "maxItems": 40
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "legalName",
+          "aliases",
+          "websites",
+          "country",
+          "categories",
+          "summary",
+          "evidence",
+          "offerings",
+          "facts",
+          "unknowns"
+        ],
+        "additionalProperties": false
+      },
+      "proposal": {
+        "type": "object",
+        "properties": {
+          "schemaVersion": {
+            "const": "1.0"
+          },
+          "operation": {
+            "enum": [
+              "create",
+              "replace"
+            ]
+          },
+          "company": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 80,
+                "pattern": "^[a-z0-9][a-z0-9-]*$"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "legalName": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "aliases": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "maxItems": 30
+              },
+              "websites": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1500,
+                  "format": "uri",
+                  "pattern": "^https://"
+                },
+                "maxItems": 10,
+                "minItems": 1
+              },
+              "country": {
+                "type": "string",
+                "pattern": "^[A-Z]{2}$"
+              },
+              "categories": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80,
+                  "pattern": "^[a-z0-9][a-z0-9-]*$"
+                },
+                "maxItems": 30,
+                "minItems": 1
+              },
+              "summary": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 80,
+                      "pattern": "^[a-z0-9][a-z0-9-]*$"
+                    },
+                    "url": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 1500,
+                      "format": "uri",
+                      "pattern": "^https://"
+                    },
+                    "sourceType": {
+                      "enum": [
+                        "company_website",
+                        "official_register",
+                        "third_party",
+                        "owner_supplied"
+                      ]
+                    },
+                    "observedAt": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "note": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 1000
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "url",
+                    "sourceType",
+                    "observedAt",
+                    "note"
+                  ],
+                  "additionalProperties": false
+                },
+                "maxItems": 50,
+                "minItems": 1
+              },
+              "offerings": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 80,
+                      "pattern": "^[a-z0-9][a-z0-9-]*$"
+                    },
+                    "kind": {
+                      "enum": [
+                        "product",
+                        "logistics",
+                        "advisory"
+                      ]
+                    },
+                    "category": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 80,
+                      "pattern": "^[a-z0-9][a-z0-9-]*$"
+                    },
+                    "title": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 1500
+                    },
+                    "evidenceIds": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 80,
+                        "pattern": "^[a-z0-9][a-z0-9-]*$"
+                      },
+                      "maxItems": 20,
+                      "minItems": 1
+                    },
+                    "route": {
+                      "type": "object",
+                      "properties": {
+                        "originCountry": {
+                          "type": "string",
+                          "pattern": "^[A-Z]{2}$"
+                        },
+                        "originCity": {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 200
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "destinationCountry": {
+                          "type": "string",
+                          "pattern": "^[A-Z]{2}$"
+                        },
+                        "destinationCity": {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 200
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "mode": {
+                          "enum": [
+                            "sea",
+                            "air",
+                            "road",
+                            "rail",
+                            "multimodal"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "originCountry",
+                        "originCity",
+                        "destinationCountry",
+                        "destinationCity",
+                        "mode"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "inquiryUrl": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 1500,
+                      "format": "uri",
+                      "pattern": "^https://"
+                    },
+                    "inquiryFields": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 100
+                      },
+                      "maxItems": 30
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "kind",
+                    "category",
+                    "title",
+                    "description",
+                    "evidenceIds",
+                    "inquiryUrl",
+                    "inquiryFields"
+                  ],
+                  "additionalProperties": false
+                },
+                "maxItems": 100
+              },
+              "facts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "field": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "value": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 1500
+                    },
+                    "evidenceIds": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 80,
+                        "pattern": "^[a-z0-9][a-z0-9-]*$"
+                      },
+                      "maxItems": 20,
+                      "minItems": 1
+                    },
+                    "validUntil": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "format": "date"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "field",
+                    "value",
+                    "evidenceIds",
+                    "validUntil"
+                  ],
+                  "additionalProperties": false
+                },
+                "maxItems": 100
+              },
+              "unknowns": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "maxItems": 40
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "legalName",
+              "aliases",
+              "websites",
+              "country",
+              "categories",
+              "summary",
+              "evidence",
+              "offerings",
+              "facts",
+              "unknowns"
+            ],
+            "additionalProperties": false
+          },
+          "expectedVersion": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "idempotencyKey": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 120
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1500
+          },
+          "publicationConsent": {
+            "const": true
+          }
+        },
+        "required": [
+          "schemaVersion",
+          "operation",
+          "company",
+          "expectedVersion",
+          "idempotencyKey",
+          "reason",
+          "publicationConsent"
+        ],
+        "additionalProperties": false
+      },
+      "review": {
+        "type": "object",
+        "properties": {
+          "proposalId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          },
+          "expectedProposalVersion": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "decision": {
+            "enum": [
+              "accept",
+              "reject"
+            ]
+          },
+          "note": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1500
+          }
+        },
+        "required": [
+          "proposalId",
+          "expectedProposalVersion",
+          "decision",
+          "note"
+        ],
+        "additionalProperties": false
+      },
+      "inquiry": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          },
+          "offeringId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          },
+          "requirements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "field": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "value": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1000
+                }
+              },
+              "required": [
+                "field",
+                "value"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 40
+          }
+        },
+        "required": [
+          "companyId",
+          "offeringId",
+          "requirements"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+}

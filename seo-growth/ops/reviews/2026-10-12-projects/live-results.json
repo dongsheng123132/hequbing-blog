@@ -1,0 +1,37 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "projects": 18,
+    "origin": true,
+    "source": true
+  },
+  {
+    "path": "/en",
+    "status": 200,
+    "projects": 18,
+    "origin": true,
+    "source": true
+  },
+  {
+    "path": "/about",
+    "status": 200,
+    "projects": 18,
+    "origin": true,
+    "source": true
+  },
+  {
+    "path": "/en/about",
+    "status": 200,
+    "projects": 18,
+    "origin": true,
+    "source": true
+  },
+  {
+    "path": "/llms.txt",
+    "status": 200,
+    "projects": 0,
+    "origin": true,
+    "source": true
+  }
+]

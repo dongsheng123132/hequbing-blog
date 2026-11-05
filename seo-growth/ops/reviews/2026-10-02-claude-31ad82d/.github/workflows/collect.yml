@@ -1,0 +1,38 @@
+name: AI Cases Collector
+
+on:
+  schedule:
+    # Run twice daily at 8:00 and 20:00 UTC+8 (0:00 and 12:00 UTC)
+    - cron: '0 0,12 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run collector
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node scripts/collector.js
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet data/cases.json || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "AI Collector Bot"
+          git config user.email "bot@hequbing.com"
+          git add data/cases.json
+          git commit -m "auto: update AI cases $(date +%Y-%m-%d)"
+          git push

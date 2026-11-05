@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>U-King 一键安装：配置、进程与排障的工程取舍 | 贺去病商业咨询</title>
+  <meta name="description" content="给非技术用户一键装好 Claude Code、Codex、OpenClaw。真正的难点不是安装包，是配置被覆盖、同名进程被误杀、以及怎么判断「到底装没装好」。" />
+  <link rel="canonical" href="https://www.hequbing.com/case/uking-installation-engineering" />
+  <meta property="og:title" content="U-King 一键安装：配置、进程与排障的工程取舍" />
+  <meta property="og:description" content="给非技术用户一键装好 Claude Code、Codex、OpenClaw。真正的难点不是安装包，是配置被覆盖、同名进程被误杀、以及怎么判断「到底装没装好」。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.hequbing.com/case/uking-installation-engineering" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/contact.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"U-King 一键安装：配置、进程与排障的工程取舍","description":"给非技术用户一键装好 Claude Code、Codex、OpenClaw。真正的难点不是安装包，是配置被覆盖、同名进程被误杀、以及怎么判断「到底装没装好」。","datePublished":"2026-10-02","dateModified":"2026-10-02","inLanguage":"zh-CN","author":{"@id":"https://www.hequbing.com/about#person"},"publisher":{"@id":"https://www.hequbing.com/#org"},"mainEntityOfPage":"https://www.hequbing.com/case/uking-installation-engineering","url":"https://www.hequbing.com/case/uking-installation-engineering","isPartOf":{"@id":"https://www.hequbing.com/cases#page"},"about":[{"@type":"Thing","name":"企业 IT"},{"@type":"Thing","name":"AI 工具部署"}],"disambiguatingDescription":"本文为作者本人交付的项目记录。"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.hequbing.com/"},{"@type":"ListItem","position":2,"name":"AI 落地情报","item":"https://www.hequbing.com/cases"},{"@type":"ListItem","position":3,"name":"U-King 一键安装：配置、进程与排障的工程取舍","item":"https://www.hequbing.com/case/uking-installation-engineering"}]}]}</script>
+  <style>.case-detail h1{font-size:28px;line-height:1.35;margin:0 0 12px}</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-row">
+        <div class="site-title"><a href="/" class="brand"><span class="brand-name">贺去病商业咨询<small>HEQUBING BUSINESS CONSULTING</small></span></a></div>
+        <nav class="nav">
+          <a href="/services">服务与报价</a>
+          <a href="/geo">GEO 优化</a>
+          <a href="/fde">FDE</a>
+          <a href="/#delivered">真实交付</a>
+          <a href="/about">关于贺去病</a>
+          <a href="https://blog.hequbing.com/archive">文章</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav aria-label="面包屑" style="margin-top:16px;font-size:14px;color:var(--muted)">
+      <a href="/" style="color:var(--muted);text-decoration:none">首页</a> ›
+      <a href="/cases" style="color:var(--muted);text-decoration:none">AI 落地情报</a> ›
+      <span>U-King 一键安装：配置、进程与排障的工程取舍</span>
+    </nav>
+
+    <article class="case-detail">
+      <h1>U-King 一键安装：配置、进程与排障的工程取舍</h1>
+      <div class="meta">
+        <span>2026-10-02</span>
+        <span class="case-card-tag industry">企业 IT</span>
+        <span class="case-card-tag scenario">AI 工具部署</span>
+        <span class="case-card-tag">自有交付</span><span class="case-card-tag">Windows</span><span class="case-card-tag">部署</span><span class="case-card-tag">进程管理</span><span class="case-card-tag">排障</span>
+      </div>
+      <div class="intel-notice"><strong>✅ 自研项目 · 本人交付。</strong>这是我自己做的项目，可以点开代码或链接核验。 · <a href="https://blog.hequbing.com/post?slug=uking-installation-engineering" target="_blank" rel="noopener">查看原文</a></div>
+      <div class="content"><h3>问题</h3><p>客户买了 AI 账号但没人会用。要交付的不是安装器，是「插上就能用」的完整体验。</p><h3>踩到的三个坑</h3><ul><li><strong>配置被覆盖</strong>：装第二个工具时把第一个的内存配置冲掉了</li><li><strong>同名进程误杀</strong>：按进程名杀，误伤用户正在跑的其他任务</li><li><strong>假成功</strong>：安装器返回成功，但实际配置没写进去</li></ul><h3>做法</h3><ul><li>安装状态检测以「真实可运行」为准，不以「安装器返回码」为准</li><li>写配置前先备份并做差异比对，不整文件覆盖</li><li>杀进程按 PID + 路径双条件，不用进程名</li></ul><h3>结果</h3><p>U-King 成为可交付产品，装机与排障流程固化进 skill，可远程复现。</p></div>
+    </article>
+
+    <div class="case-cta">
+      <h3>想在你的企业复制这套做法？</h3>
+      <p>先说清你的行业、客户和现在最卡的一步，我给你一个判断，能做的说怎么做，不能做的直说。</p>
+      <button class="btn btn-primary" data-wechat-trigger onclick="toggleWechat()">微信咨询 →</button>
+    </div>
+
+    <p class="note" style="margin:24px 0 8px">延伸阅读：<a href="/fde">FDE 是什么</a> · <a href="/ai-landing">企业 AI 落地怎么做</a> · <a href="/ai-consulting-price">AI 咨询收费</a> · <a href="/services">服务与报价</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <span>© <span id="year">2026</span> 贺去病商业咨询 · 立足中国 · 服务全球</span>
+        <div class="footer-links">
+          <a href="/cases">行业情报</a>
+          <a href="/services">服务与报价</a>
+          <a href="/geo">GEO 优化</a>
+          <a href="/fde">FDE</a>
+          <a href="/ai-landing">AI 落地</a>
+          <a href="/ai-consulting-price">收费标准</a>
+          <a href="/about">关于</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="wechat-float">
+    <div class="wechat-popup" id="wechat-popup"><button type="button" class="wechat-popup-close" data-wechat-popup-close aria-label="关闭微信联系窗口">×</button>
+      <h4>预约免费 30 分钟沟通</h4>
+      <div class="wechat-qr-frame"><a class="wechat-image-link" href="/images/hequbing-wechat-original.jpg" data-wechat-image aria-label="点击放大微信二维码"><img src="/images/hequbing-wechat-original.jpg" width="888" height="1131" alt="贺去病本人提供的微信名片二维码" loading="lazy" decoding="async"></a></div><div class="wechat-popup-actions" data-contact-card><p class="wechat-account">微信号 <strong data-wechat-id>hecare888</strong></p><div class="wechat-card-actions"><button type="button" data-copy-wechat>复制微信号</button><a href="/images/hequbing-wechat-original.jpg" download="hequbing-wechat.jpg">保存二维码</a></div><p data-copy-status aria-live="polite" role="status"></p></div>
+      <p>复制微信号，备注「咨询」</p>
+    </div>
+    <button class="wechat-float-btn" onclick="toggleWechat()" title="微信咨询">💬</button>
+  </div>
+  <script src="/site.js"></script>
+<dialog id="wechat-lightbox" class="wechat-lightbox" aria-labelledby="wechat-lightbox-title">
+  <div class="wechat-lightbox-bar"><h2 id="wechat-lightbox-title">添加贺去病的微信</h2><button type="button" data-wechat-close aria-label="关闭二维码">×</button></div>
+  <img src="/images/hequbing-wechat-original.jpg" width="888" height="1131" alt="贺去病微信名片原图，扫描二维码添加好友">
+  <p>微信号：<strong>hecare888</strong> · <a href="/images/hequbing-wechat-original.jpg" download="hequbing-wechat.jpg">保存原图</a></p>
+</dialog>
+</body>
+</html>

@@ -8,3 +8,4 @@ public/observe/
 
 .vercel
 .env*
+data/_corpus_*.txt
