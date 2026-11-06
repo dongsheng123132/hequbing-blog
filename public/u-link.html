@@ -11,42 +11,62 @@
 <meta property="og:description" content="自己搭 relay，两台机器装上就能互控、跑命令、传文件、看屏幕和调试；CLI/JSON/MCP 给 AI agent 直接调用。Apache-2.0。" />
 <meta property="og:url" content="https://www.hequbing.com/u-link" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<link rel="stylesheet" href="/styles.css" />
+<!-- 本页自带浅色样式，不引站点深色 styles.css，避免主题变量串味 -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"U-Link Core","applicationCategory":"DeveloperApplication","operatingSystem":"macOS, Windows, Linux","description":"自托管、CLI/MCP 优先的远程执行层；目标机器主动出站连接自建 relay。","url":"https://www.hequbing.com/u-link","downloadUrl":"https://github.com/dongsheng123132/u-link-core/releases","softwareVersion":"0.5.1","license":"https://www.apache.org/licenses/LICENSE-2.0","author":{"@type":"Person","name":"贺方升","alternateName":"贺去病","url":"https://www.hequbing.com/about"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
 </script>
 <style>
+  :root{color-scheme:light;--paper:#f6f5f1;--ink:#202723;--green:#193e35;--muted:#5c6360;--line:#d6d9d1;--white:#fffefa}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:90px}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif;font-size:15px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:var(--green);text-decoration:none}a:hover{text-decoration:underline}
+  a:focus-visible,summary:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+  h1,h2,h3,p,ol{margin:0}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92em;background:#eef0ea;padding:1px 5px;border-radius:4px}
+  .site-header{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+  .container{max-width:1100px;margin:0 auto;padding:0 20px}
+  .header-row{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+  .site-title{flex:0 0 auto}
+  .brand-name{display:block;font-size:17px;font-weight:650;letter-spacing:1px;line-height:1.25;color:var(--ink)}
+  .brand-name small{display:block;font-size:8px;letter-spacing:1.5px;font-weight:500;color:var(--muted);margin-top:2px}
+  .nav{display:flex;align-items:center;gap:22px;font-size:13px;flex-wrap:wrap}
+  .nav a{color:var(--muted);white-space:nowrap}
+  .nav a:hover{color:var(--green);text-decoration:none}
+  .nav a.active{color:var(--green);font-weight:600;border-bottom:2px solid var(--green);padding-bottom:2px}
   .ul-wrap{max-width:1100px;margin:0 auto;padding:0 20px}
-  .ul-hero{padding:52px 0 28px;border-bottom:1px solid var(--line,#d6d9d1)}
-  .ul-badge{display:inline-block;font-size:12px;letter-spacing:.08em;border:1px solid var(--line,#d6d9d1);border-radius:999px;padding:4px 12px;color:var(--muted,#6b716c);background:var(--white,#fffefa)}
-  .ul-hero h1{font-size:34px;line-height:1.35;margin:16px 0 12px;color:var(--ink,#202723)}
-  .ul-hero p.lead{font-size:17px;line-height:1.8;color:var(--muted,#6b716c);max-width:820px;margin:0 0 20px}
+  .ul-hero{padding:52px 20px 28px;border-bottom:1px solid var(--line)}
+  .ul-badge{display:inline-block;font-size:12px;letter-spacing:.06em;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--muted);background:var(--white)}
+  .ul-hero h1{font-size:36px;line-height:1.4;margin:18px 0 14px;color:var(--ink);font-weight:650;letter-spacing:.2px;overflow-wrap:anywhere;word-break:break-word}
+  .ul-hero p.lead{font-size:17px;line-height:1.85;color:var(--muted);max-width:820px;margin:0 0 20px}
   .ul-actions{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 6px}
-  .ul-actions a{font-size:14px;padding:10px 18px;border-radius:8px;text-decoration:none;border:1px solid var(--line,#d6d9d1)}
-  .ul-a-primary{background:#193e35;color:#fff;border-color:#193e35}
-  .ul-a-plain{background:#fffefa;color:#202723}
-  .ul-section{padding:38px 0;border-bottom:1px solid var(--line,#d6d9d1)}
-  .ul-section h2{font-size:22px;margin:0 0 8px;color:var(--ink,#202723)}
-  .ul-section p.desc{color:var(--muted,#6b716c);font-size:14px;margin:0 0 20px;max-width:820px}
+  .ul-actions a{font-size:14px;padding:10px 18px;border-radius:8px;text-decoration:none;border:1px solid var(--line)}
+  .ul-actions a:hover{text-decoration:none;transform:translateY(-1px)}
+  .ul-a-primary{background:var(--green);color:#fff;border-color:var(--green)!important}
+  .ul-a-primary:hover{background:#2b5445}
+  .ul-a-plain{background:var(--white);color:var(--ink)}
+  .ul-a-plain:hover{border-color:var(--green)}
+  .ul-section{padding:38px 20px;border-bottom:1px solid var(--line)}
+  .ul-section h2{font-size:22px;margin:0 0 8px;color:var(--ink);font-weight:650}
+  .ul-section p.desc{color:var(--muted);font-size:14px;margin:0 0 20px;max-width:820px}
   .ul-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-  @media(max-width:840px){.ul-grid{grid-template-columns:1fr}.ul-hero h1{font-size:27px}}
-  .ul-card{background:#fffefa;border:1px solid var(--line,#d6d9d1);border-radius:10px;padding:18px}
-  .ul-card h3{font-size:15px;margin:0 0 8px;color:#193e35}
-  .ul-card p{font-size:13.5px;line-height:1.75;color:var(--muted,#6b716c);margin:0}
-  .ul-arch{background:#fffefa;border:1px solid var(--line,#d6d9d1);border-radius:10px;padding:20px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.9;color:#202723;overflow-x:auto;white-space:pre}
+  .ul-card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:18px}
+  .ul-card h3{font-size:15px;margin:0 0 8px;color:var(--green);font-weight:650}
+  .ul-card p{font-size:13.5px;line-height:1.75;color:var(--muted);margin:0}
+  .ul-arch{max-width:100%;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:20px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.9;color:var(--ink);overflow-x:auto;white-space:pre}
   .ul-steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:10px}
-  .ul-steps li{background:#fffefa;border:1px solid var(--line,#d6d9d1);border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:#202723}
-  .ul-steps li b{color:#193e35}
-  .ul-steps code{background:#f2f4ef;border:1px solid var(--line,#d6d9d1);border-radius:5px;padding:1px 6px;font-size:12.5px}
-  .ul-table{width:100%;border-collapse:collapse;font-size:14px}
-  .ul-table th,.ul-table td{border:1px solid var(--line,#d6d9d1);padding:10px 12px;text-align:left;vertical-align:top}
-  .ul-table th{background:#f2f4ef;color:#193e35;font-weight:600}
-  .ul-note{font-size:13px;color:var(--muted,#6b716c);line-height:1.8;margin-top:14px}
-  .ul-faq details{background:#fffefa;border:1px solid var(--line,#d6d9d1);border-radius:10px;padding:12px 16px;margin-bottom:10px}
-  .ul-faq summary{cursor:pointer;font-weight:600;font-size:14.5px;color:#193e35}
-  .ul-faq details p{font-size:13.5px;line-height:1.8;color:var(--muted,#6b716c);margin:10px 0 0}
-  .ul-footer{padding:30px 0 60px;color:var(--muted,#6b716c);font-size:13px;line-height:1.8}
-  .ul-footer a{color:#193e35}
+  .ul-steps li{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;color:var(--ink)}
+  .ul-steps li b{color:var(--green)}
+  .ul-table{width:100%;border-collapse:collapse;font-size:14px;color:var(--ink)}
+  .ul-table th,.ul-table td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+  .ul-table th{background:#eef0ea;color:var(--green);font-weight:650}
+  .ul-note{font-size:13px;color:var(--muted);line-height:1.8;margin-top:14px}
+  .ul-faq details{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-bottom:10px}
+  .ul-faq summary{cursor:pointer;font-weight:650;font-size:14.5px;color:var(--green)}
+  .ul-faq details p{font-size:13.5px;line-height:1.8;color:var(--muted);margin:10px 0 0}
+  .ul-footer{padding:30px 20px 60px;color:var(--muted);font-size:13px;line-height:1.8}
+  .ul-footer a{color:var(--green)}
+  @media(max-width:840px){.ul-table{display:block;overflow-x:auto}.ul-steps li{overflow-wrap:anywhere}.ul-hero h1 br{display:none}.ul-grid{grid-template-columns:1fr}.ul-hero h1{font-size:27px}.header-row{flex-wrap:wrap;padding:14px 0;gap:12px}.nav{gap:14px;font-size:12px}.ul-hero{padding:32px 20px 22px}.ul-section{padding:28px 20px}}
 </style>
 </head>
 <body>
@@ -65,7 +85,7 @@
 <main>
 <section class="ul-wrap ul-hero">
   <span class="ul-badge">开源项目 · Apache-2.0 · v0.5.1</span>
-  <h1>两台机器，装上就能互控和调试<br>不需要公网 IP，也不需要 Tailscale</h1>
+  <h1>两台机器，装上就能互控和调试 <br>不需要公网 IP，也不需要 Tailscale</h1>
   <p class="lead">U-Link Core 是一套自己托管的远程执行层：每台机器主动向外连你自己的 relay，运维或 AI agent 就能跑命令、传文件、看屏幕并留下审计。带 macOS 菜单栏和 Windows 托盘常驻程序，一个状态点就知道在不在线。</p>
   <div class="ul-actions">
     <a class="ul-a-primary" href="https://github.com/dongsheng123132/u-link-core" target="_blank" rel="noopener">在 GitHub 看源码与文档 →</a>
