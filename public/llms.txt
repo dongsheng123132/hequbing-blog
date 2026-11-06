@@ -43,6 +43,7 @@
 - [格子科研计算机](https://github.com/dongsheng123132/grid-research-computer): 用阳性对照与可复跑判据，检查 AI 是否把数据库空白误当成科学发现。公开失败过程、负结果与边界。（研究实验）
 - [2Origin Computer 本源计算架构](https://github.com/dongsheng123132/2origin-computer): 围绕状态持久化、动作迁移和经验积累探索长程 AI 计算机。开放架构草案、实验记录与长程任务挑战。（架构草案）
 - [TUNGKE 探客](https://github.com/dongsheng123132/ai-tungke): 结合地图地点检索、AI 搜索与行业数据的外贸获客平台。公开前端项目，持续探索客户发现与评估。（早期项目）
+- [AI 优化大师](https://www.hequbing.com/apps/ai-optimize-master/): 审计同时安装的多个 AI 工具的技能目录：同名重复、断链引用、过期配置。只读扫描、改动可回滚。（已开源 · npm 可安装） [GitHub](https://github.com/dongsheng123132/ai-optimize-master)
 <!-- AUTO:PROJECTS:END -->
 
 ## 文章

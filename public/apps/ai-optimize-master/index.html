@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 优化大师 · 查清重复与断链，再安全清理</title>
+<meta name="description" content="AI 优化大师：审计多 AI 工具的技能目录，找出同名重复、断链引用与过期配置。只读扫描、提案先行、改动可回滚。开源，npm 可安装。">
+<link rel="canonical" href="https://www.hequbing.com/apps/ai-optimize-master/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.hequbing.com/apps/ai-optimize-master/">
+<meta property="og:title" content="AI 优化大师 · 查清重复与断链，再安全清理">
+<meta property="og:description" content="多 AI 工具的技能目录审计：重复、断链、过期配置。只读扫描，提案先行，改动可回滚。">
+<meta name="theme-color" content="#f7f9fc">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "AI 优化大师",
+      "alternateName": "AI Optimize Master",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "macOS, Windows, Linux",
+      "url": "https://www.hequbing.com/apps/ai-optimize-master/",
+      "downloadUrl": "https://www.npmjs.com/package/ai-optimize-master",
+      "codeRepository": "https://github.com/dongsheng123132/ai-optimize-master",
+      "license": "https://opensource.org/licenses/MIT",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
+      "description": "审计多 AI 工具的技能目录：同名重复、断链引用与过期配置；只读扫描，提案先行，归档可回滚。",
+      "author": { "@type": "Person", "name": "贺去病", "url": "https://www.hequbing.com/about" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"它会删我的文件吗？","acceptedAnswer":{"@type":"Answer","text":"不会。执行时只把选中的技能目录移动到归档目录，并写入 journal，可用 undo 逐字节还原。"}},
+        {"@type":"Question","name":"它会自动改写我的 SKILL.md 吗？","acceptedAnswer":{"@type":"Answer","text":"不会。evolve 只输出带证据与行号的提案和 diff，不自动修改任何技能正文。"}},
+        {"@type":"Question","name":"能帮我清理 MCP 配置吗？","acceptedAnswer":{"@type":"Answer","text":"当前版本只读统计 MCP 声明数量与条目，不修改配置，也不启动任何 MCP 服务。"}},
+        {"@type":"Question","name":"支持哪些系统？","acceptedAnswer":{"@type":"Answer","text":"macOS、Windows、Linux。默认探测 22 个已知 agent 技能根目录，目录不存在会跳过。"}}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  :root { color-scheme: light dark; --ink:#16202e; --muted:#5f6b7a; --line:#e4e8ef; --bg:#f7f9fc; --card:#fff; --accent:#2563eb; }
+  @media (prefers-color-scheme: dark) { :root { --ink:#eef2f8; --muted:#a7b3c4; --line:#2a3446; --bg:#0f1621; --card:#151d2b; --accent:#60a5fa; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.65 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; }
+  main { max-width:780px; margin:0 auto; padding:48px 20px 64px; }
+  h1 { font-size:40px; line-height:1.15; letter-spacing:-.02em; margin:0 0 10px; }
+  .lead { font-size:20px; color:var(--muted); margin:0 0 24px; }
+  .cta { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; font-weight:600; padding:14px 22px; border-radius:14px; min-height:50px; margin:0 10px 10px 0; }
+  .cta.secondary { background:transparent; color:var(--accent); border:1px solid var(--accent); }
+  .muted { color:var(--muted); }
+  h2 { font-size:22px; margin:36px 0 10px; }
+  ul { padding-left:22px; }
+  .grid { display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); margin:18px 0; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px 18px; }
+  .card strong { display:block; margin-bottom:4px; }
+  code { background:rgba(127,127,127,.12); padding:2px 6px; border-radius:6px; font-size:15px; }
+  pre { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; overflow:auto; }
+  footer { margin-top:44px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+  a { color:var(--accent); }
+  @media (max-width:480px){ h1{font-size:32px} .lead{font-size:18px} }
+</style>
+</head>
+<body>
+<main>
+  <p class="muted">贺去病的开源作品 · MIT</p>
+  <h1>AI 优化大师</h1>
+  <p class="lead">AI 工具装得越多，技能目录越乱：同一份 skill 被复制到四五个工具、引用指向早已不存在的脚本、升级后没人知道哪份是原件。先查清，再动手。</p>
+  <p><a class="cta" href="https://github.com/dongsheng123132/ai-optimize-master" target="_blank" rel="noopener noreferrer">看源码</a><a class="cta secondary" href="https://www.npmjs.com/package/ai-optimize-master" target="_blank" rel="noopener noreferrer">npm 安装</a></p>
+  <p class="muted">免费 · 开源 · 不联网 · 不需要账号</p>
+
+  <h2>它解决什么</h2>
+  <div class="grid">
+    <div class="card"><strong>同名重复</strong>同一份 skill 在多个工具里各有一份；区分「内容完全一致」与「已经分叉」。</div>
+    <div class="card"><strong>断链引用</strong>SKILL.md 让 AI 去读某个脚本，但文件已经不存在——列出具体缺失路径与行号。</div>
+    <div class="card"><strong>过期配置</strong>Windows 绝对路径、过时端口、只在旧系统成立的写法，逐条列出。</div>
+  </div>
+
+  <h2>怎么工作</h2>
+<pre><code>npx ai-optimize-master scan     # 只读体检，不改任何东西
+npx ai-optimize-master evolve   # 输出改进提案与 diff，不自动修改
+npx ai-optimize-master plan --select &lt;skill&gt; --out plan.json
+npx ai-optimize-master apply --plan plan.json --expect &lt;planHash&gt;</code></pre>
+  <p>执行必须出示方案哈希：没有哈希会被拒绝，方案被改过也会被拒绝。每一步写入 journal，<code>undo</code> 可还原；如果你在之后又编辑过文件，它报冲突而不是覆盖。</p>
+
+  <h2>本机实测</h2>
+  <ul>
+    <li>探测到 <strong>11 个</strong>正在使用的 AI 工具技能根，约 <strong>400 个</strong> skill</li>
+    <li><strong>38 组</strong>同名重复，其中 <strong>29 组</strong>内容完全一致</li>
+    <li><strong>71 个</strong> skill 引用了不存在的本地文件</li>
+    <li>MCP 声明：Claude 1 处、Codex 5 处、Cursor 1 处（只读统计，不改配置）</li>
+  </ul>
+  <p class="muted">数字来自一次真实扫描；它会随机器变化，不构成承诺。</p>
+
+  <h2>安全边界</h2>
+  <ul>
+    <li>默认只读；执行只做「归档」，不永久删除</li>
+    <li>只处理落在已声明技能根目录内的目录，越界拒绝</li>
+    <li>拒绝符号链接，避免顺着链接跑到根目录外</li>
+    <li>只读 MCP 只暴露 scan / plan，远程调用方无法改你的机器</li>
+    <li>不用 AI 改写你的 SKILL.md；不做全自动清理</li>
+  </ul>
+
+  <h2>常见问题</h2>
+  <p><strong>它会删我的文件吗？</strong>不会。执行时只把选中的目录移动到归档目录，并写入 journal，可用 undo 逐字节还原。</p>
+  <p><strong>它会自动改写我的 SKILL.md 吗？</strong>不会。evolve 只输出带证据与行号的提案和 diff，不自动修改任何技能正文。</p>
+  <p><strong>能帮我清理 MCP 配置吗？</strong>当前版本只读统计 MCP 声明数量与条目，不修改配置，也不启动任何 MCP 服务。</p>
+  <p><strong>支持哪些系统？</strong>macOS、Windows、Linux。默认探测 22 个已知 agent 技能根目录，目录不存在会跳过。</p>
+  <p class="muted">和 U-King 的「AI 优化大师」什么关系？同一个方向的两个入口：U-King 管环境体检与一键优化，这个工具管多工具的技能资产清单。</p>
+
+  <footer>
+    <a href="https://github.com/dongsheng123132/ai-optimize-master" target="_blank" rel="noopener noreferrer">GitHub</a> ·
+    <a href="https://www.npmjs.com/package/ai-optimize-master" target="_blank" rel="noopener noreferrer">npm</a> ·
+    <a href="https://www.hequbing.com/">hequbing.com</a><br>
+    AI 优化大师 · © 2026 火火的（深圳）科技有限公司
+  </footer>
+</main>
+</body>
+</html>

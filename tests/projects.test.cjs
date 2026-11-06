@@ -83,7 +83,7 @@ function runFilters(html) {
 }
 
 test('项目目录完整且稳定，协议与实验保持各自分类', () => {
-  assert.equal(projects.length, 18);
+  assert.equal(projects.length, 19);
   assert.equal(new Set(projects.map(project => project.id)).size, projects.length);
   assert.deepEqual(projects.filter(project => project.featured).map(project => project.id), projects.slice(0, 6).map(project => project.id));
   assert.equal(projects.filter(project => project.featured).length, 6);
@@ -99,7 +99,7 @@ for (const page of pages) {
   test(page + '：18项静态内容各出现一次，2origin保留官网和源码入口', () => {
     const html = fs.readFileSync(path.join(root, 'public', page), 'utf8');
     const cards = projectCards(html);
-    assert.equal(cards.length, 18, page);
+    assert.equal(cards.length, projects.length, page);
     assert.deepEqual(cards.map(card => card.attrs['data-project-id']).sort(), projects.map(project => project.id).sort());
     for (const card of cards) {
       const project = projects.find(item => item.id === card.attrs['data-project-id']);
@@ -125,7 +125,7 @@ for (const lang of ['zh-CN', 'en']) {
     const state = runFilters(html);
     assert.equal(state.filters.hidden, false);
     assert.deepEqual(state.buttons.map(button => button.getAttribute('data-work-filter')).sort(), ['all', ...types].sort());
-    assert.equal(state.cards.length, 18);
+    assert.equal(state.cards.length, projects.length);
     for (const type of [...types, 'all']) {
       const button = state.buttons.find(item => item.getAttribute('data-work-filter') === type);
       button.click();
