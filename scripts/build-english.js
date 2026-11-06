@@ -8,7 +8,7 @@ const { renderPersonal } = require('../lib/personal-pages');
 const { WWW, BLOG, pagePairs, escapeHtml: esc, postUrl, alternateLinks } = require('../lib/localization');
 const root = path.join(__dirname, '..');
 const services = JSON.parse(fs.readFileSync(path.join(root, 'data/services.json'), 'utf8'));
-const person = { '@type': 'Person', '@id': WWW + '/about#person', name: 'Hequbing (He Fangsheng / Dosen)', alternateName: ['贺去病', '贺方升'], url: WWW + '/en/about' };
+const person = { '@type': 'Person', '@id': WWW + '/about#person', name: 'He Fangsheng', alternateName: ['Hequbing', '贺去病', '贺方升', 'Dosen'], url: WWW + '/en/about' };
 const contact = '<p>Email <a href="mailto:hefangsheng@gmail.com">hefangsheng@gmail.com</a> or contact me on WeChat: <strong data-wechat-id>hecare888</strong>. Include your business, the problem you want to solve and any delivery constraints.</p>';
 const englishServices = [
   { id: 'diagnosis', name: 'AI business diagnosis', duration: '1–2 weeks', description: 'Identify and prioritize practical opportunities.', items: ['Business interviews and a review of available data', 'A prioritized opportunity list with benefits, costs and risks', 'An initial implementation plan for one priority scenario', 'A management presentation and discussion'] },

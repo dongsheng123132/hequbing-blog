@@ -28,7 +28,7 @@
 - [U-Claw 虾盘](https://github.com/dongsheng123132/u-claw): 便携 U 盘工作空间，让配置、记忆与会话随身带走。公开源码，持续迭代。（持续迭代）
 - [本象协议 · 2Origin](https://2origin.org): AI 提交语义事务，由确定性编译器校验后落地。保留对象、状态与来源，让字段能回答「凭什么」。（协议与参考实现） [GitHub](https://github.com/dongsheng123132/2origin)
 - [U-King](https://www.u-king.org): 把 AI 工具部署、模型配置与使用支持，做成能交付的产品。（持续迭代）
-- [OpenCodex](https://github.com/dongsheng123132/opencodex): 以项目文件夹为起点，在同一工作台分屏运行 AI 编程终端。当前为持续迭代的早期版本。（早期版本）
+- [CliFleet](https://github.com/dongsheng123132/clifleet): 原名 OpenCodex。以项目文件夹为起点，在同一工作台分屏运行 AI 编程终端；轻量原生桌面应用，持续迭代中。（持续迭代）
 - [泊舟 AI 小程序 · PodApp](https://github.com/dongsheng123132/podapp): 贴在 AI 工作台旁的小程序舱，提供切图、真二维码替换和图片标注等动作。人和 AI 共用同一条执行路径。（早期版本 · 可下载）
 - [任务护照 · Task Passport](https://github.com/dongsheng123132/task-passport): 把目标、当前状态、验证事实与下一步带到 Claude、Codex 等工具。支持任务打包和版本冲突检测。（开放协议 · 早期工具）
 - [影核 · ActionParity](https://github.com/dongsheng123132/action-parity): 让 GUI、CLI、MCP 与 API 调用同一个无界面动作核心。开放规范、SDK 与可执行示例一起维护。（开放规范与 SDK）

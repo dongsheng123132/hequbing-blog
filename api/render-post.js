@@ -63,7 +63,7 @@ function renderPostPage(slug, language = 'zh-CN') {
       ...(post.dateModified ? { dateModified: post.dateModified } : {}),
       keywords: (post.tags || []).join(', '),
       inLanguage: english ? 'en' : 'zh-CN',
-      author: { '@type': 'Person', '@id': WWW + '/about#person', name: english ? 'Hequbing (He Fangsheng)' : '贺去病', alternateName: english ? ['贺去病', '贺方升', 'Dosen'] : '贺方升', url: about },
+      author: { '@type': 'Person', '@id': WWW + '/about#person', name: english ? 'He Fangsheng' : '贺去病', alternateName: english ? ['Hequbing', '贺去病', '贺方升', 'Dosen'] : '贺方升', url: about },
       publisher: { '@type': 'Person', name: english ? 'Hequbing' : '贺去病' },
       mainEntityOfPage: url,
       ...(post.source && post.source.url ? { isBasedOn: post.source.url } : {}),
@@ -80,7 +80,7 @@ function renderPostPage(slug, language = 'zh-CN') {
       POST_SLUG: escapeHtml(post.slug),
       POST_META:
         '<span>' + escapeHtml(post.date || '') + '</span>' +
-        '<a href="' + about + '">' + (english ? 'By Hequbing (He Fangsheng)' : '作者：贺去病（贺方升）') + '</a>' +
+        '<a href="' + about + '">' + (english ? 'By He Fangsheng (Hequbing)' : '作者：贺去病（贺方升）') + '</a>' +
         '<span>' + (english ? estimateReadTime(post.content) + ' min read' : '阅读约 ' + estimateReadTime(post.content) + ' 分钟') + '</span>' +
         (post.tags || []).map(t =>
           '<a class="case-card-tag" style="text-decoration:none" href="' + archive + (english ? '' : '?tag=' + encodeURIComponent(t)) + '">#' + escapeHtml(t) + '</a>'
