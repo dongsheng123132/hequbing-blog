@@ -1,0 +1,39 @@
+{
+  "site": "hequbing.com",
+  "provider": "贺去病商业咨询 / Hequbing Business Consulting",
+  "currency": "CNY",
+  "services": [
+    {
+      "name": "AI 经营诊断",
+      "name_en": "AI business diagnosis",
+      "price": 30000,
+      "duration": "1-2 weeks"
+    },
+    {
+      "name": "AI 增长试点",
+      "name_en": "AI growth pilot",
+      "price": 180000,
+      "duration": "3 months"
+    },
+    {
+      "name": "年度增长合作",
+      "name_en": "Annual growth partnership",
+      "price_from": 600000,
+      "duration": "12 months"
+    },
+    {
+      "name": "AI POC 开发",
+      "name_en": "AI proof of concept",
+      "price_from": 8000,
+      "duration": "1-2 weeks"
+    },
+    {
+      "name": "GEO 优化",
+      "name_en": "GEO optimization",
+      "price_from": 30000,
+      "duration": "90 days"
+    }
+  ],
+  "pricing_page": "https://www.hequbing.com/services",
+  "note": "Prices are published on the site; confirm scope before work starts."
+}

@@ -83,6 +83,28 @@
           "value": "public, max-age=604800, stale-while-revalidate=86400"
         }
       ]
+    },
+    {
+      "source": "/ai/(.*).json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
+      "source": "/.well-known/ai.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
     }
   ],
   "redirects": [

@@ -1,0 +1,16 @@
+# ai.txt — AI crawler and agent policy for hequbing.com
+# Site owner: He Fangsheng (贺方升), public brand name Hequbing (贺去病)
+# Machine-readable summary: https://www.hequbing.com/ai/summary.json
+
+User-agent: *
+Allow: /
+Allow: /ai/
+Allow: /llms.txt
+Allow: /sitemap.xml
+
+# Training crawlers: see robots.txt for current policy.
+# Search/answer crawlers (OAI-SearchBot, PerplexityBot, Claude-SearchBot,
+# Googlebot, Applebot) are allowed.
+
+Content-Signals: search=allow, ai-input=allow
+Contact: hefangsheng@gmail.com
