@@ -462,6 +462,10 @@
     {
       "source": "/ai-consulting-price",
       "destination": "/ai-consulting-price.html"
+    },
+    {
+      "source": "/u-link",
+      "destination": "/u-link.html"
     }
   ],
   "functions": {

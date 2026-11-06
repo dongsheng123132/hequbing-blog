@@ -24,6 +24,7 @@ const PAGES = [
   ['/services', 'monthly', '0.9', '/en/services'],
   ['/geo', 'monthly', '0.9', '/en/geo'],
   ['/fde', 'monthly', '0.9', null],
+  ['/u-link', 'monthly', '0.8', null],
   ['/ai-landing', 'monthly', '0.9', null],
   ['/ai-consulting-price', 'monthly', '0.9', null],
   ['/about', 'monthly', '0.8', '/en/about'],

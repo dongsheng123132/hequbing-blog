@@ -83,7 +83,7 @@ function runFilters(html) {
 }
 
 test('项目目录完整且稳定，协议与实验保持各自分类', () => {
-  assert.equal(projects.length, 19);
+  assert.equal(projects.length, 20);
   assert.equal(new Set(projects.map(project => project.id)).size, projects.length);
   assert.deepEqual(projects.filter(project => project.featured).map(project => project.id), projects.slice(0, 6).map(project => project.id));
   assert.equal(projects.filter(project => project.featured).length, 6);
@@ -96,7 +96,7 @@ test('项目目录完整且稳定，协议与实验保持各自分类', () => {
 });
 
 for (const page of pages) {
-  test(page + '：18项静态内容各出现一次，2origin保留官网和源码入口', () => {
+  test(page + '：项目目录静态内容各出现一次，2origin保留官网和源码入口', () => {
     const html = fs.readFileSync(path.join(root, 'public', page), 'utf8');
     const cards = projectCards(html);
     assert.equal(cards.length, projects.length, page);
