@@ -1,20 +1,18 @@
 {
-  "site": "hequbing.com",
-  "name_zh": "贺去病",
-  "name_en": "He Fangsheng",
-  "also_known_as": [
+  "name": "He Fangsheng · 贺去病",
+  "description": "Personal site of He Fangsheng (贺方升), publicly known as Hequbing (贺去病) and also known as Dosen. Shenzhen-based independent developer and enterprise AI delivery engineer. This is not the Han-dynasty general Huo Qubing (霍去病).",
+  "url": "https://www.hequbing.com/",
+  "language": "zh-CN",
+  "aliases": [
     "贺方升",
     "Hequbing",
     "Dosen"
   ],
-  "description_zh": "He Fangsheng（贺方升，品牌名贺去病；另用名 Dosen）的个人网站。深圳独立开发者、企业 AI 交付工程师，贺去病商业咨询创始人。",
-  "description_en": "Personal site of He Fangsheng (贺方升), publicly known as Hequbing (贺去病) and also known as Dosen. Shenzhen-based independent developer and enterprise AI delivery engineer.",
-  "disambiguation": "贺去病 is the public brand name of He Fangsheng (贺方升). This is not the Han-dynasty general Huo Qubing (霍去病).",
   "location": "Shenzhen, Guangdong, China",
-  "urls": {
-    "home": "https://www.hequbing.com/",
+  "pages": {
     "about": "https://www.hequbing.com/about",
-    "en_about": "https://www.hequbing.com/en/about",
+    "about_en": "https://www.hequbing.com/en/about",
+    "services": "https://www.hequbing.com/services",
     "blog": "https://blog.hequbing.com/",
     "llms": "https://www.hequbing.com/llms.txt"
   },
@@ -25,5 +23,5 @@
     "email": "hefangsheng@gmail.com",
     "wechat": "hecare888"
   },
-  "social_note": "Verified profiles only. Wikipedia, Wikidata and LinkedIn entries are not yet established."
+  "note": "Wikipedia, Wikidata and LinkedIn entries are not yet established; no third-party checks should assume them."
 }
