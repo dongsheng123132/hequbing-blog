@@ -43,7 +43,7 @@ const PAGES = [
 const fsPath = path.join(__dirname, '..', 'public');
 for (const app of ['ai-optimize-master']) {
   if (require('fs').existsSync(path.join(fsPath, 'apps', app, 'index.html'))) {
-    PAGES.push([`/apps/${app}/`, 'monthly', '0.6', null]);
+    PAGES.push([`/apps/${app}`, 'monthly', '0.6', null]);  // 不带尾斜杠：线上 /apps/x/ 会 308 到 /apps/x
   }
 }
 
