@@ -109,6 +109,39 @@
   ],
   "redirects": [
     {
+      "source": "/sitemap.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://blog.hequbing.com/sitemap-blog.xml",
+      "permanent": true
+    },
+    {
+      "source": "/robots.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://blog.hequbing.com/robots-blog.txt",
+      "permanent": true
+    },
+    {
+      "source": "/sitemap-blog.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.hequbing.com"
+        }
+      ],
+      "destination": "https://blog.hequbing.com/sitemap-blog.xml",
+      "permanent": true
+    },
+    {
       "source": "/services",
       "has": [
         {
@@ -654,26 +687,6 @@
     }
   ],
   "rewrites": [
-    {
-      "source": "/sitemap.xml",
-      "has": [
-        {
-          "type": "host",
-          "value": "blog.hequbing.com"
-        }
-      ],
-      "destination": "/sitemap-blog.xml"
-    },
-    {
-      "source": "/robots.txt",
-      "has": [
-        {
-          "type": "host",
-          "value": "blog.hequbing.com"
-        }
-      ],
-      "destination": "/robots-blog.txt"
-    },
     {
       "source": "/observe/rankings",
       "destination": "/observe/rankings/index.html"
