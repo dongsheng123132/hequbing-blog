@@ -109,6 +109,259 @@
   ],
   "redirects": [
     {
+      "source": "/services",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://www.hequbing.com/services",
+      "permanent": true
+    },
+    {
+      "source": "/geo",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://www.hequbing.com/geo",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://www.hequbing.com/about",
+      "permanent": true
+    },
+    {
+      "source": "/cases",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://www.hequbing.com/cases",
+      "permanent": true
+    },
+    {
+      "source": "/fde",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://www.hequbing.com/fde",
+      "permanent": true
+    },
+    {
+      "source": "/ai-landing",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://www.hequbing.com/ai-landing",
+      "permanent": true
+    },
+    {
+      "source": "/ai-consulting-price",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://www.hequbing.com/ai-consulting-price",
+      "permanent": true
+    },
+    {
+      "source": "/support",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://www.hequbing.com/support",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://www.hequbing.com/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/u-link",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://www.hequbing.com/u-link",
+      "permanent": true
+    },
+    {
+      "source": "/ai-nav",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://www.hequbing.com/ai-nav",
+      "permanent": true
+    },
+    {
+      "source": "/en/services",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://www.hequbing.com/en/services",
+      "permanent": true
+    },
+    {
+      "source": "/en/about",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://www.hequbing.com/en/about",
+      "permanent": true
+    },
+    {
+      "source": "/en/geo",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://www.hequbing.com/en/geo",
+      "permanent": true
+    },
+    {
+      "source": "/apps/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://www.hequbing.com/apps/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/case/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://www.hequbing.com/case/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/observe",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://www.hequbing.com/observe",
+      "permanent": true
+    },
+    {
+      "source": "/observe/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "https://www.hequbing.com/observe/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/archive",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.hequbing.com"
+        }
+      ],
+      "destination": "https://blog.hequbing.com/archive",
+      "permanent": true
+    },
+    {
+      "source": "/tags",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.hequbing.com"
+        }
+      ],
+      "destination": "https://blog.hequbing.com/tags",
+      "permanent": true
+    },
+    {
+      "source": "/post",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.hequbing.com"
+        }
+      ],
+      "destination": "https://blog.hequbing.com/post",
+      "permanent": true
+    },
+    {
+      "source": "/en/archive",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.hequbing.com"
+        }
+      ],
+      "destination": "https://blog.hequbing.com/en/archive",
+      "permanent": true
+    },
+    {
+      "source": "/en/post",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.hequbing.com"
+        }
+      ],
+      "destination": "https://blog.hequbing.com/en/post",
+      "permanent": true
+    },
+    {
       "source": "/",
       "has": [
         {
@@ -401,6 +654,26 @@
     }
   ],
   "rewrites": [
+    {
+      "source": "/sitemap.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "/sitemap-blog.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.hequbing.com"
+        }
+      ],
+      "destination": "/robots-blog.txt"
+    },
     {
       "source": "/observe/rankings",
       "destination": "/observe/rankings/index.html"

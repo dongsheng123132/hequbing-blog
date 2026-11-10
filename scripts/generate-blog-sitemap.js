@@ -1,76 +1,74 @@
 #!/usr/bin/env node
 /**
- * 自动生成 sitemap.xml（主站页面 + 从 data/posts.json 驱动的博客文章）
- * www 和 blog 两个域名共用同一份 public/，robots.txt 在两边都声明了这份 sitemap，
- * 所以一份文件里可以同时列两个域名的 URL。只列 canonical 地址，避免重复。
+ * 生成 blog.hequbing.com 的站点地图：public/sitemap-blog.xml
+ *
+ * 为什么要单独一份（2026-11-10 修 GSC 告警）：
+ * 1. www 与 blog 两个域名共用同一份 public/（同一个 Vercel 项目），过去只放一份 sitemap.xml，
+ *    里面同时写着两个主机的 URL。sitemap 规范要求 <loc> 与 sitemap 同主机，跨主机条目会被忽略，
+ *    并且 Google 会在另一个域名的资源里报「站点地图中的网页无法被编入索引：备用网页」。
+ * 2. 现在分工：scripts/generate-sitemap.js → public/sitemap.xml（只 www），
+ *    本脚本 → public/sitemap-blog.xml（只 blog）；
+ *    vercel.json 用 has:host 把 blog.hequbing.com/sitemap.xml 改写到本文件。
+ *
  * 用法：npm run sitemap
  */
 const fs = require('fs');
 const path = require('path');
-const { pagePairs, postUrl, escapeHtml } = require('../lib/localization');
+const { postUrl, escapeHtml } = require('../lib/localization');
 
-const WWW_URL = 'https://www.hequbing.com';
-const SITE_URL = 'https://blog.hequbing.com';
+const BLOG = 'https://blog.hequbing.com';
 const POSTS_PATH = path.join(__dirname, '..', 'data', 'posts.json');
-const OUTPUT = path.join(__dirname, '..', 'public', 'sitemap.xml');
+const PUBLIC_DIR = path.join(__dirname, '..', 'public');
+const OUTPUT = path.join(PUBLIC_DIR, 'sitemap-blog.xml');
+
+function today() {
+  return new Date().toISOString().split('T')[0];
+}
 
 function generateSitemap() {
   const posts = JSON.parse(fs.readFileSync(POSTS_PATH, 'utf-8'));
+  const date = today();
 
+  // 只列 blog 主机的静态页
   const staticPages = [
-    { url: WWW_URL + '/', priority: '1.0', changefreq: 'weekly' },
-    { url: WWW_URL + '/services', priority: '0.9', changefreq: 'monthly' },
-    { url: WWW_URL + '/geo', priority: '0.9', changefreq: 'monthly' },
-    { url: WWW_URL + '/u-link', priority: '0.8', changefreq: 'monthly' },
-    { url: WWW_URL + '/observe', priority: '0.8', changefreq: 'weekly' },
-    { url: WWW_URL + '/observe/rankings', priority: '0.8', changefreq: 'weekly' },
-    { url: WWW_URL + '/about', priority: '0.8', changefreq: 'monthly' },
-    { url: WWW_URL + '/cases', priority: '0.6', changefreq: 'daily' },
-    { url: WWW_URL + '/apps/ai-optimize-master/', priority: '0.7', changefreq: 'monthly' },
-    { url: SITE_URL + '/archive', priority: '0.9', changefreq: 'daily' },
-    { url: SITE_URL + '/tags', priority: '0.6', changefreq: 'weekly' },
+    { url: BLOG + '/archive', changefreq: 'daily', priority: '0.9' },
+    { url: BLOG + '/tags', changefreq: 'weekly', priority: '0.6' },
   ];
-  staticPages.push(...pagePairs.map(p => ({ url: p.en, priority: '0.8', changefreq: 'monthly' })));
-
-  const today = new Date().toISOString().split('T')[0];
-  let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
-
-  for (const page of staticPages) {
-    xml += `  <url>
-    <loc>${page.url}</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>${page.changefreq}</changefreq>
-    <priority>${page.priority}</priority>
-  </url>
-`;
+  if (fs.existsSync(path.join(PUBLIC_DIR, 'en', 'archive.html'))) {
+    staticPages.push({ url: BLOG + '/en/archive', changefreq: 'daily', priority: '0.7' });
   }
 
-  // 文章按日期倒序，最新在前
+  const parts = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+  ];
+
+  const push = (loc, lastmod, changefreq, priority) => {
+    parts.push('  <url>');
+    parts.push(`    <loc>${escapeHtml(loc)}</loc>`);
+    parts.push(`    <lastmod>${escapeHtml(lastmod || date)}</lastmod>`);
+    parts.push(`    <changefreq>${changefreq}</changefreq>`);
+    parts.push(`    <priority>${priority}</priority>`);
+    parts.push('  </url>');
+  };
+
+  for (const p of staticPages) push(p.url, date, p.changefreq, p.priority);
+
   const sorted = [...posts].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   for (const p of sorted) {
-    xml += `  <url>
-    <loc>${SITE_URL}/post?slug=${p.slug}</loc>
-    <lastmod>${p.dateModified || p.date || today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-`;
+    push(postUrl(p.slug), p.dateModified || p.date || date, 'monthly', '0.8');
   }
 
   const translated = sorted.filter(p => p.translations && p.translations.en);
   for (const p of translated) {
-    xml += `  <url>
-    <loc>${escapeHtml(postUrl(p.slug, 'en'))}</loc>
-    <lastmod>${p.translations.en.dateModified || p.translations.en.date}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-`;
+    push(postUrl(p.slug, 'en'), p.translations.en.dateModified || p.translations.en.date || date, 'monthly', '0.7');
   }
 
-  xml += `</urlset>`;
+  parts.push('</urlset>');
+  const xml = parts.join('\n') + '\n';
   fs.writeFileSync(OUTPUT, xml, 'utf-8');
-  console.log(`Sitemap generated: ${OUTPUT} (${staticPages.length + sorted.length + translated.length} URLs)`);
+  const count = (xml.match(/<loc>/g) || []).length;
+  console.log(`Blog sitemap generated: ${OUTPUT} (${count} URLs)`);
 }
 
 generateSitemap();

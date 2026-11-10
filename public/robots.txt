@@ -43,4 +43,3 @@ User-agent: CCBot
 Allow: /
 
 Sitemap: https://www.hequbing.com/sitemap.xml
-Sitemap: https://blog.hequbing.com/sitemap.xml

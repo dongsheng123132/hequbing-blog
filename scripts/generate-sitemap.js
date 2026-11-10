@@ -3,8 +3,11 @@
  * 生成 www.hequbing.com 的 sitemap.xml
  *
  * 规则：
- * 1. 只放 www.hequbing.com 的页面。文章在 blog.hequbing.com，由那个项目自己的 sitemap 负责
- *    （sitemap 里的 URL 必须与 sitemap 同主机，跨主机写进去会被忽略）。
+ * 1. 只放 www.hequbing.com 的页面。文章与归档/标签页在 blog.hequbing.com，由
+ *    scripts/generate-blog-sitemap.js 生成 sitemap-blog.xml 负责
+ *    （sitemap 里的 URL 必须与 sitemap 同主机，跨主机写进去会被忽略，还会让另一个域名的
+ *     GSC 资源报「备用网页 / 重复网页」——见 2026-11-10 收录告警）。
+ *    两个域名共用同一份 public/，但 vercel.json 里按 host 条件各发各的 sitemap 与 robots。
  * 2. 中英成对的页面写 xhtml:link hreflang，帮助爬虫理解语言版本。
  * 3. 案例页（/case?slug=）默认不进 sitemap：那是行业研究转述，不是本人交付案例，
  *    只在 /cases 列表页里做内链，避免低原创度页面被大量索引。需要时用 INCLUDE_CASES=1 打开。
@@ -32,10 +35,17 @@ const PAGES = [
   ['/observe', 'weekly', '0.7', null],
   ['/observe/rankings', 'weekly', '0.7', null],
   ['/observe/rankings/methodology', 'monthly', '0.5', null],
-  ['/archive', 'weekly', '0.6', null],
   ['/support', 'monthly', '0.4', null],
   ['/privacy', 'yearly', '0.3', null],
 ];
+
+// 独立应用页（存在才收）：public/apps/<name>/index.html
+const fsPath = path.join(__dirname, '..', 'public');
+for (const app of ['ai-optimize-master']) {
+  if (require('fs').existsSync(path.join(fsPath, 'apps', app, 'index.html'))) {
+    PAGES.push([`/apps/${app}/`, 'monthly', '0.6', null]);
+  }
+}
 
 function today() {
   return new Date().toISOString().split('T')[0];
